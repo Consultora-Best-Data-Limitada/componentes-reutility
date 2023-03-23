@@ -1,0 +1,92 @@
+<template>
+  <div
+    ref="svgContent"
+    class="svg-icon__container"
+  ></div>
+</template>
+
+<script setup lang="ts">
+// Vue
+import { computed, onMounted, ref, watch } from "vue";
+
+// Tipos
+import type CSS from "csstype";
+import type { PropType } from "vue";
+
+// Definiciones
+
+const props = defineProps({
+  color: {
+    default: "black",
+    type: String as PropType<CSS.ColorProperty | CustomColor>,
+  },
+  src: {
+    default: "",
+    type: String,
+  },
+  name: {
+    default: "",
+    type: String,
+  },
+  size: {
+    default: "1.5rem",
+    type: [String, Number] as PropType<CSS.WidthProperty<string | number>>,
+  },
+});
+
+// Mounted
+
+onMounted(() => {
+  mountSVG();
+});
+
+// Data
+
+const svgContent = ref<HTMLDivElement | null>(null);
+
+// Computed
+
+const colorInner = computed(() => {
+  if (props.color.startsWith("-")) {
+    return `rgb(var(--v-theme${props.color}))`;
+  }
+  return props.color;
+});
+
+const realSrc = computed(() => {
+  if (props.src) {
+    return new URL(props.src, import.meta.url).href;
+  }
+  return new URL(`/src/assets/svg/${props.name}.svg`, import.meta.url).href;
+});
+
+// Methods
+
+const mountSVG = async () => {
+  if (!svgContent.value) return;
+  const response = await fetch(realSrc.value);
+  svgContent.value.innerHTML = await response.text();
+  const svg = svgContent.value.querySelector("svg");
+  if (!svg) return;
+  svg.setAttribute("width", props.size.toString());
+  svg.setAttribute("height", props.size.toString());
+};
+
+// Watchs
+
+watch(realSrc, mountSVG);
+</script>
+
+<style scoped lang="scss">
+.svg-icon__container {
+  display: flex;
+  width: v-bind(size);
+  height: v-bind(size);
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-icon__container :deep(> svg) {
+  fill: v-bind(colorInner);
+}
+</style>

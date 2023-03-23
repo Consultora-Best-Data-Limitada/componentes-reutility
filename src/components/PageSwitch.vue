@@ -1,0 +1,218 @@
+<template>
+  <v-tooltip
+    location="bottom"
+    :disabled="!tooltip || disabled"
+    class="page-switch__tooltip-container"
+  >
+    <template #activator="activator">
+      <div
+        v-bind="activator.props"
+        :style="pageSwitchContainer"
+        class="page-switch__container"
+        @click="toggle"
+      >
+        <div
+          v-if="label"
+          :style="labelStyle"
+          class="page-switch__label"
+        >
+          {{ label }}
+        </div>
+        <div
+          :style="pageSwitchStyle"
+          class="page-switch__switch"
+        >
+          <input
+            v-model="model"
+            type="checkbox"
+            class="page-switch__checkbox"
+          />
+          <div :class="pageSwitchSliderClass"></div>
+        </div>
+      </div>
+    </template>
+    <div class="page-switch__tooltip">
+      {{ tooltip }}
+    </div>
+  </v-tooltip>
+</template>
+
+<script setup lang="ts">
+// Vue
+import { computed } from "vue";
+
+// Tipos
+import type CSS from "csstype";
+import type { PropType, StyleValue } from "vue";
+
+// Definiciones
+
+const props = defineProps({
+  modelValue: {
+    type: Boolean,
+    required: true,
+  },
+  label: {
+    default: "",
+    type: String,
+  },
+  tooltip: {
+    default: "",
+    type: String,
+  },
+  disabled: {
+    type: Boolean,
+  },
+  activeColor: {
+    default: "-acento-principal",
+    type: String as PropType<CSS.ColorProperty | CustomColor>,
+  },
+  width: {
+    default: "1.5rem",
+    type: String as PropType<CSS.WidthProperty<string>>,
+  },
+  color: {
+    default: "-neutro-4",
+    type: String as PropType<CSS.ColorProperty | CustomColor>,
+  },
+  readonly: {
+    type: Boolean,
+  },
+  labelWeight: {
+    default: 600,
+    type: [Number, String] as PropType<CSS.FontWeightProperty>,
+  },
+  gridTemplateColumns: {
+    default: "1fr auto",
+    type: String as PropType<CSS.GridTemplateColumnsProperty<string>>,
+  },
+  justifyContent: {
+    default: "initial",
+    type: String as PropType<CSS.JustifyContentProperty>,
+  },
+});
+
+const emits = defineEmits(["update:model-value"]);
+
+// Computed
+
+const model = computed<boolean>({
+  get() {
+    return props.modelValue;
+  },
+  set(value) {
+    if (!props.readonly) emits("update:model-value", value);
+  },
+});
+
+const activeColorInner = computed(() => {
+  if (props.activeColor?.startsWith("-")) {
+    return `rgb(var(--v-theme${props.activeColor}))`;
+  }
+  return props.activeColor;
+});
+
+const colorInner = computed(() => {
+  if (props.color?.startsWith("-")) {
+    return `rgb(var(--v-theme${props.color}))`;
+  }
+  return props.color;
+});
+
+const realColor = computed(() => {
+  if (!props.activeColor) return colorInner.value;
+  return model.value ? activeColorInner.value : colorInner.value;
+});
+
+const pageSwitchSliderClass = computed(() => ({
+  "page-switch__slider": true,
+  "page-switch__slider--active": model.value,
+}));
+
+const pageSwitchContainer = computed<StyleValue>(() => ({
+  "justify-content": props.justifyContent,
+  "pointer-events": props.disabled ? "none" : "initial",
+  "grid-template-columns": props.label ? props.gridTemplateColumns : "1fr",
+}));
+
+const pageSwitchStyle = computed<StyleValue>(() => ({
+  width: props.width,
+  "background-color": props.disabled ? "rgb(var(--v-theme-neutro-4))" : realColor.value,
+}));
+
+const labelStyle = computed<StyleValue>(() => ({
+  "font-weight": props.labelWeight,
+}));
+
+// Methods
+
+const toggle = () => {
+  if (props.readonly || props.disabled) return;
+  model.value = !model.value;
+};
+</script>
+
+<style lang="scss" scoped>
+.page-switch__container {
+  display: grid;
+  cursor: pointer;
+  column-gap: 0.75rem;
+  align-items: center;
+}
+
+.page-switch__tooltip-container :deep(> div) {
+  border-radius: 1rem;
+  background-color: rgba(var(--v-theme-secundario), 0.7);
+}
+
+.page-switch__tooltip {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-family: "Metropolis", sans-serif;
+}
+
+.page-switch__label {
+  font-size: 1rem;
+  line-height: 1rem;
+  user-select: none;
+  color: rgb(var(--v-theme-secundario));
+  font-family: "Metropolis", sans-serif;
+}
+
+.page-switch__switch {
+  height: 1rem;
+  width: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  border-radius: 1rem;
+  transition: background-color 100ms ease, opacity 100ms ease;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+
+  .page-switch__checkbox {
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .page-switch__slider {
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #ffffff;
+    transition: left 0.2s ease-in-out;
+
+    &.page-switch__slider--active {
+      left: calc(100% - 12px);
+    }
+  }
+}
+</style>
