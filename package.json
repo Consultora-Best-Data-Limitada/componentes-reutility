@@ -2,6 +2,11 @@
   "name": "componentes-reutility",
   "version": "0.0.0",
   "private": true,
+  "main": "dist/componentes-reutility.umd.cjs",
+  "module": "dist/componentes-reutility.js",
+  "browser": "dist/componentes-reutility.js",
+  "type": "module",
+  "types": "./dist/src/plugin",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -10,6 +15,17 @@
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/src/plugin/index.d.ts",
+      "import": "./dist/componentes-reutility.js",
+      "require": "./dist/componentes-reutility.umd.cjs"
+    },
+    "./dist/index.css": {
+      "import": "./dist/index.css",
+      "require": "./dist/index.css"
+    }
   },
   "dependencies": {
     "@vuepic/vue-datepicker": "^4.2.2",
@@ -29,6 +45,7 @@
     "sass": "^1.60.0",
     "typescript": "~4.8.4",
     "vite": "^4.1.4",
+    "vite-plugin-dts": "^2.1.0",
     "vue-tsc": "^1.2.0"
   }
 }

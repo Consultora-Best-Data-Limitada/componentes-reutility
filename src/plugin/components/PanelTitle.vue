@@ -22,7 +22,7 @@
 import { computed } from "vue";
 
 // Componentes
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
+import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

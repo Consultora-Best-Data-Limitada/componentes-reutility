@@ -49,8 +49,8 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Componentes
-import SvgIcon from "@/components/SvgIcon.vue";
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
+import SvgIcon from "./SvgIcon.vue";
+import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 const props = defineProps({

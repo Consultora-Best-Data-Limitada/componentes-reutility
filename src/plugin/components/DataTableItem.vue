@@ -20,7 +20,7 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Componentes
-import TextContainer from "@/components/TextContainer.vue";
+import TextContainer from "./TextContainer.vue";
 
 // Definiciones
 

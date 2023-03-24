@@ -32,8 +32,8 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Componentes
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
-import LdThreeBounce from "@/components/icons/LdThreeBounce.vue";
+import FontAwesomeIcon from "./FontAwesomeIcon.vue";
+import LdThreeBounce from "./icons/LdThreeBounce.vue";
 
 const props = defineProps({
   width: {

@@ -48,7 +48,7 @@ import { computed, ref, useSlots } from "vue";
 import type { PropType } from "vue";
 
 // Componentes
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
+import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

@@ -56,11 +56,11 @@ import type CSS from "csstype";
 import type {PropType} from "vue";
 
 // Componentes
-import GridRow from "@/components/GridRow.vue";
-import GridColumn from "@/components/GridColumn.vue";
-import CustomButton from "@/components/CustomButton.vue";
-import TextContainer from "@/components/TextContainer.vue";
-import CustomDialog from "@/components/CustomDialog.vue";
+import GridRow from "./GridRow.vue";
+import GridColumn from "./GridColumn.vue";
+import CustomButton from "./CustomButton.vue";
+import TextContainer from "./TextContainer.vue";
+import CustomDialog from "./CustomDialog.vue";
 
 // Definiciones
 

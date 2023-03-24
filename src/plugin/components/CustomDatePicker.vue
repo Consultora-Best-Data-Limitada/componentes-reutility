@@ -89,7 +89,7 @@ import type { PropType } from "vue";
 
 // Componentes
 import VueDatePicker from "@vuepic/vue-datepicker";
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
+import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

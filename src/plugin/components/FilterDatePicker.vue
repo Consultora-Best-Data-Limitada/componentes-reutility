@@ -21,7 +21,7 @@ import { computed } from "vue";
 import type { PropType } from "vue";
 
 // Componentes
-import CustomDatePicker from "@/components/CustomDatePicker.vue";
+import CustomDatePicker from "./CustomDatePicker.vue";
 
 // Definiciones
 

@@ -28,7 +28,7 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Composables
-import CustomSelect from "@/components/CustomSelect.vue";
+import CustomSelect from "./CustomSelect.vue";
 
 // Definiciones
 

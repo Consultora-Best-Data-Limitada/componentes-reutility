@@ -31,15 +31,15 @@
 import {computed, useSlots} from "vue";
 
 // Composables
-import {useColors} from "@/composables/colors";
+import {useColors} from "../composables/colors";
 
 //Tipos
 import type CSS from "csstype";
 import type {PropType} from "vue";
 
 //Componentes
-import SvgIcon from "@/components/SvgIcon.vue";
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
+import SvgIcon from "./SvgIcon.vue";
+import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

@@ -90,15 +90,15 @@
 import { computed, nextTick, ref } from "vue";
 
 // Composables
-import { useSelects } from "@/composables/selects";
+import { useSelects } from "../composables/selects";
 
 // Tipos
 import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Composables
-import CheckBox from "@/components/CheckBox.vue";
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
+import CheckBox from "./CheckBox.vue";
+import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

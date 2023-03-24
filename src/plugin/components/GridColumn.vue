@@ -1,33 +1,28 @@
 <template>
-  <div class="grid__container">
+  <div class="grid-column__container">
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
 // Vue
-import {computed} from "vue";
+import { computed } from "vue";
 
 // Composables
-import {useColors} from "@/composables/colors";
+import {useColors} from "../composables/colors";
 
 // Tipos
 import type CSS from "csstype";
 import type { PropType } from "vue";
 
-// Definiciones
 const props = defineProps({
-  height: {
-    default: "auto",
-    type: [String, Number] as PropType<CSS.HeightProperty<string | number>>,
+  alignContent: {
+    default: "",
+    type: String as PropType<CSS.AlignContentProperty>,
   },
   alignItems: {
     default: "",
     type: String as PropType<CSS.AlignItemsProperty>,
-  },
-  alignContent: {
-    default: "",
-    type: String as PropType<CSS.AlignContentProperty>,
   },
   justifyContent: {
     default: "",
@@ -37,33 +32,37 @@ const props = defineProps({
     default: "",
     type: String as PropType<CSS.JustifyItemsProperty>,
   },
-  gridTemplateRows: {
-    default: "initial",
-    type: String as PropType<CSS.GridTemplateRowsProperty<string | number>>,
+  width: {
+    default: "initiañ",
+    type: [String, Number] as PropType<CSS.WidthProperty<string | number>>,
   },
-  rowGap: {
-    default: 0,
-    type: [String, Number] as PropType<CSS.RowGapProperty<string | number>>,
+  height: {
+    default: "auto",
+    type: [String, Number] as PropType<CSS.HeightProperty<string | number>>,
   },
   margin: {
     default: 0,
     type: [String, Number] as PropType<CSS.MarginProperty<string | number>>,
   },
+  rowGap: {
+    default: 0,
+    type: [String, Number] as PropType<CSS.RowGapProperty<string | number>>,
+  },
   padding: {
     default: 0,
     type: [String, Number] as PropType<CSS.PaddingProperty<string | number>>,
   },
-  gridTemplateColumns: {
-    default: "initial",
-    type: String as PropType<CSS.GridTemplateColumnsProperty<string | number>>,
-  },
-  columnGap: {
-    default: 0,
-    type: [String, Number] as PropType<CSS.ColumnGapProperty<string | number>>,
-  },
-  gridAutoFlow: {
+  gridRow: {
     default: "",
-    type: String as PropType<CSS.GridAutoFlowProperty>,
+    type: [String, Number] as PropType<CSS.GridRowProperty>,
+  },
+  gridColumn: {
+    default: "",
+    type: [String, Number] as PropType<CSS.GridColumnProperty>,
+  },
+  gridTemplateRows: {
+    default: "initial",
+    type: [String, Number] as PropType<CSS.GridTemplateRowsProperty<string | number>>,
   },
   backgroundColor: {
     default: "transparent",
@@ -76,6 +75,10 @@ const props = defineProps({
   boxShadow: {
     default: "",
     type: String as PropType<CSS.BoxShadowProperty>,
+  },
+  overflow: {
+    default: "initial",
+    type: String as PropType<CSS.OverflowProperty>,
   },
 });
 
@@ -91,22 +94,25 @@ const backgroundColorInner = computed(() => {
 </script>
 
 <style scoped>
-.grid__container {
+.grid-column__container {
   display: grid;
-  height: v-bind(height);
+  min-height: 0;
+  width: v-bind(width);
+  grid-auto-flow: row;
   margin: v-bind(margin);
+  height: v-bind(height);
   row-gap: v-bind(rowGap);
   padding: v-bind(padding);
+  grid-row: v-bind(gridRow);
+  overflow: v-bind(overflow);
   box-shadow: v-bind(boxShadow);
-  column-gap: v-bind(columnGap);
+  grid-column: v-bind(gridColumn);
   align-items: v-bind(alignItems);
   border-radius: v-bind(borderRadius);
-  align-content: v-bind(alignContent);
   justify-items: v-bind(justifyItems);
-  grid-auto-flow: v-bind(gridAutoFlow);
+  align-content: v-bind(alignContent);
   justify-content: v-bind(justifyContent);
   grid-template-rows: v-bind(gridTemplateRows);
   background-color: v-bind(backgroundColorInner);
-  grid-template-columns: v-bind(gridTemplateColumns);
 }
 </style>

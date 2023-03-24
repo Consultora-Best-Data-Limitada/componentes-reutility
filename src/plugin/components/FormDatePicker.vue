@@ -1,25 +1,19 @@
 <template>
-  <div class="form-select__container">
-    <div class="form-select__label">
+  <div class="form-date-picker__container">
+    <div class="form-date-picker__label">
       {{ label }}
     </div>
-    <CustomSelect
+    <CustomDatePicker
       v-model="model"
       :dark="dark"
-      :items="items"
-      :readonly="readonly"
-      :outlined="outlined"
+      :range="range"
+      :min-date="minDate"
+      :max-date="maxDate"
       :disabled="disabled"
-      :multiple="multiple"
-      :clearable="clearable"
-      :item-value="itemValue"
-      :item-title="itemTitle"
-      :searchable="searchable"
+      :outlined="outlined"
+      :readonly="readonly"
       :placeholder="placeholder"
       :error-message="errorMessage"
-      :return-object="returnObject"
-      :text-multiple="textMultiple"
-      :text-transform="textTransform"
     />
   </div>
 </template>
@@ -32,8 +26,8 @@ import { computed } from "vue";
 import type CSS from "csstype";
 import type { PropType } from "vue";
 
-// Composables
-import CustomSelect from "@/components/CustomSelect.vue";
+// Componentes
+import CustomDatePicker from "./CustomDatePicker.vue";
 
 // Definiciones
 
@@ -50,34 +44,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  itemValue: {
-    type: String,
-    default: "value",
-  },
-  itemTitle: {
-    type: String,
-    default: "title",
-  },
-  returnObject: {
-    type: Boolean,
-    default: false,
-  },
   clearable: {
     type: Boolean,
   },
-  textMultiple: {
-    default: "",
-    type: String,
-  },
-  items: {
-    required: true,
-    type: Array as PropType<unknown[]>,
-  },
-  textTransform: {
-    default: "initial",
-    type: String as PropType<CSS.TextTransformProperty>,
-  },
-  multiple: {
+  range: {
     type: Boolean,
   },
   disabled: {
@@ -88,9 +58,7 @@ const props = defineProps({
   },
   modelValue: {
     default: null,
-    type: [String, Number, Object, Array] as PropType<
-      string | number | Record<string, any> | unknown[] | null
-    >,
+    type: [Array, Date] as PropType<Date[] | Date | null>,
   },
   outlined: {
     type: Boolean,
@@ -99,8 +67,13 @@ const props = defineProps({
     default: "1fr 3fr",
     type: String as PropType<CSS.GridTemplateColumnsProperty<string>>,
   },
-  searchable: {
-    type: Boolean,
+  maxDate: {
+    default: "",
+    type: [String, Date],
+  },
+  minDate: {
+    default: "",
+    type: [String, Date],
   },
   dark: {
     type: Boolean,
@@ -115,7 +88,7 @@ const model = computed({
   get() {
     return props.modelValue;
   },
-  set(value: string | number | Record<string, any> | unknown[] | null) {
+  set(value: Date[] | Date | null) {
     emits("update:model-value", value);
   },
 });
@@ -128,13 +101,13 @@ const labelColor = computed(() => {
 </script>
 
 <style scoped lang="scss">
-.form-select__container {
+.form-date-picker__container {
   display: grid;
   column-gap: 0.75rem;
   align-items: center;
   grid-template-columns: v-bind(gridTemplateColumns);
 
-  .form-select__label {
+  .form-date-picker__label {
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.25rem;

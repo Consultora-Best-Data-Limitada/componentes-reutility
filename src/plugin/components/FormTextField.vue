@@ -32,7 +32,7 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Componentes
-import CustomTextField from "@/components/CustomTextField.vue";
+import CustomTextField from "./CustomTextField.vue";
 
 // Definiciones
 

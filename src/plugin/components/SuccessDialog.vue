@@ -54,12 +54,12 @@ import type CSS from "csstype";
 import type {PropType} from "vue";
 
 // Componentes
-import GridColumn from "@/components/GridColumn.vue";
-import FlexContainer from "@/components/FlexContainer.vue";
-import TextContainer from "@/components/TextContainer.vue";
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
-import SvgIcon from "@/components/SvgIcon.vue";
-import CustomDialog from "@/components/CustomDialog.vue";
+import GridColumn from "./GridColumn.vue";
+import FlexContainer from "./FlexContainer.vue";
+import TextContainer from "./TextContainer.vue";
+import FontAwesomeIcon from "./FontAwesomeIcon.vue";
+import SvgIcon from "./SvgIcon.vue";
+import CustomDialog from "./CustomDialog.vue";
 
 // Definiciones
 

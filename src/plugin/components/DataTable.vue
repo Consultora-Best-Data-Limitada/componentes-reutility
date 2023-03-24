@@ -104,11 +104,11 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Composables
-import { useDateTable } from "@/composables/dataTable";
+import { useDateTable } from "../composables/dataTable";
 
 // Componentes
-import IconButton from "@/components/IconButton.vue";
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
+import IconButton from "./IconButton.vue";
+import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

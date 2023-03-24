@@ -12,7 +12,7 @@
 import {computed} from "vue";
 
 // Composables
-import {useColors} from "@/composables/colors";
+import {useColors} from "../composables/colors";
 
 // Tipos
 import type CSS from "csstype";

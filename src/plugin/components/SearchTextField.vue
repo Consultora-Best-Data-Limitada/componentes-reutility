@@ -19,8 +19,8 @@
 import { computed } from "vue";
 
 // Componentes
-import CustomTextField from "@/components/CustomTextField.vue";
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
+import CustomTextField from "./CustomTextField.vue";
+import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

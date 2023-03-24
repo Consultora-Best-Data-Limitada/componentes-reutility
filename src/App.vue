@@ -487,29 +487,6 @@
 // Vue
 import { computed, reactive, ref } from "vue";
 
-// Componentes
-import GridRow from "@/components/GridRow.vue";
-import GridColumn from "@/components/GridColumn.vue";
-import FilterSelect from "@/components/FilterSelect.vue";
-import FilterDatePicker from "@/components/FilterDatePicker.vue";
-import SearchTextField from "@/components/SearchTextField.vue";
-import FormTextField from "@/components/FormTextField.vue";
-import FormSelect from "@/components/FormSelect.vue";
-import FormDatePicker from "@/components/FormDatePicker.vue";
-import PanelTitle from "@/components/PanelTitle.vue";
-import CustomButton from "@/components/CustomButton.vue";
-import HeaderTabs from "@/components/HeaderTabs.vue";
-import InformationText from "@/components/InformationText.vue";
-import IconButton from "@/components/IconButton.vue";
-import CheckBox from "@/components/CheckBox.vue";
-import PageSwitch from "@/components/PageSwitch.vue";
-import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
-import DataTable from "@/components/DataTable.vue";
-import DataTableItem from "@/components/DataTableItem.vue";
-import ConfirmationDialog from "@/components/ConfirmationDialog.vue";
-import SuccessDialog from "@/components/SuccessDialog.vue";
-import TextContainer from "@/components/TextContainer.vue";
-
 interface User {
   id: string;
   name: string;
