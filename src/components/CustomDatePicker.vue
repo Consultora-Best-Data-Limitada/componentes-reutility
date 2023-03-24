@@ -39,7 +39,7 @@
             <FontAwesomeIcon
               v-if="value && !readonly && !disabled"
               size="1rem"
-              color="-neutro-4"
+              color="neutro-4"
               name="fas-circle-xmark"
             />
           </div>
@@ -56,14 +56,14 @@
       <template #arrow-right>
         <FontAwesomeIcon
           size="1.5rem"
-          color="-acento-principal"
+          color="acento-principal"
           name="fas-circle-chevron-right"
         />
       </template>
       <template #arrow-left>
         <FontAwesomeIcon
           size="1.5rem"
-          color="-acento-principal"
+          color="acento-principal"
           name="fas-circle-chevron-left"
         />
       </template>
@@ -89,7 +89,7 @@ import type { PropType } from "vue";
 
 // Componentes
 import VueDatePicker from "@vuepic/vue-datepicker";
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
 
 // Definiciones
 
@@ -169,11 +169,11 @@ const inputContainerClass = computed(() => ({
 
 const iconColor = computed<CustomColor>(() => {
   if (props.dark) {
-    if (props.disabled) return "-neutro-3";
-    return "-neutro-1";
+    if (props.disabled) return "neutro-3";
+    return "neutro-1";
   }
-  if (props.disabled) return "-neutro-4";
-  return "-acento-principal";
+  if (props.disabled) return "neutro-4";
+  return "acento-principal";
 });
 
 // Methods
@@ -207,48 +207,48 @@ const onClosed = () => {
   border-radius: 0.75rem;
   box-sizing: border-box;
   grid-template-columns: 1fr 1rem 1rem;
-  background-color: rgb(var(--v-theme-neutro-1));
+  background-color: rgb(var(--neutro-1));
 
   &--dark {
     background-color: transparent;
-    border: 1px solid rgb(var(--v-theme-neutro-4));
+    border: 1px solid rgb(var(--neutro-4));
 
     .custom-date-picker__input {
-      color: rgb(var(--v-theme-neutro-1));
+      color: rgb(var(--neutro-1));
     }
   }
 
   &--outlined {
-    border: 1px solid rgb(var(--v-theme-neutro-4));
+    border: 1px solid rgb(var(--neutro-4));
   }
 
   &--opened:not(&--error) {
-    border: 2px solid rgb(var(--v-theme-acento-principal));
+    border: 2px solid rgb(var(--acento-principal));
 
     &.custom-date-picker__input-container--dark {
-      border: 2px solid rgb(var(--v-theme-neutro-1));
+      border: 2px solid rgb(var(--neutro-1));
     }
   }
 
   &--error {
-    border: 2px solid rgb(var(--v-theme-error));
+    border: 2px solid rgb(var(--error));
 
     .custom-date-picker__input,
     .custom-date-picker__input::placeholder {
-      color: rgb(var(--v-theme-error));
+      color: rgb(var(--error));
     }
   }
 
   &--disabled {
     border: none;
     cursor: default;
-    background-color: rgb(var(--v-theme-neutro-2));
+    background-color: rgb(var(--neutro-2));
 
     &.custom-date-picker__input-container--dark {
-      background-color: rgb(var(--v-theme-neutro-4));
+      background-color: rgb(var(--neutro-4));
 
       .custom-date-picker__input::placeholder {
-        color: rgb(var(--v-theme-neutro-3));
+        color: rgb(var(--neutro-3));
       }
     }
   }
@@ -267,7 +267,7 @@ const onClosed = () => {
   font-family: "Metropolis", sans-serif;
 
   &::placeholder {
-    color: rgb(var(--v-theme-neutro-4));
+    color: rgb(var(--neutro-4));
   }
 }
 
@@ -325,7 +325,7 @@ const onClosed = () => {
     line-height: 1.25rem;
     justify-content: center;
     text-transform: capitalize;
-    color: rgb(var(--v-theme-neutro-4));
+    color: rgb(var(--neutro-4));
     font-family: "Metropolis", sans-serif;
   }
 
@@ -349,7 +349,7 @@ const onClosed = () => {
       }
 
       &:hover {
-        background-color: rgba(var(--v-theme-neutro-2), 0.3);
+        background-color: rgba(var(--neutro-2), 0.3);
       }
     }
   }
@@ -380,32 +380,32 @@ const onClosed = () => {
     font-size: 1rem;
     border-radius: 50%;
     line-height: 1.25rem;
-    color: rgb(var(--v-theme-secundario));
+    color: rgb(var(--secundario));
     font-family: "Metropolis", sans-serif;
 
     &.dp__cell_offset,
     &.dp__cell_disabled {
-      color: rgb(var(--v-theme-neutro-4));
+      color: rgb(var(--neutro-4));
     }
 
     &:not(.dp__cell_disabled):hover {
-      background-color: rgb(var(--v-theme-neutro-2));
+      background-color: rgb(var(--neutro-2));
     }
 
     &.dp__range_between {
-      background-color: rgba(var(--v-theme-acento-principal), 0.3);
+      background-color: rgba(var(--acento-principal), 0.3);
     }
 
     &.dp__today {
-      border: 1px solid rgb(var(--v-theme-acento-principal));
+      border: 1px solid rgb(var(--acento-principal));
     }
 
     &.dp__range_end,
     &.dp__active_date,
     &.dp__range_start,
     &:not(.dp__cell_disabled):active {
-      color: rgb(var(--v-theme-neutro-1));
-      background-color: rgb(var(--v-theme-acento-principal));
+      color: rgb(var(--neutro-1));
+      background-color: rgb(var(--acento-principal));
     }
   }
 }
@@ -415,7 +415,7 @@ const onClosed = () => {
   text-align: left;
   font-size: 0.875rem;
   line-height: 0.875rem;
-  color: rgb(var(--v-theme-error));
+  color: rgb(var(--error));
   font-family: "Metropolis", sans-serif;
 }
 </style>

@@ -8,6 +8,9 @@
 // Vue
 import { computed } from "vue";
 
+// Composables
+import {useColors} from "@/composables/colors";
+
 // Tipos
 import type CSS from "csstype";
 import type { PropType } from "vue";
@@ -28,6 +31,10 @@ const props = defineProps({
   justifyItems: {
     default: "",
     type: String as PropType<CSS.JustifyItemsProperty>,
+  },
+  width: {
+    default: "initiañ",
+    type: [String, Number] as PropType<CSS.WidthProperty<string | number>>,
   },
   height: {
     default: "auto",
@@ -75,13 +82,14 @@ const props = defineProps({
   },
 });
 
+// Composables
+
+const colors = useColors();
+
 // Computed
 
 const backgroundColorInner = computed(() => {
-  if (props.backgroundColor?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.backgroundColor}))`;
-  }
-  return props.backgroundColor;
+  return colors.getRealColor(props.backgroundColor)
 });
 </script>
 
@@ -89,6 +97,7 @@ const backgroundColorInner = computed(() => {
 .grid-column__container {
   display: grid;
   min-height: 0;
+  width: v-bind(width);
   grid-auto-flow: row;
   margin: v-bind(margin);
   height: v-bind(height);

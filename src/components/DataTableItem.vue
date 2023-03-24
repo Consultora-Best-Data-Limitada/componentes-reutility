@@ -20,7 +20,7 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Componentes
-import TextContainer from "@/components/custom/TextContainer.vue";
+import TextContainer from "@/components/TextContainer.vue";
 
 // Definiciones
 
@@ -44,9 +44,9 @@ const props = defineProps({
 // Computed
 
 const textColor = computed<CustomColor>(() => {
-  if (props.disabled) return "-neutro-4";
-  if (props.selected) return "-acento-principal";
-  return "-secundario";
+  if (props.disabled) return "neutro-4";
+  if (props.selected) return "acento-principal";
+  return "secundario";
 });
 
 const fontWeight = computed(() => {

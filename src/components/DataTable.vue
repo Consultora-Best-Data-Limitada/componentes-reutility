@@ -35,7 +35,7 @@
           <FontAwesomeIcon
             v-if="!hideNoDataIcon"
             size="5rem"
-            color="-neutro-4"
+            color="neutro-4"
             :name="noDataIcon"
           />
           {{
@@ -70,7 +70,7 @@
       <IconButton
         size="1rem"
         icon="fas-arrow-left"
-        color="-acento-principal"
+        color="acento-principal"
         :disabled="currentPage === 1"
         @click="previousPage"
       />
@@ -87,7 +87,7 @@
       <IconButton
         size="1rem"
         icon="fas-arrow-right"
-        color="-acento-principal"
+        color="acento-principal"
         :disabled="currentPage === pageCount"
         @click="nextPage"
       />
@@ -107,8 +107,8 @@ import type { PropType } from "vue";
 import { useDateTable } from "@/composables/dataTable";
 
 // Componentes
-import IconButton from "@/components/custom/IconButton.vue";
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
+import IconButton from "@/components/IconButton.vue";
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
 
 // Definiciones
 
@@ -241,8 +241,8 @@ const rowClass = (item: DataTableItem) => ({
     props.disabledKey && props.disabledValue && item[props.disabledKey] === props.disabledValue,
 });
 
-const sortIconColor = (value: string) =>
-  dataTable.isSortedBy(value) ? "-acento-secundario" : "-neutro-3";
+const sortIconColor = (value: string): CustomColor =>
+  dataTable.isSortedBy(value) ? "acento-secundario" : "neutro-3";
 </script>
 
 <style scoped lang="scss">
@@ -280,7 +280,7 @@ const sortIconColor = (value: string) =>
     font-size: 1.125rem;
     line-height: 1.375rem;
     font-family: "Metropolis", sans-serif;
-    color: rgb(var(--v-theme-acento-secundario));
+    color: rgb(var(--acento-secundario));
 
     &--sortable {
       cursor: pointer;
@@ -317,15 +317,15 @@ const sortIconColor = (value: string) =>
     line-height: 1.25rem;
     justify-items: center;
     grid-template-columns: 1fr;
-    color: rgb(var(--v-theme-secundario));
+    color: rgb(var(--secundario));
     font-family: "Metropolis", sans-serif;
   }
 
   .data-table__row {
-    border-bottom: 1px solid rgb(var(--v-theme-neutro-3));
+    border-bottom: 1px solid rgb(var(--neutro-3));
 
     &:hover {
-      background-color: rgb(var(--v-theme-neutro-2));
+      background-color: rgb(var(--neutro-2));
     }
 
     td {
@@ -337,17 +337,17 @@ const sortIconColor = (value: string) =>
       font-size: 1rem;
       text-align: center;
       line-height: 1.25rem;
-      color: rgb(var(--v-theme-secundario));
+      color: rgb(var(--secundario));
       font-family: "Metropolis", sans-serif;
     }
 
     &--selected td {
       font-weight: 600;
-      color: rgb(var(--v-theme-acento-principal));
+      color: rgb(var(--acento-principal));
     }
 
     &--disabled td {
-      color: rgb(var(--v-theme-neutro-4));
+      color: rgb(var(--neutro-4));
     }
   }
 }
@@ -374,19 +374,19 @@ const sortIconColor = (value: string) =>
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-family: "Metropolis", sans-serif;
-  color: rgb(var(--v-theme-acento-secundario));
+  color: rgb(var(--acento-secundario));
 
   &:not(&--selected):hover {
-    color: rgb(var(--v-theme-acento-secundario-hover));
+    color: rgb(var(--acento-secundario-hover));
   }
 
   &:not(&--selected):active {
-    color: rgb(var(--v-theme-acento-secundario-pressed));
+    color: rgb(var(--acento-secundario-pressed));
   }
 
   &--selected {
-    color: rgb(var(--v-theme-neutro-1));
-    background-color: rgb(var(--v-theme-acento-secundario));
+    color: rgb(var(--neutro-1));
+    background-color: rgb(var(--acento-secundario));
   }
 }
 </style>

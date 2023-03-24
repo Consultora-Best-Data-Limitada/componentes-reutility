@@ -3,17 +3,20 @@
     :class="textContainerClass"
     @click="onClick"
   >
-    <slot />
+    <slot/>
   </div>
 </template>
 
 <script setup lang="ts">
 // Vue
-import { computed } from "vue";
+import {computed} from "vue";
+
+// Composables
+import {useColors} from "@/composables/colors";
 
 // Tipos
 import type CSS from "csstype";
-import type { PropType } from "vue";
+import type {PropType} from "vue";
 
 const props = defineProps({
   fontSize: {
@@ -49,11 +52,11 @@ const props = defineProps({
     type: String as PropType<CSS.ColorProperty | CustomColor>,
   },
   hoverBackground: {
-    default: "-neutro-1",
+    default: "neutro-1",
     type: String as PropType<CSS.BackgroundColorProperty | CustomColor>,
   },
   activeBackground: {
-    default: "-neutro-3",
+    default: "neutro-3",
     type: String as PropType<CSS.BackgroundColorProperty | CustomColor>,
   },
   whiteSpace: {
@@ -87,6 +90,10 @@ const props = defineProps({
 
 const emits = defineEmits(["click"]);
 
+// Composables
+
+const colors = useColors();
+
 // Computed
 
 const textContainerClass = computed(() => {
@@ -97,38 +104,23 @@ const textContainerClass = computed(() => {
 });
 
 const colorInner = computed(() => {
-  if (props.color?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.color}))`;
-  }
-  return props.color;
+  return colors.getRealColor(props.color);
 });
 
 const hoverColorInner = computed(() => {
-  if (props.hoverColor?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.hoverColor}))`;
-  }
-  return props.hoverColor;
+  return colors.getRealColor(props.hoverColor);
 });
 
 const activeColorInner = computed(() => {
-  if (props.activeColor?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.activeColor}))`;
-  }
-  return props.activeColor;
+  return colors.getRealColor(props.activeColor);
 });
 
 const hoverBackgroundInner = computed(() => {
-  if (props.hoverBackground?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.hoverBackground}))`;
-  }
-  return props.hoverBackground;
+  return colors.getRealColor(props.hoverBackground);
 });
 
 const activeBackgroundInner = computed(() => {
-  if (props.activeBackground?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.activeBackground}))`;
-  }
-  return props.activeBackground;
+  return colors.getRealColor(props.activeBackground);
 });
 
 // Emits

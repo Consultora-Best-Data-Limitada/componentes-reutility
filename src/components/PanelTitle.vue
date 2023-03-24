@@ -10,7 +10,7 @@
     >
       <FontAwesomeIcon
         size="1.5rem"
-        color="-error"
+        color="error"
         name="fas-xmark-circle"
       />
     </div>
@@ -22,7 +22,7 @@
 import { computed } from "vue";
 
 // Componentes
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
 
 // Definiciones
 
@@ -55,7 +55,7 @@ const onClickClose = () => {
   font-size: 1.125rem;
   line-height: 1.125rem;
   font-family: "Metropolis", sans-serif;
-  color: rgb(var(--v-theme-acento-principal));
+  color: rgb(var(--acento-principal));
 
   &--close {
     display: grid;
@@ -72,11 +72,11 @@ const onClickClose = () => {
   cursor: pointer;
 
   &:hover :deep(*) {
-    color: rgb(var(--v-theme-error-hover));
+    color: rgb(var(--error-hover));
   }
 
   &:active :deep(*) {
-    color: rgb(var(--v-theme-error-pressed));
+    color: rgb(var(--error-pressed));
   }
 }
 </style>

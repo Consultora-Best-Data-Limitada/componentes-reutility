@@ -18,7 +18,7 @@
     <LdThreeBounce
       v-else
       size="1.125rem"
-      fill="-neutro-1"
+      fill="neutro-1"
     />
   </div>
 </template>
@@ -32,8 +32,8 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Componentes
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
 import LdThreeBounce from "@/components/icons/LdThreeBounce.vue";
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
 
 const props = defineProps({
   width: {
@@ -74,21 +74,21 @@ const emits = defineEmits(["click"]);
 
 const colorFromInner = computed(() => {
   if (props.colorFrom?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.colorFrom}))`;
+    return `rgb(var(--${props.colorFrom}))`;
   }
   return props.colorFrom;
 });
 
 const colorToInner = computed(() => {
   if (props.colorTo?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.colorTo}))`;
+    return `rgb(var(--${props.colorTo}))`;
   }
   return props.colorTo;
 });
 
 const textColorInner = computed(() => {
   if (props.textColor?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.textColor}))`;
+    return `rgb(var(--${props.textColor}))`;
   }
   return props.textColor;
 });

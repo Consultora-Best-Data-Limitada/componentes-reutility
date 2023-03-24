@@ -7,7 +7,7 @@
     <template #append>
       <FontAwesomeIcon
         size="1rem"
-        color="-acento-principal"
+        color="acento-principal"
         name="fas-magnifying-glass"
       />
     </template>
@@ -19,8 +19,8 @@
 import { computed } from "vue";
 
 // Componentes
-import CustomTextField from "@/components/custom/CustomTextField.vue";
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
+import CustomTextField from "@/components/CustomTextField.vue";
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
 
 // Definiciones
 

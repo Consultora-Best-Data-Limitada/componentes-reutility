@@ -15,6 +15,9 @@
 // Vue
 import { computed } from "vue";
 
+// Composables
+import {useColors} from "@/composables/colors";
+
 // Tipos
 import type CSS from "csstype";
 import type { PropType } from "vue";
@@ -35,12 +38,16 @@ const props = defineProps({
     type: String as PropType<CSS.ColumnGapProperty<string>>,
   },
   color: {
-    default: "-acento-principal",
+    default: "acento-principal",
     type: String as PropType<CSS.BackgroundColorProperty | CustomColor>,
   },
 });
 
 const emits = defineEmits(["update:model-value"]);
+
+// Composables
+
+const colors = useColors();
 
 // Computed
 
@@ -54,15 +61,12 @@ const model = computed({
 });
 
 const colorInner = computed(() => {
-  if (props.color?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.color}))`;
-  }
-  return props.color;
+  return colors.getRealColor(props.color);
 });
 
 const hoverColor = computed(() => {
-  if (props.color?.startsWith("-")) {
-    return `rgba(var(--v-theme${props.color}), 0.1)`;
+  if (colors.isCustom(props.color)) {
+    return `rgba(var(--${props.color}), 0.1)`;
   }
   return props.color;
 });
@@ -107,7 +111,7 @@ const selectItem = (index: number) => {
   }
 
   &--selected {
-    color: rgb(var(--v-theme-neutro-1));
+    color: rgb(var(--neutro-1));
     background-color: v-bind(colorInner);
   }
 }

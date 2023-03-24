@@ -1,16 +1,19 @@
 <template>
   <div class="font-awesome-icon__container">
-    <em :class="iconClass" />
+    <em :class="iconClass"/>
   </div>
 </template>
 
 <script setup lang="ts">
 // Vue
-import { computed } from "vue";
+import {computed} from "vue";
+
+// Composables
+import {useColors} from "@/composables/colors";
 
 // Tipos
 import type CSS from "csstype";
-import type { PropType } from "vue";
+import type {PropType} from "vue";
 
 const props = defineProps({
   name: {
@@ -26,6 +29,10 @@ const props = defineProps({
     type: [String, Number] as PropType<CSS.FontSizeProperty<string | number>>,
   },
 });
+
+// Composables
+
+const colors = useColors();
 
 // Data
 
@@ -53,10 +60,7 @@ const iconClass = computed(() => {
 });
 
 const colorInner = computed(() => {
-  if (props.color?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.color}))`;
-  }
-  return props.color;
+  return colors.getRealColor(props.color);
 });
 </script>
 

@@ -27,7 +27,7 @@
         <FontAwesomeIcon
           v-if="showClearIcon"
           size="1rem"
-          color="-neutro-4"
+          color="neutro-4"
           name="fas-circle-xmark"
         />
       </div>
@@ -58,7 +58,7 @@
           />
           <FontAwesomeIcon
             size="1rem"
-            color="-acento-principal"
+            color="acento-principal"
             name="fas-magnifying-glass"
           />
         </div>
@@ -97,8 +97,8 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Composables
-import CheckBox from "@/components/custom/CheckBox.vue";
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
+import CheckBox from "@/components/CheckBox.vue";
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
 
 // Definiciones
 
@@ -200,11 +200,11 @@ const showClearIcon = computed(
 
 const caretColor = computed<CustomColor>(() => {
   if (props.dark) {
-    if (props.disabled) return "-neutro-3";
-    return "-neutro-1";
+    if (props.disabled) return "neutro-3";
+    return "neutro-1";
   }
-  if (props.disabled) return "-neutro-4";
-  return "-acento-principal";
+  if (props.disabled) return "neutro-4";
+  return "acento-principal";
 });
 
 const filteredItems = computed(() => {
@@ -392,20 +392,21 @@ const clear = () => {
   align-items: center;
   border-radius: 0.75rem;
   grid-template-columns: 1fr auto auto;
-  background: rgb(var(--v-theme-neutro-1));
+  background: rgb(var(--neutro-1));
 
   .custom-select__text {
     outline: none;
     cursor: pointer;
+    font-size: 1rem;
     overflow: hidden;
     user-select: none;
     white-space: nowrap;
     text-overflow: ellipsis;
-    color: rgb(var(--v-theme-secundario));
+    color: rgb(var(--secundario));
     font-family: "Metropolis", sans-serif;
 
     &::placeholder {
-      color: rgb(var(--v-theme-neutro-4));
+      color: rgb(var(--neutro-4));
     }
   }
 
@@ -425,23 +426,23 @@ const clear = () => {
 
   &--dark {
     background-color: transparent;
-    border: 1px solid rgb(var(--v-theme-neutro-4));
+    border: 1px solid rgb(var(--neutro-4));
 
     .custom-select__text {
-      color: rgb(var(--v-theme-neutro-1));
+      color: rgb(var(--neutro-1));
     }
   }
 
   &--outlined {
-    border: 1px solid rgb(var(--v-theme-neutro-4));
+    border: 1px solid rgb(var(--neutro-4));
   }
 
   &--opened:not(&--error),
   &--active:not(&--error) {
-    border: 2px solid rgb(var(--v-theme-acento-principal));
+    border: 2px solid rgb(var(--acento-principal));
 
     &.custom-select__text-container--dark {
-      border: 2px solid rgb(var(--v-theme-neutro-1));
+      border: 2px solid rgb(var(--neutro-1));
     }
   }
 
@@ -454,28 +455,28 @@ const clear = () => {
   }
 
   &--error {
-    border: 2px solid rgb(var(--v-theme-error));
+    border: 2px solid rgb(var(--error));
 
     .custom-select__text,
     .custom-select__text::placeholder {
-      color: rgb(var(--v-theme-error));
+      color: rgb(var(--error));
     }
   }
 
   &--disabled {
     border: none;
     cursor: default;
-    background-color: rgb(var(--v-theme-neutro-2));
+    background-color: rgb(var(--neutro-2));
 
     .custom-select__text {
-      color: rgb(var(--v-theme-neutro-4));
+      color: rgb(var(--neutro-4));
     }
 
     &.custom-select__text-container--dark {
-      background-color: rgb(var(--v-theme-neutro-4));
+      background-color: rgb(var(--neutro-4));
 
       .custom-select__text::placeholder {
-        color: rgb(var(--v-theme-neutro-3));
+        color: rgb(var(--neutro-3));
       }
     }
   }
@@ -503,24 +504,24 @@ const clear = () => {
     justify-content: flex-start;
     transition: background-color 100ms;
     text-transform: v-bind(textTransform);
-    color: rgb(var(--v-theme-secundario));
+    color: rgb(var(--secundario));
     font-family: "Metropolis", sans-serif;
 
     &:not(&--selected):hover {
-      color: rgb(var(--v-theme-neutro-3));
+      color: rgb(var(--neutro-3));
 
       :deep(*) {
-        fill: rgb(var(--v-theme-acento-principal-hover)) !important;
-        color: rgb(var(--v-theme-acento-principal-hover)) !important;
+        fill: rgb(var(--acento-principal-hover)) !important;
+        color: rgb(var(--acento-principal-hover)) !important;
       }
     }
 
     &:not(&--selected):active {
-      color: rgb(var(--v-theme-neutro-4));
+      color: rgb(var(--neutro-4));
 
       :deep(*) {
-        fill: rgb(var(--v-theme-acento-principal-pressed)) !important;
-        color: rgb(var(--v-theme-acento-principal-pressed)) !important;
+        fill: rgb(var(--acento-principal-pressed)) !important;
+        color: rgb(var(--acento-principal-pressed)) !important;
       }
     }
 
@@ -537,7 +538,7 @@ const clear = () => {
   border-radius: 0.75rem;
   padding-right: 0.75rem;
   grid-template-columns: 1fr 1rem;
-  border: 1px solid rgb(var(--v-theme-neutro-4));
+  border: 1px solid rgb(var(--neutro-4));
 }
 
 .custom-select__search {
@@ -549,7 +550,7 @@ const clear = () => {
   font-family: "Metropolis", sans-serif;
 
   &::placeholder {
-    color: rgb(var(--v-theme-neutro-4));
+    color: rgb(var(--neutro-4));
   }
 }
 
@@ -558,7 +559,7 @@ const clear = () => {
   text-align: left;
   font-size: 0.875rem;
   line-height: 0.875rem;
-  color: rgb(var(--v-theme-error));
+  color: rgb(var(--error));
   font-family: "Metropolis", sans-serif;
 }
 

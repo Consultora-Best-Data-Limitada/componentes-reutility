@@ -21,7 +21,7 @@ import { computed } from "vue";
 import type { PropType } from "vue";
 
 // Componentes
-import CustomDatePicker from "@/components/custom/CustomDatePicker.vue";
+import CustomDatePicker from "@/components/CustomDatePicker.vue";
 
 // Definiciones
 
@@ -75,7 +75,7 @@ const model = computed({
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.25rem;
+  color: rgb(var(--secundario));
   font-family: "Metropolis", sans-serif;
-  color: rgb(var(--v-theme-secundario));
 }
 </style>

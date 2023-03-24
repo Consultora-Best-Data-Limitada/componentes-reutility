@@ -49,8 +49,8 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Componentes
-import SvgIcon from "@/components/custom/SvgIcon.vue";
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
+import SvgIcon from "@/components/SvgIcon.vue";
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
 
 // Definiciones
 const props = defineProps({
@@ -59,11 +59,11 @@ const props = defineProps({
     default: "fal-square",
   },
   boxColor: {
-    default: "-acento-principal",
+    default: "acento-principal",
     type: String as PropType<CSS.ColorProperty | CustomColor>,
   },
   checkedColor: {
-    default: "-acento-principal",
+    default: "acento-principal",
     type: String as PropType<CSS.ColorProperty | CustomColor>,
   },
   readonly: {
@@ -108,9 +108,9 @@ const containerClass = computed(() => ({
   "check-box__container--disabled": props.disabled,
 }));
 
-const boxColorInner = computed(() => (props.disabled ? "-neutro-4" : props.boxColor));
+const boxColorInner = computed(() => (props.disabled ? "neutro-4" : props.boxColor));
 
-const checkedColorInner = computed(() => (props.disabled ? "-neutro-4" : props.checkedColor));
+const checkedColorInner = computed(() => (props.disabled ? "neutro-4" : props.checkedColor));
 
 // Methods
 

@@ -33,7 +33,7 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Composables
-import CustomSelect from "@/components/custom/CustomSelect.vue";
+import CustomSelect from "@/components/CustomSelect.vue";
 
 // Definiciones
 
@@ -121,9 +121,9 @@ const model = computed({
 });
 
 const labelColor = computed(() => {
-  if (props.disabled) return "rgb(var(--v-theme-neutro-4))";
-  if (props.dark) return "rgb(var(--v-theme-neutro-1))";
-  return "rgb(var(--v-theme-secundario))";
+  if (props.disabled) return "rgb(var(--neutro-4))";
+  if (props.dark) return "rgb(var(--neutro-1))";
+  return "rgb(var(--secundario))";
 });
 </script>
 

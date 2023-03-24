@@ -22,7 +22,7 @@
         <FontAwesomeIcon
           v-if="model"
           size="1rem"
-          color="-neutro-4"
+          color="neutro-4"
           name="fas-circle-xmark"
         />
       </div>
@@ -48,7 +48,7 @@ import { computed, ref, useSlots } from "vue";
 import type { PropType } from "vue";
 
 // Componentes
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
 
 // Definiciones
 
@@ -183,49 +183,49 @@ const onKeydown = (ev: KeyboardEvent) => {
   column-gap: 0.25rem;
   border-radius: 0.75rem;
   padding-right: v-bind(paddingRight);
-  background: rgb(var(--v-theme-neutro-1));
+  background: rgb(var(--neutro-1));
   grid-template-columns: v-bind(gridTemplateColumns);
 
   &--dark {
     background-color: transparent;
-    border: 1px solid rgb(var(--v-theme-neutro-4));
+    border: 1px solid rgb(var(--neutro-4));
 
     .custom-text-field__input {
-      color: rgb(var(--v-theme-neutro-1));
+      color: rgb(var(--neutro-1));
     }
   }
 
   &--outlined {
-    border: 1px solid rgb(var(--v-theme-neutro-4));
+    border: 1px solid rgb(var(--neutro-4));
   }
 
   &--focused {
-    border: 2px solid rgb(var(--v-theme-acento-principal));
+    border: 2px solid rgb(var(--acento-principal));
 
     &.custom-text-field__input-container--dark {
-      border: 2px solid rgb(var(--v-theme-neutro-1));
+      border: 2px solid rgb(var(--neutro-1));
     }
   }
 
   &--error {
-    border: 2px solid rgb(var(--v-theme-error));
+    border: 2px solid rgb(var(--error));
 
     .custom-text-field__input,
     .custom-text-field__input::placeholder {
-      color: rgb(var(--v-theme-error));
+      color: rgb(var(--error));
     }
   }
 
   &--disabled {
     border: none;
     cursor: default;
-    background-color: rgb(var(--v-theme-neutro-2));
+    background-color: rgb(var(--neutro-2));
 
     &.custom-text-field__input-container--dark {
-      background-color: rgb(var(--v-theme-neutro-4));
+      background-color: rgb(var(--neutro-4));
 
       .custom-text-field__input::placeholder {
-        color: rgb(var(--v-theme-neutro-3));
+        color: rgb(var(--neutro-3));
       }
     }
   }
@@ -238,11 +238,11 @@ const onKeydown = (ev: KeyboardEvent) => {
   font-size: 1rem;
   padding: 0.75rem;
   line-height: 1rem;
-  color: rgb(var(--v-theme-secundario));
+  color: rgb(var(--secundario));
   font-family: "Metropolis", sans-serif;
 
   &::placeholder {
-    color: rgb(var(--v-theme-neutro-4));
+    color: rgb(var(--neutro-4));
   }
 }
 
@@ -263,7 +263,7 @@ const onKeydown = (ev: KeyboardEvent) => {
   text-align: left;
   font-size: 0.875rem;
   line-height: 0.875rem;
-  color: rgb(var(--v-theme-error));
+  color: rgb(var(--error));
   font-family: "Metropolis", sans-serif;
 }
 </style>

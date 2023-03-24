@@ -1,29 +1,27 @@
 <template>
-  <v-dialog
+  <CustomDialog
     v-model="model"
     persistent
-    scrim="neutro-3"
-    :max-width="maxWidth"
-    class="confirmation-dialog__dialog"
   >
     <GridColumn
-      v-if="model"
       padding="1rem"
       row-gap="1rem"
+      :width="width"
       border-radius="1rem"
-      background-color="-neutro-1"
+      background-color="neutro-1"
+      class="confirmation-dialog__column"
       box-shadow="3px 3px 17px rgba(151, 168, 194, 0.24)"
     >
       <TextContainer
         text-align="center"
         predefined-style="h2"
-        color="-acento-secundario"
+        color="acento-secundario"
       >
         {{ title }}
       </TextContainer>
       <TextContainer
         v-if="subtitle"
-        color="-secundario"
+        color="secundario"
         text-align="center"
         predefined-style="subtitle-2"
       >
@@ -31,36 +29,38 @@
       </TextContainer>
       <GridRow column-gap="0.75rem">
         <CustomButton
-          color="-acento-principal"
+          color="acento-principal"
           height="2.75rem"
           @click="onClickYes"
         >
-          {{ text("boton-si") }}
+          Sí
         </CustomButton>
         <CustomButton
-          color="-error"
+          color="error"
           height="2.75rem"
           @click="onClickNo"
         >
-          {{ text("boton-no") }}
+          No
         </CustomButton>
       </GridRow>
     </GridColumn>
-  </v-dialog>
+  </CustomDialog>
 </template>
 
 <script setup lang="ts">
 // Vue
-import { computed } from "vue";
+import {computed} from "vue";
 
-// Composables
-import { useI18n } from "vue-i18n";
+// Tipos
+import type CSS from "csstype";
+import type {PropType} from "vue";
 
 // Componentes
-import GridRow from "@/components/custom/GridRow.vue";
-import GridColumn from "@/components/custom/GridColumn.vue";
-import CustomButton from "@/components/custom/CustomButton.vue";
-import TextContainer from "@/components/custom/TextContainer.vue";
+import GridRow from "@/components/GridRow.vue";
+import GridColumn from "@/components/GridColumn.vue";
+import CustomButton from "@/components/CustomButton.vue";
+import TextContainer from "@/components/TextContainer.vue";
+import CustomDialog from "@/components/CustomDialog.vue";
 
 // Definiciones
 
@@ -77,17 +77,13 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
-  maxWidth: {
-    default: 520,
-    type: [String, Number],
+  width: {
+    default: "520px",
+    type: String as PropType<CSS.WidthProperty<string>>,
   },
 });
 
 const emits = defineEmits(["click:no", "click:yes", "update:model-value"]);
-
-// Composables
-
-const { t } = useI18n();
 
 // VModel
 
@@ -100,10 +96,6 @@ const model = computed({
   },
 });
 
-// Methods
-
-const text = (key: string) => t(`dialogo-confirmacion.${key}`);
-
 // Emits
 
 const onClickYes = (): void => {
@@ -114,11 +106,3 @@ const onClickNo = (): void => {
   emits("click:no");
 };
 </script>
-
-<style scoped>
-.confirmation-dialog__dialog :deep(.v-overlay__scrim) {
-  opacity: 1;
-  backdrop-filter: blur(5px);
-  background-color: rgba(var(--v-theme-neutro-3), 0.5) !important;
-}
-</style>

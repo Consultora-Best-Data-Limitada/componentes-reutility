@@ -1,47 +1,45 @@
 <template>
-  <v-tooltip
-    location="bottom"
-    :disabled="disabled || !checkSlot()"
-    class="icon-button__tooltip-container"
-  >
-    <template #activator="activator">
-      <div
-        :style="iconButtonStyle"
-        v-bind="activator.props"
-        :class="iconButtonClass"
-        @click="onClick"
-      >
-        <FontAwesomeIcon
-          v-if="icon.startsWith('fa')"
-          :name="icon"
-          :size="size"
-          :color="colorInner"
-        />
-        <SvgIcon
-          v-else
-          :name="icon"
-          :size="size"
-          :color="colorInner"
-        />
-      </div>
-    </template>
-    <div class="icon-button__tooltip">
-      <slot />
+  <div class="icon-button__tooltip-container">
+    <div
+      :class="iconButtonClass"
+      @click="onClick"
+    >
+      <FontAwesomeIcon
+        v-if="icon.startsWith('fa')"
+        :name="icon"
+        :size="size"
+        :color="colorInner"
+      />
+      <SvgIcon
+        v-else
+        :name="icon"
+        :size="size"
+        :color="colorInner"
+      />
     </div>
-  </v-tooltip>
+    <div
+      v-if="checkSlot()"
+      class="icon-button__tooltip"
+    >
+      <slot/>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 // Vue
-import { computed, useSlots } from "vue";
+import {computed, useSlots} from "vue";
+
+// Composables
+import {useColors} from "@/composables/colors";
 
 //Tipos
 import type CSS from "csstype";
-import type { PropType } from "vue";
+import type {PropType} from "vue";
 
 //Componentes
-import SvgIcon from "@/components/custom/SvgIcon.vue";
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
+import SvgIcon from "@/components/SvgIcon.vue";
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
 
 // Definiciones
 
@@ -76,6 +74,7 @@ const emits = defineEmits(["click"]);
 // Composables
 
 const slots = useSlots();
+const colors = useColors();
 
 // Computed
 
@@ -88,20 +87,11 @@ const iconButtonClass = computed(() => ({
 
 const backgroundInner = computed(() => {
   if (!props.backgroundColor) return "";
-  if (props.backgroundColor.startsWith("-")) {
-    return `rgb(var(--v-theme${props.backgroundColor}))`;
-  }
-  return props.backgroundColor;
+  return colors.getRealColor(props.backgroundColor);
 });
 
-const iconButtonStyle = computed(() => ({
-  width: props.containerSize ?? "initial",
-  height: props.containerSize ?? "initial",
-  background: backgroundInner.value ?? "initial",
-}));
-
 const colorInner = computed(() =>
-  props.disabled && !props.backgroundColor ? "-neutro-4" : props.color,
+  props.disabled && !props.backgroundColor ? "neutro-4" : props.color,
 );
 
 // Methods
@@ -117,7 +107,9 @@ const onClick = (ev: MouseEvent) => {
 
 <style scoped lang="scss">
 .icon-button__button {
-  cursor: pointer;
+  width: v-bind(containerSize);
+  height: v-bind(containerSize);
+  background: v-bind(backgroundInner);
 
   &--background {
     display: flex;
@@ -143,14 +135,32 @@ const onClick = (ev: MouseEvent) => {
   }
 }
 
-.icon-button__tooltip-container :deep(> div) {
-  border-radius: 1rem;
-  background-color: rgba(var(--v-theme-secundario), 0.7);
-}
+.icon-button__tooltip-container {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  justify-content: center;
 
-.icon-button__tooltip {
-  font-size: 1rem;
-  line-height: 1.25rem;
-  font-family: "Metropolis", sans-serif;
+  .icon-button__tooltip {
+    opacity: 0;
+    z-index: 10;
+    padding: 0.5rem;
+    visibility: hidden;
+    border-radius: 1rem;
+    top: calc(100% + 0.5rem);
+    transition: all 300ms ease;
+    color: rgb(var(--neutro-1));
+    background-color: rgb(var(--neutro-4));
+    // Text style
+    font-size: 1rem;
+    position: absolute;
+    line-height: 1.25rem;
+    font-family: "Metropolis", sans-serif;
+  }
+
+  &:hover .icon-button__tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 </style>

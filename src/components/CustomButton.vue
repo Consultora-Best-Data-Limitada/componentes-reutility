@@ -17,7 +17,7 @@
         v-if="loading"
         :fill="iconColor"
       />
-      <slot v-else />
+      <slot v-else/>
     </span>
     <template v-if="appendIcon">
       <FontAwesomeIcon
@@ -32,14 +32,17 @@
 
 <script setup lang="ts">
 // Vue
-import { computed } from "vue";
+import {computed} from "vue";
+
+// Composables
+import {useColors} from "@/composables/colors";
 
 // Tipos
 import type CSS from "csstype";
-import type { PropType } from "vue";
+import type {PropType} from "vue";
 
 // Componentes
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
 import LdThreeBounce from "@/components/icons/LdThreeBounce.vue";
 
 // Definiciones
@@ -98,48 +101,36 @@ const props = defineProps({
 
 const emits = defineEmits(["click"]);
 
+// Composables
+
+const colors = useColors();
+
 // Computed
 
 const iconColor = computed(() => (props.outlined ? props.color : props.contentColor));
 
 const colorInner = computed(() => {
-  if (props.color?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.color}))`;
-  }
-  return props.color;
+  return colors.getRealColor(props.color);
 });
 
 const contentColorInner = computed(() => {
-  if (props.contentColor?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.contentColor}))`;
-  }
-  return props.contentColor;
+  return colors.getRealColor(props.contentColor)
 });
 
 const hoverColorInner = computed(() => {
-  if (!props.hoverColor) {
-    if (props.color?.startsWith("-")) {
-      return `rgb(var(--v-theme${props.color}-hover))`;
-    }
-    return props.color;
+  const name = `${props.color}-hover`;
+  if (!props.hoverColor && colors.isCustom(name)) {
+    return colors.getRealColor(name)
   }
-  if (props.hoverColor.startsWith("-")) {
-    return `rgb(var(--v-theme${props.hoverColor}))`;
-  }
-  return props.hoverColor;
+  return colors.getRealColor(props.hoverColor);
 });
 
 const activeColorInner = computed(() => {
-  if (!props.activeColor) {
-    if (props.color?.startsWith("-")) {
-      return `rgb(var(--v-theme${props.color}-pressed))`;
-    }
-    return props.color;
+  const name = `${props.color}-pressed`;
+  if (!props.activeColor && colors.isCustom(name)) {
+    return colors.getRealColor(name)
   }
-  if (props.activeColor.startsWith("-")) {
-    return `rgb(var(--v-theme${props.activeColor}))`;
-  }
-  return props.activeColor;
+  return colors.getRealColor(props.activeColor);
 });
 
 const customButtonClass = computed(() => ({
@@ -208,8 +199,8 @@ const onClick = (ev: MouseEvent) => {
 
     &:disabled {
       pointer-events: none;
-      color: rgba(var(--v-theme-neutro-4));
-      background-color: rgba(var(--v-theme-neutro-3));
+      color: rgba(var(--neutro-4));
+      background-color: rgba(var(--neutro-3));
     }
 
     &:hover {
@@ -240,12 +231,12 @@ const onClick = (ev: MouseEvent) => {
     &:disabled {
       pointer-events: none;
       background-color: transparent;
-      color: rgba(var(--v-theme-neutro-4));
-      border-color: rgba(var(--v-theme-neutro-4));
+      color: rgba(var(--neutro-4));
+      border-color: rgba(var(--neutro-4));
 
       & :deep(*) {
-        fill: rgba(var(--v-theme-neutro-4)) !important;
-        color: rgba(var(--v-theme-neutro-4)) !important;
+        fill: rgba(var(--neutro-4)) !important;
+        color: rgba(var(--neutro-4)) !important;
       }
     }
 

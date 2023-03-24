@@ -7,11 +7,14 @@
 
 <script setup lang="ts">
 // Vue
-import { computed, onMounted, ref, watch } from "vue";
+import {computed, onMounted, ref, watch} from "vue";
+
+// Composables
+import {useColors} from "@/composables/colors";
 
 // Tipos
 import type CSS from "csstype";
-import type { PropType } from "vue";
+import type {PropType} from "vue";
 
 // Definiciones
 
@@ -34,6 +37,10 @@ const props = defineProps({
   },
 });
 
+// Composables
+
+const colors = useColors();
+
 // Mounted
 
 onMounted(() => {
@@ -47,10 +54,7 @@ const svgContent = ref<HTMLDivElement | null>(null);
 // Computed
 
 const colorInner = computed(() => {
-  if (props.color.startsWith("-")) {
-    return `rgb(var(--v-theme${props.color}))`;
-  }
-  return props.color;
+  return colors.getRealColor(props.color);
 });
 
 const realSrc = computed(() => {

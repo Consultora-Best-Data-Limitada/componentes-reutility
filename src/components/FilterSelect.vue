@@ -28,7 +28,7 @@ import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Composables
-import CustomSelect from "@/components/custom/CustomSelect.vue";
+import CustomSelect from "@/components/CustomSelect.vue";
 
 // Definiciones
 
@@ -104,7 +104,7 @@ const model = computed({
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.25rem;
+  color: rgb(var(--secundario));
   font-family: "Metropolis", sans-serif;
-  color: rgb(var(--v-theme-secundario));
 }
 </style>

@@ -1,17 +1,15 @@
 <template>
-  <v-dialog
-    v-model="model"
+  <CustomDialog
     persistent
-    scrim="neutro-3"
-    :max-width="maxWidth"
-    class="success-dialog__dialog"
+    :model-value="model"
   >
     <GridColumn
       v-if="model"
+      :width="width"
       padding="1rem"
       row-gap="1rem"
       border-radius="1rem"
-      background-color="-neutro-1"
+      background-color="neutro-1"
       box-shadow="3px 3px 17px rgba(151, 168, 194, 0.24)"
     >
       <FlexContainer justify-content="center">
@@ -19,44 +17,49 @@
           v-if="icon.startsWith('fa')"
           size="5rem"
           :name="icon"
-          color="-acento-principal"
+          color="acento-principal"
         />
         <SvgIcon
           v-else
           size="5rem"
           :name="icon"
-          color="-acento-principal"
+          color="acento-principal"
         />
       </FlexContainer>
       <TextContainer
         text-align="center"
         predefined-style="h2"
-        color="-acento-secundario"
+        color="acento-secundario"
       >
         {{ text }}
       </TextContainer>
       <TextContainer
         v-if="subtitle"
-        color="-secundario"
+        color="secundario"
         text-align="center"
         predefined-style="subtitle-2"
       >
         {{ subtitle }}
       </TextContainer>
     </GridColumn>
-  </v-dialog>
+  </CustomDialog>
 </template>
 
 <script setup lang="ts">
 // Vue
-import { computed, watch } from "vue";
+import {computed, watch} from "vue";
+
+// Tipos
+import type CSS from "csstype";
+import type {PropType} from "vue";
 
 // Componentes
-import GridColumn from "@/components/custom/GridColumn.vue";
-import FlexContainer from "@/components/custom/FlexContainer.vue";
-import TextContainer from "@/components/custom/TextContainer.vue";
-import FontAwesomeIcon from "@/components/custom/FontAwesomeIcon.vue";
-import SvgIcon from "@/components/custom/SvgIcon.vue";
+import GridColumn from "@/components/GridColumn.vue";
+import FlexContainer from "@/components/FlexContainer.vue";
+import TextContainer from "@/components/TextContainer.vue";
+import FontAwesomeIcon from "@/components/FontAwesomeIcon.vue";
+import SvgIcon from "@/components/SvgIcon.vue";
+import CustomDialog from "@/components/CustomDialog.vue";
 
 // Definiciones
 
@@ -81,9 +84,9 @@ const props = defineProps({
     default: "",
     type: String,
   },
-  maxWidth: {
-    default: 520,
-    type: [String, Number],
+  width: {
+    default: "520px",
+    type: String as PropType<CSS.WidthProperty<string>>,
   },
 });
 
@@ -122,10 +125,39 @@ watch(
 );
 </script>
 
-<style scoped>
-.success-dialog__dialog :deep(.v-overlay__scrim) {
-  opacity: 1;
+
+<style scoped lang="scss">
+.success-dialog__dialog {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
   backdrop-filter: blur(5px);
-  background-color: rgba(var(--v-theme-neutro-3), 0.5) !important;
+  background-color: rgba(var(--neutro-3), 0.5);
+
+  :deep(> div) {
+    width: v-bind(width);
+  }
+}
+
+.fade-enter-active {
+  animation: fade 300ms ease;
+}
+
+.fade-leave-active {
+  animation: fade 300ms reverse ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>

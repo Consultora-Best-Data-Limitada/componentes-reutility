@@ -49,7 +49,7 @@ defineProps({
 .information-text__value {
   font-size: 1rem;
   line-height: 1.25rem;
-  color: rgb(var(--v-theme-secundario));
+  color: rgb(var(--secundario));
   font-family: "Metropolis", sans-serif;
 }
 

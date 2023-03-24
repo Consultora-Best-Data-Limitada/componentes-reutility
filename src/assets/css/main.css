@@ -1,0 +1,36 @@
+:root {
+  --acento-principal: 36, 183, 112;
+  --acento-principal-hover: 99, 227, 176;
+  --acento-principal-pressed: 14, 129, 83;
+  --acento-secundario: 8, 127, 140;
+  --acento-secundario-hover: 100, 205, 217;
+  --acento-secundario-pressed: 28, 99, 106;
+  --secundario: 58, 90, 117;
+  --neutro-1: 255, 255, 255;
+  --neutro-2: 225, 228, 239;
+  --neutro-3: 196, 211, 229;
+  --neutro-4: 151, 168, 194;
+  --background: 240, 243, 248;
+  --complementario-1: 228, 191, 49;
+  --complementario-2: 110, 107, 209;
+  --complementario-3: 125, 209, 129;
+  --error: 235, 81, 96;
+  --error-hover: 250, 147, 157;
+  --error-pressed: 186, 47, 61;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button {
+  border: none;
+  background: transparent;
+}
+
+button {
+  cursor: pointer;
+}

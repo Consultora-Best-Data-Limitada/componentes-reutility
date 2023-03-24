@@ -1,16 +1,19 @@
 <template>
   <div class="grid-row__container">
-    <slot />
+    <slot/>
   </div>
 </template>
 
 <script setup lang="ts">
 // Vue
-import { computed } from "vue";
+import {computed} from "vue";
+
+// Composables
+import {useColors} from "@/composables/colors";
 
 //Tipos
 import type CSS from "csstype";
-import type { PropType } from "vue";
+import type {PropType} from "vue";
 
 const props = defineProps({
   width: {
@@ -59,13 +62,14 @@ const props = defineProps({
   },
 });
 
+// Composables
+
+const colors = useColors();
+
 // Computed
 
 const backgroundColorInner = computed(() => {
-  if (props.backgroundColor?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.backgroundColor}))`;
-  }
-  return props.backgroundColor;
+  return colors.getRealColor(props.backgroundColor);
 });
 </script>
 

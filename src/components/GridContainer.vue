@@ -5,11 +5,18 @@
 </template>
 
 <script setup lang="ts">
+// Vue
+import {computed} from "vue";
+
+// Composables
+import {useColors} from "@/composables/colors";
+
 // Tipos
 import type CSS from "csstype";
 import type { PropType } from "vue";
 
-defineProps({
+// Definiciones
+const props = defineProps({
   height: {
     default: "auto",
     type: [String, Number] as PropType<CSS.HeightProperty<string | number>>,
@@ -58,6 +65,28 @@ defineProps({
     default: "",
     type: String as PropType<CSS.GridAutoFlowProperty>,
   },
+  backgroundColor: {
+    default: "transparent",
+    type: String as PropType<CSS.BackgroundColorProperty | CustomColor>,
+  },
+  borderRadius: {
+    default: "",
+    type: String as PropType<CSS.BorderRadiusProperty<string>>,
+  },
+  boxShadow: {
+    default: "",
+    type: String as PropType<CSS.BoxShadowProperty>,
+  },
+});
+
+// Composables
+
+const colors = useColors();
+
+// Computed
+
+const backgroundColorInner = computed(() => {
+  return colors.getRealColor(props.backgroundColor)
 });
 </script>
 
@@ -68,13 +97,16 @@ defineProps({
   margin: v-bind(margin);
   row-gap: v-bind(rowGap);
   padding: v-bind(padding);
+  box-shadow: v-bind(boxShadow);
   column-gap: v-bind(columnGap);
   align-items: v-bind(alignItems);
+  border-radius: v-bind(borderRadius);
   align-content: v-bind(alignContent);
   justify-items: v-bind(justifyItems);
   grid-auto-flow: v-bind(gridAutoFlow);
   justify-content: v-bind(justifyContent);
   grid-template-rows: v-bind(gridTemplateRows);
+  background-color: v-bind(backgroundColorInner);
   grid-template-columns: v-bind(gridTemplateColumns);
 }
 </style>

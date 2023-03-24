@@ -1,49 +1,45 @@
 <template>
-  <v-tooltip
-    location="bottom"
-    :disabled="!tooltip || disabled"
-    class="page-switch__tooltip-container"
-  >
-    <template #activator="activator">
+  <div class="page-switch__tooltip-container">
+    <div
+      :style="pageSwitchContainer"
+      class="page-switch__container"
+      @click="toggle"
+    >
       <div
-        v-bind="activator.props"
-        :style="pageSwitchContainer"
-        class="page-switch__container"
-        @click="toggle"
+        v-if="label"
+        :style="labelStyle"
+        class="page-switch__label"
       >
-        <div
-          v-if="label"
-          :style="labelStyle"
-          class="page-switch__label"
-        >
-          {{ label }}
-        </div>
-        <div
-          :style="pageSwitchStyle"
-          class="page-switch__switch"
-        >
-          <input
-            v-model="model"
-            type="checkbox"
-            class="page-switch__checkbox"
-          />
-          <div :class="pageSwitchSliderClass"></div>
-        </div>
+        {{ label }}
       </div>
-    </template>
+      <div
+        :style="pageSwitchStyle"
+        class="page-switch__switch"
+      >
+        <input
+          v-model="model"
+          type="checkbox"
+          class="page-switch__checkbox"
+        />
+        <div :class="pageSwitchSliderClass"></div>
+      </div>
+    </div>
     <div class="page-switch__tooltip">
       {{ tooltip }}
     </div>
-  </v-tooltip>
+  </div>
 </template>
 
 <script setup lang="ts">
 // Vue
-import { computed } from "vue";
+import {computed} from "vue";
+
+// Composables
+import {useColors} from "@/composables/colors";
 
 // Tipos
 import type CSS from "csstype";
-import type { PropType, StyleValue } from "vue";
+import type {PropType, StyleValue} from "vue";
 
 // Definiciones
 
@@ -64,7 +60,7 @@ const props = defineProps({
     type: Boolean,
   },
   activeColor: {
-    default: "-acento-principal",
+    default: "acento-principal",
     type: String as PropType<CSS.ColorProperty | CustomColor>,
   },
   width: {
@@ -72,7 +68,7 @@ const props = defineProps({
     type: String as PropType<CSS.WidthProperty<string>>,
   },
   color: {
-    default: "-neutro-4",
+    default: "neutro-4",
     type: String as PropType<CSS.ColorProperty | CustomColor>,
   },
   readonly: {
@@ -94,6 +90,10 @@ const props = defineProps({
 
 const emits = defineEmits(["update:model-value"]);
 
+// Composables
+
+const colors = useColors();
+
 // Computed
 
 const model = computed<boolean>({
@@ -106,17 +106,11 @@ const model = computed<boolean>({
 });
 
 const activeColorInner = computed(() => {
-  if (props.activeColor?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.activeColor}))`;
-  }
-  return props.activeColor;
+  return colors.getRealColor(props.activeColor);
 });
 
 const colorInner = computed(() => {
-  if (props.color?.startsWith("-")) {
-    return `rgb(var(--v-theme${props.color}))`;
-  }
-  return props.color;
+  return colors.getRealColor(props.color);
 });
 
 const realColor = computed(() => {
@@ -137,7 +131,7 @@ const pageSwitchContainer = computed<StyleValue>(() => ({
 
 const pageSwitchStyle = computed<StyleValue>(() => ({
   width: props.width,
-  "background-color": props.disabled ? "rgb(var(--v-theme-neutro-4))" : realColor.value,
+  "background-color": props.disabled ? "rgb(var(--neutro-4))" : realColor.value,
 }));
 
 const labelStyle = computed<StyleValue>(() => ({
@@ -160,22 +154,40 @@ const toggle = () => {
   align-items: center;
 }
 
-.page-switch__tooltip-container :deep(> div) {
-  border-radius: 1rem;
-  background-color: rgba(var(--v-theme-secundario), 0.7);
+.page-switch__tooltip-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+
+  .page-switch__tooltip {
+    opacity: 0;
+    z-index: 10;
+    padding: 0.5rem;
+    visibility: hidden;
+    border-radius: 1rem;
+    top: calc(100% + 0.5rem);
+    transition: all 300ms ease;
+    color: rgb(var(--neutro-1));
+    background-color: rgb(var(--neutro-4));
+    // Text style
+    font-size: 1rem;
+    position: absolute;
+    line-height: 1.25rem;
+    font-family: "Metropolis", sans-serif;
+  }
+
+  &:hover .page-switch__tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
-.page-switch__tooltip {
-  font-size: 1rem;
-  line-height: 1.25rem;
-  font-family: "Metropolis", sans-serif;
-}
 
 .page-switch__label {
   font-size: 1rem;
   line-height: 1rem;
   user-select: none;
-  color: rgb(var(--v-theme-secundario));
+  color: rgb(var(--secundario));
   font-family: "Metropolis", sans-serif;
 }
 
