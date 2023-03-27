@@ -1,7 +1,6 @@
 import type {App} from "vue";
 
-import {CheckBox} from "./typings/checkBox";
-import TextContainer from "./typings/textContainer";
+import {ITexContainer} from "./typings/textContainer";
 // import {ConfirmationDialog} from "./typings/confirmationDialog";
 // import {CustomButton} from "./typings/customButton";
 // import {CustomDatePicker} from "./typings/customDatePicker";
@@ -39,8 +38,7 @@ export declare function componentesReutility(): ComponentesReutility;
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    CheckBox: typeof CheckBox;
-    TextContainer: typeof TextContainer;
+    TextContainer: typeof ITexContainer;
     // ConfirmationDialog: typeof ConfirmationDialog;
     // CustomButton: typeof CustomButton;
     // CustomDatePicker: typeof CustomDatePicker;

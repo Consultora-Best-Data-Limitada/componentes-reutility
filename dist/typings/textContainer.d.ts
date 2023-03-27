@@ -22,8 +22,8 @@ export declare interface TextContainerProps {
   "@click"?: (ev: MouseEvent) => void;
 }
 
-export declare const TexContainer: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & RouterViewProps;
+export declare const ITexContainer: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & TextContainerProps;
   $slots: {
     default?: (({Component}: {
       Component: VNode;
