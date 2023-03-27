@@ -23,6 +23,6 @@ export declare interface TextContainerProps {
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    TextContainer: import('../src/plugin/components')['TextContainer']
+    TextContainer: typeof import('../src/plugin/components')['TextContainer']
   }
 }
