@@ -1,5 +1,6 @@
 import type CSS from "csstype";
 import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import DataTableItem from "../../src/plugin/components/DataTableItem.vue";
 
 export declare interface DataTableProps {
   items: DataTableItem[];
@@ -21,13 +22,13 @@ export declare const IDataTable: new () => {
   $slots: {
     [key: string]: (({Component, item}: {
       Component: VNode;
-      item: DataTransferItem;
+      item: DataTableItem;
     }) => VNode[]) | undefined;
   };
   "v-slots": {
     [key: string]: (({Component, item}: {
       Component: VNode;
-      item: DataTransferItem;
+      item: DataTableItem;
     }) => VNode[]) | undefined;
   }
 };
