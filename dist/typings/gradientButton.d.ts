@@ -10,7 +10,7 @@ export declare interface GradientButtonProps {
   disabled?: boolean;
   icon?: string;
   loading?: boolean;
-  "@click": (ev: MouseEvent) => void;
+  "@click"?: (ev: MouseEvent) => void;
 }
 
 export declare const IGradientButton: new () => {

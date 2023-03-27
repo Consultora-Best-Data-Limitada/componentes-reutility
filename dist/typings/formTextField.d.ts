@@ -13,12 +13,12 @@ export declare interface FormTextFieldProps {
   clearable?: boolean;
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
   type: "email" | "phone" | "text" | "time" | "password";
-  "@update:model-value": (value: string | number) => void;
-  "@keydown": (ev: KeyboardEvent) => void;
-  "@keyup": (ev: KeyboardEvent) => void;
-  "@input": (ev: KeyboardEvent) => void;
-  "@focus": (ev: FocusEvent) => void;
-  "@blur": (ev: FocusEvent) => void;
+  "@update:model-value"?: (value: string | number) => void;
+  "@keydown"?: (ev: KeyboardEvent) => void;
+  "@keyup"?: (ev: KeyboardEvent) => void;
+  "@input"?: (ev: KeyboardEvent) => void;
+  "@focus"?: (ev: FocusEvent) => void;
+  "@blur"?: (ev: FocusEvent) => void;
 }
 
 export declare const IFormTextField: new () => {

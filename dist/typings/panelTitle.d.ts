@@ -2,7 +2,7 @@ import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} fro
 
 export declare interface PanelTitleProps {
   closable?: boolean;
-  "@click:close": () => void;
+  "@click:close"?: () => void;
 }
 
 export declare const IPanelTitle: new () => {

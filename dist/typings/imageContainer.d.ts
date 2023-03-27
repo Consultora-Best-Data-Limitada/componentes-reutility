@@ -10,7 +10,7 @@ export declare interface ImageContainerProps {
   objectFit?: CSS.ObjectFitProperty;
   aspectRatio?: CSS.AspectRatioProperty;
   clickable?: boolean;
-  "@click": (ev: MouseEvent) => void;
+  "@click"?: (ev: MouseEvent) => void;
 }
 
 export declare const IImageContainer: new () => {

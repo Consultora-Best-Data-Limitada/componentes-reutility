@@ -18,7 +18,7 @@ export declare interface CustomSelectProps {
   outlined?: boolean;
   searchable?: boolean;
   dark?: boolean;
-  "@update:model-value": (value: string | number | Record<string, any> | unknown[] | null) => void;
+  "@update:model-value"?: (value: string | number | Record<string, any> | unknown[] | null) => void;
 }
 
 export declare const ICustomSelect: new () => {

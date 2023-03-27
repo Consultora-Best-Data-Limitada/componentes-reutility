@@ -13,7 +13,7 @@ export declare interface PageSwitchProps {
   labelWeight?: CSS.FontWeightProperty;
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
   justifyContent?: CSS.JustifyContentProperty;
-  "@update:model-value": (value: boolean) => void;
+  "@update:model-value"?: (value: boolean) => void;
 }
 
 export declare const IPageSwitch: new () => {

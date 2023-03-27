@@ -11,7 +11,7 @@ export declare interface CustomDatePickerProps {
   errorMessage?: string;
   outlined?: boolean;
   dark?: boolean;
-  "@update:model-value": (value: Date | Date[] | null) => void;
+  "@update:model-value"?: (value: Date | Date[] | null) => void;
 }
 
 export declare const ICustomDatePicker: new () => {

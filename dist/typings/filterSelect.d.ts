@@ -13,7 +13,7 @@ export declare interface FilterSelectProps {
   multiple?: boolean;
   modelValue?: string | number | Record<string, any> | unknown[] | null;
   searchable?: boolean;
-  "@update:model-value": (value: string | number | Record<string, any> | unknown[] | null) => void;
+  "@update:model-value"?: (value: string | number | Record<string, any> | unknown[] | null) => void;
 }
 
 export declare const IFilterSelect: new () => {

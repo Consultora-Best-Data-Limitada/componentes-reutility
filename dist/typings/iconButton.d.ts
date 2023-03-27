@@ -8,7 +8,7 @@ export declare interface IconButtonProps {
   disabled?: boolean;
   backgroundColor?: CSS.BackgroundColorProperty | CustomColor;
   containerSize?: CSS.WidthProperty<string>;
-  "@click": (ev: MouseEvent) => void;
+  "@click"?: (ev: MouseEvent) => void;
 }
 
 export declare const IIconButton: new () => {

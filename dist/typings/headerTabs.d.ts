@@ -6,7 +6,7 @@ export declare interface HeaderTabsProps {
   modelValue: number;
   columnGap?: CSS.ColumnGapProperty<string>;
   color?: CSS.BackgroundColorProperty | CustomColor;
-  "@update:model-value": (value: number) => void;
+  "@update:model-value"?: (value: number) => void;
 }
 
 export declare const IHeaderTabs: new () => {

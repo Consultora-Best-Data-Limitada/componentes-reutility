@@ -8,8 +8,8 @@ export declare interface SuccessDialogProps {
   modelValue: boolean;
   subtitle?: string;
   width?: CSS.WidthProperty<string>;
-  "@close": () => void;
-  "@update:model-value": (value: boolean) => void;
+  "@close"?: () => void;
+  "@update:model-value"?: (value: boolean) => void;
 }
 
 export declare const ISuccessDialog: new () => {

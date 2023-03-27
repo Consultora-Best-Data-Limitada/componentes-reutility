@@ -11,7 +11,7 @@ export declare interface CheckBoxProps {
   checkedIcon?: string;
   checkedIconSize?: CSS.FontSizeProperty<string>;
   modelValue: boolean;
-  "@update:model-value": (value: boolean) => void;
+  "@update:model-value"?: (value: boolean) => void;
 }
 
 export declare const ICheckBox: new () => {

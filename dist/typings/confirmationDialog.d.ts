@@ -6,8 +6,8 @@ export declare interface ConfirmationDialogProps {
   subtitle?: string;
   modelValue: boolean;
   width?: CSS.WidthProperty<string>;
-  "@click:no": () => void;
-  "@click:yes": () => void;
+  "@click:no"?: () => void;
+  "@click:yes"?: () => void;
   "@update:model-value": (value: boolean) => void;
 }
 

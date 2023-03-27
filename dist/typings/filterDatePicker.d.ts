@@ -7,7 +7,7 @@ export declare interface FilterDatePickerProps {
   range?: boolean;
   maxDate?: string | Date;
   minDate?: string | Date;
-  "@update:model-value": (value: Date | Date[] | null) => void;
+  "@update:model-value"?: (value: Date | Date[] | null) => void;
 }
 
 export declare const IFilterDatePicker: new () => {

@@ -15,7 +15,7 @@ export declare interface CustomButtonProps {
   justifyContent?: CSS.JustifyContentProperty;
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
   loading?: boolean;
-  "@click": (ev: MouseEvent) => void;
+  "@click"?: (ev: MouseEvent) => void;
 }
 
 export declare const ICustomButton: new () => {

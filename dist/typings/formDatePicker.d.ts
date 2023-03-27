@@ -15,7 +15,7 @@ export declare interface FormDatePickerProps {
   maxDate?: string | Date;
   minDate?: string | Date;
   dark?: boolean;
-  "@update:model-value": (value: Date | Date[] | null) => void;
+  "@update:model-value"?: (value: Date | Date[] | null) => void;
 }
 
 export declare const IFormDatePicker: new () => {
