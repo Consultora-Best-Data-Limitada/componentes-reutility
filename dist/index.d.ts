@@ -11,18 +11,18 @@ export declare interface TextContainerProps {
   textAlign?: string;
 }
 
-// export declare const TextContainer: new () => {
-//   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & TextContainerProps;
-//   $slots: {
-//     default?: (({Component, route}: {
-//       Component: VNode;
-//       route: RouteLocationNormalizedLoaded;
-//     }) => VNode[]) | undefined;
-//   };
-// };
+export declare const TextContainer: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & TextContainerProps;
+  $slots: {
+    default?: (({Component, route}: {
+      Component: VNode;
+      route: RouteLocationNormalizedLoaded;
+    }) => VNode[]) | undefined;
+  };
+};
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    TextContainer: typeof import('../src/plugin/components')['TextContainer']
+    TextContainer: typeof TextContainer;
   }
 }
