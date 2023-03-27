@@ -33,7 +33,7 @@ const props = defineProps({
     type: String as PropType<CSS.JustifyItemsProperty>,
   },
   width: {
-    default: "initiañ",
+    default: "initial",
     type: [String, Number] as PropType<CSS.WidthProperty<string | number>>,
   },
   height: {
