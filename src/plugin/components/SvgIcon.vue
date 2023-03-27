@@ -61,7 +61,7 @@ const realSrc = computed(() => {
   if (props.src) {
     return new URL(props.src, import.meta.url).href;
   }
-  return new URL(`/src/assets/svg/${props.name}.svg`, import.meta.url).href;
+  return new URL(`../../../../src/assets/svg/${props.name}.svg`, import.meta.url).href;
 });
 
 // Methods
