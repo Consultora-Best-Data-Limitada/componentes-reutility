@@ -8,7 +8,7 @@ export declare interface ConfirmationDialogProps {
   width?: CSS.WidthProperty<string>;
   "@click:no"?: () => void;
   "@click:yes"?: () => void;
-  "@update:model-value": (value: boolean) => void;
+  "@update:model-value"?: (value: boolean) => void;
 }
 
 export declare const IConfirmationDialog: new () => {

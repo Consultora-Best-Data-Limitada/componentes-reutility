@@ -12,7 +12,7 @@ export declare interface FormTextFieldProps {
   outlined?: boolean;
   clearable?: boolean;
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
-  type: "email" | "phone" | "text" | "time" | "password";
+  type?: "email" | "phone" | "text" | "time" | "password";
   "@update:model-value"?: (value: string | number) => void;
   "@keydown"?: (ev: KeyboardEvent) => void;
   "@keyup"?: (ev: KeyboardEvent) => void;

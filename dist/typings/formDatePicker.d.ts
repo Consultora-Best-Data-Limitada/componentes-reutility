@@ -5,10 +5,10 @@ export declare interface FormDatePickerProps {
   label: string;
   errorMessage?: string;
   placeholder: string;
-  clearable: boolean;
-  range: boolean;
-  disabled: boolean;
-  readonly: boolean;
+  clearable?: boolean;
+  range?: boolean;
+  disabled?: boolean;
+  readonly?: boolean;
   modelValue?: Date[] | Date | null
   outlined?: boolean;
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
