@@ -1,5 +1,4 @@
 import {AllowedComponentProps, App, ComponentCustomProps, VNode, VNodeProps} from "vue";
-import TextContainer from "../src/plugin/components/TextContainer.vue";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -24,6 +23,6 @@ export declare interface TextContainerProps {
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    TextContainer: typeof TextContainer;
+    TextContainer: import('../src/plugin/components')['TextContainer']
   }
 }
