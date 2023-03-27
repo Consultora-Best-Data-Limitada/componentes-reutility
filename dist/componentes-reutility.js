@@ -1,4 +1,4 @@
-import { defineComponent as me, useCssVars as We, unref as s, onMounted as st, ref as W, computed as k, watch as mt, openBlock as m, createElementBlock as S, createElementVNode as F, normalizeClass as de, createVNode as we, Transition as kt, withCtx as X, createBlock as te, createCommentVNode as T, renderSlot as z, Fragment as ve, withKeys as he, isRef as Le, createTextVNode as Ue, toDisplayString as ge, reactive as an, useSlots as Et, toRef as Xn, onUnmounted as Oo, mergeProps as He, createSlots as rt, renderList as De, normalizeProps as Ge, guardReactiveProps as ct, resolveDynamicComponent as bi, Teleport as ru, withModifiers as je, normalizeStyle as ft, nextTick as St, withDirectives as It, vShow as cn, onBeforeUpdate as au, getCurrentScope as ou, onScopeDispose as lu, vModelText as iu, vModelDynamic as uu, vModelCheckbox as su } from "vue";
+import { defineComponent as me, useCssVars as We, unref as s, onMounted as st, ref as W, computed as k, watch as dt, openBlock as m, createElementBlock as S, createElementVNode as F, normalizeClass as de, createVNode as we, Transition as kt, withCtx as X, createBlock as te, createCommentVNode as T, renderSlot as z, Fragment as ve, withKeys as he, isRef as Le, createTextVNode as Ue, toDisplayString as ge, reactive as an, useSlots as Et, toRef as Xn, onUnmounted as Oo, mergeProps as He, createSlots as rt, renderList as De, normalizeProps as Ge, guardReactiveProps as ct, resolveDynamicComponent as bi, Teleport as ru, withModifiers as je, normalizeStyle as ft, nextTick as St, withDirectives as It, vShow as cn, onBeforeUpdate as au, getCurrentScope as ou, onScopeDispose as lu, vModelText as iu, vModelDynamic as uu, vModelCheckbox as su } from "vue";
 const ht = () => {
   const e = [
     "acento-principal",
@@ -44,8 +44,8 @@ const ht = () => {
   setup(e) {
     const t = e;
     We((l) => ({
-      eefcadf6: e.size,
-      "705f6a92": s(a)
+      e03f24d4: e.size,
+      e718c2f0: s(a)
     }));
     const n = ht();
     st(() => {
@@ -55,11 +55,11 @@ const ht = () => {
       if (!r.value)
         return;
       const l = await fetch(t.src);
-      console.log(l), r.value.innerHTML = await l.text();
+      r.value.innerHTML = await l.text();
       const u = r.value.querySelector("svg");
       u && (u.setAttribute("width", t.size.toString()), u.setAttribute("height", t.size.toString()));
     };
-    return mt(() => t.src, o), (l, u) => (m(), S("div", {
+    return dt(() => t.src, o), dt(() => t.size, o), (l, u) => (m(), S("div", {
       ref_key: "svgContent",
       ref: r,
       class: "svg-icon__container"
@@ -71,7 +71,7 @@ const Ce = (e, t) => {
   for (const [r, a] of t)
     n[r] = a;
   return n;
-}, rn = /* @__PURE__ */ Ce(cu, [["__scopeId", "data-v-3c333760"]]), fu = { class: "font-awesome-icon__container" }, du = /* @__PURE__ */ me({
+}, rn = /* @__PURE__ */ Ce(cu, [["__scopeId", "data-v-92aaa30d"]]), fu = { class: "font-awesome-icon__container" }, du = /* @__PURE__ */ me({
   __name: "FontAwesomeIcon",
   props: {
     name: {
@@ -838,7 +838,7 @@ function $t(e, t) {
   var n = ce(e), r = se(t);
   return isNaN(r) ? /* @__PURE__ */ new Date(NaN) : (r && n.setDate(n.getDate() + r), n);
 }
-function yt(e, t) {
+function mt(e, t) {
   J(2, arguments);
   var n = ce(e), r = se(t);
   if (isNaN(r))
@@ -860,7 +860,7 @@ function dn(e) {
 function $i(e, t) {
   if (J(2, arguments), !t || dn(t) !== "object")
     return /* @__PURE__ */ new Date(NaN);
-  var n = t.years ? se(t.years) : 0, r = t.months ? se(t.months) : 0, a = t.weeks ? se(t.weeks) : 0, o = t.days ? se(t.days) : 0, l = t.hours ? se(t.hours) : 0, u = t.minutes ? se(t.minutes) : 0, d = t.seconds ? se(t.seconds) : 0, p = ce(e), b = r || n ? yt(p, r + n * 12) : p, y = o || a ? $t(b, o + a * 7) : b, c = u + l * 60, g = d + c * 60, P = g * 1e3, B = new Date(y.getTime() + P);
+  var n = t.years ? se(t.years) : 0, r = t.months ? se(t.months) : 0, a = t.weeks ? se(t.weeks) : 0, o = t.days ? se(t.days) : 0, l = t.hours ? se(t.hours) : 0, u = t.minutes ? se(t.minutes) : 0, d = t.seconds ? se(t.seconds) : 0, p = ce(e), b = r || n ? mt(p, r + n * 12) : p, y = o || a ? $t(b, o + a * 7) : b, c = u + l * 60, g = d + c * 60, P = g * 1e3, B = new Date(y.getTime() + P);
   return B;
 }
 function Bu(e, t) {
@@ -920,7 +920,7 @@ function Uu(e, t) {
 function Si(e, t) {
   J(2, arguments);
   var n = se(t);
-  return yt(e, n * 12);
+  return mt(e, n * 12);
 }
 var xo = 6e4, Po = 36e5, Wu = 1e3;
 function pn(e) {
@@ -2581,7 +2581,7 @@ var yc = /* @__PURE__ */ function(e) {
   // 0 to 999, -0 to -999
   fourDigitsSigned: /^-?\d{1,4}/
   // 0 to 9999, -0 to -9999
-}, dt = {
+}, pt = {
   basicOptionalMinutes: /^([+-])(\d{2})(\d{2})?|Z/,
   basic: /^([+-])(\d{2})(\d{2})|Z/,
   basicOptionalSeconds: /^([+-])(\d{2})(\d{2})((\d{2}))?|Z/,
@@ -2601,7 +2601,7 @@ function Ne(e, t) {
     rest: t.slice(n[0].length)
   } : null;
 }
-function pt(e, t) {
+function yt(e, t) {
   var n = t.match(e);
   if (!n)
     return null;
@@ -5840,16 +5840,16 @@ var qp = /* @__PURE__ */ function(e) {
     value: function(a, o) {
       switch (o) {
         case "X":
-          return pt(dt.basicOptionalMinutes, a);
+          return yt(pt.basicOptionalMinutes, a);
         case "XX":
-          return pt(dt.basic, a);
+          return yt(pt.basic, a);
         case "XXXX":
-          return pt(dt.basicOptionalSeconds, a);
+          return yt(pt.basicOptionalSeconds, a);
         case "XXXXX":
-          return pt(dt.extendedOptionalSeconds, a);
+          return yt(pt.extendedOptionalSeconds, a);
         case "XXX":
         default:
-          return pt(dt.extended, a);
+          return yt(pt.extended, a);
       }
     }
   }, {
@@ -5944,16 +5944,16 @@ var ey = /* @__PURE__ */ function(e) {
     value: function(a, o) {
       switch (o) {
         case "x":
-          return pt(dt.basicOptionalMinutes, a);
+          return yt(pt.basicOptionalMinutes, a);
         case "xx":
-          return pt(dt.basic, a);
+          return yt(pt.basic, a);
         case "xxxx":
-          return pt(dt.basicOptionalSeconds, a);
+          return yt(pt.basicOptionalSeconds, a);
         case "xxxxx":
-          return pt(dt.extendedOptionalSeconds, a);
+          return yt(pt.extendedOptionalSeconds, a);
         case "xxx":
         default:
-          return pt(dt.extended, a);
+          return yt(pt.extended, a);
       }
     }
   }, {
@@ -6518,7 +6518,7 @@ function Nt(e, t) {
 function Ft(e, t) {
   J(2, arguments);
   var n = se(t);
-  return yt(e, -n);
+  return mt(e, -n);
 }
 function Zn(e) {
   return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? Zn = function(n) {
@@ -7416,7 +7416,7 @@ const gm = (e, t = 3) => {
       !e.readonly && !e.disabled && t("update:internal-model-value", v);
     }
   }), g = W([]);
-  mt(c, () => {
+  dt(c, () => {
     ne();
   });
   const P = W([{ month: Pe(A()), year: Te(A()) }]), B = an({
@@ -7495,12 +7495,12 @@ const gm = (e, t = 3) => {
   }, Y = () => Array.isArray(c.value) && c.value.length ? c.value[c.value.length - 1] : null, i = () => {
     if (Array.isArray(c.value) && c.value.length === 2) {
       const v = A(
-        A(c.value[1] ? c.value[1] : yt(c.value[0], 1))
+        A(c.value[1] ? c.value[1] : mt(c.value[0], 1))
       ), [N, le] = [Pe(c.value[0]), Te(c.value[0])], [ue, Ie] = [Pe(c.value[1]), Te(c.value[1])];
       (N !== ue || N === ue && le !== Ie) && e.multiCalendarsSolo && R(1, Pe(v), Te(v));
     }
   }, f = (v) => {
-    const N = yt(v, 1);
+    const N = mt(v, 1);
     return { month: Pe(N), year: Te(N) };
   }, _ = (v) => {
     const N = Pe(A(v)), le = Te(A(v));
@@ -7580,7 +7580,7 @@ const gm = (e, t = 3) => {
       R(N, Pe(le), Te(le));
     }
     for (let N = v + 1; N <= y.value.multiCalendars - 1; N++) {
-      const le = yt(Qe(A(), { month: U.value(N - 1), year: G.value(N - 1) }), 1);
+      const le = mt(Qe(A(), { month: U.value(N - 1), year: G.value(N - 1) }), 1);
       R(N, Pe(le), Te(le));
     }
   }, Oe = (v) => p(A(), U.value(v), G.value(v)), Tt = (v) => ut(v, B.hours, B.minutes, ae()), Dt = (v, N) => {
@@ -7602,7 +7602,7 @@ const gm = (e, t = 3) => {
     }
     n();
   }, on = (v, N) => {
-    const le = Qe(A(), { month: U.value(N), year: G.value(N) }), ue = v < 0 ? yt(le, 1) : Ft(le, 1);
+    const le = Qe(A(), { month: U.value(N), year: G.value(N) }), ue = v < 0 ? mt(le, 1) : Ft(le, 1);
     b(Pe(ue), Te(ue), v < 0, e.preventMinMaxNavigation) && (R(N, Pe(ue), Te(ue)), y.value.multiCalendars && !e.multiCalendarsSolo && Se(N), t("update-month-year", { instance: N, month: Pe(ue), year: Te(ue) }), r());
   }, qt = (v) => {
     hi(v) && hi(c.value) && Ct(B.hours) && Ct(B.minutes) ? (v[0] && c.value[0] && (c.value[0] = ut(v[0], B.hours[0], B.minutes[0], ae())), v[1] && c.value[1] && (c.value[1] = ut(v[1], B.hours[1], B.minutes[1], ae(!1)))) : e.multiDates && Array.isArray(c.value) ? c.value[c.value.length - 1] = Tt(v) : !e.range && !gi(v) && (c.value = Tt(v)), t("time-update");
@@ -7664,9 +7664,9 @@ const gm = (e, t = 3) => {
     setDateMonthOrYear: y,
     defaults: c
   } = lt(t), g = W(""), P = Xn(t, "format");
-  mt(r, () => {
+  dt(r, () => {
     e("internal-model-change", r.value);
-  }), mt(P, () => {
+  }), dt(P, () => {
     f();
   });
   const B = ($) => {
@@ -7754,20 +7754,20 @@ const gm = (e, t = 3) => {
 }, Mm = (e, t) => {
   const { validateMonthYearInRange: n, validateMaxDate: r, validateMinDate: a, defaults: o } = lt(e), l = (y, c) => {
     let g = y;
-    return o.value.filters.months.includes(Pe(g)) ? (g = c ? yt(y, 1) : Ft(y, 1), l(g, c)) : g;
+    return o.value.filters.months.includes(Pe(g)) ? (g = c ? mt(y, 1) : Ft(y, 1), l(g, c)) : g;
   }, u = (y, c) => {
     let g = y;
     return o.value.filters.years.includes(Te(g)) ? (g = c ? Si(y, 1) : Fy(y, 1), u(g, c)) : g;
   }, d = (y) => {
     const c = Qe(/* @__PURE__ */ new Date(), { month: e.month, year: e.year });
-    let g = y ? yt(c, 1) : Ft(c, 1), P = Pe(g), B = Te(g);
+    let g = y ? mt(c, 1) : Ft(c, 1), P = Pe(g), B = Te(g);
     o.value.filters.months.includes(P) && (g = l(g, y), P = Pe(g), B = Te(g)), o.value.filters.years.includes(B) && (g = u(g, y), B = Te(g)), n(P, B, y, e.preventMinMaxNavigation) && p(P, B);
   }, p = (y, c) => {
     t("update-month-year", { month: y, year: c });
   }, b = k(() => (y) => {
     if (!e.preventMinMaxNavigation || y && !e.maxDate || !y && !e.minDate)
       return !1;
-    const c = Qe(/* @__PURE__ */ new Date(), { month: e.month, year: e.year }), g = y ? yt(c, 1) : Ft(c, 1), P = [Pe(g), Te(g)];
+    const c = Qe(/* @__PURE__ */ new Date(), { month: e.month, year: e.year }), g = y ? mt(c, 1) : Ft(c, 1), P = [Pe(g), Te(g)];
     return y ? !r(...P) : !a(...P);
   });
   return { handleMonthYearChange: d, isDisabled: b, updateMonthYear: p };
@@ -7779,7 +7779,7 @@ const Im = (e, t, n, r) => {
     left: "0",
     transform: "none"
   }), o = W(!1), l = Xn(r, "teleportCenter");
-  mt(l, () => {
+  dt(l, () => {
     B();
   });
   const u = (x) => {
@@ -9772,7 +9772,7 @@ const Im = (e, t, n, r) => {
       selectCurrentDate: h,
       presetDateRange: E
     } = Cm(r, n, O, oe, j), { setHoverDate: be, clearHoverDate: re, getDayClassData: fe } = xv(q, r);
-    mt(
+    dt(
       C,
       () => {
         r.openOnTop && setTimeout(() => {
@@ -10057,7 +10057,7 @@ const Im = (e, t, n, r) => {
   if (!e)
     return la;
   let a = la;
-  const o = mt(
+  const o = dt(
     () => s(e),
     (u) => {
       a(), u && (u.addEventListener(t, n, r), a = () => {
@@ -10109,7 +10109,7 @@ const Im = (e, t, n, r) => {
       }
     });
     const j = Mt(a, "all", r.presetRanges), R = Mt(a, "input");
-    mt(
+    dt(
       [l, u],
       () => {
         C(l.value);
@@ -12034,11 +12034,11 @@ const p0 = /* @__PURE__ */ Ce(d0, [["__scopeId", "data-v-d95e0bb8"]]), y0 = /* @
         t("update:model-value", a);
       }
     });
-    return mt(r, (a) => {
+    return dt(r, (a) => {
       a && n.duration > 0 && window.setTimeout(() => {
         t("close");
       }, n.duration);
-    }), mt(
+    }), dt(
       () => n.duration,
       (a) => {
         a > 0 && window.setTimeout(() => {

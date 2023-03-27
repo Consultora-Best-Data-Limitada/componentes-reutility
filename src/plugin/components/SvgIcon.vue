@@ -58,7 +58,6 @@ const colorInner = computed(() => {
 const mountSVG = async () => {
   if (!svgContent.value) return;
   const response = await fetch(props.src);
-  console.log(response);
   svgContent.value.innerHTML = await response.text();
   const svg = svgContent.value.querySelector("svg");
   if (!svg) return;
@@ -69,6 +68,8 @@ const mountSVG = async () => {
 // Watchs
 
 watch(() => props.src, mountSVG);
+
+watch(() => props.size, mountSVG);
 </script>
 
 <style scoped lang="scss">
