@@ -9,7 +9,8 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist/*.{js,cjs,mjs}",
-    "dist/index.d.ts"
+    "dist/index.d.ts",
+    "dist/typings/*.d.ts"
   ],
   "scripts": {
     "dev": "vite",
