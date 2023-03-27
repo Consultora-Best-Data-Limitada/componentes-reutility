@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const FormDatePicker: DefineComponent<{
+export declare interface FormDatePickerProps {
   label: string;
   errorMessage?: string;
   placeholder: string;
@@ -16,4 +16,8 @@ declare const FormDatePicker: DefineComponent<{
   minDate?: string | Date;
   dark?: boolean;
   "@update:model-value": (value: Date | Date[] | null) => void;
-}>;
+}
+
+export declare const IFormDatePicker: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FormDatePickerProps;
+};

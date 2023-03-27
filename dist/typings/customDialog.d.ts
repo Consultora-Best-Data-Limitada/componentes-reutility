@@ -1,7 +1,11 @@
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const CustomDialog: DefineComponent<{
+export declare interface CustomDialogProps {
   modelValue: boolean;
   persistent?: boolean;
   "@update:model-value": (value: boolean) => void;
-}>;
+}
+
+export declare const ICustomDialog: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CustomDialogProps;
+};

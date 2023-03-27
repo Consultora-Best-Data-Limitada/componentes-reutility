@@ -1,6 +1,6 @@
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const CustomDatePicker: DefineComponent<{
+export declare interface CustomDatePickerProps {
   modelValue?: Date[] | Date | null,
   range?: boolean;
   readonly?: boolean;
@@ -12,4 +12,8 @@ declare const CustomDatePicker: DefineComponent<{
   outlined?: boolean;
   dark?: boolean;
   "@update:model-value": (value: Date | Date[] | null) => void;
-}>;
+}
+
+export declare const ICustomDatePicker: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CustomDatePickerProps;
+};

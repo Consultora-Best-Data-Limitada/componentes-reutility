@@ -1,6 +1,6 @@
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const FilterDatePicker: DefineComponent<{
+export declare interface FilterDatePickerProps {
   label: string;
   placeholder?: string;
   modelValue?: Date[] | Date | null;
@@ -8,4 +8,8 @@ declare const FilterDatePicker: DefineComponent<{
   maxDate?: string | Date;
   minDate?: string | Date;
   "@update:model-value": (value: Date | Date[] | null) => void;
-}>;
+}
+
+export declare const IFilterDatePicker: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FilterDatePickerProps;
+};

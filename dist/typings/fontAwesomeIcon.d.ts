@@ -1,8 +1,12 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const FontAwesomeIcon: DefineComponent<{
+export declare interface FontAwesomeIconProps {
   name: string;
   color?: CSS.ColorProperty | CustomColor;
-  size: CSS.FontSizeProperty<string | number>
-}>;
+  size: CSS.FontSizeProperty<string | number>;
+}
+
+export declare const IFontAwesomeIcon: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FontAwesomeIconProps;
+};

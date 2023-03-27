@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const FilterSelect: DefineComponent<{
+export declare interface FilterSelectProps {
   label: string;
   placeholder: string;
   itemValue?: string;
@@ -14,4 +14,8 @@ declare const FilterSelect: DefineComponent<{
   modelValue?: string | number | Record<string, any> | unknown[] | null;
   searchable?: boolean;
   "@update:model-value": (value: string | number | Record<string, any> | unknown[] | null) => void;
-}>;
+}
+
+export declare const IFilterSelect: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FilterSelectProps;
+};

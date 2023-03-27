@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent, VNode} from "vue";
+import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const GridRow: DefineComponent<{
+export declare interface GridRowProps {
   width?: CSS.WidthProperty<string | number>;
   backgroundColor?: CSS.BackgroundColorProperty | CustomColor;
   gridColumn?: CSS.GridColumnProperty;
@@ -13,9 +13,13 @@ declare const GridRow: DefineComponent<{
   justifyContent?: CSS.JustifyContentProperty;
   alignItems?: CSS.AlignItemsProperty;
   height?: CSS.HeightProperty<string | number>;
+}
+
+export declare const IGridRow: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & GridRowProps;
   $slots: {
     default?: (({Component}: {
       Component: VNode;
     }) => VNode[]) | undefined;
   };
-}>;
+};

@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent, VNode} from "vue";
+import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const FlexContainer: DefineComponent<{
+export declare interface FlexContainerProps {
   padding?: CSS.PaddingProperty<string | number>;
   margin?: CSS.MarginProperty<string | number>;
   width?: CSS.WidthProperty<string | number>;
@@ -11,9 +11,14 @@ declare const FlexContainer: DefineComponent<{
   justifyItems?: CSS.JustifyItemsProperty;
   flexDirection?: CSS.FlexDirectionProperty;
   justifyContent?: CSS.JustifyContentProperty;
+}
+
+export declare const IFlexContainer: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FlexContainerProps;
   $slots: {
     default?: (({Component}: {
       Component: VNode;
     }) => VNode[]) | undefined;
   };
-}>;
+};
+

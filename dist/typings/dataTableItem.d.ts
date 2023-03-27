@@ -1,14 +1,18 @@
 import type CSS from "csstype";
-import type {DefineComponent, VNode} from "vue";
+import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const DataTableItem: DefineComponent<{
+export declare interface DataTableItemProps {
   disabled?: boolean;
   selected?: boolean;
   textTransform?: CSS.TextTransformProperty;
   textAlign?: CSS.TextAlignProperty;
+}
+
+export declare const IDataTableItem: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & DataTableItemProps;
   $slots: {
     default?: (({Component}: {
       Component: VNode;
     }) => VNode[]) | undefined;
   };
-}>;
+};

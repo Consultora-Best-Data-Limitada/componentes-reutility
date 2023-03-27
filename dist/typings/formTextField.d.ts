@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent, VNode} from "vue";
+import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const FormTextField: DefineComponent<{
+export declare interface FormTextFieldProps {
   modelValue?: string | number;
   label: string;
   placeholder: string;
@@ -19,9 +19,13 @@ declare const FormTextField: DefineComponent<{
   "@input": (ev: KeyboardEvent) => void;
   "@focus": (ev: FocusEvent) => void;
   "@blur": (ev: FocusEvent) => void;
+}
+
+export declare const IFormTextField: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FormTextFieldProps;
   $slots: {
     append?: (({Component}: {
       Component: VNode;
     }) => VNode[]) | undefined;
   };
-}>;
+};

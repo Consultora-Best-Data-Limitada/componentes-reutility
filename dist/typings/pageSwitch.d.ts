@@ -1,12 +1,12 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const PageSwitch: DefineComponent<{
+export declare interface PageSwitchProps {
   modelValue: boolean;
   label?: string;
   tooltip?: string;
   disabled?: boolean;
-  activeColor?: CSS.ColorProperty | CustomColor
+  activeColor?: CSS.ColorProperty | CustomColor;
   width?: CSS.WidthProperty<string>;
   color?: CSS.ColorProperty | CustomColor;
   readonly?: boolean;
@@ -14,4 +14,8 @@ declare const PageSwitch: DefineComponent<{
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
   justifyContent?: CSS.JustifyContentProperty;
   "@update:model-value": (value: boolean) => void;
-}>;
+}
+
+export declare const IPageSwitch: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & PageSwitchProps;
+};

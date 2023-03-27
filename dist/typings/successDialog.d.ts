@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const SuccessDialog: DefineComponent<{
+export declare interface SuccessDialogProps {
   icon: string;
   text: string;
   duration?: number;
@@ -10,4 +10,8 @@ declare const SuccessDialog: DefineComponent<{
   width?: CSS.WidthProperty<string>;
   "@close": () => void;
   "@update:model-value": (value: boolean) => void;
-}>;
+}
+
+export declare const ISuccessDialog: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & SuccessDialogProps;
+};

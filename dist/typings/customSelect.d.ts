@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const CustomSelect: DefineComponent<{
+export declare interface CustomSelectProps {
   errorMessage?: string;
   placeholder: string;
   itemValue?: string;
@@ -9,8 +9,8 @@ declare const CustomSelect: DefineComponent<{
   returnObject?: boolean;
   clearable?: boolean;
   textMultiple?: string;
-  items: unknown[]
-  textTransform?: CSS.TextTransformProperty
+  items: unknown[];
+  textTransform?: CSS.TextTransformProperty;
   multiple?: boolean;
   disabled?: boolean;
   readonly?: boolean;
@@ -19,4 +19,8 @@ declare const CustomSelect: DefineComponent<{
   searchable?: boolean;
   dark?: boolean;
   "@update:model-value": (value: string | number | Record<string, any> | unknown[] | null) => void;
-}>;
+}
+
+export declare const ICustomSelect: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CustomSelectProps;
+};

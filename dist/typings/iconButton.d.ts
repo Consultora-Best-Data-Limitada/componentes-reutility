@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type { DefineComponent, VNode } from "vue";
+import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const IconButton: DefineComponent<{
+export declare interface IconButtonProps {
   color?: CSS.ColorProperty | CustomColor;
   icon: string;
   size?: CSS.WidthProperty<string>;
@@ -9,9 +9,13 @@ declare const IconButton: DefineComponent<{
   backgroundColor?: CSS.BackgroundColorProperty | CustomColor;
   containerSize?: CSS.WidthProperty<string>;
   "@click": (ev: MouseEvent) => void;
+}
+
+export declare const IIconButton: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & IconButtonProps;
   $slots: {
     default?: (({Component}: {
       Component: VNode;
     }) => VNode[]) | undefined;
   };
-}>;
+};

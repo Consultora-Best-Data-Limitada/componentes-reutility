@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const FormSelect: DefineComponent<{
+export declare interface FormSelectProps {
   label: string;
   errorMessage?: string;
   placeholder: string;
@@ -21,4 +21,8 @@ declare const FormSelect: DefineComponent<{
   searchable?: boolean;
   dark?: boolean;
   "@update:model-value": (value: string | number | Record<string, any> | unknown[] | null) => void;
-}>;
+}
+
+export declare const IFormSelect: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FormSelectProps;
+};

@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const ConfirmationDialog: DefineComponent<{
+export declare interface ConfirmationDialogProps {
   title: string;
   subtitle?: string;
   modelValue: boolean;
@@ -9,4 +9,8 @@ declare const ConfirmationDialog: DefineComponent<{
   "@click:no": () => void;
   "@click:yes": () => void;
   "@update:model-value": (value: boolean) => void;
-}>;
+}
+
+export declare const IConfirmationDialog: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & ConfirmationDialogProps;
+};

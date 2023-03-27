@@ -1,10 +1,14 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const HeaderTabs: DefineComponent<{
+export declare interface HeaderTabsProps {
   items: string[];
   modelValue: number;
   columnGap?: CSS.ColumnGapProperty<string>;
   color?: CSS.BackgroundColorProperty | CustomColor;
   "@update:model-value": (value: number) => void;
-}>;
+}
+
+export declare const IHeaderTabs: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & HeaderTabsProps;
+};

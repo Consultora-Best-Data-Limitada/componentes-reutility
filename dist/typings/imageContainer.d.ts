@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const ImageContainer: DefineComponent<{
+export declare interface ImageContainerProps {
   src: string;
   alt?: string;
   objectPosition?: CSS.ObjectPositionProperty<string | number>;
@@ -11,4 +11,8 @@ declare const ImageContainer: DefineComponent<{
   aspectRatio?: CSS.AspectRatioProperty;
   clickable?: boolean;
   "@click": (ev: MouseEvent) => void;
-}>;
+}
+
+export declare const IImageContainer: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & ImageContainerProps;
+};

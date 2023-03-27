@@ -1,6 +1,6 @@
-import type {DefineComponent, VNode} from "vue";
+import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const CustomTextField: DefineComponent<{
+export declare interface CustomTextFieldProps {
   placeholder: string;
   modelValue?: string | number;
   clearable?: boolean;
@@ -8,7 +8,7 @@ declare const CustomTextField: DefineComponent<{
   disabled?: boolean;
   outlined?: boolean;
   readonly?: boolean;
-  type?: "email" | "phone" | "text" | "time" | "password"
+  type?: "email" | "phone" | "text" | "time" | "password";
   dark?: string;
   "@update:model-value": (value: string | number) => void;
   "@keydown": (ev: KeyboardEvent) => void;
@@ -16,9 +16,13 @@ declare const CustomTextField: DefineComponent<{
   "@input": (ev: KeyboardEvent) => void;
   "@focus": (ev: FocusEvent) => void;
   "@blur": (ev: FocusEvent) => void;
+}
+
+export declare const ICustomTextField: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CustomTextFieldProps;
   $slots: {
     append?: (({Component}: {
       Component: VNode;
     }) => VNode[]) | undefined;
   };
-}>;
+};

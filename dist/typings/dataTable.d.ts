@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {DefineComponent} from "vue";
+import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const DataTable: DefineComponent<{
+export declare interface DataTableProps {
   items: DataTableItem[];
   headers: DataTableHeader[];
   itemsPerPage?: number;
@@ -14,4 +14,13 @@ declare const DataTable: DefineComponent<{
   disabledValue?: string;
   hideNoDataIcon?: boolean;
   noDataIcon?: string;
-}>;
+}
+
+export declare const IDataTable: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & DataTableProps;
+  $slots: {
+    [key: string]: (({Component, item: DataTableItem}: {
+      Component: VNode;
+    }) => VNode[]) | undefined;
+  };
+};
