@@ -1,5 +1,5 @@
 <template>
-  <div class="icon-button__tooltip-container">
+  <div :class="iconTooltipContainerClass">
     <div
       :class="iconButtonClass"
       @click="onClick"
@@ -67,6 +67,10 @@ const props = defineProps({
     default: "",
     type: String as PropType<CSS.WidthProperty<string>>,
   },
+  borderRadius: {
+    default: "1rem",
+    type: String as PropType<CSS.BorderRadiusProperty<string>>,
+  }
 });
 
 const emits = defineEmits(["click"]);
@@ -77,6 +81,11 @@ const slots = useSlots();
 const colors = useColors();
 
 // Computed
+
+const iconTooltipContainerClass = computed(() => ({
+  'icon-button__tooltip-container': true,
+  'icon-button__tooltip-container--disabled': props.disabled,
+}))
 
 const iconButtonClass = computed(() => ({
   "icon-button__button": true,
@@ -114,8 +123,8 @@ const onClick = (ev: MouseEvent) => {
   &--background {
     display: flex;
     align-items: center;
-    border-radius: 0.5rem;
     justify-content: center;
+    border-radius: v-bind(borderRadius);
   }
 
   &--disabled {
@@ -141,6 +150,10 @@ const onClick = (ev: MouseEvent) => {
   position: relative;
   justify-content: center;
 
+  &--disabled {
+    pointer-events: none;
+  }
+
   .icon-button__tooltip {
     opacity: 0;
     z-index: 10;
@@ -153,6 +166,7 @@ const onClick = (ev: MouseEvent) => {
     background-color: rgb(var(--neutro-4));
     // Text style
     font-size: 1rem;
+    text-align: center;
     position: absolute;
     line-height: 1.25rem;
     font-family: "Metropolis", sans-serif;

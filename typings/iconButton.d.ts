@@ -8,6 +8,7 @@ export declare interface IconButtonProps {
   disabled?: boolean;
   backgroundColor?: CSS.BackgroundColorProperty | CustomColor;
   containerSize?: CSS.WidthProperty<string>;
+  borderRadius?: CSS.BorderRadiusProperty<string>;
   "@click"?: (ev: MouseEvent) => void;
 }
 

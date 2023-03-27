@@ -90,6 +90,10 @@ const props = defineProps({
     default: "center",
     type: String as PropType<CSS.JustifyContentProperty>,
   },
+  justifyItems: {
+    default: "initial",
+    type: String as PropType<CSS.JustifyItemsProperty>,
+  },
   gridTemplateColumns: {
     default: "",
     type: String as PropType<CSS.GridTemplateColumnsProperty<string>>,
@@ -137,13 +141,14 @@ const customButtonClass = computed(() => ({
   "custom-button__container": true,
   "custom-button__container--loading": props.loading,
   "custom-button__container--outlined": props.outlined,
-  "custom-button__container--icon": props.preppendIcon || props.appendIcon,
 }));
 
 const gridTemplateColumnsButton = computed(() => {
   if (props.gridTemplateColumns) return props.gridTemplateColumns;
-  if (props.preppendIcon || props.appendIcon) return "1rem 1fr 1rem";
-  return "1fr";
+  const columns = ["1fr"];
+  if(props.preppendIcon) columns.unshift("1rem");
+  if(props.appendIcon) columns.push("1rem");
+  return columns.join(" ");
 });
 
 // Methods
@@ -174,6 +179,7 @@ const onClick = (ev: MouseEvent) => {
   width: v-bind(width);
   height: v-bind(height);
   border: 2px solid transparent;
+  justify-items: v-bind(justifyItems);
   background-color: v-bind(colorInner);
   justify-content: v-bind(justifyContent);
   grid-template-columns: v-bind(gridTemplateColumnsButton);
@@ -184,10 +190,6 @@ const onClick = (ev: MouseEvent) => {
 
   &--loading {
     pointer-events: none;
-  }
-
-  &.custom-button__container--icon .custom-button__text {
-    grid-column: 2;
   }
 
   &:not(&--outlined) {

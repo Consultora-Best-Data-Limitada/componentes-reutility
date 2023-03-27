@@ -375,7 +375,7 @@
         icon="fas-home"
         color="neutro-1"
         container-size="2rem"
-        background-color="acento-principal"
+        background-color="acento-secundario"
       />
       <IconButton
         disabled
