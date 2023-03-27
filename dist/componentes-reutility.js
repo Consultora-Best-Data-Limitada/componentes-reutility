@@ -44,8 +44,8 @@ const ht = () => {
   setup(e) {
     const t = e;
     We((u) => ({
-      37979260: e.size,
-      "5193d77c": s(a)
+      "5f0fcac4": e.size,
+      "05f134e0": s(a)
     }));
     const n = ht();
     st(() => {
@@ -55,7 +55,7 @@ const ht = () => {
       if (!r.value)
         return;
       const u = await fetch(o.value);
-      r.value.innerHTML = await u.text();
+      console.log(u), r.value.innerHTML = await u.text();
       const d = r.value.querySelector("svg");
       d && (d.setAttribute("width", t.size.toString()), d.setAttribute("height", t.size.toString()));
     };
@@ -71,7 +71,7 @@ const Ce = (e, t) => {
   for (const [r, a] of t)
     n[r] = a;
   return n;
-}, rn = /* @__PURE__ */ Ce(cu, [["__scopeId", "data-v-55ba2260"]]), fu = { class: "font-awesome-icon__container" }, du = /* @__PURE__ */ me({
+}, rn = /* @__PURE__ */ Ce(cu, [["__scopeId", "data-v-8a5b1aab"]]), fu = { class: "font-awesome-icon__container" }, du = /* @__PURE__ */ me({
   __name: "FontAwesomeIcon",
   props: {
     name: {

@@ -62,6 +62,7 @@ const realSrc = computed(() => {
 const mountSVG = async () => {
   if (!svgContent.value) return;
   const response = await fetch(realSrc.value);
+  console.log(response);
   svgContent.value.innerHTML = await response.text();
   const svg = svgContent.value.querySelector("svg");
   if (!svg) return;
