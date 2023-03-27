@@ -4,12 +4,18 @@
     :class="customButtonClass"
     @click="onClick"
   >
-    <template v-if="preppendIcon">
+    <template v-if="preppendIcon && !loading">
       <FontAwesomeIcon
-        v-if="!loading"
+        v-if="preppendIcon.startsWith('fa')"
         size="1rem"
         :color="iconColor"
         :name="preppendIcon"
+      />
+      <SvgIcon
+        v-else
+        size="1rem"
+        :color="iconColor"
+        :src="preppendIcon"
       />
     </template>
     <span class="custom-button__text">
@@ -19,12 +25,18 @@
       />
       <slot v-else/>
     </span>
-    <template v-if="appendIcon">
+    <template v-if="appendIcon && !loading">
       <FontAwesomeIcon
-        v-if="!loading"
+        v-if="appendIcon.startsWith('fa')"
         size="1rem"
         :color="iconColor"
         :name="appendIcon"
+      />
+      <SvgIcon
+        v-else
+        size="1rem"
+        :color="iconColor"
+        :src="preppendIcon"
       />
     </template>
   </button>
@@ -44,6 +56,7 @@ import type {PropType} from "vue";
 // Componentes
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 import LdThreeBounce from "./icons/LdThreeBounce.vue";
+import SvgIcon from "@/plugin/components/SvgIcon.vue";
 
 // Definiciones
 

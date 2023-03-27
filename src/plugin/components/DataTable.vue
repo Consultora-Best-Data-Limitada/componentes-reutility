@@ -33,10 +33,16 @@
           class="data-table__row--empty"
         >
           <FontAwesomeIcon
-            v-if="!hideNoDataIcon"
+            v-if="!hideNoDataIcon && noDataIcon.startsWith('fa')"
             size="5rem"
             color="neutro-4"
             :name="noDataIcon"
+          />
+          <SvgIcon
+            v-else-if="!hideNoDataIcon"
+            size="5rem"
+            color="neutro-4"
+            :src="noDataIcon"
           />
           {{
             noDataText
@@ -109,6 +115,7 @@ import { useDateTable } from "../composables/dataTable";
 // Componentes
 import IconButton from "./IconButton.vue";
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
+import SvgIcon from "@/plugin/components/SvgIcon.vue";
 
 // Definiciones
 
