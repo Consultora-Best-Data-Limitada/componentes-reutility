@@ -3,8 +3,7 @@ import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue"
 
 export declare interface SvgIconProps {
   color?: CSS.ColorProperty | CustomColor;
-  src?: string;
-  name?: string;
+  src: string;
   size?: CSS.WidthProperty<string | number>;
 }
 

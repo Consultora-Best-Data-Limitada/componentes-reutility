@@ -12,7 +12,7 @@
       />
       <SvgIcon
         v-else
-        :name="icon"
+        :src="icon"
         :size="size"
         :color="colorInner"
       />

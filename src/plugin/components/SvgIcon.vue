@@ -24,12 +24,8 @@ const props = defineProps({
     type: String as PropType<CSS.ColorProperty | CustomColor>,
   },
   src: {
-    default: "",
     type: String,
-  },
-  name: {
-    default: "",
-    type: String,
+    required: true,
   },
   size: {
     default: "1.5rem",
@@ -58,10 +54,7 @@ const colorInner = computed(() => {
 });
 
 const realSrc = computed(() => {
-  if (props.src) {
-    return new URL(props.src, import.meta.url).href;
-  }
-  return new URL(`../../../../src/assets/svg/${props.name}.svg`, import.meta.url).href;
+  return new URL(props.src, import.meta.url).href;
 });
 
 // Methods
