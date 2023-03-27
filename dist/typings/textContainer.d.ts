@@ -1,7 +1,7 @@
 import type CSS from "csstype";
-import type {VNode, DefineComponent} from "vue";
+import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
-declare const TextContainer: DefineComponent<{
+export declare interface TextContainerProps {
   fontSize?: CSS.FontSizeProperty<string | number>;
   padding?: CSS.PaddingProperty<string | number>;
   lineHeight?: CSS.LineHeightProperty<string | number>;
@@ -20,9 +20,13 @@ declare const TextContainer: DefineComponent<{
   clickable?: boolea;
   borderRadius?: CSS.BorderRadiusProperty<string>;
   "@click"?: (ev: MouseEvent) => void;
+}
+
+export declare const TexContainer: new () => {
+  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & RouterViewProps;
   $slots: {
     default?: (({Component}: {
       Component: VNode;
     }) => VNode[]) | undefined;
   };
-}>;
+};

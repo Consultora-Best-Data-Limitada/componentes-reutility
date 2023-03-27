@@ -1,7 +1,7 @@
 import type {App} from "vue";
 
 import {CheckBox} from "./typings/checkBox";
-import {TextContainer} from "./typings/textContainer";
+import TextContainer from "./typings/textContainer";
 // import {ConfirmationDialog} from "./typings/confirmationDialog";
 // import {CustomButton} from "./typings/customButton";
 // import {CustomDatePicker} from "./typings/customDatePicker";
