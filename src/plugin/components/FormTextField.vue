@@ -11,7 +11,6 @@
       :disabled="disabled"
       :outlined="outlined"
       :clearable="clearable"
-      :append-icon="appendIcon"
       :placeholder="placeholder"
       :error-message="errorMessage"
       @blur="onBlur"
@@ -19,13 +18,18 @@
       @keyup="onKeyup"
       @focus="onFocus"
       @keydown="onKeydown"
-    />
+    >
+      <slot
+        v-if="checkSlot()"
+        name="append"
+      />
+    </CustomTextField>
   </div>
 </template>
 
 <script setup lang="ts">
 // Vue
-import { computed } from "vue";
+import {computed, useSlots} from "vue";
 
 // Tipos
 import type CSS from "csstype";
@@ -76,13 +80,13 @@ const props = defineProps({
     default: "text",
     type: String as PropType<"email" | "phone" | "text" | "time" | "password">,
   },
-  appendIcon: {
-    default: "",
-    type: String,
-  },
 });
 
 const emits = defineEmits(["update:model-value", "keydown", "keyup", "input", "focus", "blur"]);
+
+// Composables
+
+const slots = useSlots();
 
 // Computed
 
@@ -100,6 +104,12 @@ const labelColor = computed(() => {
   if (props.dark) return "rgb(var(--neutro-1))";
   return "rgb(var(--secundario))";
 });
+
+// Methods
+
+const checkSlot = () => {
+  return !!slots["append"];
+};
 
 // Emits
 

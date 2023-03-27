@@ -19,7 +19,7 @@
         />
         <SvgIcon
           v-else
-          :name="checkedIcon"
+          :src="checkedIcon"
           :size="checkedIconSize"
           :color="checkedColorInner"
         />
@@ -33,7 +33,7 @@
     />
     <SvgIcon
       v-else
-      :name="boxIcon"
+      :src="boxIcon"
       :size="boxIconSize"
       :color="boxColorInner"
     />

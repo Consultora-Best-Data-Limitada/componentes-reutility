@@ -22,7 +22,7 @@
         <SvgIcon
           v-else
           size="5rem"
-          :name="icon"
+          :src="icon"
           color="acento-principal"
         />
       </FlexContainer>

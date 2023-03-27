@@ -24,12 +24,8 @@ const props = defineProps({
     type: String as PropType<CSS.ColorProperty | CustomColor>,
   },
   src: {
-    default: "",
     type: String,
-  },
-  name: {
-    default: "",
-    type: String,
+    required: true,
   },
   size: {
     default: "1.5rem",
@@ -57,18 +53,11 @@ const colorInner = computed(() => {
   return colors.getRealColor(props.color);
 });
 
-const realSrc = computed(() => {
-  if (props.src) {
-    return new URL(props.src, import.meta.url).href;
-  }
-  return new URL(`/src/assets/svg/${props.name}.svg`, import.meta.url).href;
-});
-
 // Methods
 
 const mountSVG = async () => {
   if (!svgContent.value) return;
-  const response = await fetch(realSrc.value);
+  const response = await fetch(props.src);
   svgContent.value.innerHTML = await response.text();
   const svg = svgContent.value.querySelector("svg");
   if (!svg) return;
@@ -78,7 +67,9 @@ const mountSVG = async () => {
 
 // Watchs
 
-watch(realSrc, mountSVG);
+watch(() => props.src, mountSVG);
+
+watch(() => props.size, mountSVG);
 </script>
 
 <style scoped lang="scss">

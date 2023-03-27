@@ -53,7 +53,9 @@ const emits = defineEmits(["click"]);
 
 // Computed
 
-const realSrc = computed(() => new URL(`/src/assets/${props.src}`, import.meta.url).href);
+const realSrc = computed(() => {
+  return new URL(props.src, import.meta.url).href;
+});
 
 const imageContainerClass = computed(() => ({
   image__container: true,
