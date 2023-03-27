@@ -8,6 +8,7 @@
   "type": "module",
   "types": "./dist/index.d.ts",
   "files": [
+    "dist/index.css",
     "dist/*.{js,cjs,mjs}",
     "dist/index.d.ts",
     "dist/typings/*.d.ts"
