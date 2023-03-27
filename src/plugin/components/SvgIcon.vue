@@ -53,15 +53,11 @@ const colorInner = computed(() => {
   return colors.getRealColor(props.color);
 });
 
-const realSrc = computed(() => {
-  return new URL(props.src, import.meta.url).href;
-});
-
 // Methods
 
 const mountSVG = async () => {
   if (!svgContent.value) return;
-  const response = await fetch(realSrc.value);
+  const response = await fetch(props.src);
   console.log(response);
   svgContent.value.innerHTML = await response.text();
   const svg = svgContent.value.querySelector("svg");
@@ -72,7 +68,7 @@ const mountSVG = async () => {
 
 // Watchs
 
-watch(realSrc, mountSVG);
+watch(() => props.src, mountSVG);
 </script>
 
 <style scoped lang="scss">

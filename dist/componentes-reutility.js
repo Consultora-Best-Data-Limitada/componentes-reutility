@@ -43,23 +43,23 @@ const ht = () => {
   },
   setup(e) {
     const t = e;
-    We((u) => ({
-      "5f0fcac4": e.size,
-      "05f134e0": s(a)
+    We((l) => ({
+      eefcadf6: e.size,
+      "705f6a92": s(a)
     }));
     const n = ht();
     st(() => {
-      l();
+      o();
     });
-    const r = W(null), a = k(() => n.getRealColor(t.color)), o = k(() => new URL(t.src, import.meta.url).href), l = async () => {
+    const r = W(null), a = k(() => n.getRealColor(t.color)), o = async () => {
       if (!r.value)
         return;
-      const u = await fetch(o.value);
-      console.log(u), r.value.innerHTML = await u.text();
-      const d = r.value.querySelector("svg");
-      d && (d.setAttribute("width", t.size.toString()), d.setAttribute("height", t.size.toString()));
+      const l = await fetch(t.src);
+      console.log(l), r.value.innerHTML = await l.text();
+      const u = r.value.querySelector("svg");
+      u && (u.setAttribute("width", t.size.toString()), u.setAttribute("height", t.size.toString()));
     };
-    return mt(o, l), (u, d) => (m(), S("div", {
+    return mt(() => t.src, o), (l, u) => (m(), S("div", {
       ref_key: "svgContent",
       ref: r,
       class: "svg-icon__container"
@@ -71,7 +71,7 @@ const Ce = (e, t) => {
   for (const [r, a] of t)
     n[r] = a;
   return n;
-}, rn = /* @__PURE__ */ Ce(cu, [["__scopeId", "data-v-8a5b1aab"]]), fu = { class: "font-awesome-icon__container" }, du = /* @__PURE__ */ me({
+}, rn = /* @__PURE__ */ Ce(cu, [["__scopeId", "data-v-3c333760"]]), fu = { class: "font-awesome-icon__container" }, du = /* @__PURE__ */ me({
   __name: "FontAwesomeIcon",
   props: {
     name: {
