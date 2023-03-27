@@ -6,7 +6,11 @@
   "module": "dist/componentes-reutility.js",
   "browser": "dist/componentes-reutility.js",
   "type": "module",
-  "types": "./dist/src/plugin",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/*.{js,cjs,mjs}",
+    "dist/index.d.ts"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -16,9 +20,10 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
+  "web-types": "./dist/web-types.json",
   "exports": {
     ".": {
-      "types": "./dist/src/plugin/index.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/componentes-reutility.js",
       "require": "./dist/componentes-reutility.umd.cjs"
     },
