@@ -6,12 +6,11 @@
   "module": "dist/componentes-reutility.js",
   "browser": "dist/componentes-reutility.js",
   "type": "module",
-  "types": "dist/index.d.ts",
+  "types": "typings/index.d.ts",
   "files": [
     "dist/index.css",
     "dist/*.{js,cjs,mjs}",
-    "dist/typings/*.d.ts",
-    "dist/index.d.ts"
+    "typings/*.d.ts"
   ],
   "scripts": {
     "dev": "vite",
@@ -24,7 +23,7 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./typings/index.d.ts",
       "import": "./dist/componentes-reutility.js",
       "require": "./dist/componentes-reutility.umd.cjs"
     },
