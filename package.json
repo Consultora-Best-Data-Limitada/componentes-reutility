@@ -22,7 +22,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
-  "web-types": "./dist/web-types.json",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
