@@ -231,10 +231,13 @@ const onKeydown = (ev: KeyboardEvent) => {
   }
 }
 
-.custom-text-field__input,
 .custom-text-field__input:-webkit-autofill,
 .custom-text-field__input:-webkit-autofill:hover,
 .custom-text-field__input:-webkit-autofill:focus {
+  background-color: transparent;
+}
+
+.custom-text-field__input {
   width: 100%;
   outline: none;
   height: 2.25rem;
