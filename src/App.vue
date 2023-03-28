@@ -119,6 +119,9 @@
       >
         Clickable
       </TextContainer>
+      <TextContainer
+        special-text="Hola *mundo* hola que pasa *prueba* jesus"
+      />
     </GridRow>
     <PanelTitle closable> Título formulario</PanelTitle>
     <GridRow
@@ -487,6 +490,7 @@
 <script setup lang="ts">
 // Vue
 import { computed, reactive, ref } from "vue";
+import TextContainer from "@/plugin/components/TextContainer.vue";
 
 interface User {
   id: string;
