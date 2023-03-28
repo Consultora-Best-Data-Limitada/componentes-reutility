@@ -36,31 +36,31 @@ Este componente es una casilla de verificación que puede ser seleccionada o no 
 
 ## Props
 
-| Propiedad          | Tipo                                           | Requerido |    Valor por defecto             | Descripción                                                                                                                          |
-| ------------------ | ---------------------------------------------- | --------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `boxIcon`         | `String` | No| `fal-square`       |  El nombre del ícono a utilizar para la caja que rodea a la casilla de verificación. Puede ser cualquier nombre de ícono que se encuentre en la biblioteca de íconos utilizada por el proyecto. |
-| `boxColor`        | `String` | No| `acento-principal` | El color de la caja que rodea a la casilla de verificación. Puede ser cualquier color válido en CSS o un nombre de color personalizado definido en el proyecto.|
-| `checkedColor`    | `String` | No| `acento-principal` | El color de la casilla de verificación cuando está seleccionada. Puede ser cualquier color válido en CSS o un nombre de color personalizado definido en el proyecto. |
-| `readonly`        | `Boolean`| No| `false`            | Indica si la casilla de verificación es de solo lectura  |
-| `disabled`        | `Boolean`| No| `false`            | Indica si la casilla de verificación está deshabilitada o no.|
-| `boxIconSize`     | `String` | No| `1rem`             | El tamaño del ícono de la caja que rodea a la casilla de verificación. Puede ser cualquier valor válido de tamaño de fuente en CSS. |
-| `checkedIcon`     | `String` | No| `fas-square-check` | El nombre del ícono a utilizar para la casilla de verificación cuando está seleccionada. Puede ser cualquier nombre de ícono que se encuentre en la biblioteca de íconos utilizada por el proyecto. |
-| `checkedIconSize` | `String` | No| `1rem`             | El tamaño del ícono de la casilla de verificación cuando está seleccionada. Puede ser cualquier valor válido de tamaño de fuente en CSS. |
-| `modelValue`      | `Boolean`| Sí| `false`            | El valor booleano que indica si la casilla de verificación está seleccionada o no. Este valor debe ser pasado al componente y actualizado en respuesta a los cambios de estado de la casilla de verificación. |
+| Propiedad         | Tipo      | Requerido   | Valor por defecto  | Descripción                                                                                | 
+| ----------------- | --------- | :---------: | ------------------ | ------------------------------------------------------------------------------------------ |
+| `boxIcon`         | `String`  | No          | `fal-square`       |  El nombre del ícono a utilizar para la caja que rodea a la casilla de verificación. 
+| `boxColor`        | `String`  | No          | `acento-principal` | El color de la caja que rodea a la casilla de verificación.
+| `checkedColor`    | `String`  | No          | `acento-principal` | El color de la casilla de verificación cuando está seleccionada.
+| `readonly`        | `Boolean` | No          | `false`            | Indica si la casilla de verificación es de solo lectura  |
+| `disabled`        | `Boolean` | No          | `false`            | Indica si la casilla de verificación está deshabilitada o no.|
+| `boxIconSize`     | `String`  | No          | `1rem`             | El tamaño del ícono de la caja que rodea a la casilla de verificación. 
+| `checkedIcon`     | `String`  | No          | `fas-square-check` | El nombre del ícono a utilizar para la casilla de verificación cuando está seleccionada.
+| `checkedIconSize` | `String`  | No          | `1rem`             | El tamaño del ícono de la casilla de verificación cuando está seleccionada. 
+| `modelValue`      | `Boolean` | Sí          | `false`            | El valor booleano que indica si la casilla de verificación está seleccionada o no. 
 # Confirmation Dialog 
 Es un componente que consiste en una ventana emergente que se muestra en una aplicación para pedir al usuario que confirme una acción antes de que se realice. 
 ## Props 
-| Propiedad    | Tipo               | Requerido   | Valor por defecto | Descripción | 
-| ------------ | ------------------ | :---------: | ----------------- | ----------- |
-| `title`      | `String`           | Sí          | `undefined`       | Título del dialogo |
-| `subtitle`   | `String`           | No          | `""`              | Subtítulo opcional del dialogo |  
-| `modelValue` | `Boolean`          | Sí          | `false`           | Propiedad reactiva que controla si se muestra o no la ventana modal  |
-| `Width`      | `WidthProperty`    | No          | `520px`           | Ancho máximo de la ventana modal |  
+| Propiedad    | Tipo               | Requerido   | Valor por defecto | Descripción                                                            | 
+| ------------ | ------------------ | :---------: | ----------------- | ---------------------------------------------------------------------- |
+| `title`      | `String`           | Sí          | `""`              | Título del dialogo 
+| `subtitle`   | `String`           | No          | `""`              | Subtítulo opcional del dialogo 
+| `modelValue` | `Boolean`          | Sí          | `false`           | Propiedad reactiva que controla si se muestra o no la ventana modal
+| `Width`      | `WidthProperty`    | No          | `520px`           | Ancho máximo de la ventana modal 
 
 
 
 # Custom Button 
-Es un componente
+Es un componente que consiste en un boton que se puede personalizar.
 ## Props 
 
 | Propiedad            | Tipo                          | Requerido   | Valor por defecto | Descripción                                                                                | 
@@ -133,42 +133,42 @@ Es un componente
 ## Props
 | Propiedad       | Tipo              | Requerido   | Valor por defecto | Descripción                                                                                    | 
 | -------------- | ------------------ | :---------: | ----------------- | ---------------------------------------------------------------------------------------------- |
-| `placeholder`  | `String`           | Sí          | -                 | Texto que se muestra como indicación del contenido esperado en el campo de entrada             | 
-| `modelValue`   | `String \| Number` | No          | `""`              | Valor actual del campo de entrada                                                              |
-| `clearable`    | `Boolean`          | No          | -                 | Si se debe mostrar un botón para borrar el contenido del campo de entrada                      |
-| `errorMessage` | `String`           | No          | `""`              | Mensaje de error que se muestra debajo del campo de entrada en caso de una validación fallida  |
-| `disabled`     | `Boolean`          | No          | -                 | Si el campo de entrada está inhabilitado o no                                                  |
-| `outlined`     | `Boolean`          | No          | -                 | Si el campo de entrada tiene un borde delgado en lugar de uno sólido                           |
-| `readonly`     | `Boolean`          | No          | -                 | Si el campo de entrada es solo de lectura o no                                                 |
-| `type`         | `String`           | No          | `text`            | Tipo de campo de entrada, puede ser "email", "phone", "text", "time" o "password"              |
-| `dark`         | `Boolean`          | No          | -                 | Si el campo de entrada debe estar en modo oscuro o no                                          |
+| `placeholder`  | `String`           | Sí          | -                 | Texto que se muestra como indicación del contenido esperado en el campo de entrada              
+| `modelValue`   | `String \| Number` | No          | `""`              | Valor actual del campo de entrada                                                              
+| `clearable`    | `Boolean`          | No          | -                 | Si se debe mostrar un botón para borrar el contenido del campo de entrada                      
+| `errorMessage` | `String`           | No          | `""`              | Mensaje de error que se muestra debajo del campo de entrada en caso de una validación fallida  
+| `disabled`     | `Boolean`          | No          | -                 | Si el campo de entrada está inhabilitado o no                                                  
+| `outlined`     | `Boolean`          | No          | -                 | Si el campo de entrada tiene un borde delgado en lugar de uno sólido                           
+| `readonly`     | `Boolean`          | No          | -                 | Si el campo de entrada es solo de lectura o no                                                 
+| `type`         | `String`           | No          | `text`            | Tipo de campo de entrada, puede ser "email", "phone", "text", "time" o "password"              
+| `dark`         | `Boolean`          | No          | -                 | Si el campo de entrada debe estar en modo oscuro o no                                          
 
 
 # Data Table
 ## Props
 | Propiedad             | Tipo                | Requerido  | Valor por defecto          | Descripción                                                                                    | 
 | --------------------- | ------------------- | :--------: | -------------------------- | ---------------------------------------------------------------------------------------------- |
-| `items`               | `DataTableItem[]`   | Sí         | -                          | Los datos que se mostrarán en la tabla.    |
-| `headers`             | `DataTableHeader[]` | Sí         | -                          | Los encabezados de la tabla.   |
-| `itemsPerPage`        | `Number`            | No         | `10`                       | El número máximo de filas que se mostrarán en la tabla por página.   |
-| `height`              | `String`            | No         | `"100%"`                   | La altura de la tabla.  |
-| `gridTemplateColumns` | `String`            | No         | `""`                       | La plantilla de columnas de cuadrícula de CSS que se utilizará para establecer la anchura de las columnas en la tabla.  |
-| `noDataText`          | `String`            | No         | `No hay datos registrados` | El texto que se mostrará cuando no haya datos para mostrar en la tabla.  |
-| `selected`            | `String`            | No         | `""`                       | La fila seleccionada actualmente.    |
-| `compareSelectedWith` | `String`            | No         | `"id"`                     | La clave que se utilizará para comparar la fila seleccionada con los objetos en la matriz `items`.  |
-| `disabledKey`         | `String`            | No         | `""`                       | La clave que se utilizará para determinar si una fila está deshabilitada.  |
-| `disabledValue`       | `String`            | No         | `""`                       | El valor que se utilizará para determinar si una fila está deshabilitada.  |
-| `hideNoDataIcon`      | `Boolean`           | No         | `false`                    | Indica si se debe ocultar el icono que se muestra cuando no hay datos en el componente.|
-| `noDataIcon`          | `String`            | No         | `far-face-frown-slight`    | Define el icono que se muestra cuando no hay datos en el componente.    |
+| `items`               | `DataTableItem[]`   | Sí         | `[]`                       | Los datos que se mostrarán en la tabla.    
+| `headers`             | `DataTableHeader[]` | Sí         | `[]`                       | Los encabezados de la tabla.   
+| `itemsPerPage`        | `Number`            | No         | `10`                       | El número máximo de filas que se mostrarán en la tabla por página.   
+| `height`              | `String`            | No         | `100%`                     | La altura de la tabla.  
+| `gridTemplateColumns` | `String`            | No         | `""`                       | La plantilla de columnas de cuadrícula de CSS que se utilizará para establecer la anchura de las columnas en la tabla.  
+| `noDataText`          | `String`            | No         | `No hay datos registrados` | El texto que se mostrará cuando no haya datos para mostrar en la tabla.  
+| `selected`            | `String`            | No         | `""`                       | La fila seleccionada actualmente.    
+| `compareSelectedWith` | `String`            | No         | `id`                       | La clave que se utilizará para comparar la fila seleccionada con los objetos en la matriz `items`.  
+| `disabledKey`         | `String`            | No         | `""`                       | La clave que se utilizará para determinar si una fila está deshabilitada.  
+| `disabledValue`       | `String`            | No         | `""`                       | El valor que se utilizará para determinar si una fila está deshabilitada.  
+| `hideNoDataIcon`      | `Boolean`           | No         | `false`                    | Indica si se debe ocultar el icono que se muestra cuando no hay datos en el componente.
+| `noDataIcon`          | `String`            | No         | `far-face-frown-slight`    | Define el icono que se muestra cuando no hay datos en el componente.    
 # Data Table Item
 ## Props
 
 | Propiedad       | Tipo                          | Requerido | Valor por defecto | Descripción                                                                 |
 | --------------- | ----------------------------- | --------- | ----------------- | --------------------------------------------------------------------------- |
-| `disabled`      | `Boolean`                     | No        | N/A               | Indica si el componente está deshabilitado o no.                           |
-| `selected`      | `Boolean`                     | No        | N/A               | Indica si el componente está seleccionado o no.                             |
-| `textTransform` | `String`                      | No        | `""`              | Especifica la transformación del texto.                                      |
-| `textAlign`     | `String`                      | No        | `"center"`        | Especifica la alineación del texto.                                          |
+| `disabled`      | `Boolean`                     | No        | `false`           | Indica si el componente está deshabilitado o no.                           
+| `selected`      | `Boolean`                     | No        | `false`           | Indica si el componente está seleccionado o no.                             
+| `textTransform` | `String`                      | No        | `""`              | Especifica la transformación del texto.                                      
+| `textAlign`     | `String`                      | No        | `"center"`        | Especifica la alineación del texto.                                          
 
 La propiedad `textTransform` puede tomar uno de los siguientes valores: `none`, `capitalize`, `uppercase`, `lowercase`, `full-width`.
 
@@ -178,28 +178,28 @@ La propiedad `textAlign` puede tomar uno de los siguientes valores: `left`, `rig
 ## Props
 | Propiedad     | Tipo                             | Requerido   | Valor por defecto | Descripción                                                                                      | 
 | ------------- | -------------------------------- | :---------: | ----------------- | ------------------------------------------------------------------------------------------------ |
-| `label`       | `String`                         | Sí          | -                 | El texto que se muestra como etiqueta para el componente de calendario.                          |
-| `placeholder` | `String`                         | No          | `""`              | El texto que se muestra en el componente de calendario cuando no hay ninguna fecha seleccionada. |
-| `modelValue`  | `Array<Date> \| Date \| null \|` | No          | `null`            | El valor seleccionado actualmente en el componente de calendario.                                |
-| `range`       | `Boolean`                        | No          | -                 | Indica si se permitirá seleccionar un rango de fechas en lugar de una fecha única.               |
-| `maxDate`     | `String \| Date`                 | No          | `""`              | La fecha máxima permitida para ser seleccionada en el componente de calendario.                  |
-| `minDate`     | `String \| Date`                 | No          | `""`              | La fecha mínima permitida para ser seleccionada en el componente de calendario.                  |
+| `label`       | `String`                         | Sí          | -                 | El texto que se muestra como etiqueta para el componente de calendario.                          
+| `placeholder` | `String`                         | No          | `""`              | El texto que se muestra en el componente de calendario cuando no hay ninguna fecha seleccionada. 
+| `modelValue`  | `Array<Date> \| Date \| null \|` | No          | `null`            | El valor seleccionado actualmente en el componente de calendario.                                
+| `range`       | `Boolean`                        | No          | -                 | Indica si se permitirá seleccionar un rango de fechas en lugar de una fecha única.               
+| `maxDate`     | `String \| Date`                 | No          | `""`              | La fecha máxima permitida para ser seleccionada en el componente de calendario.                  
+| `minDate`     | `String \| Date`                 | No          | `""`              | La fecha mínima permitida para ser seleccionada en el componente de calendario.                  
 
 # Filter Select
 ## Props
 | Propiedad      | Tipo                                          | Requerido  | Valor por defecto | Descripción                                                                                     | 
 | -------------- | --------------------------------------------- | :--------: | ----------------- | ----------------------------------------------------------------------------------------------- |
-| `label`	       | `String`	                                     | Sí	        | - 	              | Etiqueta del campo de selección                                                                 |
-| `placeholder`  | `String`	                                     | Sí	        | -	                | Texto de marcador de posición para el campo de selección                                        |
-| `itemValue`	   | `String`                                      | No	        | `value`	          | Propiedad del objeto de la lista de elementos utilizada como valor del elemento seleccionado    |
-| `itemTitle`    | `String`	                                     | No	        | `title`	          | Propiedad del objeto de la lista de elementos utilizada como etiqueta del elemento seleccionado |
-| `returnObject` | `Boolean`                                     | No	        | `false`	          | Indica si el valor seleccionado debe ser el objeto completo o solo su propiedad "itemValue"     |
-| `textMultiple` | `String`	                                     | No         |	`""`	            | Texto que se muestra cuando se han seleccionado varios elementos.                               |
-| `items`	       | `Array`                                       | Sí         | 	-	              | Lista de elementos que se pueden seleccionar                                                    |
-| `textTransform`| `String`	                                     | No         |	`initial`         |	Estilo de transformación de texto para la etiqueta del elemento seleccionado                    |
-| `multiple`	   | `Boolean`                                     | No	        | `false`	          | Indica si se permiten selecciones múltiples                                                     |
-| `modelValue`	 | `String \| Number \| Object \| Array \| null` | No         | `null`	          | Valor o valores seleccionados en el campo de selección                                          | 
-| `searchable`   | `Boolean`	                                   | No	        | `false`           |	Indica si se puede buscar en la lista de elementos                                              |
+| `label`	       | `String`	                                     | Sí	        | - 	              | Etiqueta del campo de selección                                                                 
+| `placeholder`  | `String`	                                     | Sí	        | -	                | Texto de marcador de posición para el campo de selección                                        
+| `itemValue`	   | `String`                                      | No	        | `value`	          | Propiedad del objeto de la lista de elementos utilizada como valor del elemento seleccionado    
+| `itemTitle`    | `String`	                                     | No	        | `title`	          | Propiedad del objeto de la lista de elementos utilizada como etiqueta del elemento seleccionado 
+| `returnObject` | `Boolean`                                     | No	        | `false`	          | Indica si el valor seleccionado debe ser el objeto completo o solo su propiedad "itemValue"     
+| `textMultiple` | `String`	                                     | No         |	`""`	            | Texto que se muestra cuando se han seleccionado varios elementos.                               
+| `items`	       | `Array`                                       | Sí         | 	-	              | Lista de elementos que se pueden seleccionar                                                    
+| `textTransform`| `String`	                                     | No         |	`initial`         |	Estilo de transformación de texto para la etiqueta del elemento seleccionado                    
+| `multiple`	   | `Boolean`                                     | No	        | `false`	          | Indica si se permiten selecciones múltiples                                                   
+| `modelValue`	 | `String \| Number \| Object \| Array \| null` | No         | `null`	          | Valor o valores seleccionados en el campo de selección                                           
+| `searchable`   | `Boolean`	                                   | No	        | `false`           |	Indica si se puede buscar en la lista de elementos                                              
 
 
 
@@ -222,9 +222,9 @@ La propiedad `textAlign` puede tomar uno de los siguientes valores: `left`, `rig
 ## Props
 | Propiedad  | Tipo               | Requerido  | Valor por defecto | Descripción                         | 
 | ---------- | ------------------ | :---------:| ----------------- | ----------------------------------- |
-| `name`	   | `String`           |	Sí         | 	-	               | El nombre del ícono a mostrar.      |
-| `color`	   | `String`           | No	       | `black`	         | El color del ícono en formato CSS.  |
-| `size`	   | `String \| Number` |	No	       | `1rem`	           | El tamaño del ícono en formato CSS. |
+| `name`	   | `String`           |	Sí         | `""`	             | El nombre del ícono a mostrar.      
+| `color`	   | `String`           | No	       | `black`	         | El color del ícono en formato CSS.  
+| `size`	   | `String \| Number` |	No	       | `1rem`	           | El tamaño del ícono en formato CSS. 
 # Form Date Picker
 ## Props
 | Propiedad             | Tipo                    | Requerido   | Valor por defecto | Descripción                                                                                      | 
@@ -270,9 +270,9 @@ La propiedad `textAlign` puede tomar uno de los siguientes valores: `left`, `rig
 ## Props
 | Propiedad             | Tipo               | Requerido   | Valor por defecto | Descripción                                                                                      | 
 | --------------------- | ------------------ | :---------: | ----------------- | ------------------------------------------------------------------------------------------------ |
-| `modelValue`	        | `String \| Number` | No          |	`""`	           | Valor del campo de entrada
+| `modelValue`	        | `String \| Number` | No          | `""`	             | Valor del campo de entrada
 | `label`	              | `String`	         | Sí	         | `""`	             | Etiqueta del campo de entrada
-| `placeholder`	        | `String`	         | Sí	         |  `""`	           | Placeholder del campo de entrada
+| `placeholder`	        | `String`	         | Sí	         | `""`	             | Placeholder del campo de entrada
 | `errorMessage`        | `String`	         | No	         | `""`	             | Mensaje de error del campo de entrada
 | `readonly`	          | `Boolean`          | No	         | `false`	         | Indica si el campo de entrada es de solo lectura
 | `dark`	              | `Boolean`	         | No	         | `false`	         | Indica si el campo de entrada se muestra en modo oscuro
@@ -302,22 +302,22 @@ En la propiedad `type` solo se puede escoger entre estos valores: `email`, `phon
 ## Props
 | Propiedad          | Tipo                                       | Requerido  | Valor por defecto | Descripción                                                                                      | 
 | ------------------ | ------------------------------------------ | :--------: | ----------------- | ------------------------------------------------------------------------------------------------ |
-| `alignContent`     | `AlignContentProperty`	                    |  No        | ""	               | Establece la alineación del contenido en el eje de la grilla.
-| `alignItems`	     | `AlignItemsProperty`	                      |  No        | ""	               | Establece la alineación de los elementos a lo largo del eje transversal.
-| `justifyContent`   | `JustifyContentProperty`	                  |  No        | ""	               | Establece la alineación de los elementos a lo largo del eje principal.
-| `justifyItems`	   | `JustifyItemsProperty`                     |  No        | ""	               | Establece la alineación del contenido a lo largo del eje principal.
-| `width`	           | `WidthProperty`	                          |  No        | "initial"	       | Establece el ancho del elemento.
-| `height`	         | `HeightProperty`	                          |  No        | "auto"	           | Establece la altura del elemento.
-| `margin`	         | `MarginProperty`	                          |  No        | 0	               | Establece el margen del elemento.
-| `rowGap`	         | `RowGapProperty`	                          |  No        | 0	               | Establece el espacio entre filas de la grilla.
-| `padding`	         | `PaddingProperty`	                        |  No        | 0	               | Establece el relleno del elemento.
-| `gridRow`	         | `GridRowProperty	`                         |  No        | ""	               | Establece la posición en la que el elemento aparece en la grilla en el eje de las filas.
-| `gridColumn`	     | `GridColumnProperty`	                      |  No        | ""	               | Establece la posición en la que el elemento aparece en la grilla en el eje de las columnas.
-| `gridTemplateRows` | `GridTemplateRowsProperty`	                |  No        | "initial"	       | Establece la cantidad de filas y su tamaño en la grilla.
-| `backgroundColor`	 | `BackgroundColorProperty \|	CustomColor`	|  No        | "transparent"     |
-| `borderRadius`	   | `BorderRadiusProperty`	                    |  No        | ""	               | Establece el radio de los bordes del elemento.
-| `boxShadow`	       | `BoxShadowProperty`	                      |  No        | ""	               | Establece la sombra del elemento.
-| `overflow`	       | `OverflowProperty`	                        |  No        | "initial"	       | Establece el comportamiento de desbordamiento del elemento.
+| `alignContent`     | `AlignContentProperty`	                    |  No        | `""`	               | Establece la alineación del contenido en el eje de la grilla.
+| `alignItems`	     | `AlignItemsProperty`	                      |  No        | `""`	               | Establece la alineación de los elementos a lo largo del eje transversal.
+| `justifyContent`   | `JustifyContentProperty`	                  |  No        | `""`	               | Establece la alineación de los elementos a lo largo del eje principal.
+| `justifyItems`	   | `JustifyItemsProperty`                     |  No        | `""`	               | Establece la alineación del contenido a lo largo del eje principal.
+| `width`	           | `WidthProperty`	                          |  No        | `initial`	       | Establece el ancho del elemento.
+| `height`	         | `HeightProperty`	                          |  No        | `auto`	           | Establece la altura del elemento.
+| `margin`	         | `MarginProperty`	                          |  No        | `0`	               | Establece el margen del elemento.
+| `rowGap`	         | `RowGapProperty`	                          |  No        | `0`	               | Establece el espacio entre filas de la grilla.
+| `padding`	         | `PaddingProperty`	                        |  No        | `0`	               | Establece el relleno del elemento.
+| `gridRow`	         | `GridRowProperty	`                         |  No        | `""`	               | Establece la posición en la que el elemento aparece en la grilla en el eje de las filas.
+| `gridColumn`	     | `GridColumnProperty`	                      |  No        | `""`	               | Establece la posición en la que el elemento aparece en la grilla en el eje de las columnas.
+| `gridTemplateRows` | `GridTemplateRowsProperty`	                |  No        | `initial`	       | Establece la cantidad de filas y su tamaño en la grilla.
+| `backgroundColor`	 | `BackgroundColorProperty \|	CustomColor`	|  No        | `transparent`     |
+| `borderRadius`	   | `BorderRadiusProperty`	                    |  No        | `""`	               | Establece el radio de los bordes del elemento.
+| `boxShadow`	       | `BoxShadowProperty`	                      |  No        | `""`	               | Establece la sombra del elemento.
+| `overflow`	       | `OverflowProperty`	                        |  No        | `initial`	       | Establece el comportamiento de desbordamiento del elemento.
 # Grid Container
 ## Props
 | Propiedad      | Tipo                           | Requerido   | Valor por defecto | Descripción                                                                                      | 
@@ -447,23 +447,24 @@ Es un componente que representa un contenedor de texto configurable.
 
 | Propiedad          | Tipo                           | Requerido   | Valor por defecto | Descripción                                                           | 
 | ------------------ | ------------------------------ | :---------: | ----------------- | --------------------------------------------------------------------- |
-| `fontSize`         | `String \| Number`             | No          | `"1rem"`          | Tamaño de fuente del texto.              
-| `padding`          | `String \| Number`             | No          | `"0"`             | Espacio entre el contenido y el borde del componente.            
-| `lineHeight`       | `String \| Number`             | No          | `"1rem"`          | Altura de línea del texto.
+| `fontSize`         | `String \| Number`             | No          | `1rem`            | Tamaño de fuente del texto.              
+| `padding`          | `String \| Number`             | No          | `0`               | Espacio entre el contenido y el borde del componente.            
+| `lineHeight`       | `String \| Number`             | No          | `1rem`            | Altura de línea del texto.
 | `textAlign`        | `String`                       | No          | `""`              | Alineación del texto.                                            
 | `textTransform`    | `String`                       | No          | `""`              | Transformación del texto.                                         
 | `color`            | `ColorProperty \| CustomColor` | No          | `""`              | Color del texto.                                                  
 | `hoverColor`       | `ColorProperty \| CustomColor` | No          | `""`              | Color del texto cuando se pasa el cursor sobre el componente.    
-| `activeColor`      | `ColorProperty \| CustomColor` | No          | `"#ffffff"`       | Color del texto cuando el componente está activo.                
-| `hoverBackground`  | `ColorProperty \| CustomColor` | No          | `"-neutro-1"`     | Color de fondo cuando se pasa el cursor sobre el componente.     
-| `activeBackground` | `ColorProperty \| CustomColor` | No          | `"-neutro-3"`     | Color de fondo cuando el componente está activo.                 
+| `activeColor`      | `ColorProperty \| CustomColor` | No          | `#ffffff`         | Color del texto cuando el componente está activo.                
+| `hoverBackground`  | `ColorProperty \| CustomColor` | No          | `-neutro-1`       | Color de fondo cuando se pasa el cursor sobre el componente.     
+| `activeBackground` | `ColorProperty \| CustomColor` | No          | `-neutro-3`       | Color de fondo cuando el componente está activo.                 
 | `whiteSpace`       | `String`                       | No          | `""`              | Espacio en blanco entre las palabras del texto.                   
 | `fontWeight`       | `String \| Number`             | No          | `""`              | Grosor de la fuente.                                              
 | `letterSpacing`    | `String \| Number`             | No          | `""`              | Espaciado entre las letras del texto.                             
-| `fontFamily`       | `String`                       | No          | `"Metropolis"`    | Tipo de fuente del texto.                                         
+| `fontFamily`       | `String`                       | No          | `Metropolis`      | Tipo de fuente del texto.                                         
 | `predefinedStyle`  | `String`                       | No          | `""`              | Estilo predefinido para el componente.
 | `clickable`        | `Boolean`                      | No          | N/A               | Indica si el componente es interactivo.                            
-| `borderRadius`     | `String`                       | No          | `"initial"`       | Radio de la esquina del borde del componente.                     
+| `borderRadius`     | `String`                       | No          | `initial`         | Radio de la esquina del borde del componente.
+| `specialText`      | `String`                       | No          | `""`              |                    
 
 La propiedad `predefinedStyle` define un conjunto de propiedades predefinidas que se aplican al componente en función del valor proporcionado. Puede ser uno de los siguientes valores: `primary`, `secondary`, `success`, `danger`, `warning`. 
 
