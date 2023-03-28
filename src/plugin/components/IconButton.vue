@@ -156,7 +156,7 @@ const onClick = (ev: MouseEvent) => {
 
   .icon-button__tooltip {
     opacity: 0;
-    z-index: 10;
+    z-index: 1007;
     padding: 0.5rem;
     visibility: hidden;
     border-radius: 1rem;
