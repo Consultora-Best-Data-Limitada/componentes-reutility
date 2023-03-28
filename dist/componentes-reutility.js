@@ -500,17 +500,17 @@ const $o = /* @__PURE__ */ Ce(hu, [["__scopeId", "data-v-584f9924"]]), gu = ["wi
   setup(e, { emit: t }) {
     const n = e;
     We((s) => ({
-      "6dae9baf": c(l),
-      f185f82e: e.width,
-      "46947f64": e.height,
-      a22398e6: e.justifyItems,
-      "5a924720": c(o),
-      "66c3c106": e.justifyContent,
-      "20dec3dc": c(k),
-      "398bb354": c(d),
-      "7dc86572": c(u)
+      "8a2861a2": c(l),
+      "7c0b7769": e.width,
+      "28d70838": e.height,
+      "6e1ed00d": e.justifyItems,
+      "7336ce20": c(o),
+      "1c3f3d86": e.justifyContent,
+      74225192: c(k),
+      "27c882d6": c(d),
+      "77bc78f2": c(u)
     }));
-    const r = ht(), a = w(() => n.outlined ? n.color : n.contentColor), o = w(() => r.getRealColor(n.color)), l = w(() => r.getRealColor(n.contentColor)), u = w(() => {
+    const r = ht(), a = w(() => n.disabled ? "neutro-4" : n.outlined ? n.color : n.contentColor), o = w(() => r.getRealColor(n.color)), l = w(() => r.getRealColor(n.contentColor)), u = w(() => {
       const s = `${n.color}-hover`;
       return !n.hoverColor && r.isCustom(s) ? r.getRealColor(s) : r.getRealColor(n.hoverColor);
     }), d = w(() => {
@@ -568,7 +568,7 @@ const $o = /* @__PURE__ */ Ce(hu, [["__scopeId", "data-v-584f9924"]]), gu = ["wi
     ], 10, Tu));
   }
 });
-const ia = /* @__PURE__ */ Ce(Cu, [["__scopeId", "data-v-d42ff4c8"]]), Ru = /* @__PURE__ */ me({
+const ia = /* @__PURE__ */ Ce(Cu, [["__scopeId", "data-v-e48ae763"]]), Ru = /* @__PURE__ */ me({
   __name: "TextContainer",
   props: {
     fontSize: {

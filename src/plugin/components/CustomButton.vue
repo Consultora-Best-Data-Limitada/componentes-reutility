@@ -124,7 +124,10 @@ const colors = useColors();
 
 // Computed
 
-const iconColor = computed(() => (props.outlined ? props.color : props.contentColor));
+const iconColor = computed(() => {
+  if(props.disabled) return "neutro-4";
+  return props.outlined ? props.color : props.contentColor;
+});
 
 const colorInner = computed(() => {
   return colors.getRealColor(props.color);
@@ -214,8 +217,8 @@ const onClick = (ev: MouseEvent) => {
 
     &:disabled {
       pointer-events: none;
-      color: rgba(var(--neutro-4));
-      background-color: rgba(var(--neutro-3));
+      color: rgb(var(--neutro-4));
+      background-color: rgb(var(--neutro-3));
     }
 
     &:hover {
