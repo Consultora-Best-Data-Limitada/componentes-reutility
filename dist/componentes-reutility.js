@@ -12052,13 +12052,17 @@ const d0 = /* @__PURE__ */ Ce(f0, [["__scopeId", "data-v-d95e0bb8"]]), y0 = /* @
     width: {
       default: "520px",
       type: String
+    },
+    iconColor: {
+      default: "acento-principal",
+      type: String
     }
   },
   emits: ["close", "update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
     We((a) => ({
-      "1728723e": e.width
+      "042303aa": e.width
     }));
     const r = w({
       get() {
@@ -12100,13 +12104,13 @@ const d0 = /* @__PURE__ */ Ce(f0, [["__scopeId", "data-v-d95e0bb8"]]), y0 = /* @
                   key: 0,
                   size: "5rem",
                   name: e.icon,
-                  color: "acento-principal"
-                }, null, 8, ["name"])) : (m(), X(xt, {
+                  color: e.iconColor
+                }, null, 8, ["name", "color"])) : (m(), X(xt, {
                   key: 1,
                   size: "5rem",
                   src: e.icon,
-                  color: "acento-principal"
-                }, null, 8, ["src"]))
+                  color: e.iconColor
+                }, null, 8, ["src", "color"]))
               ]),
               _: 1
             }),
@@ -12139,7 +12143,7 @@ const d0 = /* @__PURE__ */ Ce(f0, [["__scopeId", "data-v-d95e0bb8"]]), y0 = /* @
     }, 8, ["model-value"]));
   }
 });
-const m0 = /* @__PURE__ */ Ce(p0, [["__scopeId", "data-v-c4ed0681"]]), h0 = (e) => {
+const m0 = /* @__PURE__ */ Ce(p0, [["__scopeId", "data-v-9262ded4"]]), h0 = (e) => {
   e.component("CheckBox", wi), e.component("ConfirmationDialog", Nu), e.component("CustomButton", ia), e.component("CustomDatePicker", Uo), e.component("CustomDialog", So), e.component("CustomSelect", Wo), e.component("CustomTextField", Fo), e.component("DataTable", wh), e.component("DataTableItem", kh), e.component("FilterDatePicker", xh), e.component("FilterSelect", Ch), e.component("FlexContainer", tu), e.component("FontAwesomeIcon", Ye), e.component("FormDatePicker", Ah), e.component("FormSelect", Uh), e.component("FormTextField", Hh), e.component("GradientButton", qh), e.component("GridColumn", $o), e.component("GridRow", ki), e.component("HeaderTabs", Kh), e.component("IconButton", ko), e.component("ImageContainer", e0), e.component("InformationText", o0), e.component("PageSwitch", s0), e.component("PanelTitle", d0), e.component("SearchTextField", y0), e.component("SuccessDialog", m0), e.component("SvgIcon", xt), e.component("TextContainer", Ht);
 };
 export {

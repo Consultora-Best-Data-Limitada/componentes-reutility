@@ -8,6 +8,7 @@ export declare interface SuccessDialogProps {
   modelValue: boolean;
   subtitle?: string;
   width?: CSS.WidthProperty<string>;
+  iconColor?: CSS.ColorProperty | CustomColor;
   "@close"?: () => void;
   "@update:model-value"?: (value: boolean) => void;
 }

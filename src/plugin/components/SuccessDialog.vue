@@ -17,13 +17,13 @@
           v-if="icon.startsWith('fa')"
           size="5rem"
           :name="icon"
-          color="acento-principal"
+          :color="iconColor"
         />
         <SvgIcon
           v-else
           size="5rem"
           :src="icon"
-          color="acento-principal"
+          :color="iconColor"
         />
       </FlexContainer>
       <TextContainer
@@ -87,6 +87,10 @@ const props = defineProps({
   width: {
     default: "520px",
     type: String as PropType<CSS.WidthProperty<string>>,
+  },
+  iconColor: {
+    default: "acento-principal",
+    type: String as PropType<CSS.ColorProperty | CustomColor>,
   },
 });
 
