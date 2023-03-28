@@ -376,13 +376,14 @@
         color="neutro-1"
         container-size="2rem"
         background-color="acento-secundario"
-      />
+      >
+      </IconButton>
       <IconButton
         disabled
         icon="fas-home"
         color="acento-principal"
       >
-        Tooltip
+        Ver Informacion
       </IconButton>
       <IconButton
         disabled

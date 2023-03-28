@@ -163,11 +163,12 @@ const onClick = (ev: MouseEvent) => {
     top: calc(100% + 0.5rem);
     transition: all 300ms ease;
     color: rgb(var(--neutro-1));
-    background-color: rgb(var(--neutro-4));
+    background-color: rgba(var(--neutro-4), 0.7);
     // Text style
     font-size: 1rem;
     text-align: center;
     position: absolute;
+    white-space: nowrap;
     line-height: 1.25rem;
     font-family: "Metropolis", sans-serif;
   }
