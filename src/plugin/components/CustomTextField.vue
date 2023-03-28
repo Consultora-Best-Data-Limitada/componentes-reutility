@@ -42,10 +42,10 @@
 
 <script setup lang="ts">
 // Vue
-import { computed, ref, useSlots } from "vue";
+import {computed, ref, useSlots} from "vue";
 
 // Tipos
-import type { PropType } from "vue";
+import type {PropType} from "vue";
 
 // Componentes
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
@@ -231,7 +231,10 @@ const onKeydown = (ev: KeyboardEvent) => {
   }
 }
 
-.custom-text-field__input {
+.custom-text-field__input,
+.custom-text-field__input:-webkit-autofill,
+.custom-text-field__input:-webkit-autofill:hover,
+.custom-text-field__input:-webkit-autofill:focus {
   width: 100%;
   outline: none;
   height: 2.25rem;
