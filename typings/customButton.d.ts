@@ -12,6 +12,7 @@ export declare interface CustomButtonProps {
   disabled?: boolean;
   appendIcon?: string;
   preppendIcon?: string;
+  justifyItems?: CSS.JustifyItemsProperty;
   justifyContent?: CSS.JustifyContentProperty;
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
   loading?: boolean;

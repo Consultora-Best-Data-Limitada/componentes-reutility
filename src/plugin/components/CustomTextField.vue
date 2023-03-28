@@ -42,10 +42,10 @@
 
 <script setup lang="ts">
 // Vue
-import { computed, ref, useSlots } from "vue";
+import {computed, ref, useSlots} from "vue";
 
 // Tipos
-import type { PropType } from "vue";
+import type {PropType} from "vue";
 
 // Componentes
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
@@ -199,7 +199,8 @@ const onKeydown = (ev: KeyboardEvent) => {
     border: 1px solid rgb(var(--neutro-4));
   }
 
-  &--focused {
+  &--focused,
+  &:has(.custom-text-field__input:-webkit-autofill) {
     border: 2px solid rgb(var(--acento-principal));
 
     &.custom-text-field__input-container--dark {
@@ -229,6 +230,14 @@ const onKeydown = (ev: KeyboardEvent) => {
       }
     }
   }
+}
+
+.custom-text-field__input:-webkit-autofill,
+.custom-text-field__input:-webkit-autofill:hover,
+.custom-text-field__input:-webkit-autofill:focus {
+  border-radius: 0.75rem;
+  -webkit-text-fill-color: rgb(var(--secundario));
+  -webkit-box-shadow: 0 0 0 1000px rgb(var(--neutro-1)) inset;
 }
 
 .custom-text-field__input {

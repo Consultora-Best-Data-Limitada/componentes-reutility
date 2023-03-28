@@ -119,6 +119,9 @@
       >
         Clickable
       </TextContainer>
+      <TextContainer
+        special-text="Hola *mundo* hola que pasa *prueba* jesus"
+      />
     </GridRow>
     <PanelTitle closable> Título formulario</PanelTitle>
     <GridRow
@@ -375,14 +378,15 @@
         icon="fas-home"
         color="neutro-1"
         container-size="2rem"
-        background-color="acento-principal"
-      />
+        background-color="acento-secundario"
+      >
+      </IconButton>
       <IconButton
         disabled
         icon="fas-home"
         color="acento-principal"
       >
-        Tooltip
+        Ver Informacion
       </IconButton>
       <IconButton
         disabled
@@ -486,6 +490,7 @@
 <script setup lang="ts">
 // Vue
 import { computed, reactive, ref } from "vue";
+import TextContainer from "@/plugin/components/TextContainer.vue";
 
 interface User {
   id: string;

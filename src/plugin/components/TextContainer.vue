@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="container"
     :class="textContainerClass"
     @click="onClick"
   >
@@ -8,15 +9,15 @@
 </template>
 
 <script setup lang="ts">
+import type {PropType} from "vue";
 // Vue
-import {computed} from "vue";
+import {computed, onMounted, ref, useSlots} from "vue";
 
 // Composables
 import {useColors} from "../composables/colors";
 
 // Tipos
 import type CSS from "csstype";
-import type {PropType} from "vue";
 
 const props = defineProps({
   fontSize: {
@@ -86,13 +87,33 @@ const props = defineProps({
     default: "initial",
     type: String as PropType<CSS.BorderRadiusProperty<string>>,
   },
+  specialText: {
+    default: "",
+    type: String,
+  },
 });
 
 const emits = defineEmits(["click"]);
 
 // Composables
 
+const slots = useSlots();
 const colors = useColors();
+
+// Data
+
+const container = ref<HTMLDivElement | null>(null);
+
+// Mounted
+
+onMounted(() => {
+  if (!props.specialText || !container.value || slots["default"]) return;
+  const regex = /\*([^*]+)\*/g;
+  container.value.innerHTML = props.specialText.replace(regex, (value: string) => {
+    const sliced = value.slice(1, value.length - 1);
+    return `<b>${sliced}</b>`;
+  });
+});
 
 // Computed
 

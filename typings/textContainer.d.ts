@@ -19,6 +19,7 @@ export declare interface TextContainerProps {
   predefinedStyle?: PredefinedStyle;
   clickable?: boolea;
   borderRadius?: CSS.BorderRadiusProperty<string>;
+  specialText?: string;
   "@click"?: (ev: MouseEvent) => void;
 }
 

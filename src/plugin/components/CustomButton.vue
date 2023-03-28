@@ -4,12 +4,18 @@
     :class="customButtonClass"
     @click="onClick"
   >
-    <template v-if="preppendIcon">
+    <template v-if="preppendIcon && !loading">
       <FontAwesomeIcon
-        v-if="!loading"
+        v-if="preppendIcon.startsWith('fa')"
         size="1rem"
         :color="iconColor"
         :name="preppendIcon"
+      />
+      <SvgIcon
+        v-else
+        size="1rem"
+        :color="iconColor"
+        :src="preppendIcon"
       />
     </template>
     <span class="custom-button__text">
@@ -19,12 +25,18 @@
       />
       <slot v-else/>
     </span>
-    <template v-if="appendIcon">
+    <template v-if="appendIcon && !loading">
       <FontAwesomeIcon
-        v-if="!loading"
+        v-if="appendIcon.startsWith('fa')"
         size="1rem"
         :color="iconColor"
         :name="appendIcon"
+      />
+      <SvgIcon
+        v-else
+        size="1rem"
+        :color="iconColor"
+        :src="preppendIcon"
       />
     </template>
   </button>
@@ -44,6 +56,7 @@ import type {PropType} from "vue";
 // Componentes
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 import LdThreeBounce from "./icons/LdThreeBounce.vue";
+import SvgIcon from "@/plugin/components/SvgIcon.vue";
 
 // Definiciones
 
@@ -90,6 +103,10 @@ const props = defineProps({
     default: "center",
     type: String as PropType<CSS.JustifyContentProperty>,
   },
+  justifyItems: {
+    default: "initial",
+    type: String as PropType<CSS.JustifyItemsProperty>,
+  },
   gridTemplateColumns: {
     default: "",
     type: String as PropType<CSS.GridTemplateColumnsProperty<string>>,
@@ -107,7 +124,10 @@ const colors = useColors();
 
 // Computed
 
-const iconColor = computed(() => (props.outlined ? props.color : props.contentColor));
+const iconColor = computed(() => {
+  if(props.disabled) return "neutro-4";
+  return props.outlined ? props.color : props.contentColor;
+});
 
 const colorInner = computed(() => {
   return colors.getRealColor(props.color);
@@ -137,13 +157,14 @@ const customButtonClass = computed(() => ({
   "custom-button__container": true,
   "custom-button__container--loading": props.loading,
   "custom-button__container--outlined": props.outlined,
-  "custom-button__container--icon": props.preppendIcon || props.appendIcon,
 }));
 
 const gridTemplateColumnsButton = computed(() => {
   if (props.gridTemplateColumns) return props.gridTemplateColumns;
-  if (props.preppendIcon || props.appendIcon) return "1rem 1fr 1rem";
-  return "1fr";
+  const columns = ["1fr"];
+  if(props.preppendIcon) columns.unshift("1rem");
+  if(props.appendIcon) columns.push("1rem");
+  return columns.join(" ");
 });
 
 // Methods
@@ -174,6 +195,7 @@ const onClick = (ev: MouseEvent) => {
   width: v-bind(width);
   height: v-bind(height);
   border: 2px solid transparent;
+  justify-items: v-bind(justifyItems);
   background-color: v-bind(colorInner);
   justify-content: v-bind(justifyContent);
   grid-template-columns: v-bind(gridTemplateColumnsButton);
@@ -186,10 +208,6 @@ const onClick = (ev: MouseEvent) => {
     pointer-events: none;
   }
 
-  &.custom-button__container--icon .custom-button__text {
-    grid-column: 2;
-  }
-
   &:not(&--outlined) {
     &:not(:hover):focus {
       outline: none;
@@ -199,8 +217,8 @@ const onClick = (ev: MouseEvent) => {
 
     &:disabled {
       pointer-events: none;
-      color: rgba(var(--neutro-4));
-      background-color: rgba(var(--neutro-3));
+      color: rgb(var(--neutro-4));
+      background-color: rgb(var(--neutro-3));
     }
 
     &:hover {

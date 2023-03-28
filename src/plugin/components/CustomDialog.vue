@@ -90,6 +90,7 @@ const clickOutside = (ev: MouseEvent) => {
   top: 0;
   left: 0;
   width: 100vw;
+  z-index: 2000;
   outline: none;
   height: 100vh;
   display: flex;
