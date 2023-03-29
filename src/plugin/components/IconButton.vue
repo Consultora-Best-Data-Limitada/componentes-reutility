@@ -1,8 +1,11 @@
 <template>
-  <div :class="iconTooltipContainerClass">
+  <div
+    :class="iconTooltipContainerClass"
+  >
     <div
       :class="iconButtonClass"
       @click="onClick"
+      @mouseenter="onMouseEnter"
     >
       <FontAwesomeIcon
         v-if="icon.startsWith('fa')"
@@ -19,6 +22,7 @@
     </div>
     <div
       v-if="checkSlot()"
+      ref="tooltipRef"
       class="icon-button__tooltip"
     >
       <slot/>
@@ -28,7 +32,7 @@
 
 <script setup lang="ts">
 // Vue
-import {computed, useSlots} from "vue";
+import {computed, ref, useSlots} from "vue";
 
 // Composables
 import {useColors} from "../composables/colors";
@@ -70,7 +74,7 @@ const props = defineProps({
   borderRadius: {
     default: "1rem",
     type: String as PropType<CSS.BorderRadiusProperty<string>>,
-  }
+  },
 });
 
 const emits = defineEmits(["click"]);
@@ -80,12 +84,18 @@ const emits = defineEmits(["click"]);
 const slots = useSlots();
 const colors = useColors();
 
+// Data
+
+const left = ref("");
+const right = ref("");
+const tooltipRef = ref<HTMLDivElement | null>(null);
+
 // Computed
 
 const iconTooltipContainerClass = computed(() => ({
   'icon-button__tooltip-container': true,
   'icon-button__tooltip-container--disabled': props.disabled,
-}))
+}));
 
 const iconButtonClass = computed(() => ({
   "icon-button__button": true,
@@ -106,6 +116,22 @@ const colorInner = computed(() =>
 // Methods
 
 const checkSlot = () => !!slots["default"];
+
+const onMouseEnter = () => {
+  if (!tooltipRef.value) return;
+  const rect = tooltipRef.value.getBoundingClientRect();
+  const rightX = rect.x + rect.width;
+  if (rect.x < 0) {
+    left.value = "0";
+    right.value = "initial";
+  } else if (rightX >= window.innerWidth) {
+    left.value = "initial";
+    right.value = "0";
+  } else {
+    left.value = "initial";
+    right.value = "initial";
+  }
+};
 
 // Emits
 
@@ -158,8 +184,10 @@ const onClick = (ev: MouseEvent) => {
     opacity: 0;
     z-index: 1007;
     padding: 0.5rem;
+    left: v-bind(left);
     visibility: hidden;
     border-radius: 1rem;
+    right: v-bind(right);
     top: calc(100% + 0.5rem);
     transition: all 300ms ease;
     color: rgb(var(--neutro-1));

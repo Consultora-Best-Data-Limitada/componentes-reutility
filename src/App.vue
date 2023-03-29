@@ -1,7 +1,7 @@
 <template>
   <GridColumn
+    overflow="hidden"
     row-gap="0.5rem"
-    padding="0 1.25rem 0 0"
     background-color="background"
   >
     <GridRow
@@ -366,7 +366,7 @@
     </GridRow>
     <GridRow
       column-gap="0.5rem"
-      justify-content="flex-start"
+      justify-content="flex-end"
     >
       <IconButton
         icon="fas-home"
@@ -425,6 +425,16 @@
         size="2rem"
         name="fas-croissant"
         color="complementario-1"
+      />
+      <IconButton
+        icon="fas-home"
+        color="acento-principal"
+      >
+        Tooltip
+      </IconButton>
+      <PageSwitch
+        v-model="switchValue"
+        tooltip="Tooltip"
       />
     </GridRow>
     <DataTable

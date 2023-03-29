@@ -4,6 +4,7 @@
       :style="pageSwitchContainer"
       class="page-switch__container"
       @click="toggle"
+      @mouseenter="onMouseEnter"
     >
       <div
         v-if="label"
@@ -24,7 +25,11 @@
         <div :class="pageSwitchSliderClass"></div>
       </div>
     </div>
-    <div class="page-switch__tooltip">
+    <div
+      v-if="tooltip"
+      ref="tooltipRef"
+      class="page-switch__tooltip"
+    >
       {{ tooltip }}
     </div>
   </div>
@@ -32,7 +37,7 @@
 
 <script setup lang="ts">
 // Vue
-import {computed} from "vue";
+import {computed, ref} from "vue";
 
 // Composables
 import {useColors} from "../composables/colors";
@@ -94,6 +99,12 @@ const emits = defineEmits(["update:model-value"]);
 
 const colors = useColors();
 
+// Data
+
+const left = ref("");
+const right = ref("");
+const tooltipRef = ref<HTMLDivElement | null>(null);
+
 // Computed
 
 const model = computed<boolean>({
@@ -144,6 +155,22 @@ const toggle = () => {
   if (props.readonly || props.disabled) return;
   model.value = !model.value;
 };
+
+const onMouseEnter = () => {
+  if (!tooltipRef.value) return;
+  const rect = tooltipRef.value.getBoundingClientRect();
+  const rightX = rect.x + rect.width;
+  if (rect.x < 0) {
+    left.value = "0";
+    right.value = "initial";
+  } else if (rightX >= window.innerWidth) {
+    left.value = "initial";
+    right.value = "0";
+  } else {
+    left.value = "initial";
+    right.value = "initial";
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -163,8 +190,10 @@ const toggle = () => {
     opacity: 0;
     z-index: 1007;
     padding: 0.5rem;
+    left: v-bind(left);
     visibility: hidden;
     border-radius: 1rem;
+    right: v-bind(right);
     top: calc(100% + 0.5rem);
     transition: all 300ms ease;
     color: rgb(var(--neutro-1));
