@@ -32,21 +32,22 @@
           v-if="items.length === 0"
           class="data-table__row--empty"
         >
-          <FontAwesomeIcon
-            v-if="!hideNoDataIcon && noDataIcon.startsWith('fa')"
-            size="5rem"
-            color="neutro-4"
-            :name="noDataIcon"
-          />
-          <SvgIcon
-            v-else-if="!hideNoDataIcon"
-            size="5rem"
-            color="neutro-4"
-            :src="noDataIcon"
-          />
-          {{
-            noDataText
-          }}
+          <template v-if="!checkSlot['no-data']">
+            <FontAwesomeIcon
+              v-if="!hideNoDataIcon && noDataIcon.startsWith('fa')"
+              size="5rem"
+              color="neutro-4"
+              :name="noDataIcon"
+            />
+            <SvgIcon
+              v-else-if="!hideNoDataIcon"
+              size="5rem"
+              color="neutro-4"
+              :src="noDataIcon"
+            />
+            {{ noDataText }}
+          </template>
+          <slot name="no-data"/>
         </tr>
         <tr
           v-for="item in itemsCurrentPage"
