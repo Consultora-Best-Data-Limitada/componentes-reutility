@@ -53,8 +53,8 @@ Es un componente que consiste en una ventana emergente que se muestra en una apl
 | Propiedad    | Tipo               | Requerido   | Valor por defecto | Descripción                                                            | 
 | ------------ | ------------------ | :---------: | ----------------- | ---------------------------------------------------------------------- |
 | `modelValue` | `Boolean`          | Sí          | `false`           | Propiedad reactiva que controla si se muestra o no la ventana modal
-| `title`      | `String`           | Sí          | `""`              | Título del dialogo 
 | `subtitle`   | `String`           | No          | `""`              | Subtítulo opcional del dialogo 
+| `title`      | `String`           | Sí          | `""`              | Título del dialogo 
 | `width`      | `WidthProperty`    | No          | `520px`           | Ancho máximo de la ventana modal 
 
 
@@ -86,16 +86,15 @@ Es un componente que consiste en un selector de fechas personalizable
 | Propiedad     | Tipo                     | Requerido | Valor por defecto | Descripción                                                        | 
 | ------------- | ------------------------ | :-------: | ----------------- | ------------------------------------------------------------------ |
 | `dark`        | `Boolean`                | No        | `false`           | Indica si el componente está en modo oscuro. 
-| `modelValue`  | `Date[] \| Date \| null` | Sí        | `null`            | Valor o valores seleccionados en el componente.                    
-| `range`       | `Boolean`                | No        | `false`           | Indica si se permite la selección de un rango de fechas.           
-| `readonly`    | `Boolean`                | No        | `false`           | Indica si el componente está en modo de solo lectura.              
-| `disabled`    | `Boolean`                | No        | `false`           | Indica si el componente está deshabilitado.                        
-| `placeholder` | `String`                 | No        | `""`              | Texto que se muestra como marcador de posición en el componente.   
-| `maxDate`     | `String \| Date`         | No        | `""`              | Fecha máxima permitida para seleccionar.                           
-| `minDate`     | `String \| Date`         | No        | `""`              | Fecha mínima permitida para seleccionar.                           
+| `disabled`    | `Boolean`                | No        | `false`           | Indica si el componente está deshabilitado.   
 | `errorMessage`| `String`                 | No        | `""`              | Mensaje de error que se muestra cuando hay un error de validación. 
+| `maxDate`     | `String \| Date`         | No        | `""`              | Fecha máxima permitida para seleccionar. 
+| `minDate`     | `String \| Date`         | No        | `""`              | Fecha mínima permitida para seleccionar.
+| `modelValue`  | `Date[] \| Date \| null` | Sí        | `null`            | Valor o valores seleccionados en el componente.                                           
 | `outlined`    | `Boolean`                | No        | `false`           | Indica si el componente tiene un borde resaltado.                  
-                      
+| `placeholder` | `String`                 | No        | `""`              | Texto que se muestra como marcador de posición en el componente.   
+| `range`       | `Boolean`                | No        | `false`           | Indica si se permite la selección de un rango de fechas.           
+| `readonly`    | `Boolean`                | No        | `false`           | Indica si el componente está en modo de solo lectura.                            
 
 
 
@@ -113,6 +112,7 @@ Es un componente que consiste en un selector de valores personalizable
 ## Props 
 | Propiedad       | Tipo                                  | Requerido   | Valor por defecto | Descripción                                                                                                   | 
 | --------------- | ------------------------------------- | :---------: | ----------------- | ------------------------------------------------------------------------------------------------------------- |
+
 | `errorMessage`  | `String`                              | No          | `""`              | Texto de mensaje de error que se muestra debajo del componente si hay un error de validación.                 
 | `placeholder`   | `String`                              | Sí          | `""`              | Texto que se muestra como marcador de posición en el componente                                               
 | `itemValue`     | `String`                              | No          | `value`           | Nombre de la propiedad de valor en el objeto de datos de cada opción.                                         
@@ -128,7 +128,7 @@ Es un componente que consiste en un selector de valores personalizable
 | `modelValue`    | `String \| Number \| Object \| Array` | No          | `null`            | Valor actual seleccionado en el componente. El tipo de valor depende del tipo de componente.                  
 | `outlined`      | `Boolean`                             | No          | `false`           | Indica si el componente debe mostrar un borde.                                                                
 | `searchable`    | `Boolean`                             | No          | `false`           | Indica si el componente debe ser buscable, lo que permite buscar opciones escribiendo en el componente.       
-| `dark`          | `Boolean`                             | No          | `false`           | Indica si el componente está en modo oscuro.                                                                  
+                                                                 
 
 
 # Custom Text Field
@@ -136,7 +136,8 @@ Es un componente que consiste en un campo de texto que se puede personalizar
 ## Props
 | Propiedad       | Tipo              | Requerido   | Valor por defecto | Descripción                                                                                    | 
 | -------------- | ------------------ | :---------: | ----------------- | ---------------------------------------------------------------------------------------------- |
-| `placeholder`  | `String`           | Sí          | `""`                 | Texto que se muestra como indicación del contenido esperado en el campo de entrada              
+| `dark`         | `Boolean`          | No          | `false`           | Si el campo de entrada debe estar en modo oscuro o no    
+| `placeholder`  | `String`           | Sí          | `""`              | Texto que se muestra como indicación del contenido esperado en el campo de entrada              
 | `modelValue`   | `String \| Number` | No          | `""`              | Valor actual del campo de entrada                                                              
 | `clearable`    | `Boolean`          | No          | `false`           | Si se debe mostrar un botón para borrar el contenido del campo de entrada                      
 | `errorMessage` | `String`           | No          | `""`              | Mensaje de error que se muestra debajo del campo de entrada en caso de una validación fallida  
@@ -144,7 +145,7 @@ Es un componente que consiste en un campo de texto que se puede personalizar
 | `outlined`     | `Boolean`          | No          | `false`           | Si el campo de entrada tiene un borde delgado en lugar de uno sólido                           
 | `readonly`     | `Boolean`          | No          | `false`           | Si el campo de entrada es solo de lectura o no                                                 
 | `type`         | `String`           | No          | `text`            | Tipo de campo de entrada, puede ser "email", "phone", "text", "time" o "password"              
-| `dark`         | `Boolean`          | No          | `false`           | Si el campo de entrada debe estar en modo oscuro o no                                          
+                                      
 
 
 # Data Table
@@ -215,6 +216,7 @@ Es un componente que consiste en un filtro personalizable de tipo selector de op
 
 # Flex Container
 Es un componente que es un contenedor flex
+[Flex Container](https://developer.mozilla.org/en-US/docs/Glossary/Flex_Container)
 ## Props
 | Propiedad        | Tipo               | Requerido  | Valor por defecto | Descripción                                                                     | 
 | ---------------- | ------------------ | :--------: | ----------------- | ------------------------------------------------------------------------------- |
@@ -237,7 +239,7 @@ Es un componente que consiste en un icono perteneciente a la libreria Font Aweso
 | `color`	   | `String`           | No	       | `black`	         | El color del ícono en formato CSS.  
 | `size`	   | `String \| Number` |	No	       | `1rem`	           | El tamaño del ícono en formato CSS. 
 # Form Date Picker
-Es un componente que consiste en un selector de fecha personalizable 
+Es un componente que consiste en un selector de fecha personalizable para formularios
 ## Props
 | Propiedad             | Tipo                    | Requerido   | Valor por defecto | Descripción                                                                                      | 
 | --------------------- | ----------------------- | :---------: | ----------------- | ------------------------------------------------------------------------------------------------ |
@@ -257,6 +259,7 @@ Es un componente que consiste en un selector de fecha personalizable
 
 
 # Form Select
+Es un componente que consiste en un selector de opciones personalizable para formularios
 ## Props
 | Propiedad             | Tipo                                  | Requerido   | Valor por defecto | Descripción                                                                                      | 
 | --------------------- | ------------------------------------- | :---------: | ----------------- | ------------------------------------------------------------------------------------------------ |
@@ -279,6 +282,7 @@ Es un componente que consiste en un selector de fecha personalizable
 | `searchable`	        | `Boolean`	                            | No	        | `false`	          | Si se establece en verdadero, se agregará una barra de búsqueda a la lista desplegable
 | `dark`                | `Boolean`	                            | No	        | `false`	          | Si se establece en verdadero, se aplicará un tema oscuro al componente
 # Form Text Field
+Es un componente que consiste en un campo de texto personalizable para formularios 
 ## Props
 | Propiedad             | Tipo               | Requerido   | Valor por defecto | Descripción                                                                                      | 
 | --------------------- | ------------------ | :---------: | ----------------- | ------------------------------------------------------------------------------------------------ |
@@ -312,26 +316,30 @@ Es un componente que consiste en un boton que tiene gradiente
 | `icon`	    | `String`	          | No	        | `""`	            |La clase del icono que se mostrará en el botón.
 | `loading`	  | `Boolean`	          | No	        | `false`	          |Indica si el botón está en estado de carga.
 # Grid Column
+Es una columna de tipo Grid  
+[Grid Column](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column)
 ## Props
 | Propiedad          | Tipo                                       | Requerido  | Valor por defecto | Descripción                                                                                      | 
 | ------------------ | ------------------------------------------ | :--------: | ----------------- | ------------------------------------------------------------------------------------------------ |
-| `alignContent`     | `AlignContentProperty`	                    |  No        | `""`	               | Establece la alineación del contenido en el eje de la grilla.
-| `alignItems`	     | `AlignItemsProperty`	                      |  No        | `""`	               | Establece la alineación de los elementos a lo largo del eje transversal.
-| `justifyContent`   | `JustifyContentProperty`	                  |  No        | `""`	               | Establece la alineación de los elementos a lo largo del eje principal.
-| `justifyItems`	   | `JustifyItemsProperty`                     |  No        | `""`	               | Establece la alineación del contenido a lo largo del eje principal.
-| `width`	           | `WidthProperty`	                          |  No        | `initial`	       | Establece el ancho del elemento.
-| `height`	         | `HeightProperty`	                          |  No        | `auto`	           | Establece la altura del elemento.
-| `margin`	         | `MarginProperty`	                          |  No        | `0`	               | Establece el margen del elemento.
-| `rowGap`	         | `RowGapProperty`	                          |  No        | `0`	               | Establece el espacio entre filas de la grilla.
-| `padding`	         | `PaddingProperty`	                        |  No        | `0`	               | Establece el relleno del elemento.
-| `gridRow`	         | `GridRowProperty	`                         |  No        | `""`	               | Establece la posición en la que el elemento aparece en la grilla en el eje de las filas.
-| `gridColumn`	     | `GridColumnProperty`	                      |  No        | `""`	               | Establece la posición en la que el elemento aparece en la grilla en el eje de las columnas.
+| `alignContent`     | `AlignContentProperty`	                    |  No        | `""`	             | Establece la alineación del contenido en el eje de la grilla.
+| `alignItems`	     | `AlignItemsProperty`	                      |  No        | `""`	             | Establece la alineación de los elementos a lo largo del eje transversal.
+| `backgroundColor`	 | `BackgroundColorProperty \|	CustomColor`	|  No        | `transparent`     | Establece el color del fondo de una columna grid
+| `borderRadius`	   | `BorderRadiusProperty`	                    |  No        | `""`	             | Establece el radio de los bordes del elemento.
+| `boxShadow`	       | `BoxShadowProperty`	                      |  No        | `""`	             | Establece la sombra del elemento.
+| `gridColumn`	     | `GridColumnProperty`	                      |  No        | `""`	             | Establece la posición en la que el elemento aparece en la grilla en el eje de las columnas.
+| `gridRow`	         | `GridRowProperty	`                         |  No        | `""`	             | Establece la posición en la que el elemento aparece en la grilla en el eje de las filas.
 | `gridTemplateRows` | `GridTemplateRowsProperty`	                |  No        | `initial`	       | Establece la cantidad de filas y su tamaño en la grilla.
-| `backgroundColor`	 | `BackgroundColorProperty \|	CustomColor`	|  No        | `transparent`     |
-| `borderRadius`	   | `BorderRadiusProperty`	                    |  No        | `""`	               | Establece el radio de los bordes del elemento.
-| `boxShadow`	       | `BoxShadowProperty`	                      |  No        | `""`	               | Establece la sombra del elemento.
+| `height`	         | `HeightProperty`	                          |  No        | `auto`	           | Establece la altura del elemento.
+| `justifyContent`   | `JustifyContentProperty`	                  |  No        | `""`	             | Establece la alineación de los elementos a lo largo del eje principal.
+| `justifyItems`	   | `JustifyItemsProperty`                     |  No        | `""`	             | Establece la alineación del contenido a lo largo del eje principal.
+| `margin`	         | `MarginProperty`	                          |  No        | `0`	             | Establece el margen del elemento.
 | `overflow`	       | `OverflowProperty`	                        |  No        | `initial`	       | Establece el comportamiento de desbordamiento del elemento.
+| `padding`	         | `PaddingProperty`	                        |  No        | `0`	             | Establece el relleno del elemento.
+| `rowGap`	         | `RowGapProperty`	                          |  No        | `0`	             | Establece el espacio entre filas de la grilla.
+| `width`	           | `WidthProperty`	                          |  No        | `initial`	       | Establece el ancho del elemento.
 # Grid Container
+Es un contenedor de tipo Grid  
+[Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout)
 ## Props
 | Propiedad      | Tipo                           | Requerido   | Valor por defecto | Descripción                                                                                      | 
 | -------------- | ------------------------------ | :---------: | ----------------- | ------------------------------------------------------------------------------------------------ |
@@ -351,6 +359,8 @@ Es un componente que consiste en un boton que tiene gradiente
 | `borderRadius`	      | `String`	              | No          | `""`              |	Define el radio de las esquinas del componente.
 | `boxShadow`	          | `String`	              | No          | `""`              |	Define la sombra del componente.
 # Grid Row
+Es una fila de tipo Grid  
+[Grid Row](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row)
 ## Props
 | Propiedad             | Tipo                                     | Requerido   | Valor por defecto | Descripción                                                                                      | 
 | --------------------- | ---------------------------------------- | :---------: | ----------------- | ------------------------------------------------------------------------------------------------ |
