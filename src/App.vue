@@ -432,10 +432,12 @@
       >
         Tooltip
       </IconButton>
-      <PageSwitch
-        v-model="switchValue"
-        tooltip="Tooltip"
-      />
+      <IconButton
+        icon="fas-home"
+        color="acento-principal"
+      >
+        Tooltip
+      </IconButton>
     </GridRow>
     <DataTable
       :items-per-page="3"

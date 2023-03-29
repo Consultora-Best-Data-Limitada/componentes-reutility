@@ -101,8 +101,8 @@ const colors = useColors();
 
 // Data
 
-const left = ref("");
-const right = ref("");
+const left = ref("initial");
+const right = ref("initial");
 const tooltipRef = ref<HTMLDivElement | null>(null);
 
 // Computed
