@@ -130,6 +130,7 @@ const labelColor = computed(() => {
 <style scoped lang="scss">
 .form-select__container {
   display: grid;
+  row-gap: 0.25rem;
   column-gap: 0.75rem;
   align-items: center;
   grid-template-columns: v-bind(gridTemplateColumns);
