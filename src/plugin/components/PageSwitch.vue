@@ -5,6 +5,7 @@
       class="page-switch__container"
       @click="toggle"
       @mouseenter="onMouseEnter"
+      @mouseleave="onMouseLeave"
     >
       <div
         v-if="label"
@@ -171,6 +172,11 @@ const onMouseEnter = () => {
     right.value = "initial";
   }
 };
+
+const onMouseLeave = () => {
+  left.value = "";
+  right.value = "";
+}
 </script>
 
 <style lang="scss" scoped>

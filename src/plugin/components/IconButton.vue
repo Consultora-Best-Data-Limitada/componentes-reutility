@@ -6,6 +6,7 @@
       :class="iconButtonClass"
       @click="onClick"
       @mouseenter="onMouseEnter"
+      @mouseleave="onMouseLeave"
     >
       <FontAwesomeIcon
         v-if="icon.startsWith('fa')"
@@ -132,6 +133,11 @@ const onMouseEnter = () => {
     right.value = "initial";
   }
 };
+
+const onMouseLeave = () => {
+  left.value = "";
+  right.value = "";
+}
 
 // Emits
 
