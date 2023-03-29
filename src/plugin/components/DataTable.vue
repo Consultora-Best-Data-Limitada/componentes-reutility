@@ -32,7 +32,7 @@
           v-if="items.length === 0"
           class="data-table__row--empty"
         >
-          <template v-if="!checkSlot['no-data']">
+          <template v-if="!checkSlot('no-data')">
             <FontAwesomeIcon
               v-if="!hideNoDataIcon && noDataIcon.startsWith('fa')"
               size="5rem"
