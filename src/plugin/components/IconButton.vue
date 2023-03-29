@@ -189,9 +189,9 @@ const onClick = (ev: MouseEvent) => {
   .icon-button__tooltip {
     opacity: 0;
     z-index: 1007;
+    display: none;
     padding: 0.5rem;
     left: v-bind(left);
-    visibility: hidden;
     border-radius: 1rem;
     right: v-bind(right);
     top: calc(100% + 0.5rem);
@@ -209,7 +209,7 @@ const onClick = (ev: MouseEvent) => {
 
   &:hover .icon-button__tooltip {
     opacity: 1;
-    visibility: visible;
+    display: block;
   }
 }
 </style>
