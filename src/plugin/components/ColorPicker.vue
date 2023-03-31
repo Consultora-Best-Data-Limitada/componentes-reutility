@@ -80,7 +80,7 @@ const props = defineProps({
   },
   background: {
     default: "neutro-1",
-    type: String as PropType<CSS.ColorProperty | CustomColor>,
+    type: String as PropType<CSS.BackgroundColorProperty | CustomColor>,
   },
   dark: {
     type: Boolean,

@@ -3,7 +3,7 @@ import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue"
 
 export declare interface FormColorPickerProps {
   modelValue: string;
-  background?: CSS.ColorProperty | CustomColor;
+  background?: CSS.BackgroundColorProperty | CustomColor;
   dark?: boolean;
   pickableColors?: string[];
   label: string;

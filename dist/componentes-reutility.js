@@ -12200,7 +12200,7 @@ const y0 = /* @__PURE__ */ Me(p0, [["__scopeId", "data-v-342d4403"]]), m0 = /* @
     }, 8, ["model-value"]));
   }
 });
-const h0 = /* @__PURE__ */ Me(v0, [["__scopeId", "data-v-9262ded4"]]), jr = (e) => (du("data-v-5b4b22c9"), e = e(), pu(), e), g0 = /* @__PURE__ */ jr(() => /* @__PURE__ */ U("div", { class: "color-picker__canvas-cursor" }, null, -1)), b0 = [
+const h0 = /* @__PURE__ */ Me(v0, [["__scopeId", "data-v-9262ded4"]]), jr = (e) => (du("data-v-ddcc71b5"), e = e(), pu(), e), g0 = /* @__PURE__ */ jr(() => /* @__PURE__ */ U("div", { class: "color-picker__canvas-cursor" }, null, -1)), b0 = [
   g0
 ], _0 = /* @__PURE__ */ jr(() => /* @__PURE__ */ U("div", { class: "color-picker__line-cursor" }, null, -1)), w0 = [
   _0
@@ -12246,13 +12246,13 @@ const h0 = /* @__PURE__ */ Me(v0, [["__scopeId", "data-v-9262ded4"]]), jr = (e) 
   setup(e, { emit: t }) {
     const n = e;
     Le((F) => ({
-      "2bb5dc7e": c(Z),
-      cf957d38: c(f),
-      "6eca4175": re.value,
-      ea99c2c8: c(i),
-      "0a16d65e": X.value,
-      "3867297a": T.value,
-      34433266: c($)
+      "36d34425": c(Z),
+      "668445c8": c(f),
+      "6a5bc991": re.value,
+      "1fb38400": c(i),
+      d37d1826: X.value,
+      a1f2b644: T.value,
+      "67f309ca": c($)
     }));
     const { getRealColor: r } = wt();
     yt(() => {
@@ -12471,7 +12471,7 @@ const h0 = /* @__PURE__ */ Me(v0, [["__scopeId", "data-v-9262ded4"]]), jr = (e) 
     ], 2));
   }
 });
-const au = /* @__PURE__ */ Me(D0, [["__scopeId", "data-v-5b4b22c9"]]), M0 = { class: "form-color-picker__label" }, R0 = /* @__PURE__ */ ge({
+const au = /* @__PURE__ */ Me(D0, [["__scopeId", "data-v-ddcc71b5"]]), M0 = { class: "form-color-picker__label" }, R0 = /* @__PURE__ */ ge({
   __name: "FormColorPicker",
   props: {
     modelValue: {
@@ -12510,11 +12510,11 @@ const au = /* @__PURE__ */ Me(D0, [["__scopeId", "data-v-5b4b22c9"]]), M0 = { cl
   setup(e, { emit: t }) {
     const n = e;
     Le((I) => ({
-      fc8ada42: e.gridTemplateColumns,
-      "03b6198d": c(A),
-      b3bc48aa: c(k),
-      "4391da57": r.value,
-      "2ea5a745": a.value
+      "7a521176": e.gridTemplateColumns,
+      "09920a67": c(A),
+      "21b54a91": c(k),
+      "5adfcabd": r.value,
+      "0115c39f": a.value
     }));
     const r = R(""), a = R(""), o = R(""), l = R(!1), u = R(!1), d = R(null), p = R(null), k = w({
       get() {
@@ -12575,7 +12575,7 @@ const au = /* @__PURE__ */ Me(D0, [["__scopeId", "data-v-5b4b22c9"]]), M0 = { cl
     ], 512));
   }
 });
-const I0 = /* @__PURE__ */ Me(R0, [["__scopeId", "data-v-e532b957"]]), B0 = (e) => {
+const I0 = /* @__PURE__ */ Me(R0, [["__scopeId", "data-v-7d558f07"]]), B0 = (e) => {
   e.component("CheckBox", $i), e.component("ConfirmationDialog", Yu), e.component("CustomButton", sa), e.component("CustomDatePicker", Wo), e.component("CustomDialog", Po), e.component("CustomSelect", Lo), e.component("CustomTextField", Ho), e.component("DataTable", Oh), e.component("DataTableItem", xh), e.component("FilterDatePicker", Ch), e.component("FilterSelect", Ih), e.component("FlexContainer", ru), e.component("FontAwesomeIcon", Qe), e.component("FormDatePicker", Vh), e.component("FormSelect", Lh), e.component("FormTextField", qh), e.component("GradientButton", Zh), e.component("GridColumn", So), e.component("GridRow", Oi), e.component("HeaderTabs", e0), e.component("IconButton", Oo), e.component("ImageContainer", r0), e.component("InformationText", u0), e.component("PageSwitch", f0), e.component("PanelTitle", y0), e.component("SearchTextField", m0), e.component("SuccessDialog", h0), e.component("SvgIcon", Yt), e.component("TextContainer", Jt), e.component("FormColorPicker", I0), e.component("ColorPicker", au);
 };
 export {
