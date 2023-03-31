@@ -1,6 +1,7 @@
 import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
 export declare interface PanelTitleProps {
+  dialog?: boolean;
   closable?: boolean;
   "@click:close"?: () => void;
 }
