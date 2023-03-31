@@ -12510,12 +12510,11 @@ const au = /* @__PURE__ */ Me(D0, [["__scopeId", "data-v-5b4b22c9"]]), M0 = { cl
   setup(e, { emit: t }) {
     const n = e;
     Le((H) => ({
-      e31a8206: e.gridTemplateColumns,
-      "260798a2": c(D),
-      "264f176e": c(y),
-      dc9bfb16: r.value,
-      b6eafa32: a.value,
-      "253ab234": o.value
+      f13c600c: e.gridTemplateColumns,
+      a720bbdc: c(D),
+      f30757f4: c(y),
+      ed56a51c: r.value,
+      bd8590ec: a.value
     }));
     const r = R(""), a = R(""), o = R(""), l = R(!1), u = R(!1), d = R(!1), p = R(null), k = R(null), y = w({
       get() {
@@ -12587,7 +12586,7 @@ const au = /* @__PURE__ */ Me(D0, [["__scopeId", "data-v-5b4b22c9"]]), M0 = { cl
     ], 512));
   }
 });
-const I0 = /* @__PURE__ */ Me(R0, [["__scopeId", "data-v-bb12811a"]]), B0 = (e) => {
+const I0 = /* @__PURE__ */ Me(R0, [["__scopeId", "data-v-d67cdd4c"]]), B0 = (e) => {
   e.component("CheckBox", $i), e.component("ConfirmationDialog", Yu), e.component("CustomButton", sa), e.component("CustomDatePicker", Wo), e.component("CustomDialog", Po), e.component("CustomSelect", Lo), e.component("CustomTextField", Ho), e.component("DataTable", Oh), e.component("DataTableItem", xh), e.component("FilterDatePicker", Ch), e.component("FilterSelect", Ih), e.component("FlexContainer", ru), e.component("FontAwesomeIcon", Qe), e.component("FormDatePicker", Vh), e.component("FormSelect", Lh), e.component("FormTextField", qh), e.component("GradientButton", Zh), e.component("GridColumn", So), e.component("GridRow", Oi), e.component("HeaderTabs", e0), e.component("IconButton", Oo), e.component("ImageContainer", r0), e.component("InformationText", u0), e.component("PageSwitch", f0), e.component("PanelTitle", y0), e.component("SearchTextField", m0), e.component("SuccessDialog", h0), e.component("SvgIcon", Yt), e.component("TextContainer", Jt), e.component("FormColorPicker", I0), e.component("ColorPicker", au);
 };
 export {

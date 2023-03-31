@@ -195,12 +195,12 @@ const labelColor = computed(() => {
 
 .form-color-picker__menu {
   z-index: 1;
+  width: 16.5rem;
   position: fixed;
   top: v-bind(top);
   overflow: hidden;
   left: v-bind(left);
   border-radius: 1rem;
-  width: v-bind(width);
   box-shadow: 3px 3px 17px rgba(151, 168, 194, 0.24);
 }
 
