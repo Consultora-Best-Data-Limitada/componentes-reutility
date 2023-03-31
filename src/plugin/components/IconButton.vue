@@ -111,7 +111,7 @@ const backgroundInner = computed(() => {
 });
 
 const colorInner = computed(() =>
-  props.disabled && !props.backgroundColor ? "neutro-4" : props.color,
+  props.disabled ? "neutro-4" : props.color,
 );
 
 // Methods
@@ -137,7 +137,7 @@ const onMouseEnter = () => {
 const onMouseLeave = () => {
   left.value = "";
   right.value = "";
-}
+};
 
 // Emits
 
@@ -150,13 +150,13 @@ const onClick = (ev: MouseEvent) => {
 .icon-button__button {
   width: v-bind(containerSize);
   height: v-bind(containerSize);
-  background: v-bind(backgroundInner);
 
   &--background {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: v-bind(borderRadius);
+    background: v-bind(backgroundInner);
   }
 
   &--disabled {
@@ -164,7 +164,7 @@ const onClick = (ev: MouseEvent) => {
   }
 
   &--background-disabled {
-    opacity: 0.3;
+    background-color: rgb(var(--neutro-3));
   }
 
   &:hover {
