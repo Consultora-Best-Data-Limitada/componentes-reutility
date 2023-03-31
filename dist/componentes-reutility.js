@@ -1,4 +1,4 @@
-import { defineComponent as ve, useCssVars as Ve, unref as c, onMounted as lt, ref as U, computed as w, watch as dt, openBlock as m, createElementBlock as S, createElementVNode as F, normalizeClass as fe, createVNode as we, Transition as kt, withCtx as J, createBlock as X, createCommentVNode as T, renderSlot as L, Fragment as me, useSlots as Pt, withKeys as he, isRef as Le, createTextVNode as We, toDisplayString as ge, reactive as an, toRef as Xn, onUnmounted as Oo, mergeProps as He, createSlots as rt, renderList as De, normalizeProps as Ge, guardReactiveProps as ct, resolveDynamicComponent as _i, Teleport as ru, withModifiers as je, normalizeStyle as ft, nextTick as St, withDirectives as Bt, vShow as cn, onBeforeUpdate as au, getCurrentScope as ou, onScopeDispose as lu, vModelText as iu, vModelDynamic as uu, vModelCheckbox as su } from "vue";
+import { defineComponent as ve, useCssVars as Ve, unref as c, onMounted as lt, ref as U, computed as w, watch as dt, openBlock as m, createElementBlock as S, createElementVNode as F, normalizeClass as fe, createVNode as we, Transition as kt, withCtx as J, createBlock as X, createCommentVNode as T, renderSlot as L, Fragment as me, useSlots as Pt, withKeys as he, isRef as Le, createTextVNode as We, toDisplayString as ge, reactive as an, toRef as Xn, onUnmounted as Oo, mergeProps as ze, createSlots as rt, renderList as De, normalizeProps as Ge, guardReactiveProps as ct, resolveDynamicComponent as _i, Teleport as ru, withModifiers as je, normalizeStyle as ft, nextTick as St, withDirectives as Bt, vShow as cn, onBeforeUpdate as au, getCurrentScope as ou, onScopeDispose as lu, vModelText as iu, vModelDynamic as uu, vModelCheckbox as su } from "vue";
 const ht = () => {
   const e = [
     "acento-principal",
@@ -44,20 +44,25 @@ const ht = () => {
   setup(e) {
     const t = e;
     Ve((l) => ({
-      e03f24d4: e.size,
-      e718c2f0: c(a)
+      "437391c4": e.size,
+      cc23bbe0: c(a)
     }));
     const n = ht();
     lt(() => {
       o();
     });
     const r = U(null), a = w(() => n.getRealColor(t.color)), o = async () => {
-      if (!r.value)
-        return;
-      const l = await fetch(t.src);
-      r.value.innerHTML = await l.text();
-      const u = r.value.querySelector("svg");
-      u && (u.setAttribute("width", t.size.toString()), u.setAttribute("height", t.size.toString()));
+      if (r.value)
+        try {
+          const l = await fetch(t.src);
+          r.value.innerHTML = await l.text();
+          const u = r.value.querySelector("svg");
+          if (!u)
+            return;
+          u.setAttribute("width", t.size.toString()), u.setAttribute("height", t.size.toString());
+        } catch (l) {
+          console.log(l);
+        }
     };
     return dt(() => t.src, o), dt(() => t.size, o), (l, u) => (m(), S("div", {
       ref_key: "svgContent",
@@ -71,7 +76,7 @@ const Ce = (e, t) => {
   for (const [r, a] of t)
     n[r] = a;
   return n;
-}, xt = /* @__PURE__ */ Ce(cu, [["__scopeId", "data-v-92aaa30d"]]), fu = { class: "font-awesome-icon__container" }, du = /* @__PURE__ */ ve({
+}, xt = /* @__PURE__ */ Ce(cu, [["__scopeId", "data-v-87c68bf1"]]), fu = { class: "font-awesome-icon__container" }, du = /* @__PURE__ */ ve({
   __name: "FontAwesomeIcon",
   props: {
     name: {
@@ -686,7 +691,7 @@ const ia = /* @__PURE__ */ Ce(Cu, [["__scopeId", "data-v-e48ae763"]]), Ru = /* @
     ], 2));
   }
 });
-const zt = /* @__PURE__ */ Ce(Ru, [["__scopeId", "data-v-60493096"]]), Mu = ["onKeydown"], Iu = /* @__PURE__ */ ve({
+const Ht = /* @__PURE__ */ Ce(Ru, [["__scopeId", "data-v-60493096"]]), Mu = ["onKeydown"], Iu = /* @__PURE__ */ ve({
   __name: "CustomDialog",
   props: {
     modelValue: {
@@ -789,7 +794,7 @@ const So = /* @__PURE__ */ Ce(Iu, [["__scopeId", "data-v-742c0053"]]), Nu = /* @
           "box-shadow": "3px 3px 17px rgba(151, 168, 194, 0.24)"
         }, {
           default: J(() => [
-            we(zt, {
+            we(Ht, {
               "text-align": "center",
               "predefined-style": "h2",
               color: "acento-secundario"
@@ -799,7 +804,7 @@ const So = /* @__PURE__ */ Ce(Iu, [["__scopeId", "data-v-742c0053"]]), Nu = /* @
               ]),
               _: 1
             }),
-            e.subtitle ? (m(), X(zt, {
+            e.subtitle ? (m(), X(Ht, {
               key: 0,
               color: "secundario",
               "text-align": "center",
@@ -938,7 +943,7 @@ function er(e) {
   var t = new Date(Date.UTC(e.getFullYear(), e.getMonth(), e.getDate(), e.getHours(), e.getMinutes(), e.getSeconds(), e.getMilliseconds()));
   return t.setUTCFullYear(e.getFullYear()), e.getTime() - t.getTime();
 }
-function Ho(e) {
+function zo(e) {
   ee(1, arguments);
   var t = ce(e);
   return t.setHours(0, 0, 0, 0), t;
@@ -946,7 +951,7 @@ function Ho(e) {
 var Vu = 864e5;
 function Uu(e, t) {
   ee(2, arguments);
-  var n = Ho(e), r = Ho(t), a = n.getTime() - er(n), o = r.getTime() - er(r);
+  var n = zo(e), r = zo(t), a = n.getTime() - er(n), o = r.getTime() - er(r);
   return Math.round((a - o) / Vu);
 }
 function Si(e, t) {
@@ -971,7 +976,7 @@ function en(e) {
   var t = ce(e);
   return !isNaN(Number(t));
 }
-function zo(e, t) {
+function Ho(e, t) {
   var n;
   ee(1, arguments);
   var r = e || {}, a = ce(r.start), o = ce(r.end), l = o.getTime();
@@ -1000,13 +1005,13 @@ function Pi(e, t) {
   var n = se(t);
   return Bu(e, -n);
 }
-var Hu = 864e5;
-function zu(e) {
+var zu = 864e5;
+function Hu(e) {
   ee(1, arguments);
   var t = ce(e), n = t.getTime();
   t.setUTCMonth(0, 1), t.setUTCHours(0, 0, 0, 0);
   var r = t.getTime(), a = n - r;
-  return Math.floor(a / Hu) + 1;
+  return Math.floor(a / zu) + 1;
 }
 function Lt(e) {
   ee(1, arguments);
@@ -1341,7 +1346,7 @@ var Wt = {
   },
   // Day of year
   D: function(t, n, r) {
-    var a = zu(t);
+    var a = Hu(t);
     return n === "Do" ? r.ordinalNumber(a, {
       unit: "dayOfYear"
     }) : $e(a, n.length);
@@ -2175,14 +2180,14 @@ var Vs = {
   }
 };
 const Ni = Vs;
-var Us = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, Ws = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, Fs = /^'([^]*?)'?$/, Hs = /''/g, zs = /[a-zA-Z]/;
+var Us = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, Ws = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, Fs = /^'([^]*?)'?$/, zs = /''/g, Hs = /[a-zA-Z]/;
 function tn(e, t, n) {
-  var r, a, o, l, u, d, y, k, p, s, g, x, N, A, q, z, R, H;
+  var r, a, o, l, u, d, y, k, p, s, g, x, N, A, q, H, R, z;
   ee(2, arguments);
   var ne = String(t), Q = gt(), oe = (r = (a = n == null ? void 0 : n.locale) !== null && a !== void 0 ? a : Q.locale) !== null && r !== void 0 ? r : Ni, P = se((o = (l = (u = (d = n == null ? void 0 : n.firstWeekContainsDate) !== null && d !== void 0 ? d : n == null || (y = n.locale) === null || y === void 0 || (k = y.options) === null || k === void 0 ? void 0 : k.firstWeekContainsDate) !== null && u !== void 0 ? u : Q.firstWeekContainsDate) !== null && l !== void 0 ? l : (p = Q.locale) === null || p === void 0 || (s = p.options) === null || s === void 0 ? void 0 : s.firstWeekContainsDate) !== null && o !== void 0 ? o : 1);
   if (!(P >= 1 && P <= 7))
     throw new RangeError("firstWeekContainsDate must be between 1 and 7 inclusively");
-  var O = se((g = (x = (N = (A = n == null ? void 0 : n.weekStartsOn) !== null && A !== void 0 ? A : n == null || (q = n.locale) === null || q === void 0 || (z = q.options) === null || z === void 0 ? void 0 : z.weekStartsOn) !== null && N !== void 0 ? N : Q.weekStartsOn) !== null && x !== void 0 ? x : (R = Q.locale) === null || R === void 0 || (H = R.options) === null || H === void 0 ? void 0 : H.weekStartsOn) !== null && g !== void 0 ? g : 0);
+  var O = se((g = (x = (N = (A = n == null ? void 0 : n.weekStartsOn) !== null && A !== void 0 ? A : n == null || (q = n.locale) === null || q === void 0 || (H = q.options) === null || H === void 0 ? void 0 : H.weekStartsOn) !== null && N !== void 0 ? N : Q.weekStartsOn) !== null && x !== void 0 ? x : (R = Q.locale) === null || R === void 0 || (z = R.options) === null || z === void 0 ? void 0 : z.weekStartsOn) !== null && g !== void 0 ? g : 0);
   if (!(O >= 0 && O <= 6))
     throw new RangeError("weekStartsOn must be between 0 and 6 inclusively");
   if (!oe.localize)
@@ -2213,7 +2218,7 @@ function tn(e, t, n) {
     var i = Ku[V];
     if (i)
       return !(n != null && n.useAdditionalWeekYearTokens) && Ii(K) && tr(K, t, String(e)), !(n != null && n.useAdditionalDayOfYearTokens) && Mi(K) && tr(K, t, String(e)), i(G, K, oe.localize, Z);
-    if (V.match(zs))
+    if (V.match(Hs))
       throw new RangeError("Format string contains an unescaped latin alphabet character `" + V + "`");
     return K;
   }).join("");
@@ -2221,7 +2226,7 @@ function tn(e, t, n) {
 }
 function Ls(e) {
   var t = e.match(Fs);
-  return t ? t[1].replace(Hs, "'") : e;
+  return t ? t[1].replace(zs, "'") : e;
 }
 function js(e, t) {
   if (e == null)
@@ -3137,7 +3142,7 @@ function _n(e) {
     return n && typeof Symbol == "function" && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : typeof n;
   }, _n(e);
 }
-function Hc(e, t) {
+function zc(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
@@ -3147,7 +3152,7 @@ function ll(e, t) {
     r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
   }
 }
-function zc(e, t, n) {
+function Hc(e, t, n) {
   return t && ll(e.prototype, t), n && ll(e, n), e;
 }
 function Lc(e, t) {
@@ -3205,12 +3210,12 @@ var Qc = /* @__PURE__ */ function(e) {
   var t = jc(n);
   function n() {
     var r;
-    Hc(this, n);
+    zc(this, n);
     for (var a = arguments.length, o = new Array(a), l = 0; l < a; l++)
       o[l] = arguments[l];
     return r = t.call.apply(t, [this].concat(o)), il(Oa(r), "priority", 120), il(Oa(r), "incompatibleTokens", ["Y", "R", "q", "M", "L", "w", "I", "d", "D", "i", "e", "c", "t", "T"]), r;
   }
-  return zc(n, [{
+  return Hc(n, [{
     key: "parse",
     value: function(a, o, l) {
       switch (o) {
@@ -3994,7 +3999,7 @@ function Tn(e) {
     return n && typeof Symbol == "function" && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : typeof n;
   }, Tn(e);
 }
-function Hf(e, t) {
+function zf(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
@@ -4004,7 +4009,7 @@ function bl(e, t) {
     r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
   }
 }
-function zf(e, t, n) {
+function Hf(e, t, n) {
   return t && bl(e.prototype, t), n && bl(e, n), e;
 }
 function Lf(e, t) {
@@ -4062,12 +4067,12 @@ var Qf = /* @__PURE__ */ function(e) {
   var t = jf(n);
   function n() {
     var r;
-    Hf(this, n);
+    zf(this, n);
     for (var a = arguments.length, o = new Array(a), l = 0; l < a; l++)
       o[l] = arguments[l];
     return r = t.call.apply(t, [this].concat(o)), Qr(Dn(r), "priority", 90), Qr(Dn(r), "subpriority", 1), Qr(Dn(r), "incompatibleTokens", ["Y", "R", "q", "Q", "M", "L", "w", "I", "d", "E", "i", "e", "c", "t", "T"]), r;
   }
-  return zf(n, [{
+  return Hf(n, [{
     key: "parse",
     value: function(a, o, l) {
       switch (o) {
@@ -4101,8 +4106,8 @@ function No(e, t, n) {
   var p = gt(), s = se((r = (a = (o = (l = n == null ? void 0 : n.weekStartsOn) !== null && l !== void 0 ? l : n == null || (u = n.locale) === null || u === void 0 || (d = u.options) === null || d === void 0 ? void 0 : d.weekStartsOn) !== null && o !== void 0 ? o : p.weekStartsOn) !== null && a !== void 0 ? a : (y = p.locale) === null || y === void 0 || (k = y.options) === null || k === void 0 ? void 0 : k.weekStartsOn) !== null && r !== void 0 ? r : 0);
   if (!(s >= 0 && s <= 6))
     throw new RangeError("weekStartsOn must be between 0 and 6 inclusively");
-  var g = ce(e), x = se(t), N = g.getUTCDay(), A = x % 7, q = (A + 7) % 7, z = (q < s ? 7 : 0) + x - N;
-  return g.setUTCDate(g.getUTCDate() + z), g;
+  var g = ce(e), x = se(t), N = g.getUTCDay(), A = x % 7, q = (A + 7) % 7, H = (q < s ? 7 : 0) + x - N;
+  return g.setUTCDate(g.getUTCDate() + H), g;
 }
 function Cn(e) {
   return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? Cn = function(n) {
@@ -4589,9 +4594,9 @@ function wd(e) {
   };
 }
 function kd(e, t) {
-  return t && (In(t) === "object" || typeof t == "function") ? t : Ha(e);
+  return t && (In(t) === "object" || typeof t == "function") ? t : za(e);
 }
-function Ha(e) {
+function za(e) {
   if (e === void 0)
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   return e;
@@ -4624,7 +4629,7 @@ var $d = /* @__PURE__ */ function(e) {
     gd(this, n);
     for (var a = arguments.length, o = new Array(a), l = 0; l < a; l++)
       o[l] = arguments[l];
-    return r = t.call.apply(t, [this].concat(o)), Pl(Ha(r), "priority", 90), Pl(Ha(r), "incompatibleTokens", ["y", "Y", "u", "q", "Q", "M", "L", "w", "d", "D", "E", "e", "c", "t", "T"]), r;
+    return r = t.call.apply(t, [this].concat(o)), Pl(za(r), "priority", 90), Pl(za(r), "incompatibleTokens", ["y", "Y", "u", "q", "Q", "M", "L", "w", "d", "D", "E", "e", "c", "t", "T"]), r;
   }
   return bd(n, [{
     key: "parse",
@@ -4716,12 +4721,12 @@ function xd(e, t, n) {
 function Pd(e, t) {
   if (typeof t != "function" && t !== null)
     throw new TypeError("Super expression must either be null or a function");
-  e.prototype = Object.create(t && t.prototype, { constructor: { value: e, writable: !0, configurable: !0 } }), t && za(e, t);
+  e.prototype = Object.create(t && t.prototype, { constructor: { value: e, writable: !0, configurable: !0 } }), t && Ha(e, t);
 }
-function za(e, t) {
-  return za = Object.setPrototypeOf || function(r, a) {
+function Ha(e, t) {
+  return Ha = Object.setPrototypeOf || function(r, a) {
     return r.__proto__ = a, r;
-  }, za(e, t);
+  }, Ha(e, t);
 }
 function Td(e) {
   var t = Cd();
@@ -4964,7 +4969,7 @@ function Ga(e, t) {
   }, Ga(e, t);
 }
 function Fd(e) {
-  var t = zd();
+  var t = Hd();
   return function() {
     var r = Or(e), a;
     if (t) {
@@ -4972,10 +4977,10 @@ function Fd(e) {
       a = Reflect.construct(r, arguments, o);
     } else
       a = r.apply(this, arguments);
-    return Hd(this, a);
+    return zd(this, a);
   };
 }
-function Hd(e, t) {
+function zd(e, t) {
   return t && (An(t) === "object" || typeof t == "function") ? t : Qa(e);
 }
 function Qa(e) {
@@ -4983,7 +4988,7 @@ function Qa(e) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   return e;
 }
-function zd() {
+function Hd() {
   if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
     return !1;
   if (typeof Proxy == "function")
@@ -5547,7 +5552,7 @@ function Tr(e) {
     return n.__proto__ || Object.getPrototypeOf(n);
   }, Tr(e);
 }
-function Hl(e, t, n) {
+function zl(e, t, n) {
   return t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
 var xy = /* @__PURE__ */ function(e) {
@@ -5558,7 +5563,7 @@ var xy = /* @__PURE__ */ function(e) {
     _y(this, n);
     for (var a = arguments.length, o = new Array(a), l = 0; l < a; l++)
       o[l] = arguments[l];
-    return r = t.call.apply(t, [this].concat(o)), Hl(oo(r), "priority", 60), Hl(oo(r), "incompatibleTokens", ["t", "T"]), r;
+    return r = t.call.apply(t, [this].concat(o)), zl(oo(r), "priority", 60), zl(oo(r), "incompatibleTokens", ["t", "T"]), r;
   }
   return wy(n, [{
     key: "parse",
@@ -5597,14 +5602,14 @@ function Py(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function zl(e, t) {
+function Hl(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
     r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
   }
 }
 function Ty(e, t, n) {
-  return t && zl(e.prototype, t), n && zl(e, n), e;
+  return t && Hl(e.prototype, t), n && Hl(e, n), e;
 }
 function Dy(e, t) {
   if (typeof t != "function" && t !== null)
@@ -5692,12 +5697,12 @@ var Iy = /* @__PURE__ */ function(e) {
     }
   }]), n;
 }(ke);
-function Hn(e) {
-  return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? Hn = function(n) {
+function zn(e) {
+  return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? zn = function(n) {
     return typeof n;
-  } : Hn = function(n) {
+  } : zn = function(n) {
     return n && typeof Symbol == "function" && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : typeof n;
-  }, Hn(e);
+  }, zn(e);
 }
 function Ny(e, t) {
   if (!(e instanceof t))
@@ -5735,7 +5740,7 @@ function Ey(e) {
   };
 }
 function Yy(e, t) {
-  return t && (Hn(t) === "object" || typeof t == "function") ? t : so(e);
+  return t && (zn(t) === "object" || typeof t == "function") ? t : so(e);
 }
 function so(e) {
   if (e === void 0)
@@ -5787,12 +5792,12 @@ var Uy = /* @__PURE__ */ function(e) {
     }
   }]), n;
 }(ke);
-function zn(e) {
-  return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? zn = function(n) {
+function Hn(e) {
+  return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? Hn = function(n) {
     return typeof n;
-  } : zn = function(n) {
+  } : Hn = function(n) {
     return n && typeof Symbol == "function" && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : typeof n;
-  }, zn(e);
+  }, Hn(e);
 }
 function Wy(e, t) {
   if (!(e instanceof t))
@@ -5807,7 +5812,7 @@ function Gl(e, t) {
 function Fy(e, t, n) {
   return t && Gl(e.prototype, t), n && Gl(e, n), e;
 }
-function Hy(e, t) {
+function zy(e, t) {
   if (typeof t != "function" && t !== null)
     throw new TypeError("Super expression must either be null or a function");
   e.prototype = Object.create(t && t.prototype, { constructor: { value: e, writable: !0, configurable: !0 } }), t && co(e, t);
@@ -5817,7 +5822,7 @@ function co(e, t) {
     return r.__proto__ = a, r;
   }, co(e, t);
 }
-function zy(e) {
+function Hy(e) {
   var t = jy();
   return function() {
     var r = Rr(e), a;
@@ -5830,7 +5835,7 @@ function zy(e) {
   };
 }
 function Ly(e, t) {
-  return t && (zn(t) === "object" || typeof t == "function") ? t : fo(e);
+  return t && (Hn(t) === "object" || typeof t == "function") ? t : fo(e);
 }
 function fo(e) {
   if (e === void 0)
@@ -5858,8 +5863,8 @@ function Ql(e, t, n) {
   return t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
 var qy = /* @__PURE__ */ function(e) {
-  Hy(n, e);
-  var t = zy(n);
+  zy(n, e);
+  var t = Hy(n);
   function n() {
     var r;
     Wy(this, n);
@@ -6274,7 +6279,7 @@ function ri(e, t) {
 }
 var hp = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, gp = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, bp = /^'([^]*?)'?$/, _p = /''/g, wp = /\S/, kp = /[a-zA-Z]/;
 function bo(e, t, n, r) {
-  var a, o, l, u, d, y, k, p, s, g, x, N, A, q, z, R, H, ne;
+  var a, o, l, u, d, y, k, p, s, g, x, N, A, q, H, R, z, ne;
   ee(3, arguments);
   var Q = String(e), oe = String(t), P = gt(), O = (a = (o = r == null ? void 0 : r.locale) !== null && o !== void 0 ? o : P.locale) !== null && a !== void 0 ? a : Ni;
   if (!O.match)
@@ -6282,7 +6287,7 @@ function bo(e, t, n, r) {
   var D = se((l = (u = (d = (y = r == null ? void 0 : r.firstWeekContainsDate) !== null && y !== void 0 ? y : r == null || (k = r.locale) === null || k === void 0 || (p = k.options) === null || p === void 0 ? void 0 : p.firstWeekContainsDate) !== null && d !== void 0 ? d : P.firstWeekContainsDate) !== null && u !== void 0 ? u : (s = P.locale) === null || s === void 0 || (g = s.options) === null || g === void 0 ? void 0 : g.firstWeekContainsDate) !== null && l !== void 0 ? l : 1);
   if (!(D >= 1 && D <= 7))
     throw new RangeError("firstWeekContainsDate must be between 1 and 7 inclusively");
-  var C = se((x = (N = (A = (q = r == null ? void 0 : r.weekStartsOn) !== null && q !== void 0 ? q : r == null || (z = r.locale) === null || z === void 0 || (R = z.options) === null || R === void 0 ? void 0 : R.weekStartsOn) !== null && A !== void 0 ? A : P.weekStartsOn) !== null && N !== void 0 ? N : (H = P.locale) === null || H === void 0 || (ne = H.options) === null || ne === void 0 ? void 0 : ne.weekStartsOn) !== null && x !== void 0 ? x : 0);
+  var C = se((x = (N = (A = (q = r == null ? void 0 : r.weekStartsOn) !== null && q !== void 0 ? q : r == null || (H = r.locale) === null || H === void 0 || (R = H.options) === null || R === void 0 ? void 0 : R.weekStartsOn) !== null && A !== void 0 ? A : P.weekStartsOn) !== null && N !== void 0 ? N : (z = P.locale) === null || z === void 0 || (ne = z.options) === null || ne === void 0 ? void 0 : ne.weekStartsOn) !== null && x !== void 0 ? x : 0);
   if (!(C >= 0 && C <= 6))
     throw new RangeError("weekStartsOn must be between 0 and 6 inclusively");
   if (oe === "")
@@ -6522,7 +6527,7 @@ function Qe(e, t) {
   var n = ce(e);
   return isNaN(n.getTime()) ? /* @__PURE__ */ new Date(NaN) : (t.year != null && n.setFullYear(t.year), t.month != null && (n = nn(n, t.month)), t.date != null && n.setDate(se(t.date)), t.hours != null && n.setHours(se(t.hours)), t.minutes != null && n.setMinutes(se(t.minutes)), t.seconds != null && n.setSeconds(se(t.seconds)), t.milliseconds != null && n.setMilliseconds(se(t.milliseconds)), n);
 }
-function Hi(e, t) {
+function zi(e, t) {
   ee(2, arguments);
   var n = ce(e), r = se(t);
   return n.setHours(r), n;
@@ -6532,7 +6537,7 @@ function Bo(e, t) {
   var n = ce(e), r = se(t);
   return n.setMilliseconds(r), n;
 }
-function zi(e, t) {
+function Hi(e, t) {
   ee(2, arguments);
   var n = ce(e), r = se(t);
   return n.setMinutes(r), n;
@@ -6547,7 +6552,7 @@ function At(e, t) {
   var n = ce(e), r = se(t);
   return isNaN(n.getTime()) ? /* @__PURE__ */ new Date(NaN) : (n.setFullYear(r), n);
 }
-function Ht(e, t) {
+function zt(e, t) {
   ee(2, arguments);
   var n = se(t);
   return mt(e, -n);
@@ -6562,7 +6567,7 @@ function Zn(e) {
 function Wp(e, t) {
   if (ee(2, arguments), !t || Zn(t) !== "object")
     return /* @__PURE__ */ new Date(NaN);
-  var n = t.years ? se(t.years) : 0, r = t.months ? se(t.months) : 0, a = t.weeks ? se(t.weeks) : 0, o = t.days ? se(t.days) : 0, l = t.hours ? se(t.hours) : 0, u = t.minutes ? se(t.minutes) : 0, d = t.seconds ? se(t.seconds) : 0, y = Ht(e, r + n * 12), k = $p(y, o + a * 7), p = u + l * 60, s = d + p * 60, g = s * 1e3, x = new Date(k.getTime() - g);
+  var n = t.years ? se(t.years) : 0, r = t.months ? se(t.months) : 0, a = t.weeks ? se(t.weeks) : 0, o = t.days ? se(t.days) : 0, l = t.hours ? se(t.hours) : 0, u = t.minutes ? se(t.minutes) : 0, d = t.seconds ? se(t.seconds) : 0, y = zt(e, r + n * 12), k = $p(y, o + a * 7), p = u + l * 60, s = d + p * 60, g = s * 1e3, x = new Date(k.getTime() - g);
   return x;
 }
 function Fp(e, t) {
@@ -6596,7 +6601,7 @@ function Ur() {
     ]
   );
 }
-function Hp() {
+function zp() {
   return m(), S(
     "svg",
     {
@@ -6712,7 +6717,7 @@ const li = (e, t, n, r) => {
     seconds: +(n == null ? void 0 : n.seconds),
     milliseconds: 0
   }) : null;
-}, zp = (e, t, n, r) => {
+}, Hp = (e, t, n, r) => {
   const a = Array.isArray(n) ? n[0] : n;
   if (typeof t == "string")
     return li(e, t, a, r);
@@ -6740,10 +6745,10 @@ const li = (e, t, n, r) => {
   return new Date(n).toISOString();
 }, vt = (e) => {
   let t = E(JSON.parse(JSON.stringify(e)));
-  return t = Hi(t, 0), t = zi(t, 0), t = Li(t, 0), t = Bo(t, 0), t;
+  return t = zi(t, 0), t = Hi(t, 0), t = Li(t, 0), t = Bo(t, 0), t;
 }, st = (e, t, n, r) => {
   let a = e ? E(e) : E();
-  return (t || t === 0) && (a = Hi(a, +t)), (n || n === 0) && (a = zi(a, +n)), (r || r === 0) && (a = Li(a, +r)), Bo(a, 0);
+  return (t || t === 0) && (a = zi(a, +t)), (n || n === 0) && (a = Hi(a, +n)), (r || r === 0) && (a = Li(a, +r)), Bo(a, 0);
 }, Ze = (e, t) => !e || !t ? !1 : Co(vt(e), vt(t)), Re = (e, t) => !e || !t ? !1 : Bi(vt(e), vt(t)), et = (e, t) => !e || !t ? !1 : Do(vt(e), vt(t)), Qi = (e, t, n) => e && e[0] && e[1] ? et(n, e[0]) && Ze(n, e[1]) : e && e[0] && t ? et(n, e[0]) && Ze(n, t) || Ze(n, e[0]) && et(n, t) : !1, Jt = an({
   menuFocused: !1,
   shiftKeyInMenu: !1
@@ -7276,10 +7281,10 @@ const gm = (e, t = 3) => {
   }, s = () => e.range ? e.startTime && Array.isArray(e.startTime) ? [p(e.startTime[0]), p(e.startTime[1])] : null : e.startTime && !Array.isArray(e.startTime) ? p(e.startTime) : null, g = (i) => !k(i), x = (i) => Array.isArray(i) ? en(i[0]) && (i[1] ? en(i[1]) : !0) : i ? en(i) : !1, N = (i) => i instanceof Date ? i : Sp(i), A = (i) => {
     const f = Et(u(i), { weekStartsOn: +e.weekStart }), b = Fu(u(i), { weekStartsOn: +e.weekStart });
     return [f, b];
-  }, q = (i, f) => Array.isArray(f) ? f.some((b) => Re(u(E(b)), u(i))) : f(i), z = (i, f, b) => {
+  }, q = (i, f) => Array.isArray(f) ? f.some((b) => Re(u(E(b)), u(i))) : f(i), H = (i, f, b) => {
     let _ = i ? E(i) : E();
     return (f || f === 0) && (_ = nn(_, f)), b && (_ = At(_, b)), _;
-  }, R = (i) => Qe(E(), { hours: _t(i), minutes: wt(i), seconds: jt(i) }), H = (i) => Qe(E(), {
+  }, R = (i) => Qe(E(), { hours: _t(i), minutes: wt(i), seconds: jt(i) }), z = (i) => Qe(E(), {
     hours: +i.hours || 0,
     minutes: +i.minutes || 0,
     seconds: +i.seconds || 0
@@ -7292,10 +7297,10 @@ const gm = (e, t = 3) => {
     }
     return b === "max" ? i.getTime() <= f.getTime() : i.getTime() >= f.getTime();
   }, Q = () => !e.enableTimePicker || e.monthPicker || e.yearPicker || e.ignoreTimeValidation, oe = (i) => Array.isArray(i) ? [i[0] ? R(i[0]) : null, i[1] ? R(i[1]) : null] : R(i), P = (i) => {
-    const f = e.maxTime ? H(e.maxTime) : E(e.maxDate);
+    const f = e.maxTime ? z(e.maxTime) : E(e.maxDate);
     return Array.isArray(i) ? ne(i[0], f, "max", !!e.maxDate) && ne(i[1], f, "max", !!e.maxDate) : ne(i, f, "max", !!e.maxDate);
   }, O = (i, f) => {
-    const b = e.minTime ? H(e.minTime) : E(e.minDate);
+    const b = e.minTime ? z(e.minTime) : E(e.minDate);
     return Array.isArray(i) ? ne(i[0], b, "min", !!e.minDate) && ne(i[1], b, "min", !!e.minDate) && f : ne(i, b, "min", !!e.minDate) && f;
   }, D = (i) => {
     let f = !0;
@@ -7351,7 +7356,7 @@ const gm = (e, t = 3) => {
     sanitizeDate: N,
     getWeekFromDate: A,
     matchDate: q,
-    setDateMonthOrYear: z,
+    setDateMonthOrYear: H,
     isValidTime: D,
     getCalendarDays: G,
     validateMonthYearInRange: (i, f, b, _) => {
@@ -7375,7 +7380,7 @@ const gm = (e, t = 3) => {
     1: []
   },
   monthPicker: []
-}), ta = U(null), sn = U(!1), na = U(!1), ra = U(!1), aa = U(!1), Xe = U(0), ze = U(0), Tt = () => {
+}), ta = U(null), sn = U(!1), na = U(!1), ra = U(!1), aa = U(!1), Xe = U(0), He = U(0), Tt = () => {
   const e = w(() => sn.value ? [...xe.selectionGrid, xe.actionRow].filter((p) => p.length) : na.value ? [
     ...xe.timePicker[0],
     ...xe.timePicker[1],
@@ -7384,12 +7389,12 @@ const gm = (e, t = 3) => {
   ].filter((p) => p.length) : ra.value ? [...xe.monthPicker, xe.actionRow] : [xe.monthYear, ...xe.calendar, xe.time, xe.actionRow].filter((p) => p.length)), t = (p) => {
     Xe.value = p ? Xe.value + 1 : Xe.value - 1;
     let s = null;
-    e.value[ze.value] && (s = e.value[ze.value][Xe.value]), s || (Xe.value = p ? Xe.value - 1 : Xe.value + 1);
+    e.value[He.value] && (s = e.value[He.value][Xe.value]), s || (Xe.value = p ? Xe.value - 1 : Xe.value + 1);
   }, n = (p) => {
-    ze.value === 0 && !p || ze.value === e.value.length && p || (ze.value = p ? ze.value + 1 : ze.value - 1, e.value[ze.value] ? e.value[ze.value] && !e.value[ze.value][Xe.value] && Xe.value !== 0 && (Xe.value = e.value[ze.value].length - 1) : ze.value = p ? ze.value - 1 : ze.value + 1);
+    He.value === 0 && !p || He.value === e.value.length && p || (He.value = p ? He.value + 1 : He.value - 1, e.value[He.value] ? e.value[He.value] && !e.value[He.value][Xe.value] && Xe.value !== 0 && (Xe.value = e.value[He.value].length - 1) : He.value = p ? He.value - 1 : He.value + 1);
   }, r = (p) => {
     let s = null;
-    e.value[ze.value] && (s = e.value[ze.value][Xe.value]), s ? s.focus({ preventScroll: !sn.value }) : Xe.value = p ? Xe.value - 1 : Xe.value + 1;
+    e.value[He.value] && (s = e.value[He.value][Xe.value]), s ? s.focus({ preventScroll: !sn.value }) : Xe.value = p ? Xe.value - 1 : Xe.value + 1;
   }, a = () => {
     t(!0), r(!0);
   }, o = () => {
@@ -7403,7 +7408,7 @@ const gm = (e, t = 3) => {
   }, y = (p, s) => {
     xe[s] = p;
   }, k = () => {
-    Xe.value = 0, ze.value = 0;
+    Xe.value = 0, He.value = 0;
   };
   return {
     buildMatrix: d,
@@ -7459,10 +7464,10 @@ const gm = (e, t = 3) => {
     () => (v) => x.value[v] ? x.value[v].month : 0
   ), q = w(
     () => (v) => x.value[v] ? x.value[v].year : 0
-  ), z = w(() => e.flow && e.flow.length && !e.partialFlow ? a.value === e.flow.length : !0), R = (v, B, le) => {
+  ), H = w(() => e.flow && e.flow.length && !e.partialFlow ? a.value === e.flow.length : !0), R = (v, B, le) => {
     var ue, Ie;
     x.value[v] || (x.value[v] = { month: 0, year: 0 }), x.value[v].month = B === null ? (ue = x.value[v]) == null ? void 0 : ue.month : B, x.value[v].year = le === null ? (Ie = x.value[v]) == null ? void 0 : Ie.year : le;
-  }, H = (v, B) => {
+  }, z = (v, B) => {
     N[v] = B;
   };
   lt(() => {
@@ -7486,14 +7491,14 @@ const gm = (e, t = 3) => {
         x.value[le] = { month: Pe(Ie), year: Te(Ie) };
       }
   }, oe = (v) => {
-    Q(v), H("hours", _t(v)), H("minutes", wt(v)), H("seconds", jt(v));
+    Q(v), z("hours", _t(v)), z("minutes", wt(v)), z("seconds", jt(v));
   }, P = (v, B) => {
     Q(v[0], B);
     const le = (ue, Ie) => [
       ue(v[0]),
       v[1] ? ue(v[1]) : N[Ie][1]
     ];
-    H("hours", le(_t, "hours")), H("minutes", le(wt, "minutes")), H("seconds", le(jt, "seconds"));
+    z("hours", le(_t, "hours")), z("minutes", le(wt, "minutes")), z("seconds", le(jt, "seconds"));
   }, O = (v, B) => {
     if ((e.range || e.weekPicker) && !e.multiDates)
       return P(v, B);
@@ -7522,7 +7527,7 @@ const gm = (e, t = 3) => {
     const v = o();
     if (v) {
       const B = Array.isArray(v), le = B ? [+v[0].hours, +v[1].hours] : +v.hours, ue = B ? [+v[0].minutes, +v[1].minutes] : +v.minutes, Ie = B ? [+v[0].seconds, +v[1].seconds] : +v.seconds;
-      H("hours", le), H("minutes", ue), e.enableSeconds && H("seconds", Ie);
+      z("hours", le), z("minutes", ue), e.enableSeconds && z("seconds", Ie);
     }
   }, V = () => Array.isArray(s.value) && s.value.length ? s.value[s.value.length - 1] : null, i = () => {
     if (Array.isArray(s.value) && s.value.length === 2) {
@@ -7554,7 +7559,7 @@ const gm = (e, t = 3) => {
       s.value = [v];
   }, I = (v, B) => {
     const le = et(v, B) ? B : v, ue = et(B, v) ? B : v;
-    return zo({ start: le, end: ue });
+    return Ho({ start: le, end: ue });
   }, j = (v, B = 0) => {
     if (Array.isArray(s.value) && s.value[B]) {
       const le = Uu(v, s.value[B]), ue = I(s.value[B], v), Ie = ue.length === 1 ? 0 : ue.filter((bt) => l(bt)).length, ot = Math.abs(le) - Ie;
@@ -7567,10 +7572,10 @@ const gm = (e, t = 3) => {
     }
     return !0;
   }, W = (v) => Array.isArray(s.value) && s.value.length === 2 ? e.fixedStart && (et(v, s.value[0]) || Re(v, s.value[0])) ? [s.value[0], v] : e.fixedEnd && (Ze(v, s.value[1]) || Re(v, s.value[1])) ? [v, s.value[1]] : (t("invalid-fixed-range", v), s.value) : [], $ = () => {
-    e.autoApply && z.value && t("auto-apply", e.partialFlow);
+    e.autoApply && H.value && t("auto-apply", e.partialFlow);
   }, h = () => {
     e.autoApply && t("select-date");
-  }, Y = (v) => !zo({ start: v[0], end: v[1] }).some((B) => l(B)), _e = (v) => (s.value = d(E(v.value)), $()), re = (v) => {
+  }, Y = (v) => !Ho({ start: v[0], end: v[1] }).some((B) => l(B)), _e = (v) => (s.value = d(E(v.value)), $()), re = (v) => {
     const B = st(E(v.value), N.hours, N.minutes, ae());
     e.multiDates ? _(B) : s.value = B, n(), $();
   }, de = () => {
@@ -7608,7 +7613,7 @@ const gm = (e, t = 3) => {
     return e.weekNumbers === "local" ? ec(B.value, { weekStartsOn: +e.weekStart }) : e.weekNumbers === "iso" ? Zs(B.value) : typeof e.weekNumbers == "function" ? e.weekNumbers(B.value) : "";
   }, Se = (v) => {
     for (let B = v - 1; B >= 0; B--) {
-      const le = Ht(Qe(E(), { month: A.value(B + 1), year: q.value(B + 1) }), 1);
+      const le = zt(Qe(E(), { month: A.value(B + 1), year: q.value(B + 1) }), 1);
       R(B, Pe(le), Te(le));
     }
     for (let B = v + 1; B <= p.value.multiCalendars - 1; B++) {
@@ -7634,18 +7639,18 @@ const gm = (e, t = 3) => {
     }
     n();
   }, on = (v, B) => {
-    const le = Qe(E(), { month: A.value(B), year: q.value(B) }), ue = v < 0 ? mt(le, 1) : Ht(le, 1);
+    const le = Qe(E(), { month: A.value(B), year: q.value(B) }), ue = v < 0 ? mt(le, 1) : zt(le, 1);
     k(Pe(ue), Te(ue), v < 0, e.preventMinMaxNavigation) && (R(B, Pe(ue), Te(ue)), p.value.multiCalendars && !e.multiCalendarsSolo && Se(B), t("update-month-year", { instance: B, month: Pe(ue), year: Te(ue) }), r());
   }, Gt = (v) => {
     hi(v) && hi(s.value) && Mt(N.hours) && Mt(N.minutes) ? (v[0] && s.value[0] && (s.value[0] = st(v[0], N.hours[0], N.minutes[0], ae())), v[1] && s.value[1] && (s.value[1] = st(v[1], N.hours[1], N.minutes[1], ae(!1)))) : e.multiDates && Array.isArray(s.value) ? s.value[s.value.length - 1] = Ct(v) : !e.range && !gi(v) && (s.value = Ct(v)), t("time-update");
-  }, Hr = (v, B = !0, le = !1) => {
+  }, zr = (v, B = !0, le = !1) => {
     const ue = B ? v : N.hours, Ie = !B && !le ? v : N.minutes, ot = le ? v : N.seconds;
     if (e.range && gi(s.value) && Mt(ue) && Mt(Ie) && Mt(ot) && !e.disableTimeRangeValidation) {
       const bt = (M) => st(s.value[M], ue[M], Ie[M], ot[M]), Qt = (M) => Bo(s.value[M], 0);
       if (Re(s.value[0], s.value[1]) && (Do(bt(0), Qt(1)) || Co(bt(1), Qt(0))))
         return;
     }
-    if (H("hours", ue), H("minutes", Ie), H("seconds", ot), s.value)
+    if (z("hours", ue), z("minutes", Ie), z("seconds", ot), s.value)
       if (e.multiDates) {
         const bt = V();
         bt && Gt(bt);
@@ -7654,7 +7659,7 @@ const gm = (e, t = 3) => {
     else
       e.timePicker && Gt(e.range ? [E(), E()] : E());
     n();
-  }, zr = (v, B) => {
+  }, Hr = (v, B) => {
     e.monthChangeOnScroll && on(e.monthChangeOnScroll !== "inverse" ? -v.deltaY : v.deltaY, B);
   }, Lr = (v, B, le = !1) => {
     e.monthChangeOnArrows && e.vertical === le && ln(v, B);
@@ -7669,11 +7674,11 @@ const gm = (e, t = 3) => {
     calendars: x,
     monthYearSelect: Fr,
     isDisabled: l,
-    updateTime: Hr,
+    updateTime: zr,
     getWeekNum: pe,
     selectDate: qt,
     updateMonthYear: Rt,
-    handleScroll: zr,
+    handleScroll: Hr,
     getMarker: (v) => e.markers.find((B) => Re(u(v.value), u(B.date))),
     handleArrow: Lr,
     handleSwipe: ln,
@@ -7711,22 +7716,22 @@ const gm = (e, t = 3) => {
   }, A = ($) => t.modelType ? _($) : { month: Pe($), year: Te($) }, q = ($) => Array.isArray($) ? d(() => [
     At(E(), $[0]),
     $[1] ? At(E(), $[1]) : y()
-  ]) : At(E(), +$), z = ($, h) => (typeof $ == "string" || typeof $ == "number") && t.modelType ? b($) : h, R = ($) => Array.isArray($) ? [
-    z(
+  ]) : At(E(), +$), H = ($, h) => (typeof $ == "string" || typeof $ == "number") && t.modelType ? b($) : h, R = ($) => Array.isArray($) ? [
+    H(
       $[0],
       st(null, +$[0].hours, +$[0].minutes, $[0].seconds)
     ),
-    z(
+    H(
       $[1],
       st(null, +$[1].hours, +$[1].minutes, $[1].seconds)
     )
-  ] : z($, st(null, $.hours, $.minutes, $.seconds)), H = ($) => Array.isArray($) ? d(() => [
-    z($[0], p(null, +$[0].month, +$[0].year)),
-    z(
+  ] : H($, st(null, $.hours, $.minutes, $.seconds)), z = ($) => Array.isArray($) ? d(() => [
+    H($[0], p(null, +$[0].month, +$[0].year)),
+    H(
       $[1],
       $[1] ? p(null, +$[1].month, +$[1].year) : y()
     )
-  ]) : z($, p(null, +$.month, +$.year)), ne = ($) => {
+  ]) : H($, p(null, +$.month, +$.year)), ne = ($) => {
     if (Array.isArray($))
       return $.map((h) => b(h));
     throw new Error(Vr.dateArr("multi-dates"));
@@ -7745,7 +7750,7 @@ const gm = (e, t = 3) => {
       _($[0]),
       $[1] ? _($[1]) : y()
     ];
-  }, D = () => r.value[1] ? O() : _(qe(r.value[0])), C = () => (r.value || []).map(($) => _($)), G = () => (P(), t.modelAuto ? D() : t.multiDates ? C() : Array.isArray(r.value) ? d(() => O()) : _(qe(r.value))), Z = ($) => $ ? t.timePicker ? R(qe($)) : t.monthPicker ? H(qe($)) : t.yearPicker ? q(qe($)) : t.multiDates ? ne(qe($)) : t.weekPicker ? Q(qe($)) : oe(qe($)) : null, ae = ($) => {
+  }, D = () => r.value[1] ? O() : _(qe(r.value[0])), C = () => (r.value || []).map(($) => _($)), G = () => (P(), t.modelAuto ? D() : t.multiDates ? C() : Array.isArray(r.value) ? d(() => O()) : _(qe(r.value))), Z = ($) => $ ? t.timePicker ? R(qe($)) : t.monthPicker ? z(qe($)) : t.yearPicker ? q(qe($)) : t.multiDates ? ne(qe($)) : t.weekPicker ? Q(qe($)) : oe(qe($)) : null, ae = ($) => {
     const h = Z($);
     k(qe(h)) ? (r.value = qe(h), f()) : (r.value = null, g.value = "");
   }, K = () => {
@@ -7786,20 +7791,20 @@ const gm = (e, t = 3) => {
 }, Mm = (e, t) => {
   const { validateMonthYearInRange: n, validateMaxDate: r, validateMinDate: a, defaults: o } = it(e), l = (p, s) => {
     let g = p;
-    return o.value.filters.months.includes(Pe(g)) ? (g = s ? mt(p, 1) : Ht(p, 1), l(g, s)) : g;
+    return o.value.filters.months.includes(Pe(g)) ? (g = s ? mt(p, 1) : zt(p, 1), l(g, s)) : g;
   }, u = (p, s) => {
     let g = p;
     return o.value.filters.years.includes(Te(g)) ? (g = s ? Si(p, 1) : Fp(p, 1), u(g, s)) : g;
   }, d = (p) => {
     const s = Qe(/* @__PURE__ */ new Date(), { month: e.month, year: e.year });
-    let g = p ? mt(s, 1) : Ht(s, 1), x = Pe(g), N = Te(g);
+    let g = p ? mt(s, 1) : zt(s, 1), x = Pe(g), N = Te(g);
     o.value.filters.months.includes(x) && (g = l(g, p), x = Pe(g), N = Te(g)), o.value.filters.years.includes(N) && (g = u(g, p), N = Te(g)), n(x, N, p, e.preventMinMaxNavigation) && y(x, N);
   }, y = (p, s) => {
     t("update-month-year", { month: p, year: s });
   }, k = w(() => (p) => {
     if (!e.preventMinMaxNavigation || p && !e.maxDate || !p && !e.minDate)
       return !1;
-    const s = Qe(/* @__PURE__ */ new Date(), { month: e.month, year: e.year }), g = p ? mt(s, 1) : Ht(s, 1), x = [Pe(g), Te(g)];
+    const s = Qe(/* @__PURE__ */ new Date(), { month: e.month, year: e.year }), g = p ? mt(s, 1) : zt(s, 1), x = [Pe(g), Te(g)];
     return p ? !r(...x) : !a(...x);
   });
   return { handleMonthYearChange: d, isDisabled: k, updateMonthYear: y };
@@ -7856,7 +7861,7 @@ const Im = (e, t, n, r) => {
   }, q = (P, O) => {
     const { top: D, left: C, height: G, width: Z } = p(P);
     a.value.top = `${G + D + +r.offset}px`, A({ inputEl: P, menuEl: O, left: C, width: Z }), o.value = !1;
-  }, z = (P, O) => {
+  }, H = (P, O) => {
     const { top: D, left: C, width: G } = p(P), { height: Z } = O.getBoundingClientRect();
     a.value.top = `${D - Z - +r.offset}px`, A({ inputEl: P, menuEl: O, left: C, width: G }), o.value = !0;
   }, R = (P, O) => {
@@ -7864,13 +7869,13 @@ const Im = (e, t, n, r) => {
       const { left: D, width: C } = p(P), { left: G, right: Z } = O.getBoundingClientRect();
       return G <= 0 || G <= D ? y(D) : Z >= document.documentElement.clientWidth ? d(D, C) : k(D, C);
     }
-  }, H = (P, O) => {
+  }, z = (P, O) => {
     const { height: D } = O.getBoundingClientRect(), { top: C, height: G } = P.getBoundingClientRect(), Z = window.innerHeight - C - G, ae = C;
-    return D <= Z ? q(P, O) : D > Z && D <= ae ? z(P, O) : Z >= ae ? q(P, O) : z(P, O);
+    return D <= Z ? q(P, O) : D > Z && D <= ae ? H(P, O) : Z >= ae ? q(P, O) : H(P, O);
   }, ne = () => {
     const P = Ue(t), O = Ue(e);
     if (P && O)
-      return r.autoPosition ? H(P, O) : q(P, O);
+      return r.autoPosition ? z(P, O) : q(P, O);
   }, Q = function(P) {
     if (P) {
       const O = P.scrollHeight > P.clientHeight, D = window.getComputedStyle(P).overflowY.indexOf("hidden") !== -1;
@@ -8112,7 +8117,7 @@ const Im = (e, t, n, r) => {
     }, x = (O) => {
       var D;
       const C = u();
-      return zp(
+      return Hp(
         O,
         ((D = l.value.textInputOptions) == null ? void 0 : D.format) || a(),
         C || d({}),
@@ -8136,13 +8141,13 @@ const Im = (e, t, n, r) => {
       var D;
       const { value: C } = O.target;
       C !== "" ? ((D = l.value.textInputOptions) != null && D.openMenu && !r.isMenuOpen && n("open"), A(C), n("set-input-date", y.value)) : g(), n("update:input-value", C);
-    }, z = () => {
+    }, H = () => {
       var O, D;
       (O = l.value.textInputOptions) != null && O.enterSubmit && o(y.value) && r.inputValue !== "" ? (n("set-input-date", y.value, !0), y.value = null) : (D = l.value.textInputOptions) != null && D.enterSubmit && r.inputValue === "" && (y.value = null, n("clear"));
     }, R = () => {
       var O, D;
       (O = l.value.textInputOptions) != null && O.tabSubmit && o(y.value) && r.inputValue !== "" ? (n("set-input-date", y.value, !0), y.value = null) : (D = l.value.textInputOptions) != null && D.tabSubmit && r.inputValue === "" && (y.value = null, n("clear"));
-    }, H = () => {
+    }, z = () => {
       p.value = !0, n("focus");
     }, ne = (O) => {
       var D;
@@ -8177,7 +8182,7 @@ const Im = (e, t, n, r) => {
             key: 0,
             value: e.inputValue,
             onInput: q,
-            onEnter: z,
+            onEnter: H,
             onTab: R,
             onClear: oe
           }) : T("", !0),
@@ -8202,7 +8207,7 @@ const Im = (e, t, n, r) => {
               P
             ],
             onBlur: Q,
-            onFocus: H,
+            onFocus: z,
             onKeypress: P
           }, null, 42, Ym)),
           O.$slots["input-icon"] && !O.hideInputIcon ? (m(), S("span", Vm, [
@@ -8215,7 +8220,7 @@ const Im = (e, t, n, r) => {
           O.$slots["clear-icon"] && e.inputValue && O.clearable && !O.disabled && !O.readonly ? (m(), S("span", Um, [
             L(O.$slots, "clear-icon", { clear: oe })
           ])) : T("", !0),
-          O.clearable && !O.$slots["clear-icon"] && e.inputValue && !O.disabled && !O.readonly ? (m(), X(c(Hp), {
+          O.clearable && !O.$slots["clear-icon"] && e.inputValue && !O.disabled && !O.readonly ? (m(), X(c(zp), {
             key: 5,
             class: "dp__clear_icon dp__input_icons",
             "data-test": "clear-icon",
@@ -8225,7 +8230,7 @@ const Im = (e, t, n, r) => {
       ], 8, Am);
     };
   }
-}), Fm = { class: "dp__selection_preview" }, Hm = { class: "dp__action_buttons" }, zm = ["onKeydown"], Lm = /* @__PURE__ */ ve({
+}), Fm = { class: "dp__selection_preview" }, zm = { class: "dp__action_buttons" }, Hm = ["onKeydown"], Lm = /* @__PURE__ */ ve({
   __name: "ActionRow",
   props: {
     calendarWidth: { type: Number, default: 0 },
@@ -8252,16 +8257,16 @@ const Im = (e, t, n, r) => {
     }, A = w(() => !n.internalModelValue || !n.menuMount ? "" : typeof o.value.previewFormat == "string" ? Array.isArray(n.internalModelValue) ? n.internalModelValue.length === 2 && n.internalModelValue[1] ? N() : n.multiDates ? n.internalModelValue.map((R) => `${r(R)}`) : n.modelAuto ? `${r(n.internalModelValue[0])}` : `${r(n.internalModelValue[0])} -` : r(n.internalModelValue) : x()), q = (R) => {
       if (!n.monthPicker)
         return !0;
-      let H = !0;
-      return n.minDate && n.maxDate ? et(E(R), E(n.minDate)) && Ze(E(R), E(n.maxDate)) : (n.minDate && (H = et(E(R), E(n.minDate))), n.maxDate && (H = Ze(E(R), E(n.maxDate))), H);
-    }, z = () => {
+      let z = !0;
+      return n.minDate && n.maxDate ? et(E(R), E(n.minDate)) && Ze(E(R), E(n.maxDate)) : (n.minDate && (z = et(E(R), E(n.minDate))), n.maxDate && (z = Ze(E(R), E(n.maxDate))), z);
+    }, H = () => {
       s.value && g.value && y.value ? t("select-date") : t("invalid-select");
     };
-    return (R, H) => (m(), S("div", {
+    return (R, z) => (m(), S("div", {
       class: "dp__action_row",
       style: ft(e.calendarWidth ? { width: `${e.calendarWidth}px` } : {})
     }, [
-      R.$slots["action-row"] ? L(R.$slots, "action-row", Ge(He({ key: 0 }, {
+      R.$slots["action-row"] ? L(R.$slots, "action-row", Ge(ze({ key: 0 }, {
         internalModelValue: e.internalModelValue,
         disabled: c(k),
         selectDate: () => R.$emit("select-date"),
@@ -8279,7 +8284,7 @@ const Im = (e, t, n, r) => {
             Array.isArray(c(A)) ? (m(!0), S(me, { key: 1 }, De(c(A), (ne, Q) => (m(), S("div", { key: Q }, ge(ne), 1))), 128)) : T("", !0)
           ], 64))
         ]),
-        F("div", Hm, [
+        F("div", zm, [
           R.$slots["action-select"] ? L(R.$slots, "action-select", {
             key: 0,
             value: e.internalModelValue
@@ -8291,24 +8296,24 @@ const Im = (e, t, n, r) => {
               ref_key: "cancelButtonRef",
               ref: u,
               tabindex: "0",
-              onClick: H[0] || (H[0] = (ne) => R.$emit("close-picker")),
+              onClick: z[0] || (z[0] = (ne) => R.$emit("close-picker")),
               onKeydown: [
-                H[1] || (H[1] = he((ne) => R.$emit("close-picker"), ["enter"])),
-                H[2] || (H[2] = he((ne) => R.$emit("close-picker"), ["space"]))
+                z[1] || (z[1] = he((ne) => R.$emit("close-picker"), ["enter"])),
+                z[2] || (z[2] = he((ne) => R.$emit("close-picker"), ["space"]))
               ]
             }, ge(R.cancelText), 545)),
             F("span", {
               class: fe(c(p)),
               tabindex: "0",
               onKeydown: [
-                he(z, ["enter"]),
-                he(z, ["space"])
+                he(H, ["enter"]),
+                he(H, ["space"])
               ],
-              onClick: z,
+              onClick: H,
               "data-test": "select-button",
               ref_key: "selectButtonRef",
               ref: d
-            }, ge(R.selectText), 43, zm)
+            }, ge(R.selectText), 43, Hm)
           ], 64))
         ])
       ], 64))
@@ -8358,7 +8363,7 @@ const Im = (e, t, n, r) => {
     lt(() => {
       n("mount", { cmp: "calendar", refs: y }), r.noSwipe || k.value && (k.value.addEventListener("touchstart", C, { passive: !1 }), k.value.addEventListener("touchend", G, { passive: !1 }), k.value.addEventListener("touchmove", Z, { passive: !1 })), r.monthChangeOnScroll && k.value && k.value.addEventListener("wheel", V, { passive: !1 });
     });
-    const q = (i) => i ? r.vertical ? "vNext" : "next" : r.vertical ? "vPrevious" : "previous", z = (i, f) => {
+    const q = (i) => i ? r.vertical ? "vNext" : "next" : r.vertical ? "vPrevious" : "previous", H = (i, f) => {
       if (r.transitions) {
         const b = vt(o(E(), r.month, r.year));
         s.value = et(vt(o(E(), i, f)), b) ? l.value.transitions[q(!0)] : l.value.transitions[q(!1)], p.value = !1, St(() => {
@@ -8370,7 +8375,7 @@ const Im = (e, t, n, r) => {
         dp__calendar_wrap: !0,
         [r.calendarClassName]: !!r.calendarClassName
       })
-    ), H = w(() => (i) => {
+    ), z = w(() => (i) => {
       const f = Om(i);
       return {
         dp__marker_dot: f.type === "dot",
@@ -8414,7 +8419,7 @@ const Im = (e, t, n, r) => {
     }, V = (i) => {
       r.monthChangeOnScroll && (i.preventDefault(), n("handle-scroll", i));
     };
-    return t({ triggerTransition: z }), (i, f) => {
+    return t({ triggerTransition: H }), (i, f) => {
       var b;
       return m(), S("div", {
         class: fe(c(Q))
@@ -8504,7 +8509,7 @@ const Im = (e, t, n, r) => {
                             ], 64)),
                             W.marker && c(oe)(W) ? (m(), S("div", {
                               key: 2,
-                              class: fe(c(H)(W.marker)),
+                              class: fe(c(z)(W.marker)),
                               style: ft(W.marker.color ? { backgroundColor: W.marker.color } : {})
                             }, null, 6)) : T("", !0),
                             c(ne)(W.value) ? (m(), S("div", {
@@ -8625,13 +8630,13 @@ const Im = (e, t, n, r) => {
     }, q = () => {
       const V = Ue(k);
       V && (r.textInput || V.focus({ preventScroll: !0 }), d.value = V.clientHeight < V.scrollHeight);
-    }, z = w(
+    }, H = w(
       () => ({
         dp__overlay: !0
       })
     ), R = w(() => ({
       dp__overlay_col: !0
-    })), H = (V) => r.skipActive ? !1 : V.value === r.modelValue, ne = w(() => r.items.map((V) => V.filter((i) => i).map((i) => {
+    })), z = (V) => r.skipActive ? !1 : V.value === r.modelValue, ne = w(() => r.items.map((V) => V.filter((i) => i).map((i) => {
       var f, b, _;
       const I = r.disabledValues.some((W) => W === i.value) || P(i.value), j = (f = r.multiModelValue) != null && f.length ? (b = r.multiModelValue) == null ? void 0 : b.some(
         (W) => Re(
@@ -8641,7 +8646,7 @@ const Im = (e, t, n, r) => {
             r.monthPicker ? r.year : i.value
           )
         )
-      ) : H(i);
+      ) : z(i);
       return {
         ...i,
         className: {
@@ -8701,7 +8706,7 @@ const Im = (e, t, n, r) => {
       return m(), S("div", {
         ref_key: "gridWrapRef",
         ref: k,
-        class: fe(c(z)),
+        class: fe(c(H)),
         role: "dialog",
         tabindex: "0",
         onKeydown: he(Z, ["esc"])
@@ -8816,7 +8821,7 @@ const Im = (e, t, n, r) => {
         css: c(a)
       }, {
         default: J(() => [
-          e.showSelectionGrid ? (m(), X(rn, He({ key: 0 }, {
+          e.showSelectionGrid ? (m(), X(rn, ze({ key: 0 }, {
             modelValue: e.modelValue,
             items: e.items,
             disabledValues: e.disabledValues,
@@ -8890,10 +8895,10 @@ const Im = (e, t, n, r) => {
         const _e = h === "month" ? "year" : "month";
         n("update-month-year", { [h]: Y, [_e]: r[_e] }), n("month-year-select", h === "year"), h === "month" ? _(!0) : I(!0);
       }
-    }), z = w(q("month")), R = w(q("year")), H = (h) => {
+    }), H = w(q("month")), R = w(q("year")), z = (h) => {
       const Y = Te(E(h));
       return r.year === Y;
-    }, ne = w(() => r.monthPicker ? Array.isArray(r.disabledDates) ? r.disabledDates.map((h) => E(h)).filter((h) => H(h)).map((h) => Pe(h)) : [] : []), Q = w(() => (h) => {
+    }, ne = w(() => r.monthPicker ? Array.isArray(r.disabledDates) ? r.disabledDates.map((h) => E(h)).filter((h) => z(h)).map((h) => Pe(h)) : [] : []), Q = w(() => (h) => {
       const Y = h === "month";
       return {
         showSelectionGrid: (Y ? p : s).value,
@@ -8954,7 +8959,7 @@ const Im = (e, t, n, r) => {
     }), (h, Y) => {
       var _e, re, de, Me, at;
       return m(), S("div", iv, [
-        h.$slots["month-year"] ? L(h.$slots, "month-year", Ge(He({ key: 0 }, { month: e.month, year: e.year, months: e.months, years: e.years, updateMonthYear: c(k), handleMonthYearChange: c(d), instance: e.instance }))) : (m(), S(me, { key: 1 }, [
+        h.$slots["month-year"] ? L(h.$slots, "month-year", Ge(ze({ key: 0 }, { month: e.month, year: e.year, months: e.months, years: e.years, updateMonthYear: c(k), handleMonthYearChange: c(d), instance: e.instance }))) : (m(), S(me, { key: 1 }, [
           !h.monthPicker && !h.yearPicker ? (m(), S(me, { key: 0 }, [
             c(f) && !h.vertical ? (m(), X(oa, {
               key: 0,
@@ -8970,19 +8975,19 @@ const Im = (e, t, n, r) => {
               _: 3
             }, 8, ["aria-label", "disabled"])) : T("", !0),
             F("div", uv, [
-              we(bi, He({
+              we(bi, ze({
                 type: "month",
                 "slot-name": "month-overlay-val",
                 "overlay-slot": "overlay-month",
                 "aria-label": (re = c(a).ariaLabels) == null ? void 0 : re.openMonthsOverlay,
-                modelValue: c(z),
-                "onUpdate:modelValue": Y[2] || (Y[2] = (ye) => Le(z) ? z.value = ye : null)
+                modelValue: c(H),
+                "onUpdate:modelValue": Y[2] || (Y[2] = (ye) => Le(H) ? H.value = ye : null)
               }, c(Q)("month"), {
                 onToggle: _,
                 onSetRef: Y[3] || (Y[3] = (ye) => $(ye, 1))
               }), rt({
                 default: J(() => [
-                  h.$slots.month ? L(h.$slots, "month", Ge(He({ key: 0 }, c(K)))) : T("", !0),
+                  h.$slots.month ? L(h.$slots, "month", Ge(ze({ key: 0 }, c(K)))) : T("", !0),
                   h.$slots.month ? T("", !0) : (m(), S(me, { key: 1 }, [
                     We(ge(c(K).text), 1)
                   ], 64))
@@ -9021,7 +9026,7 @@ const Im = (e, t, n, r) => {
                   key: "3"
                 } : void 0
               ]), 1040, ["aria-label", "modelValue"]),
-              we(bi, He({
+              we(bi, ze({
                 type: "year",
                 "slot-name": "year-overlay-val",
                 "overlay-slot": "overlay-year",
@@ -9103,13 +9108,13 @@ const Im = (e, t, n, r) => {
               _: 3
             }, 8, ["disabled", "aria-label"])) : T("", !0)
           ], 64)) : T("", !0),
-          h.monthPicker ? (m(), X(rn, He({ key: 1 }, c(Q)("month"), {
+          h.monthPicker ? (m(), X(rn, ze({ key: 1 }, c(Q)("month"), {
             "skip-active": h.range,
             year: e.year,
             "multi-model-value": c(G),
             "month-picker": "",
-            modelValue: c(z),
-            "onUpdate:modelValue": Y[17] || (Y[17] = (ye) => Le(z) ? z.value = ye : null),
+            modelValue: c(H),
+            "onUpdate:modelValue": Y[17] || (Y[17] = (ye) => Le(H) ? H.value = ye : null),
             onToggle: _,
             onSelected: Y[18] || (Y[18] = (ye) => h.$emit("overlay-closed"))
           }), rt({
@@ -9175,7 +9180,7 @@ const Im = (e, t, n, r) => {
                   css: c(l)
                 }, {
                   default: J(() => [
-                    s.value ? (m(), X(rn, He({ key: 0 }, c(Q)("year"), {
+                    s.value ? (m(), X(rn, ze({ key: 0 }, c(Q)("year"), {
                       modelValue: c(R),
                       "onUpdate:modelValue": Y[15] || (Y[15] = (Fe) => Le(R) ? R.value = Fe : null),
                       onToggle: I,
@@ -9216,7 +9221,7 @@ const Im = (e, t, n, r) => {
               key: "0"
             } : void 0
           ]), 1040, ["skip-active", "year", "multi-model-value", "modelValue"])) : T("", !0),
-          h.yearPicker ? (m(), X(rn, He({ key: 2 }, c(Q)("year"), {
+          h.yearPicker ? (m(), X(rn, ze({ key: 2 }, c(Q)("year"), {
             modelValue: c(R),
             "onUpdate:modelValue": Y[19] || (Y[19] = (ye) => Le(R) ? R.value = ye : null),
             "multi-model-value": c(G),
@@ -9281,10 +9286,10 @@ const Im = (e, t, n, r) => {
         dp__time_col_sec: r.enableSeconds && r.is24,
         dp__time_col_sec_with_button: r.enableSeconds && !r.is24
       })
-    ), z = w(() => {
+    ), H = w(() => {
       const i = [{ type: "hours" }, { type: "", separator: !0 }, { type: "minutes" }];
       return r.enableSeconds ? i.concat([{ type: "", separator: !0 }, { type: "seconds" }]) : i;
-    }), R = w(() => z.value.filter((i) => !i.separator)), H = w(() => (i) => {
+    }), R = w(() => H.value.filter((i) => !i.separator)), z = w(() => (i) => {
       if (i === "hours") {
         const f = G(r.hours);
         return { text: f < 10 ? `0${f}` : `${f}`, value: f };
@@ -9323,7 +9328,7 @@ const Im = (e, t, n, r) => {
     return t({ openChildCmp: ae }), (i, f) => {
       var b;
       return i.disabled ? T("", !0) : (m(), S("div", pv, [
-        (m(!0), S(me, null, De(c(z), (_, I) => {
+        (m(!0), S(me, null, De(c(H), (_, I) => {
           var j, W, $;
           return m(), S("div", {
             key: I,
@@ -9368,11 +9373,11 @@ const Im = (e, t, n, r) => {
               }, [
                 i.$slots[_.type] ? L(i.$slots, _.type, {
                   key: 0,
-                  text: c(H)(_.type).text,
-                  value: c(H)(_.type).value
+                  text: c(z)(_.type).text,
+                  value: c(z)(_.type).value
                 }) : T("", !0),
                 i.$slots[_.type] ? T("", !0) : (m(), S(me, { key: 1 }, [
-                  We(ge(c(H)(_.type).text), 1)
+                  We(ge(c(z)(_.type).text), 1)
                 ], 64))
               ], 42, vv),
               F("div", {
@@ -9492,7 +9497,7 @@ const Im = (e, t, n, r) => {
       hours: Array.isArray(r.hours) ? r.hours[C] : r.hours,
       minutes: Array.isArray(r.minutes) ? r.minutes[C] : r.minutes,
       seconds: Array.isArray(r.seconds) ? r.seconds[C] : r.seconds
-    }), z = w(() => {
+    }), H = w(() => {
       const C = [];
       if (r.range)
         for (let G = 0; G < 2; G++)
@@ -9504,10 +9509,10 @@ const Im = (e, t, n, r) => {
       G || n("reset-flow"), A.value = C, C && n("overlay-opened"), r.arrowNavigation && (o(C), C || n("overlay-closed")), St(() => {
         Z !== "" && g.value[0] && g.value[0].openChildCmp(Z);
       });
-    }, H = w(() => ({
+    }, z = w(() => ({
       dp__button: !0,
       dp__button_bottom: r.autoApply
-    })), ne = Nt(l, "timePicker"), Q = (C, G, Z) => r.range ? G === 0 ? [C, z.value[1][Z]] : [z.value[0][Z], C] : C, oe = (C) => {
+    })), ne = Nt(l, "timePicker"), Q = (C, G, Z) => r.range ? G === 0 ? [C, H.value[1][Z]] : [H.value[0][Z], C] : C, oe = (C) => {
       n("update:hours", C);
     }, P = (C) => {
       n("update:minutes", C);
@@ -9521,7 +9526,7 @@ const Im = (e, t, n, r) => {
       return m(), S("div", null, [
         C.timePicker ? T("", !0) : Bt((m(), S("div", {
           key: 0,
-          class: fe(c(H)),
+          class: fe(c(z)),
           role: "button",
           "aria-label": (Z = c(d).ariaLabels) == null ? void 0 : Z.openTimePicker,
           tabindex: "0",
@@ -9564,7 +9569,7 @@ const Im = (e, t, n, r) => {
                     setSeconds: O
                   }) : T("", !0),
                   C.$slots["time-picker-overlay"] ? T("", !0) : (m(), S("div", Ov, [
-                    (m(!0), S(me, null, De(c(z), (K, V) => Bt((m(), X(_v, He({ key: V }, {
+                    (m(!0), S(me, null, De(c(H), (K, V) => Bt((m(), X(_v, ze({ key: V }, {
                       ...C.$props,
                       order: V,
                       hours: K.hours,
@@ -9596,7 +9601,7 @@ const Im = (e, t, n, r) => {
                     key: 2,
                     ref_key: "closeTimePickerBtn",
                     ref: s,
-                    class: fe(c(H)),
+                    class: fe(c(z)),
                     role: "button",
                     "aria-label": (ae = c(d).ariaLabels) == null ? void 0 : ae.closeTimePicker,
                     tabindex: "0",
@@ -9665,12 +9670,12 @@ const Im = (e, t, n, r) => {
       return !1;
     }
     return !1;
-  }, z = (f) => Qi(e.value, o.value, f.value), R = () => t.modelAuto && Array.isArray(t.internalModelValue) ? !!t.internalModelValue[0] : !1, H = () => t.modelAuto ? Ji(t.internalModelValue) : !0, ne = (f) => {
+  }, H = (f) => Qi(e.value, o.value, f.value), R = () => t.modelAuto && Array.isArray(t.internalModelValue) ? !!t.internalModelValue[0] : !1, z = () => t.modelAuto ? Ji(t.internalModelValue) : !0, ne = (f) => {
     if (Array.isArray(e.value) && e.value.length || t.weekPicker)
       return !1;
     const b = t.range ? !s(f) && !s(f, !1) : !0;
     return !n(f.value) && !x(f) && !(!f.current && t.hideOffsetDates) && b;
-  }, Q = (f) => t.range ? t.modelAuto ? R() && x(f) : !1 : x(f), oe = (f) => t.highlight ? r(f.value, t.highlight) : !1, P = (f) => n(f.value) && t.highlightDisabledDays === !1, O = (f) => t.highlightWeekDays && t.highlightWeekDays.includes(f.value.getDay()), D = (f) => (t.range || t.weekPicker) && (!(t.multiCalendars > 0) || f.current) && H() && !(!f.current && t.hideOffsetDates) && !x(f) ? z(f) : !1, C = (f) => {
+  }, Q = (f) => t.range ? t.modelAuto ? R() && x(f) : !1 : x(f), oe = (f) => t.highlight ? r(f.value, t.highlight) : !1, P = (f) => n(f.value) && t.highlightDisabledDays === !1, O = (f) => t.highlightWeekDays && t.highlightWeekDays.includes(f.value.getDay()), D = (f) => (t.range || t.weekPicker) && (!(t.multiCalendars > 0) || f.current) && z() && !(!f.current && t.hideOffsetDates) && !x(f) ? H(f) : !1, C = (f) => {
     const { isRangeStart: b, isRangeEnd: _ } = ae(f), I = t.range ? b || _ : !1;
     return {
       dp__cell_offset: !f.current,
@@ -9688,7 +9693,7 @@ const Im = (e, t, n, r) => {
     ...V(f),
     dp__range_between_week: D(f) && t.weekPicker
   }), ae = (f) => {
-    const b = t.multiCalendars > 0 ? f.current && s(f) && H() : s(f) && H(), _ = t.multiCalendars > 0 ? f.current && s(f, !1) && H() : s(f, !1) && H();
+    const b = t.multiCalendars > 0 ? f.current && s(f) && z() : s(f) && z(), _ = t.multiCalendars > 0 ? f.current && s(f, !1) && z() : s(f, !1) && z();
     return { isRangeStart: b, isRangeEnd: _ };
   }, K = (f) => {
     const { isRangeStart: b, isRangeEnd: _ } = ae(f);
@@ -9754,7 +9759,7 @@ const Im = (e, t, n, r) => {
       timePicker: !!(!r.enableTimePicker || r.timePicker || r.monthPicker),
       monthYearInput: !!r.timePicker,
       calendar: !1
-    }), s = U([]), g = U([]), x = U(null), N = U(null), A = U(0), q = U(!1), z = U(0);
+    }), s = U([]), g = U([]), x = U(null), N = U(null), A = U(0), q = U(!1), H = U(0);
     lt(() => {
       var M;
       q.value = !0, !((M = r.presetRanges) != null && M.length) && !y["left-sidebar"] && !y["right-sidebar"] && pe();
@@ -9771,7 +9776,7 @@ const Im = (e, t, n, r) => {
     }), Oo(() => {
       window.removeEventListener("resize", pe);
     });
-    const { arrowRight: R, arrowLeft: H, arrowDown: ne, arrowUp: Q } = Tt(), oe = (M) => {
+    const { arrowRight: R, arrowLeft: z, arrowDown: ne, arrowUp: Q } = Tt(), oe = (M) => {
       M || M === 0 ? g.value[M].triggerTransition(
         Z.value(M),
         ae.value(M)
@@ -9783,9 +9788,9 @@ const Im = (e, t, n, r) => {
       M && M.focus({ preventScroll: !0 });
     }, O = () => {
       var M;
-      (M = r.flow) != null && M.length && z.value !== -1 && (z.value += 1, n("flow-step", z.value), Ie());
+      (M = r.flow) != null && M.length && H.value !== -1 && (H.value += 1, n("flow-step", H.value), Ie());
     }, D = () => {
-      z.value = -1;
+      H.value = -1;
     }, {
       calendars: C,
       modelValue: G,
@@ -9803,7 +9808,7 @@ const Im = (e, t, n, r) => {
       getMarker: $,
       selectCurrentDate: h,
       presetDateRange: Y
-    } = Cm(r, n, O, oe, z), { setHoverDate: _e, clearHoverDate: re, getDayClassData: de } = xv(G, r);
+    } = Cm(r, n, O, oe, H), { setHoverDate: _e, clearHoverDate: re, getDayClassData: de } = xv(G, r);
     dt(
       C,
       () => {
@@ -9829,9 +9834,9 @@ const Im = (e, t, n, r) => {
     })), Gt = w(() => ({
       dp__menu_disabled: r.disabled,
       dp__menu_readonly: r.readonly
-    })), Hr = w(
+    })), zr = w(
       () => (M) => Lr(Se, M)
-    ), zr = w(
+    ), Hr = w(
       () => ({
         dp__menu: !0,
         dp__menu_index: !r.inline,
@@ -9851,13 +9856,13 @@ const Im = (e, t, n, r) => {
       var te;
       (te = r.flow) != null && te.length && (p[M] = !0, Object.keys(p).filter((Ke) => !p[Ke]).length || Ie());
     }, ue = (M, te, Ke, nt, ...Vt) => {
-      if (r.flow[z.value] === M) {
+      if (r.flow[H.value] === M) {
         const ie = nt ? te.value[0] : te.value;
         ie && ie[Ke](...Vt);
       }
     }, Ie = () => {
       ue("month", s, "toggleMonthPicker", !0, !0), ue("year", s, "toggleYearPicker", !0, !0), ue("calendar", x, "toggleTimePicker", !1, !1, !0), ue("time", x, "toggleTimePicker", !1, !0, !0);
-      const M = r.flow[z.value];
+      const M = r.flow[H.value];
       (M === "hours" || M === "minutes" || M === "seconds") && ue(M, x, "toggleTimePicker", !1, !0, !0, M);
     }, ot = (M) => {
       if (r.arrowNavigation) {
@@ -9866,7 +9871,7 @@ const Im = (e, t, n, r) => {
         if (M === "down")
           return ne();
         if (M === "left")
-          return H();
+          return z();
         if (M === "right")
           return R();
       } else
@@ -9895,7 +9900,7 @@ const Im = (e, t, n, r) => {
               ref_key: "dpMenuRef",
               ref: N,
               role: "dialog",
-              class: fe(c(zr)),
+              class: fe(c(Hr)),
               onMouseleave: te[15] || (te[15] = //@ts-ignore
               (...ie) => c(re) && c(re)(...ie)),
               onClick: ln,
@@ -9954,7 +9959,7 @@ const Im = (e, t, n, r) => {
                       key: ie,
                       class: fe(c(on))
                     }, [
-                      !M.disableMonthYearSelect && !M.timePicker ? (m(), X(yv, He({
+                      !M.disableMonthYearSelect && !M.timePicker ? (m(), X(yv, ze({
                         key: 0,
                         ref_for: !0,
                         ref: (be) => {
@@ -9980,7 +9985,7 @@ const Im = (e, t, n, r) => {
                           ])
                         }))
                       ]), 1040, ["months", "years", "month", "year", "instance", "internal-model-value", "onUpdateMonthYear", "onMonthYearSelect"])) : T("", !0),
-                      we(ev, He({
+                      we(ev, ze({
                         ref_for: !0,
                         ref: (be) => {
                           be && (g.value[Ut] = be);
@@ -9988,12 +9993,12 @@ const Im = (e, t, n, r) => {
                         "specific-mode": c(Rt),
                         "get-week-num": c(b),
                         instance: ie,
-                        "mapped-dates": c(Hr)(ie),
+                        "mapped-dates": c(zr)(ie),
                         month: c(Z)(ie),
                         year: c(ae)(ie)
                       }, M.$props, {
-                        "flow-step": z.value,
-                        "onUpdate:flowStep": te[1] || (te[1] = (be) => z.value = be),
+                        "flow-step": H.value,
+                        "onUpdate:flowStep": te[1] || (te[1] = (be) => H.value = be),
                         onSelectDate: (be) => c(f)(be, !c(Ct)(ie)),
                         onHandleSpace: (be) => B(be, !c(Ct)(ie)),
                         onSetHoverDate: te[2] || (te[2] = (be) => c(_e)(be)),
@@ -10014,8 +10019,8 @@ const Im = (e, t, n, r) => {
                     ], 2))), 128))
                   ], 2),
                   F("div", null, [
-                    M.$slots["time-picker"] ? L(M.$slots, "time-picker", Ge(He({ key: 0 }, { time: c(K), updateTime: c(V) }))) : (m(), S(me, { key: 1 }, [
-                      M.enableTimePicker && !M.monthPicker && !M.weekPicker ? (m(), X(Sv, He({
+                    M.$slots["time-picker"] ? L(M.$slots, "time-picker", Ge(ze({ key: 0 }, { time: c(K), updateTime: c(V) }))) : (m(), S(me, { key: 1 }, [
+                      M.enableTimePicker && !M.monthPicker && !M.weekPicker ? (m(), X(Sv, ze({
                         key: 0,
                         ref_key: "timePickerRef",
                         ref: x,
@@ -10060,7 +10065,7 @@ const Im = (e, t, n, r) => {
                   }, ge(M.nowButtonLabel), 1))
                 ])) : T("", !0)
               ], 2),
-              !M.autoApply || M.keepActionRow ? (m(), X(Lm, He({
+              !M.autoApply || M.keepActionRow ? (m(), X(Lm, ze({
                 key: 2,
                 "menu-mount": q.value,
                 "calendar-width": A.value,
@@ -10140,7 +10145,7 @@ const Im = (e, t, n, r) => {
         pe && pe.removeEventListener("scroll", f), window.removeEventListener("resize", b);
       }
     });
-    const z = Nt(a, "all", r.presetRanges), R = Nt(a, "input");
+    const H = Nt(a, "all", r.presetRanges), R = Nt(a, "input");
     dt(
       [l, u],
       () => {
@@ -10148,7 +10153,7 @@ const Im = (e, t, n, r) => {
       },
       { deep: !0 }
     );
-    const { openOnTop: H, menuPosition: ne, setMenuPosition: Q, setInitialPosition: oe, getScrollableParent: P } = Im(
+    const { openOnTop: z, menuPosition: ne, setMenuPosition: Q, setInitialPosition: oe, getScrollableParent: P } = Im(
       d,
       y,
       n,
@@ -10236,7 +10241,7 @@ const Im = (e, t, n, r) => {
       ref_key: "pickerWrapperRef",
       ref: p
     }, [
-      we(Wm, He({
+      we(Wm, ze({
         ref_key: "inputRef",
         ref: y,
         "is-menu-open": o.value,
@@ -10260,15 +10265,15 @@ const Im = (e, t, n, r) => {
           ])
         }))
       ]), 1040, ["is-menu-open", "input-value", "onSetEmptyDate"]),
-      o.value ? (m(), X(_i(pe.teleport ? ru : "div"), Ge(He({ key: 0 }, c(i))), {
+      o.value ? (m(), X(_i(pe.teleport ? ru : "div"), Ge(ze({ key: 0 }, c(i))), {
         default: J(() => [
-          o.value ? (m(), X(Iv, He({
+          o.value ? (m(), X(Iv, ze({
             key: 0,
             ref_key: "dpMenuRef",
             ref: d,
             class: c(V),
             style: c(ne),
-            "open-on-top": c(H)
+            "open-on-top": c(z)
           }, pe.$props, {
             "internal-model-value": c(D),
             "onUpdate:internalModelValue": Se[1] || (Se[1] = (Oe) => Le(D) ? D.value = Oe : null),
@@ -10285,7 +10290,7 @@ const Im = (e, t, n, r) => {
             onTooltipClose: Se[7] || (Se[7] = (Oe) => pe.$emit("tooltip-close", Oe)),
             onTimePickerOpen: Se[8] || (Se[8] = (Oe) => pe.$emit("time-picker-open", Oe))
           }), rt({ _: 2 }, [
-            De(c(z), (Oe, Ct) => ({
+            De(c(H), (Oe, Ct) => ({
               name: Oe,
               fn: J((Rt) => [
                 L(pe.$slots, Oe, Ge(ct({ ...Rt })))
@@ -10309,7 +10314,7 @@ const Im = (e, t, n, r) => {
 Object.entries(Vv).forEach(([e, t]) => {
   e !== "default" && (Vo[e] = t);
 });
-const Uv = { class: "custom-date-picker__container" }, Wv = ["value", "disabled", "placeholder", "onInput", "onFocus", "onKeydown"], Fv = ["onClick"], Hv = { class: "custom-date-picker__icon" }, zv = {
+const Uv = { class: "custom-date-picker__container" }, Wv = ["value", "disabled", "placeholder", "onInput", "onFocus", "onKeydown"], Fv = ["onClick"], zv = { class: "custom-date-picker__icon" }, Hv = {
   key: 0,
   class: "custom-date-picker__error"
 }, Lv = /* @__PURE__ */ ve({
@@ -10395,7 +10400,7 @@ const Uv = { class: "custom-date-picker__container" }, Wv = ["value", "disabled"
         onOpen: p,
         onClosed: s
       }, {
-        "dp-input": J(({ value: N, onClear: A, onInput: q, onEnter: z }) => [
+        "dp-input": J(({ value: N, onClear: A, onInput: q, onEnter: H }) => [
           F("div", {
             class: fe(c(d))
           }, [
@@ -10410,7 +10415,7 @@ const Uv = { class: "custom-date-picker__container" }, Wv = ["value", "disabled"
               }, ["stop"])),
               onInput: q,
               onFocus: je(k, ["stop"]),
-              onKeydown: he(z, ["enter"])
+              onKeydown: he(H, ["enter"])
             }, null, 40, Wv),
             F("div", {
               class: "custom-date-picker__clear",
@@ -10423,7 +10428,7 @@ const Uv = { class: "custom-date-picker__container" }, Wv = ["value", "disabled"
                 name: "fas-circle-xmark"
               })) : T("", !0)
             ], 8, Fv),
-            F("div", Hv, [
+            F("div", zv, [
               e.disabled ? T("", !0) : (m(), X(Ye, {
                 key: 0,
                 size: "1rem",
@@ -10449,7 +10454,7 @@ const Uv = { class: "custom-date-picker__container" }, Wv = ["value", "disabled"
         ]),
         _: 1
       }, 8, ["modelValue", "range", "format", "max-date", "min-date", "disabled", "readonly"]),
-      e.errorMessage ? (m(), S("div", zv, ge(e.errorMessage), 1)) : T("", !0)
+      e.errorMessage ? (m(), S("div", Hv, ge(e.errorMessage), 1)) : T("", !0)
     ]));
   }
 });
@@ -10562,19 +10567,19 @@ const Uo = /* @__PURE__ */ Ce(Lv, [["__scopeId", "data-v-4994f401"]]), eu = (e, 
         t("update:model-value", b);
       }
     }), N = w(
-      () => z.value && n.clearable && !n.readonly && !n.disabled
+      () => H.value && n.clearable && !n.readonly && !n.disabled
     ), A = w(() => n.dark ? n.disabled ? "neutro-3" : "neutro-1" : n.disabled ? "neutro-4" : "acento-principal"), q = w(() => !n.searchable || !u.value ? n.items : n.items.filter((b) => {
       const _ = u.value.trim().toLowerCase();
       return _ ? ne(b).toLowerCase().includes(_) : !0;
-    })), z = w(() => Array.isArray(x.value) ? x.value.length > 0 : !!x.value), R = w(() => ({
+    })), H = w(() => Array.isArray(x.value) ? x.value.length > 0 : !!x.value), R = w(() => ({
       "custom-select__text-container": !0,
       "custom-select__text-container--dark": n.dark,
       "custom-select__text-container--opened": d.value,
-      "custom-select__text-container--active": z.value,
+      "custom-select__text-container--active": H.value,
       "custom-select__text-container--disabled": n.disabled,
       "custom-select__text-container--outlined": n.outlined,
       "custom-select__text-container--error": !!n.errorMessage
-    })), H = w(() => {
+    })), z = w(() => {
       var b;
       if (x.value)
         if (Array.isArray(x.value)) {
@@ -10657,7 +10662,7 @@ const Uo = /* @__PURE__ */ Ce(Lv, [["__scopeId", "data-v-4994f401"]]), eu = (e, 
           ref_key: "input",
           ref: p,
           readonly: "",
-          value: c(H),
+          value: c(z),
           placeholder: e.placeholder,
           class: "custom-select__text",
           onFocus: D,
@@ -10809,7 +10814,7 @@ const Wo = /* @__PURE__ */ Ce(nh, [["__scopeId", "data-v-fa13455e"]]), rh = { cl
         class: fe(c(d))
       }, [
         Bt(F("input", {
-          "onUpdate:modelValue": q[0] || (q[0] = (z) => Le(o) ? o.value = z : null),
+          "onUpdate:modelValue": q[0] || (q[0] = (H) => Le(o) ? o.value = H : null),
           type: e.type,
           disabled: e.disabled,
           readonly: e.readonly,
@@ -10844,10 +10849,10 @@ const Wo = /* @__PURE__ */ Ce(nh, [["__scopeId", "data-v-fa13455e"]]), rh = { cl
 const Fo = /* @__PURE__ */ Ce(lh, [["__scopeId", "data-v-8e17ae9c"]]), ih = (e, t) => {
   const n = U(null), r = U(1), a = U("asc"), o = w(() => {
     const R = e.value.slice();
-    return n.value ? R.sort((H, ne) => {
+    return n.value ? R.sort((z, ne) => {
       if (!n.value)
         return 0;
-      const Q = g(H, n.value.value), oe = g(ne, n.value.value);
+      const Q = g(z, n.value.value), oe = g(ne, n.value.value);
       let P = Q > oe ? 1 : -1;
       return n.value.sort && (P = n.value.sort(Q, oe)), a.value === "asc" ? P : P * -1;
     }) : R;
@@ -10858,10 +10863,10 @@ const Fo = /* @__PURE__ */ Ce(lh, [["__scopeId", "data-v-8e17ae9c"]]), ih = (e, 
     r.value < l.value && r.value++;
   }, k = () => {
     r.value > 1 && r.value--;
-  }, p = (R) => R.id ?? Object.values(R)[0], s = (R, H) => {
-    const ne = H.value;
+  }, p = (R) => R.id ?? Object.values(R)[0], s = (R, z) => {
+    const ne = z.value;
     return `${p(R)}.${ne}`;
-  }, g = (R, H) => R[H] ?? "";
+  }, g = (R, z) => R[z] ?? "";
   return {
     // Computed
     pageCount: l,
@@ -10873,14 +10878,14 @@ const Fo = /* @__PURE__ */ Ce(lh, [["__scopeId", "data-v-8e17ae9c"]]), ih = (e, 
     },
     nextPage: y,
     setSortBy: (R) => {
-      var H;
-      r.value = 1, ((H = n.value) == null ? void 0 : H.value) === R.value ? a.value === "asc" ? a.value = "desc" : (n.value = null, a.value = "asc") : (n.value = R, a.value = "asc");
+      var z;
+      r.value = 1, ((z = n.value) == null ? void 0 : z.value) === R.value ? a.value === "asc" ? a.value = "desc" : (n.value = null, a.value = "asc") : (n.value = R, a.value = "asc");
     },
     getRowKey: p,
     getCellKey: s,
     isSortedBy: (R) => {
-      var H;
-      return ((H = n.value) == null ? void 0 : H.value) === R;
+      var z;
+      return ((z = n.value) == null ? void 0 : z.value) === R;
     },
     getSortOrder: d,
     getCellValue: g,
@@ -11055,12 +11060,12 @@ const ko = /* @__PURE__ */ Ce(uh, [["__scopeId", "data-v-4e32dd59"]]), sh = { cl
       const P = u.value;
       let O;
       return P === 1 ? O = [P, P + 1, P + 2] : P === l.value ? O = [P - 2, P - 1, P] : O = [P - 1, P, P + 1], O.filter((D) => D > 0 && D <= l.value);
-    }), k = o.nextPage, p = o.getRowKey, s = o.getCellKey, g = o.getCellValue, x = o.previousPage, N = o.setCurrentPage, A = (P) => !!a[P], q = (P) => o.isSortedBy(P) ? o.getSortOrder.value === "asc" ? "fad-sort-down" : "fad-sort-up" : "fas-sort", z = (P) => {
+    }), k = o.nextPage, p = o.getRowKey, s = o.getCellKey, g = o.getCellValue, x = o.previousPage, N = o.setCurrentPage, A = (P) => !!a[P], q = (P) => o.isSortedBy(P) ? o.getSortOrder.value === "asc" ? "fad-sort-down" : "fad-sort-up" : "fas-sort", H = (P) => {
       P.sortable !== !1 && o.setSortBy(P);
     }, R = (P) => ({
       "data-table__footer-page": !0,
       "data-table__footer-page--selected": P === u.value
-    }), H = (P) => ({
+    }), z = (P) => ({
       "data-table__sort-icon": !0,
       "data-table__sort-icon--active": o.isSortedBy(P)
     }), ne = (P) => ({
@@ -11078,12 +11083,12 @@ const ko = /* @__PURE__ */ Ce(uh, [["__scopeId", "data-v-4e32dd59"]]), sh = { cl
             (m(!0), S(me, null, De(e.headers, (D) => (m(), S("th", {
               key: D.value,
               class: fe(ne(D)),
-              onClick: (C) => z(D)
+              onClick: (C) => H(D)
             }, [
               F("div", yh, ge(D.text), 1),
               D.sortable !== !1 ? (m(), S("div", {
                 key: 0,
-                class: fe(H(D.value))
+                class: fe(z(D.value))
               }, [
                 we(Ye, {
                   name: q(D.value),
@@ -11174,7 +11179,7 @@ const _h = /* @__PURE__ */ Ce(bh, [["__scopeId", "data-v-7b8d889a"]]), wh = /* @
   },
   setup(e) {
     const t = e, n = w(() => t.disabled ? "neutro-4" : t.selected ? "acento-principal" : "secundario"), r = w(() => t.selected ? 700 : 400);
-    return (a, o) => (m(), X(zt, {
+    return (a, o) => (m(), X(Ht, {
       "font-size": "1rem",
       color: c(n),
       "line-height": "1.25rem",
@@ -11656,7 +11661,7 @@ const Vh = /* @__PURE__ */ Ce(Yh, [["__scopeId", "data-v-d34d4c30"]]), Uh = { cl
     ]));
   }
 });
-const Hh = /* @__PURE__ */ Ce(Fh, [["__scopeId", "data-v-98adbf38"]]), zh = {
+const zh = /* @__PURE__ */ Ce(Fh, [["__scopeId", "data-v-98adbf38"]]), Hh = {
   key: 0,
   class: "gradient-button__content"
 }, Lh = /* @__PURE__ */ ve({
@@ -11727,7 +11732,7 @@ const Hh = /* @__PURE__ */ Ce(Fh, [["__scopeId", "data-v-98adbf38"]]), zh = {
         key: 1,
         size: "1.125rem",
         fill: "neutro-1"
-      })) : (m(), S("div", zh, [
+      })) : (m(), S("div", Hh, [
         e.icon ? (m(), X(Ye, {
           key: 0,
           size: "1rem",
@@ -11930,7 +11935,7 @@ const a0 = /* @__PURE__ */ Ce(r0, [["__scopeId", "data-v-6a5dc30c"]]), o0 = { cl
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    Ve((z) => ({
+    Ve((H) => ({
       d1917682: a.value,
       "5007b464": o.value
     }));
@@ -11938,8 +11943,8 @@ const a0 = /* @__PURE__ */ Ce(r0, [["__scopeId", "data-v-6a5dc30c"]]), o0 = { cl
       get() {
         return n.modelValue;
       },
-      set(z) {
-        n.readonly || t("update:model-value", z);
+      set(H) {
+        n.readonly || t("update:model-value", H);
       }
     }), d = w(() => r.getRealColor(n.activeColor)), y = w(() => r.getRealColor(n.color)), k = w(() => n.activeColor && u.value ? d.value : y.value), p = w(() => ({
       "page-switch__slider": !0,
@@ -11958,12 +11963,12 @@ const a0 = /* @__PURE__ */ Ce(r0, [["__scopeId", "data-v-6a5dc30c"]]), o0 = { cl
     }, A = () => {
       if (!l.value)
         return;
-      const z = l.value.getBoundingClientRect(), R = z.x + z.width;
-      z.x < 0 ? (a.value = "0", o.value = "initial") : R >= window.innerWidth ? (a.value = "initial", o.value = "0") : (a.value = "initial", o.value = "initial");
+      const H = l.value.getBoundingClientRect(), R = H.x + H.width;
+      H.x < 0 ? (a.value = "0", o.value = "initial") : R >= window.innerWidth ? (a.value = "initial", o.value = "0") : (a.value = "initial", o.value = "initial");
     }, q = () => {
       a.value = "", o.value = "";
     };
-    return (z, R) => (m(), S("div", o0, [
+    return (H, R) => (m(), S("div", o0, [
       F("div", {
         style: ft(c(s)),
         class: "page-switch__container",
@@ -11981,7 +11986,7 @@ const a0 = /* @__PURE__ */ Ce(r0, [["__scopeId", "data-v-6a5dc30c"]]), o0 = { cl
           class: "page-switch__switch"
         }, [
           Bt(F("input", {
-            "onUpdate:modelValue": R[0] || (R[0] = (H) => Le(u) ? u.value = H : null),
+            "onUpdate:modelValue": R[0] || (R[0] = (z) => Le(u) ? u.value = z : null),
             type: "checkbox",
             class: "page-switch__checkbox"
           }, null, 512), [
@@ -12006,37 +12011,41 @@ const i0 = /* @__PURE__ */ Ce(l0, [["__scopeId", "data-v-66ab7cd9"]]), u0 = { cl
   props: {
     closable: {
       type: Boolean
+    },
+    dialog: {
+      type: Boolean
     }
   },
   emits: ["click:close"],
   setup(e, { emit: t }) {
     const n = e, r = w(() => ({
       "panel-title__container": !0,
+      "panel-title__container--dialog": n.dialog,
       "panel-title__container--close": n.closable
-    })), a = () => {
+    })), a = w(() => n.dialog ? "2.75rem" : "1.5rem"), o = () => {
       t("click:close");
     };
-    return (o, l) => (m(), S("div", {
+    return (l, u) => (m(), S("div", {
       class: fe(c(r))
     }, [
       F("div", u0, [
-        L(o.$slots, "default", {}, void 0, !0)
+        L(l.$slots, "default", {}, void 0, !0)
       ]),
       e.closable ? (m(), S("div", {
         key: 0,
         class: "panel-title__close",
-        onClick: a
+        onClick: o
       }, [
         we(Ye, {
-          size: "1.5rem",
           color: "error",
+          size: c(a),
           name: "fas-xmark-circle"
-        })
+        }, null, 8, ["size"])
       ])) : T("", !0)
     ], 2));
   }
 });
-const c0 = /* @__PURE__ */ Ce(s0, [["__scopeId", "data-v-d95e0bb8"]]), f0 = /* @__PURE__ */ ve({
+const c0 = /* @__PURE__ */ Ce(s0, [["__scopeId", "data-v-342d4403"]]), f0 = /* @__PURE__ */ ve({
   __name: "SearchTextField",
   props: {
     placeholder: {
@@ -12162,7 +12171,7 @@ const c0 = /* @__PURE__ */ Ce(s0, [["__scopeId", "data-v-d95e0bb8"]]), f0 = /* @
               ]),
               _: 1
             }),
-            we(zt, {
+            we(Ht, {
               "text-align": "center",
               "predefined-style": "h2",
               color: "acento-secundario"
@@ -12172,7 +12181,7 @@ const c0 = /* @__PURE__ */ Ce(s0, [["__scopeId", "data-v-d95e0bb8"]]), f0 = /* @
               ]),
               _: 1
             }),
-            e.subtitle ? (m(), X(zt, {
+            e.subtitle ? (m(), X(Ht, {
               key: 0,
               color: "secundario",
               "text-align": "center",
@@ -12192,7 +12201,7 @@ const c0 = /* @__PURE__ */ Ce(s0, [["__scopeId", "data-v-d95e0bb8"]]), f0 = /* @
   }
 });
 const y0 = /* @__PURE__ */ Ce(d0, [["__scopeId", "data-v-9262ded4"]]), m0 = (e) => {
-  e.component("CheckBox", wi), e.component("ConfirmationDialog", Nu), e.component("CustomButton", ia), e.component("CustomDatePicker", Uo), e.component("CustomDialog", So), e.component("CustomSelect", Wo), e.component("CustomTextField", Fo), e.component("DataTable", _h), e.component("DataTableItem", wh), e.component("FilterDatePicker", Sh), e.component("FilterSelect", Dh), e.component("FlexContainer", tu), e.component("FontAwesomeIcon", Ye), e.component("FormDatePicker", Bh), e.component("FormSelect", Vh), e.component("FormTextField", Hh), e.component("GradientButton", jh), e.component("GridColumn", $o), e.component("GridRow", ki), e.component("HeaderTabs", Zh), e.component("IconButton", ko), e.component("ImageContainer", Jh), e.component("InformationText", a0), e.component("PageSwitch", i0), e.component("PanelTitle", c0), e.component("SearchTextField", f0), e.component("SuccessDialog", y0), e.component("SvgIcon", xt), e.component("TextContainer", zt);
+  e.component("CheckBox", wi), e.component("ConfirmationDialog", Nu), e.component("CustomButton", ia), e.component("CustomDatePicker", Uo), e.component("CustomDialog", So), e.component("CustomSelect", Wo), e.component("CustomTextField", Fo), e.component("DataTable", _h), e.component("DataTableItem", wh), e.component("FilterDatePicker", Sh), e.component("FilterSelect", Dh), e.component("FlexContainer", tu), e.component("FontAwesomeIcon", Ye), e.component("FormDatePicker", Bh), e.component("FormSelect", Vh), e.component("FormTextField", zh), e.component("GradientButton", jh), e.component("GridColumn", $o), e.component("GridRow", ki), e.component("HeaderTabs", Zh), e.component("IconButton", ko), e.component("ImageContainer", Jh), e.component("InformationText", a0), e.component("PageSwitch", i0), e.component("PanelTitle", c0), e.component("SearchTextField", f0), e.component("SuccessDialog", y0), e.component("SvgIcon", xt), e.component("TextContainer", Ht);
 };
 export {
   m0 as componentesReutility

@@ -57,12 +57,16 @@ const colorInner = computed(() => {
 
 const mountSVG = async () => {
   if (!svgContent.value) return;
-  const response = await fetch(props.src);
-  svgContent.value.innerHTML = await response.text();
-  const svg = svgContent.value.querySelector("svg");
-  if (!svg) return;
-  svg.setAttribute("width", props.size.toString());
-  svg.setAttribute("height", props.size.toString());
+  try {
+    const response = await fetch(props.src);
+    svgContent.value.innerHTML = await response.text();
+    const svg = svgContent.value.querySelector("svg");
+    if (!svg) return;
+    svg.setAttribute("width", props.size.toString());
+    svg.setAttribute("height", props.size.toString());
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 // Watchs

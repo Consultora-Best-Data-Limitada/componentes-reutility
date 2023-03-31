@@ -30,6 +30,8 @@ import {IPanelTitle} from "./panelTitle";
 import {ISearchTextField} from "./searchTextField";
 import {ISuccessDialog} from "./successDialog";
 import {ISvgIcon} from "./svgIcon";
+import {IColorPicker} from "./colorPicker";
+import {IFormColorPicker} from "./formColorPicker";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -69,5 +71,7 @@ declare module '@vue/runtime-core' {
     SearchTextField: typeof ISearchTextField;
     SuccessDialog: typeof ISuccessDialog;
     SvgIcon: typeof ISvgIcon;
+    ColorPicker: typeof IColorPicker;
+    FormColorPicker: typeof IFormColorPicker;
   }
 }

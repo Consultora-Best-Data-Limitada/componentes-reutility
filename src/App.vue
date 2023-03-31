@@ -123,7 +123,10 @@
         special-text="Hola *mundo* hola que pasa *prueba* jesus"
       />
     </GridRow>
-    <PanelTitle closable> Título formulario</PanelTitle>
+    <GridRow background-color="black">
+      <PanelTitle closable dialog> Título formulario</PanelTitle>
+
+    </GridRow>
     <GridRow
       padding="0.5rem 0"
       background-color="secundario"
@@ -396,7 +399,7 @@
         container-size="2rem"
         background-color="acento-principal"
       />
-      <CheckBox v-model="checkboxValue" />
+      <CheckBox v-model="checkboxValue"/>
       <CheckBox
         v-model="checkboxValue"
         disabled
@@ -501,8 +504,7 @@
 
 <script setup lang="ts">
 // Vue
-import { computed, reactive, ref } from "vue";
-import TextContainer from "@/plugin/components/TextContainer.vue";
+import {computed, reactive, ref} from "vue";
 
 interface User {
   id: string;

@@ -1,7 +1,7 @@
 <template>
   <div :class="containerClass">
     <div class="panel-title__text">
-      <slot />
+      <slot/>
     </div>
     <div
       v-if="closable"
@@ -9,8 +9,8 @@
       @click="onClickClose"
     >
       <FontAwesomeIcon
-        size="1.5rem"
         color="error"
+        :size="iconSize"
         name="fas-xmark-circle"
       />
     </div>
@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 // Vue
-import { computed } from "vue";
+import {computed} from "vue";
 
 // Componentes
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
@@ -30,6 +30,9 @@ const props = defineProps({
   closable: {
     type: Boolean,
   },
+  dialog: {
+    type: Boolean,
+  },
 });
 
 const emits = defineEmits(["click:close"]);
@@ -38,8 +41,11 @@ const emits = defineEmits(["click:close"]);
 
 const containerClass = computed(() => ({
   "panel-title__container": true,
+  "panel-title__container--dialog": props.dialog,
   "panel-title__container--close": props.closable,
 }));
+
+const iconSize = computed(() => props.dialog ? "2.75rem" : "1.5rem");
 
 // Emits
 
@@ -50,17 +56,31 @@ const onClickClose = () => {
 
 <style scoped lang="scss">
 .panel-title__container {
-  font-weight: 700;
-  text-align: center;
-  font-size: 1.125rem;
-  line-height: 1.125rem;
-  font-family: "Metropolis", sans-serif;
-  color: rgb(var(--acento-principal));
+
+  .panel-title__text {
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.125rem;
+    font-family: "Metropolis", sans-serif;
+    color: rgb(var(--acento-principal));
+  }
+
+  &--dialog .panel-title__text {
+    font-weight: 800;
+    font-size: 2.375rem;
+    line-height: 2.375rem;
+    color: rgb(var(--neutro-1));
+  }
 
   &--close {
     display: grid;
     align-items: center;
     grid-template-columns: 1.5rem 1fr 1.5rem;
+
+    &.panel-title__container--dialog {
+      grid-template-columns: 2.75rem 1fr 2.75rem;
+    }
 
     & .panel-title__text {
       grid-column: 2;
