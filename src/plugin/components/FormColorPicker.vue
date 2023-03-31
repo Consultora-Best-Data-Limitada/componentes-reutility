@@ -6,20 +6,15 @@
     <div class="form-color-picker__label">
       {{ label }}
     </div>
-    <input
-      readonly
-      type="text"
+    <div
       class="form-color-picker__input"
-      @focus="openMenu"
-      @blur="closeMenuBlur"
-    >
+      @click="openMenu"
+    ></div>
     <transition>
       <div
         v-if="menu"
         ref="menuContainer"
         class="form-color-picker__menu"
-        @mouseenter="onMouseEnter"
-        @mouseleave="onMouseLeave"
       >
         <ColorPicker
           v-model="model"
@@ -87,7 +82,6 @@ const top = ref("");
 const left = ref("");
 const width = ref("");
 const menu = ref(false);
-const mouseInside = ref(false);
 const listenerExist = ref(false);
 const container = ref<HTMLDivElement | null>(null);
 const menuContainer = ref<HTMLDivElement | null>(null);
@@ -104,14 +98,6 @@ const model = computed({
 });
 
 // Methods
-
-const onMouseEnter = () => {
-  mouseInside.value = true;
-};
-
-const onMouseLeave = () => {
-  mouseInside.value = false;
-};
 
 const updatePosition = async () => {
   await nextTick();
@@ -152,11 +138,6 @@ const closeMenu = () => {
   menu.value = false;
   listenerExist.value = false;
   document.removeEventListener("click", closeMenuHandler);
-};
-
-const closeMenuBlur = () => {
-  if (mouseInside.value) return;
-  closeMenu();
 };
 
 const labelColor = computed(() => {
