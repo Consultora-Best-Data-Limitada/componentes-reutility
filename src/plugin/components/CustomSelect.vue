@@ -483,7 +483,7 @@ const clear = () => {
 }
 
 .custom-select__menu {
-  z-index: 1;
+  z-index: 1008;
   display: grid;
   padding: 1rem;
   position: fixed;

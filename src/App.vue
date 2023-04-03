@@ -371,12 +371,28 @@
       column-gap="0.5rem"
       justify-content="flex-end"
     >
-      <IconButton
-        icon="fas-home"
-        color="acento-principal"
+      <CustomMenu
       >
-        Tooltip
-      </IconButton>
+        <template #activator>
+          <IconButton
+            icon="fas-home"
+            color="acento-principal"
+          >
+            Tooltip
+          </IconButton>
+        </template>
+        <GridColumn
+          padding="1rem"
+          border-radius="1rem"
+          background-color="neutro-1"
+        >
+          <TextContainer
+            white-space="nowrap"
+          >
+            Hola mundo
+          </TextContainer>
+        </GridColumn>
+      </CustomMenu>
       <IconButton
         icon="fas-home"
         color="neutro-1"
@@ -505,6 +521,9 @@
 <script setup lang="ts">
 // Vue
 import {computed, reactive, ref} from "vue";
+import CustomMenu from "@/plugin/components/CustomMenu.vue";
+import GridColumn from "@/plugin/components/GridColumn.vue";
+import TextContainer from "@/plugin/components/TextContainer.vue";
 
 interface User {
   id: string;
@@ -552,6 +571,8 @@ const headers: DataTableHeader[] = [
     sortable: false,
   },
 ];
+
+const menuValue = ref(true);
 
 const fechaRange = ref<Date[]>([]);
 const fechaNormal = ref<Date | null>(null);

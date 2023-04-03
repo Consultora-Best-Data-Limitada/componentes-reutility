@@ -32,6 +32,7 @@ import {ISuccessDialog} from "./successDialog";
 import {ISvgIcon} from "./svgIcon";
 import {IColorPicker} from "./colorPicker";
 import {IFormColorPicker} from "./formColorPicker";
+import {ICustomMenu} from "./customMenu";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -73,5 +74,6 @@ declare module '@vue/runtime-core' {
     SvgIcon: typeof ISvgIcon;
     ColorPicker: typeof IColorPicker;
     FormColorPicker: typeof IFormColorPicker;
+    CustomMenu: typeof ICustomMenu;
   }
 }
