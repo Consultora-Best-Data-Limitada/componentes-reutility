@@ -124,7 +124,14 @@
       />
     </GridRow>
     <GridRow background-color="black">
-      <PanelTitle closable dialog> Título formulario</PanelTitle>
+      <PanelTitle
+        closable
+        icon-size="2.5rem"
+        predefined-style="h1"
+        text-color="neutro-1"
+      >
+        Título formulario
+      </PanelTitle>
 
     </GridRow>
     <GridRow
@@ -529,6 +536,7 @@ import {computed, reactive, ref} from "vue";
 import CustomMenu from "@/plugin/components/CustomMenu.vue";
 import GridColumn from "@/plugin/components/GridColumn.vue";
 import TextContainer from "@/plugin/components/TextContainer.vue";
+import PanelTitle from "@/plugin/components/PanelTitle.vue";
 
 interface User {
   id: string;

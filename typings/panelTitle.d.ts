@@ -1,8 +1,12 @@
 import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type CSS from "csstype";
 
 export declare interface PanelTitleProps {
-  dialog?: boolean;
   closable?: boolean;
+  iconSize?: string;
+  predefinedStyle?: PredefinedStyle;
+  textColor?: CustomColor | CSS.ColorProperty;
+  backgroundColor?: CustomColor | CSS.BackgroundColorProperty;
   "@click:close"?: () => void;
 }
 
