@@ -17,7 +17,7 @@ export declare interface TextContainerProps {
   letterSpacing?: CSS.LetterSpacingProperty<string | number>;
   fontFamily?: CSS.FontFamilyProperty;
   predefinedStyle?: PredefinedStyle;
-  clickable?: boolea;
+  clickable?: boolean;
   borderRadius?: CSS.BorderRadiusProperty<string>;
   specialText?: string;
   "@click"?: (ev: MouseEvent) => void;
