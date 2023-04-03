@@ -12,7 +12,9 @@
         ref="menuContainer"
         class="custom-menu__menu"
       >
-        <slot/>
+        <slot
+          :close="closeMenu"
+        />
       </div>
     </transition>
   </div>

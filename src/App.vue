@@ -381,17 +381,22 @@
             Tooltip
           </IconButton>
         </template>
-        <GridColumn
-          padding="1rem"
-          border-radius="1rem"
-          background-color="neutro-1"
-        >
-          <TextContainer
-            white-space="nowrap"
+        <template #default="{ close }">
+          <GridColumn
+            padding="1rem"
+            border-radius="1rem"
+            background-color="neutro-1"
           >
-            Hola mundo
-          </TextContainer>
-        </GridColumn>
+            <button @click="close">
+              Cerrar
+            </button>
+            <TextContainer
+              white-space="nowrap"
+            >
+              Hola mundo
+            </TextContainer>
+          </GridColumn>
+        </template>
       </CustomMenu>
       <IconButton
         icon="fas-home"

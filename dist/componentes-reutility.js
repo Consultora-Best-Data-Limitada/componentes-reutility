@@ -12589,8 +12589,8 @@ const I0 = /* @__PURE__ */ Me(R0, [["__scopeId", "data-v-7d558f07"]]), N0 = ["on
   setup(e) {
     const t = e;
     We((O) => ({
-      "4716132c": n.value,
-      "9bb3e4dc": r.value
+      "78a1d785": n.value,
+      c8d56052: r.value
     })), ft(() => {
       t.default === !0 && w();
     });
@@ -12639,7 +12639,7 @@ const I0 = /* @__PURE__ */ Me(R0, [["__scopeId", "data-v-7d558f07"]]), N0 = ["on
             ref: d,
             class: "custom-menu__menu"
           }, [
-            Q(O.$slots, "default", {}, void 0, !0)
+            Q(O.$slots, "default", { close: y }, void 0, !0)
           ], 512)) : R("", !0)
         ]),
         _: 3
@@ -12647,7 +12647,7 @@ const I0 = /* @__PURE__ */ Me(R0, [["__scopeId", "data-v-7d558f07"]]), N0 = ["on
     ], 512));
   }
 });
-const A0 = /* @__PURE__ */ Me(B0, [["__scopeId", "data-v-f24816aa"]]), Y0 = (e) => {
+const A0 = /* @__PURE__ */ Me(B0, [["__scopeId", "data-v-a9ef51af"]]), Y0 = (e) => {
   e.component("CheckBox", $i), e.component("ConfirmationDialog", Yu), e.component("CustomButton", sa), e.component("CustomDatePicker", Wo), e.component("CustomDialog", Po), e.component("CustomSelect", Lo), e.component("CustomTextField", Ho), e.component("DataTable", Oh), e.component("DataTableItem", xh), e.component("FilterDatePicker", Ch), e.component("FilterSelect", Ih), e.component("FlexContainer", ru), e.component("FontAwesomeIcon", Qe), e.component("FormDatePicker", Vh), e.component("FormSelect", Lh), e.component("FormTextField", qh), e.component("GradientButton", Zh), e.component("GridColumn", So), e.component("GridRow", Oi), e.component("HeaderTabs", e0), e.component("IconButton", Oo), e.component("ImageContainer", r0), e.component("InformationText", u0), e.component("PageSwitch", f0), e.component("PanelTitle", y0), e.component("SearchTextField", m0), e.component("SuccessDialog", h0), e.component("SvgIcon", Yt), e.component("TextContainer", Jt), e.component("FormColorPicker", I0), e.component("ColorPicker", au), e.component("CustomMenu", A0);
 };
 export {
