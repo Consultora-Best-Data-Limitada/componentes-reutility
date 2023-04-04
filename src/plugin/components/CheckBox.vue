@@ -12,30 +12,40 @@
         class="check-box__icon"
       >
         <FontAwesomeIcon
-          v-if="checkedIcon.startsWith('fa')"
+          v-if="checkedIcon && checkedIcon.startsWith('fa')"
           :name="checkedIcon"
           :size="checkedIconSize"
           :color="checkedColorInner"
         />
         <SvgIcon
-          v-else
+          v-else-if="checkedIcon"
           :src="checkedIcon"
           :size="checkedIconSize"
           :color="checkedColorInner"
         />
+        <FmSquareCheck
+          v-else
+          :size="checkedIconSize"
+          :fill="checkedColorInner"
+        />
       </div>
     </transition>
     <FontAwesomeIcon
-      v-if="boxIcon.startsWith('fa')"
+      v-if="boxIcon && boxIcon.startsWith('fa')"
       :name="boxIcon"
       :size="boxIconSize"
       :color="boxColorInner"
     />
     <SvgIcon
-      v-else
+      v-else-if="boxIcon"
       :src="boxIcon"
       :size="boxIconSize"
       :color="boxColorInner"
+    />
+    <FmSquare
+      v-else
+      :size="boxIconSize"
+      :fill="boxColorInner"
     />
   </div>
 </template>
@@ -51,12 +61,14 @@ import type { PropType } from "vue";
 // Componentes
 import SvgIcon from "./SvgIcon.vue";
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
+import FmSquare from "@/plugin/components/icons/FmSquare.vue";
+import FmSquareCheck from "@/plugin/components/icons/FmSquareCheck.vue";
 
 // Definiciones
 const props = defineProps({
   boxIcon: {
+    default: "",
     type: String,
-    default: "fal-square",
   },
   boxColor: {
     default: "acento-principal",
@@ -77,8 +89,8 @@ const props = defineProps({
     type: String as PropType<CSS.FontSizeProperty<string>>,
   },
   checkedIcon: {
+    default: "",
     type: String,
-    default: "fas-square-check",
   },
   checkedIconSize: {
     default: "1rem",

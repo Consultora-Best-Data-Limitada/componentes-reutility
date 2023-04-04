@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import type {PropType} from "vue";
 // Vue
-import {computed, onMounted, ref, useSlots} from "vue";
+import {computed, ref, useSlots, watch} from "vue";
 
 // Composables
 import {useColors} from "../composables/colors";
@@ -104,17 +104,6 @@ const colors = useColors();
 
 const container = ref<HTMLDivElement | null>(null);
 
-// Mounted
-
-onMounted(() => {
-  if (!props.specialText || !container.value || slots["default"]) return;
-  const regex = /\*([^*]+)\*/g;
-  container.value.innerHTML = props.specialText.replace(regex, (value: string) => {
-    const sliced = value.slice(1, value.length - 1);
-    return `<b>${sliced}</b>`;
-  });
-});
-
 // Computed
 
 const textContainerClass = computed(() => {
@@ -149,6 +138,19 @@ const activeBackgroundInner = computed(() => {
 const onClick = (ev: MouseEvent) => {
   emits("click", ev);
 };
+
+// Watchs
+
+watch(() => props.specialText, (value?: string) => {
+  if (!value || !container.value || slots["default"]) return;
+  const regex = /\*([^*]+)\*/g;
+  container.value.innerHTML = value.replace(regex, (value: string) => {
+    const sliced = value.slice(1, value.length - 1);
+    return `<b>${sliced}</b>`;
+  });
+}, {
+  immediate: true,
+});
 </script>
 
 <style scoped lang="scss">
