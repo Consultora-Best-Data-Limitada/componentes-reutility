@@ -3,10 +3,13 @@
     <div :class="inputContainerClass">
       <input
         v-model="model"
+        v-maska
         :type="type"
+        :data-maska="mask"
         :disabled="disabled"
         :readonly="readonly"
         :placeholder="placeholder"
+        :data-maska-tokens="maskTokens"
         class="custom-text-field__input"
         @blur="onBlur"
         @focus="onFocus"
@@ -43,6 +46,9 @@
 <script setup lang="ts">
 // Vue
 import {computed, ref, useSlots} from "vue";
+
+// Maska
+import {vMaska} from "maska";
 
 // Tipos
 import type {PropType} from "vue";
@@ -83,6 +89,14 @@ const props = defineProps({
   },
   dark: {
     type: Boolean,
+  },
+  mask: {
+    default: "",
+    type: String,
+  },
+  maskTokens: {
+    default: "",
+    type: String,
   },
 });
 

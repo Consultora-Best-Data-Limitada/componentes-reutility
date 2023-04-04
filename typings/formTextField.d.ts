@@ -11,6 +11,8 @@ export declare interface FormTextFieldProps {
   disabled?: boolean;
   outlined?: boolean;
   clearable?: boolean;
+  mask?: string;
+  maskTokens?: string;
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
   type?: "email" | "phone" | "text" | "time" | "password";
   "@update:model-value"?: (value: string | number) => void;

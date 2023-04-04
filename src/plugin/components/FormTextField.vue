@@ -7,10 +7,12 @@
       v-model="model"
       :type="type"
       :dark="dark"
+      :mask="mask"
       :readonly="readonly"
       :disabled="disabled"
       :outlined="outlined"
       :clearable="clearable"
+      :mask-tokens="maskTokens"
       :placeholder="placeholder"
       :error-message="errorMessage"
       @blur="onBlur"
@@ -79,6 +81,14 @@ const props = defineProps({
   type: {
     default: "text",
     type: String as PropType<"email" | "phone" | "text" | "time" | "password">,
+  },
+  mask: {
+    default: "",
+    type: String,
+  },
+  maskTokens: {
+    default: "",
+    type: String,
   },
 });
 

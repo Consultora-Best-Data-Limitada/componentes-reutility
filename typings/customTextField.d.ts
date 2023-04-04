@@ -10,6 +10,8 @@ export declare interface CustomTextFieldProps {
   readonly?: boolean;
   type?: "email" | "phone" | "text" | "time" | "password";
   dark?: string;
+  mask?: string;
+  maskTokens?: string;
   "@update:model-value"?: (value: string | number) => void;
   "@keydown"?: (ev: KeyboardEvent) => void;
   "@keyup"?: (ev: KeyboardEvent) => void;
