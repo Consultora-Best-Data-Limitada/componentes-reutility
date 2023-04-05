@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import type {PropType} from "vue";
 // Vue
-import {computed, ref, useSlots, watch} from "vue";
+import {computed, onMounted, ref, useSlots, watch} from "vue";
 
 // Composables
 import {useColors} from "../composables/colors";
@@ -100,6 +100,12 @@ const emits = defineEmits(["click"]);
 const slots = useSlots();
 const colors = useColors();
 
+// Mounted
+
+onMounted(() => {
+  mountSpecialText(props.specialText);
+});
+
 // Data
 
 const container = ref<HTMLDivElement | null>(null);
@@ -133,6 +139,18 @@ const activeBackgroundInner = computed(() => {
   return colors.getRealColor(props.activeBackground);
 });
 
+// Methods
+
+const mountSpecialText = (value?: string)
+{
+  if (!value || !container.value || slots["default"]) return;
+  const regex = /\*([^*]+)\*/g;
+  container.value.innerHTML = value.replace(regex, (value: string) => {
+    const sliced = value.slice(1, value.length - 1);
+    return `<b>${sliced}</b>`;
+  });
+}
+
 // Emits
 
 const onClick = (ev: MouseEvent) => {
@@ -141,16 +159,7 @@ const onClick = (ev: MouseEvent) => {
 
 // Watchs
 
-watch(() => props.specialText, (value?: string) => {
-  if (!value || !container.value || slots["default"]) return;
-  const regex = /\*([^*]+)\*/g;
-  container.value.innerHTML = value.replace(regex, (value: string) => {
-    const sliced = value.slice(1, value.length - 1);
-    return `<b>${sliced}</b>`;
-  });
-}, {
-  immediate: true,
-});
+watch(() => props.specialText, mountSpecialText);
 </script>
 
 <style scoped lang="scss">
