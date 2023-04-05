@@ -163,6 +163,8 @@ const toggle = () => {
   position: relative;
   align-items: center;
   justify-content: center;
+  width: v-bind(checkedIconSize);
+  height: v-bind(checkedIconSize);
 
   &--disabled {
     pointer-events: none;
