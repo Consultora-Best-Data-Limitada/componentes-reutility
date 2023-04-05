@@ -67,8 +67,8 @@ import FmSquareCheck from "@/plugin/components/icons/FmSquareCheck.vue";
 // Definiciones
 const props = defineProps({
   boxIcon: {
-    default: "",
     type: String,
+    default: "far-square",
   },
   boxColor: {
     default: "acento-principal",
@@ -89,7 +89,7 @@ const props = defineProps({
     type: String as PropType<CSS.FontSizeProperty<string>>,
   },
   checkedIcon: {
-    default: "",
+    default: "fas-square-check",
     type: String,
   },
   checkedIconSize: {
@@ -163,8 +163,6 @@ const toggle = () => {
   position: relative;
   align-items: center;
   justify-content: center;
-  width: v-bind(checkedIconSize);
-  height: v-bind(checkedIconSize);
 
   &--disabled {
     pointer-events: none;
