@@ -141,8 +141,7 @@ const activeBackgroundInner = computed(() => {
 
 // Methods
 
-const mountSpecialText = (value?: string)
-{
+const mountSpecialText = (value?: string) => {
   if (!value || !container.value || slots["default"]) return;
   const regex = /\*([^*]+)\*/g;
   container.value.innerHTML = value.replace(regex, (value: string) => {
