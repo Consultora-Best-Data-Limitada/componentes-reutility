@@ -17,6 +17,7 @@
       <div
         :style="pageSwitchStyle"
         class="page-switch__switch"
+        @click.stop
       >
         <input
           v-model="model"
@@ -223,6 +224,7 @@ const onMouseLeave = () => {
   font-size: 1rem;
   line-height: 1rem;
   user-select: none;
+  pointer-events: none;
   color: rgb(var(--secundario));
   font-family: "Metropolis", sans-serif;
 }
@@ -255,6 +257,7 @@ const onMouseLeave = () => {
     height: 0.5rem;
     position: absolute;
     border-radius: 50%;
+    pointer-events: none;
     background-color: #ffffff;
     transition: left 0.2s ease-in-out;
 

@@ -507,8 +507,9 @@
             Informacion
           </IconButton>
           <PageSwitch
-            v-model="switchValue"
+            :model-value="switchValue"
             tooltip="Habilitar"
+            @update:model-value="updateSwitchValue"
           />
         </GridRow>
       </template>
@@ -638,5 +639,9 @@ const abrirSuccessDialog = () => {
 
 const cerrarSuccessDialog = () => {
   successDialog.model = false;
+};
+
+const updateSwitchValue = (value: boolean) => {
+  console.log(value);
 };
 </script>
