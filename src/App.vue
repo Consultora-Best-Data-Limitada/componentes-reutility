@@ -9,11 +9,6 @@
       align-items="flex-end"
       grid-auto-columns="13rem"
     >
-      <FigmaIcon
-        name="user-rectangle-and-line"
-        color="red"
-        size="2rem"
-      />
       <FilterDatePicker
         v-model="fechaRange"
         range
@@ -308,7 +303,7 @@
     >
       <CustomButton
         height="2.5rem"
-        append-icon="fas-plus"
+        append-icon="fm-xmark-circle"
         color="acento-secundario"
       >
         Botón
@@ -500,7 +495,7 @@
           justify-content="flex-start"
         >
           <IconButton
-            icon="fas-pen-to-square"
+            icon="fm-double-plane"
             color="acento-principal"
           >
             Editar

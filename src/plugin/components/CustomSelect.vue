@@ -24,18 +24,18 @@
         @mousedown.stop
         @click.stop="clear"
       >
-        <FontAwesomeIcon
+        <FigmaIcon
           v-if="showClearIcon"
           size="1rem"
           color="neutro-4"
-          name="fas-circle-xmark"
+          name="fm-circle-close"
         />
       </div>
       <div class="custom-select__icon">
-        <FontAwesomeIcon
+        <FigmaIcon
           size="1rem"
           :color="caretColor"
-          name="fas-caret-down"
+          name="fm-caret-down"
         />
       </div>
     </div>
@@ -56,10 +56,10 @@
             class="custom-select__search"
             @click.stop
           />
-          <FontAwesomeIcon
+          <FigmaIcon
             size="1rem"
             color="acento-principal"
-            name="fas-magnifying-glass"
+            name="fm-magnify-glass"
           />
         </div>
         <div
@@ -98,7 +98,7 @@ import type { PropType } from "vue";
 
 // Composables
 import CheckBox from "./CheckBox.vue";
-import FontAwesomeIcon from "./FontAwesomeIcon.vue";
+import FigmaIcon from "./FigmaIcon.vue";
 
 // Definiciones
 

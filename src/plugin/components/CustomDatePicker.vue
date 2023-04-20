@@ -36,35 +36,35 @@
             class="custom-date-picker__clear"
             @click.stop="onClear"
           >
-            <FontAwesomeIcon
+            <FigmaIcon
               v-if="value && !readonly && !disabled"
               size="1rem"
               color="neutro-4"
-              name="fas-circle-xmark"
+              name="fm-circle-close"
             />
           </div>
           <div class="custom-date-picker__icon">
-            <FontAwesomeIcon
+            <FigmaIcon
               v-if="!disabled"
               size="1rem"
               :color="iconColor"
-              name="far-calendar-days"
+              name="fm-calendar"
             />
           </div>
         </div>
       </template>
       <template #arrow-right>
-        <FontAwesomeIcon
+        <FigmaIcon
           size="1.5rem"
           color="acento-principal"
-          name="fas-circle-chevron-right"
+          name="fm-chevron-right"
         />
       </template>
       <template #arrow-left>
-        <FontAwesomeIcon
+        <FigmaIcon
           size="1.5rem"
           color="acento-principal"
-          name="fas-circle-chevron-left"
+          name="fm-chevron-left"
         />
       </template>
     </VueDatePicker>
@@ -88,8 +88,8 @@ import "@vuepic/vue-datepicker/dist/main.css";
 import type { PropType } from "vue";
 
 // Componentes
+import FigmaIcon from "./FigmaIcon.vue";
 import VueDatePicker from "@vuepic/vue-datepicker";
-import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

@@ -14,6 +14,12 @@
         :size="size"
         :color="colorInner"
       />
+      <FigmaIcon
+        v-else-if="icon.startsWith('fm')"
+        :name="icon"
+        :size="size"
+        :color="colorInner"
+      />
       <SvgIcon
         v-else
         :src="icon"
@@ -44,6 +50,7 @@ import type {PropType} from "vue";
 
 //Componentes
 import SvgIcon from "./SvgIcon.vue";
+import FigmaIcon from "./FigmaIcon.vue";
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
@@ -204,7 +211,7 @@ const onClick = (ev: MouseEvent) => {
     position: absolute;
     white-space: nowrap;
     line-height: 1.25rem;
-    font-family: "Metropolis", sans-serif;
+    font-family: "Metropolis", sans-serif !important;
   }
 
   &:hover .icon-button__tooltip {

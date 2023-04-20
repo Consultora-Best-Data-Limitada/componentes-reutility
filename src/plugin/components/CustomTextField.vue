@@ -22,11 +22,11 @@
         class="custom-text-field__button"
         @click="clear"
       >
-        <FontAwesomeIcon
+        <FigmaIcon
           v-if="model"
           size="1rem"
           color="neutro-4"
-          name="fas-circle-xmark"
+          name="fm-circle-close"
         />
       </div>
       <slot
@@ -54,7 +54,7 @@ import {vMaska} from "maska";
 import type {PropType} from "vue";
 
 // Componentes
-import FontAwesomeIcon from "./FontAwesomeIcon.vue";
+import FigmaIcon from "./FigmaIcon.vue";
 
 // Definiciones
 

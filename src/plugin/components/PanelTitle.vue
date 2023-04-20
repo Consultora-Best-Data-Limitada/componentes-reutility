@@ -13,10 +13,10 @@
       class="panel-title__close"
       @click="onClickClose"
     >
-      <FontAwesomeIcon
+      <FigmaIcon
         color="error"
         :size="iconSize"
-        name="fas-xmark-circle"
+        name="fm-circle-close"
       />
     </div>
   </div>
@@ -34,8 +34,8 @@ import type CSS from "csstype";
 import type {PropType} from "vue";
 
 // Componentes
+import FigmaIcon from "./FigmaIcon.vue";
 import TextContainer from "./TextContainer.vue";
-import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

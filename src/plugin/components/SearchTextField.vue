@@ -5,10 +5,10 @@
     :placeholder="placeholder"
   >
     <template #append>
-      <FontAwesomeIcon
+      <FigmaIcon
         size="1rem"
+        name="fm-magnify-glass"
         color="acento-principal"
-        name="fas-magnifying-glass"
       />
     </template>
   </CustomTextField>
@@ -19,8 +19,8 @@
 import { computed } from "vue";
 
 // Componentes
+import FigmaIcon from "./FigmaIcon.vue";
 import CustomTextField from "./CustomTextField.vue";
-import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

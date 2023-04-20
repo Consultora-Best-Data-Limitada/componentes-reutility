@@ -19,7 +19,7 @@
               v-if="header.sortable !== false"
               :class="sortIconClass(header.value)"
             >
-              <FontAwesomeIcon
+              <FigmaIcon
                 :name="getSortIcon(header.value)"
                 :color="sortIconColor(header.value)"
               />
@@ -35,6 +35,12 @@
           <template v-if="!checkSlot('no-data')">
             <FontAwesomeIcon
               v-if="!hideNoDataIcon && noDataIcon.startsWith('fa')"
+              size="5rem"
+              color="neutro-4"
+              :name="noDataIcon"
+            />
+            <FigmaIcon
+              v-else-if="!hideNoDataIcon && noDataIcon.startsWith('fm')"
               size="5rem"
               color="neutro-4"
               :name="noDataIcon"
@@ -114,9 +120,10 @@ import type { PropType } from "vue";
 import { useDateTable } from "../composables/dataTable";
 
 // Componentes
+import SvgIcon from "./SvgIcon.vue";
+import FigmaIcon from "./FigmaIcon.vue";
 import IconButton from "./IconButton.vue";
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
-import SvgIcon from "@/plugin/components/SvgIcon.vue";
 
 // Definiciones
 
@@ -217,7 +224,7 @@ const checkSlot = (name: string) => !!slots[name];
 
 const getSortIcon = (value: string) => {
   if (dataTable.isSortedBy(value)) {
-    return dataTable.getSortOrder.value === "asc" ? "fad-sort-down" : "fad-sort-up";
+    return dataTable.getSortOrder.value === "asc" ? "fm-arrow-down" : "fm-arrow-up";
   }
   return "fas-sort";
 };

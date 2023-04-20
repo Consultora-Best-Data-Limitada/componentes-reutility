@@ -2,11 +2,11 @@ import type CSS from "csstype";
 import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
 export declare interface SuccessDialogProps {
-  icon: string;
   text: string;
   duration?: number;
   modelValue: boolean;
   subtitle?: string;
+  icon: string | FigmaIconChoice;
   width?: CSS.WidthProperty<string>;
   iconColor?: CSS.ColorProperty | CustomColor;
   "@close"?: () => void;

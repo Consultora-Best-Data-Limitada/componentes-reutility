@@ -10,8 +10,8 @@ export declare interface CustomButtonProps {
   width?: CSS.WidthProperty<string>;
   height?: CSS.HeightProperty<string>;
   disabled?: boolean;
-  appendIcon?: string;
-  preppendIcon?: string;
+  appendIcon?: string | FigmaIconChoice;
+  preppendIcon?: string | FigmaIconChoice;
   justifyItems?: CSS.JustifyItemsProperty;
   justifyContent?: CSS.JustifyContentProperty;
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;

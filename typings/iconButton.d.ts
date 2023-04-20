@@ -3,7 +3,7 @@ import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} fro
 
 export declare interface IconButtonProps {
   color?: CSS.ColorProperty | CustomColor;
-  icon: string;
+  icon: string | FigmaIconChoice;
   size?: CSS.WidthProperty<string>;
   disabled?: boolean;
   backgroundColor?: CSS.BackgroundColorProperty | CustomColor;

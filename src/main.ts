@@ -1,6 +1,7 @@
 import {createApp} from 'vue';
 import App from './App.vue';
 
+import './plugin/assets/fonts/metropolis/metropolis.css'
 import './plugin/assets/fontawesome/css/all.min.css';
 import './plugin/assets/icomoon/icomoon.css';
 

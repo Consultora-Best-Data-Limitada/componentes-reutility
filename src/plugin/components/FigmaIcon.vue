@@ -37,7 +37,7 @@ const colors = useColors();
 // Computed
 
 const iconClass = computed(() => {
-  return `icon-fm-${props.name}`;
+  return `icon-${props.name}`;
 });
 
 const colorInner = computed(() => {

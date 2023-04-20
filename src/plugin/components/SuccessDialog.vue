@@ -19,6 +19,12 @@
           :name="icon"
           :color="iconColor"
         />
+        <FigmaIcon
+          v-else-if="icon.startsWith('fm')"
+          size="5rem"
+          :name="icon"
+          :color="iconColor"
+        />
         <SvgIcon
           v-else
           size="5rem"
@@ -54,12 +60,13 @@ import type CSS from "csstype";
 import type {PropType} from "vue";
 
 // Componentes
+import SvgIcon from "./SvgIcon.vue";
+import FigmaIcon from "./FigmaIcon.vue";
 import GridColumn from "./GridColumn.vue";
+import CustomDialog from "./CustomDialog.vue";
 import FlexContainer from "./FlexContainer.vue";
 import TextContainer from "./TextContainer.vue";
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
-import SvgIcon from "./SvgIcon.vue";
-import CustomDialog from "./CustomDialog.vue";
 
 // Definiciones
 

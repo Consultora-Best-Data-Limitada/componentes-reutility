@@ -17,16 +17,17 @@
           :size="checkedIconSize"
           :color="checkedColorInner"
         />
+        <FigmaIcon
+          v-else-if="checkedIcon && checkedIcon.startsWith('fm')"
+          :name="checkedIcon"
+          :size="checkedIconSize"
+          :color="checkedColorInner"
+        />
         <SvgIcon
           v-else-if="checkedIcon"
           :src="checkedIcon"
           :size="checkedIconSize"
           :color="checkedColorInner"
-        />
-        <FmSquareCheck
-          v-else
-          :size="checkedIconSize"
-          :fill="checkedColorInner"
         />
       </div>
     </transition>
@@ -36,16 +37,17 @@
       :size="boxIconSize"
       :color="boxColorInner"
     />
+    <FigmaIcon
+      v-else-if="boxIcon && boxIcon.startsWith('fm')"
+      :name="boxIcon"
+      :size="boxIconSize"
+      :color="boxColorInner"
+    />
     <SvgIcon
       v-else-if="boxIcon"
       :src="boxIcon"
       :size="boxIconSize"
       :color="boxColorInner"
-    />
-    <FmSquare
-      v-else
-      :size="boxIconSize"
-      :fill="boxColorInner"
     />
   </div>
 </template>
@@ -60,15 +62,14 @@ import type { PropType } from "vue";
 
 // Componentes
 import SvgIcon from "./SvgIcon.vue";
+import FigmaIcon from "./FigmaIcon.vue";
 import FontAwesomeIcon from "./FontAwesomeIcon.vue";
-import FmSquare from "@/plugin/components/icons/FmSquare.vue";
-import FmSquareCheck from "@/plugin/components/icons/FmSquareCheck.vue";
 
 // Definiciones
 const props = defineProps({
   boxIcon: {
     type: String,
-    default: "far-square",
+    default: "fm-square-outlined",
   },
   boxColor: {
     default: "acento-principal",
@@ -89,7 +90,7 @@ const props = defineProps({
     type: String as PropType<CSS.FontSizeProperty<string>>,
   },
   checkedIcon: {
-    default: "fas-square-check",
+    default: "fm-square-check",
     type: String,
   },
   checkedIconSize: {
