@@ -3,6 +3,7 @@ import type {App} from "vue";
 
 // Estilos
 import "./assets/css/main.css";
+import "./assets/icomoon/icomoon.css";
 import "./assets/fontawesome/css/all.min.css";
 import "./assets/fonts/metropolis/metropolis.css";
 
