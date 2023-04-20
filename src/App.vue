@@ -9,6 +9,11 @@
       align-items="flex-end"
       grid-auto-columns="13rem"
     >
+      <FigmaIcon
+        name="user-rectangle-and-line"
+        color="red"
+        size="2rem"
+      />
       <FilterDatePicker
         v-model="fechaRange"
         range
@@ -538,6 +543,7 @@ import CustomMenu from "@/plugin/components/CustomMenu.vue";
 import GridColumn from "@/plugin/components/GridColumn.vue";
 import TextContainer from "@/plugin/components/TextContainer.vue";
 import PanelTitle from "@/plugin/components/PanelTitle.vue";
+import FigmaIcon from "@/plugin/components/FigmaIcon.vue";
 
 interface User {
   id: string;
