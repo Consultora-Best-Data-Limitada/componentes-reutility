@@ -21,10 +21,14 @@
       @focus="onFocus"
       @keydown="onKeydown"
     >
-      <slot
+      <template
         v-if="checkSlot()"
-        name="append"
-      />
+        #append
+      >
+        <slot
+          name="append"
+        />
+      </template>
     </CustomTextField>
   </div>
 </template>
