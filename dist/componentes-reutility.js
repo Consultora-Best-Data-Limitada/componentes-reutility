@@ -11179,12 +11179,12 @@ const Go = /* @__PURE__ */ De(Ph, [["__scopeId", "data-v-a2651073"]]), Th = (e, 
   setup(e, { emit: t }) {
     const n = e;
     Ye((T) => ({
-      "3662fc1c": e.containerSize,
-      "4a71deb8": e.borderRadius,
-      "5ea18342": c(g),
-      "5c0415cf": l.value,
-      "247adacd": u.value,
-      "6b36e016": d.value
+      "0f64d7d7": e.containerSize,
+      "0ae55cee": e.borderRadius,
+      "02c94786": c(g),
+      "3b174f4a": l.value,
+      "27ced0b2": u.value,
+      "5b3cb25e": d.value
     }));
     const r = Ft(), a = vt(), o = M(!1), l = M("initial"), u = M("initial"), d = M("initial"), p = M(null), h = $(() => ({
       "icon-button__tooltip": !0,
@@ -11204,7 +11204,7 @@ const Go = /* @__PURE__ */ De(Ph, [["__scopeId", "data-v-a2651073"]]), Th = (e, 
         return;
       o.value = !0, await kt();
       const T = p.value.getBoundingClientRect(), F = T.x + T.width;
-      T.x < 0 ? (u.value = "0", d.value = "initial") : F >= window.innerWidth ? (u.value = "initial", d.value = "0") : (u.value = "initial", d.value = "initial"), l.value = `calc(${T.top}px + ${n.containerSize})`;
+      T.x < 0 ? (u.value = "0", d.value = "initial") : F >= window.innerWidth ? (u.value = "initial", d.value = "0") : (u.value = "initial", d.value = "initial"), l.value = `calc(${T.top}px + ${n.containerSize || n.size})`;
     }, E = () => {
       l.value = "", u.value = "", d.value = "", o.value = !1;
     }, Y = (T) => {
@@ -11247,7 +11247,7 @@ const Go = /* @__PURE__ */ De(Ph, [["__scopeId", "data-v-a2651073"]]), Th = (e, 
     ], 2));
   }
 });
-const To = /* @__PURE__ */ De(Dh, [["__scopeId", "data-v-f5690a9f"]]), Mh = { class: "data-table__container" }, Rh = {
+const To = /* @__PURE__ */ De(Dh, [["__scopeId", "data-v-2ba015c5"]]), Mh = { class: "data-table__container" }, Rh = {
   class: "data-table__table",
   "aria-describedby": "Reutility"
 }, Ih = { class: "data-table__head" }, Nh = ["onClick"], Bh = { class: "data-table__header-text" }, Ah = { class: "data-table__body" }, Eh = {

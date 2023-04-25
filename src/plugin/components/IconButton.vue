@@ -148,7 +148,7 @@ const onMouseEnter = async () => {
     left.value = "initial";
     right.value = "initial";
   }
-  top.value = `calc(${rect.top}px + ${props.containerSize})`;
+  top.value = `calc(${rect.top}px + ${props.containerSize || props.size})`;
 };
 
 const onMouseLeave = () => {
