@@ -76,6 +76,7 @@ const backgroundColorInner = computed(() => {
 <style scoped>
 .grid-row__container {
   display: grid;
+  min-height: 0;
   width: v-bind(width);
   grid-auto-flow: column;
   height: v-bind(height);

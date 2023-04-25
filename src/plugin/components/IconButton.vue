@@ -5,8 +5,8 @@
     <div
       :class="iconButtonClass"
       @click="onClick"
-      @mouseenter="onMouseEnter"
-      @mouseleave="onMouseLeave"
+      @mouseenter.stop="onMouseEnter"
+      @mouseleave.stop="onMouseLeave"
     >
       <FontAwesomeIcon
         v-if="icon.startsWith('fa')"
@@ -30,7 +30,7 @@
     <div
       v-if="checkSlot()"
       ref="tooltipRef"
-      class="icon-button__tooltip"
+      :class="tooltipClass"
     >
       <slot/>
     </div>
@@ -39,7 +39,7 @@
 
 <script setup lang="ts">
 // Vue
-import {computed, ref, useSlots} from "vue";
+import {computed, nextTick, ref, useSlots} from "vue";
 
 // Composables
 import {useColors} from "../composables/colors";
@@ -94,11 +94,18 @@ const colors = useColors();
 
 // Data
 
+const open = ref(false);
+const top = ref("initial");
 const left = ref("initial");
 const right = ref("initial");
 const tooltipRef = ref<HTMLDivElement | null>(null);
 
 // Computed
+
+const tooltipClass = computed(() => ({
+  'icon-button__tooltip': true,
+  'icon-button__tooltip--opened': open.value,
+}));
 
 const iconTooltipContainerClass = computed(() => ({
   'icon-button__tooltip-container': true,
@@ -125,8 +132,10 @@ const colorInner = computed(() =>
 
 const checkSlot = () => !!slots["default"];
 
-const onMouseEnter = () => {
+const onMouseEnter = async () => {
   if (!tooltipRef.value) return;
+  open.value = true;
+  await nextTick();
   const rect = tooltipRef.value.getBoundingClientRect();
   const rightX = rect.x + rect.width;
   if (rect.x < 0) {
@@ -139,11 +148,14 @@ const onMouseEnter = () => {
     left.value = "initial";
     right.value = "initial";
   }
+  top.value = `calc(${rect.top}px + ${props.containerSize})`;
 };
 
 const onMouseLeave = () => {
+  top.value = "";
   left.value = "";
   right.value = "";
+  open.value = false;
 };
 
 // Emits
@@ -186,7 +198,6 @@ const onClick = (ev: MouseEvent) => {
 .icon-button__tooltip-container {
   display: flex;
   cursor: pointer;
-  position: relative;
   justify-content: center;
 
   &--disabled {
@@ -197,26 +208,27 @@ const onClick = (ev: MouseEvent) => {
     opacity: 0;
     z-index: 1007;
     display: none;
+    position: fixed;
     padding: 0.5rem;
+    top: v-bind(top);
     left: v-bind(left);
     border-radius: 1rem;
     right: v-bind(right);
-    top: calc(100% + 0.5rem);
     transition: all 300ms ease;
     color: rgb(var(--neutro-1));
     background-color: rgba(var(--neutro-4), 0.7);
     // Text style
     font-size: 1rem;
     text-align: center;
-    position: absolute;
     white-space: nowrap;
     line-height: 1.25rem;
     font-family: "Metropolis", sans-serif !important;
+
+    &--opened {
+      opacity: 1;
+      display: block;
+    }
   }
 
-  &:hover .icon-button__tooltip {
-    opacity: 1;
-    display: block;
-  }
 }
 </style>
