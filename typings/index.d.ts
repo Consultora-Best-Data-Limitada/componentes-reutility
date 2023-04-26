@@ -34,6 +34,7 @@ import {IColorPicker} from "./colorPicker";
 import {IFormColorPicker} from "./formColorPicker";
 import {ICustomMenu} from "./customMenu";
 import {IFigmaIcon} from "./figmaIcon";
+import {IExpansionPanel} from "./expansionPanel";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -77,5 +78,6 @@ declare module '@vue/runtime-core' {
     FormColorPicker: typeof IFormColorPicker;
     CustomMenu: typeof ICustomMenu;
     FigmaIcon: typeof IFigmaIcon;
+    ExpansionPanel: typeof IExpansionPanel;
   }
 }

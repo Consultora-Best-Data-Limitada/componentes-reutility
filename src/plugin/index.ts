@@ -41,6 +41,7 @@ import FormColorPicker from "@/plugin/components/FormColorPicker.vue";
 import ColorPicker from "@/plugin/components/ColorPicker.vue";
 import CustomMenu from "@/plugin/components/CustomMenu.vue";
 import FigmaIcon from "@/plugin/components/FigmaIcon.vue";
+import ExpansionPanel from "@/plugin/components/ExpansionPanel.vue";
 
 export const componentesReutility = (app: App) => {
   app.component("CheckBox", CheckBox);
@@ -76,4 +77,5 @@ export const componentesReutility = (app: App) => {
   app.component("ColorPicker", ColorPicker);
   app.component("CustomMenu", CustomMenu);
   app.component("FigmaIcon", FigmaIcon);
+  app.component("ExpansionPanel", ExpansionPanel);
 };
