@@ -71,6 +71,8 @@ const colors = useColors();
 
 // Data
 
+const contentHeight = ref(0);
+const activatorHeight = ref(0);
 const maxHeight = ref("initial");
 const opened = ref(props.modelValue ?? false);
 const dummyOpened = ref(props.modelValue ?? false);
@@ -80,10 +82,12 @@ const activatorRef = ref<HTMLDivElement | null>(null);
 // Mounted
 
 onMounted(() => {
-  if (!activatorRef.value) return;
-  let height = activatorRef.value.getBoundingClientRect().height;
-  if (props.modelValue === true && contentRef.value) {
-    height += contentRef.value.getBoundingClientRect().height;
+  if (!activatorRef.value || !contentRef.value) return;
+  activatorHeight.value = activatorRef.value.offsetHeight;
+  contentHeight.value = contentRef.value.offsetHeight;
+  let height = activatorHeight.value;
+  if (props.modelValue === true) {
+    height += contentHeight.value;
   }
   maxHeight.value = `${height}px`;
 });
@@ -117,10 +121,8 @@ function transitionEndHandler() {
 function toogleOpened() {
   dummyOpened.value = !opened.value;
   model.value = dummyOpened.value;
-  if (!activatorRef.value || !contentRef.value) return;
-  const activatorHeight = activatorRef.value.getBoundingClientRect().height;
-  const contentHeight = opened.value ? 0 : contentRef.value.getBoundingClientRect().height;
-  const height = activatorHeight + contentHeight;
+  const openedHeight = opened.value ? 0 : contentHeight.value;
+  const height = activatorHeight.value + openedHeight;
   maxHeight.value = `${height}px`;
 }
 
