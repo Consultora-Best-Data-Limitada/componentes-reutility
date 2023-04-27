@@ -42,6 +42,7 @@ import ColorPicker from "@/plugin/components/ColorPicker.vue";
 import CustomMenu from "@/plugin/components/CustomMenu.vue";
 import FigmaIcon from "@/plugin/components/FigmaIcon.vue";
 import ExpansionPanel from "@/plugin/components/ExpansionPanel.vue";
+import GridContainer from "@/plugin/components/GridContainer.vue";
 
 export const componentesReutility = (app: App) => {
   app.component("CheckBox", CheckBox);
@@ -78,4 +79,5 @@ export const componentesReutility = (app: App) => {
   app.component("CustomMenu", CustomMenu);
   app.component("FigmaIcon", FigmaIcon);
   app.component("ExpansionPanel", ExpansionPanel);
+  app.component("GridContainer", GridContainer);
 };
