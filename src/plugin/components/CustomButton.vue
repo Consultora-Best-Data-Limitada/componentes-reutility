@@ -5,14 +5,8 @@
     @click="onClick"
   >
     <template v-if="preppendIcon && !loading">
-      <FontAwesomeIcon
-        v-if="preppendIcon && preppendIcon.startsWith('fa')"
-        size="1rem"
-        :color="iconColor"
-        :name="preppendIcon"
-      />
       <FigmaIcon
-        v-else-if="preppendIcon && preppendIcon.startsWith('fm')"
+        v-if="preppendIcon && preppendIcon.startsWith('fm')"
         size="1rem"
         :color="iconColor"
         :name="preppendIcon"
@@ -32,14 +26,8 @@
       <slot v-else/>
     </span>
     <template v-if="appendIcon && !loading">
-      <FontAwesomeIcon
-        v-if="appendIcon && appendIcon.startsWith('fa')"
-        size="1rem"
-        :color="iconColor"
-        :name="appendIcon"
-      />
       <FigmaIcon
-        v-else-if="appendIcon && appendIcon.startsWith('fm')"
+        v-if="appendIcon && appendIcon.startsWith('fm')"
         size="1rem"
         :color="iconColor"
         :name="appendIcon"
@@ -68,7 +56,6 @@ import type {PropType} from "vue";
 // Componentes
 import SvgIcon from "./SvgIcon.vue";
 import FigmaIcon from "./FigmaIcon.vue";
-import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 import LdThreeBounce from "./icons/LdThreeBounce.vue";
 
 // Definiciones

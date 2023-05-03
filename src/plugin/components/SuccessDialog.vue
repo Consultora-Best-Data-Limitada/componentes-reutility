@@ -13,14 +13,8 @@
       box-shadow="3px 3px 17px rgba(151, 168, 194, 0.24)"
     >
       <FlexContainer justify-content="center">
-        <FontAwesomeIcon
-          v-if="icon.startsWith('fa')"
-          size="5rem"
-          :name="icon"
-          :color="iconColor"
-        />
         <FigmaIcon
-          v-else-if="icon.startsWith('fm')"
+          v-if="icon.startsWith('fm')"
           size="5rem"
           :name="icon"
           :color="iconColor"
@@ -66,7 +60,6 @@ import GridColumn from "./GridColumn.vue";
 import CustomDialog from "./CustomDialog.vue";
 import FlexContainer from "./FlexContainer.vue";
 import TextContainer from "./TextContainer.vue";
-import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

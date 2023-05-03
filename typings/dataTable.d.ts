@@ -2,6 +2,17 @@ import type CSS from "csstype";
 import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 import DataTableItem from "../../src/plugin/components/DataTableItem.vue";
 
+export interface DataTableHeader {
+  text: string;
+  value: string;
+  sortable?: boolean;
+  sort?: (valueA: string, valueB: string) => number;
+}
+
+export interface DataTableItem {
+  [id: string]: any;
+}
+
 export declare interface DataTableProps {
   items: DataTableItem[];
   headers: DataTableHeader[];

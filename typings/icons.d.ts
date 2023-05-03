@@ -1,4 +1,4 @@
-type FigmaIconChoice =
+export type FigmaIconChoice =
   | "fm-arrow-down-rectangle"
   | "fm-arrow-down"
   | "fm-arrow-left-outlined"

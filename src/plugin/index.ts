@@ -4,7 +4,6 @@ import type {App} from "vue";
 // Estilos
 import "./assets/css/main.css";
 import "./assets/icomoon/icomoon.css";
-import "./assets/fontawesome/css/all.min.css";
 import "./assets/fonts/metropolis/metropolis.css";
 
 // Componentes
@@ -20,11 +19,9 @@ import DataTableItem from "@/plugin/components/DataTableItem.vue";
 import FilterDatePicker from "@/plugin/components/FilterDatePicker.vue";
 import FilterSelect from "@/plugin/components/FilterSelect.vue";
 import FlexContainer from "@/plugin/components/FlexContainer.vue";
-import FontAwesomeIcon from "@/plugin/components/FontAwesomeIcon.vue";
 import FormDatePicker from "@/plugin/components/FormDatePicker.vue";
 import FormSelect from "@/plugin/components/FormSelect.vue";
 import FormTextField from "@/plugin/components/FormTextField.vue";
-import GradientButton from "@/plugin/components/GradientButton.vue";
 import GridColumn from "@/plugin/components/GridColumn.vue";
 import GridRow from "@/plugin/components/GridRow.vue";
 import HeaderTabs from "@/plugin/components/HeaderTabs.vue";
@@ -57,11 +54,9 @@ export const componentesReutility = (app: App) => {
   app.component("FilterDatePicker", FilterDatePicker);
   app.component("FilterSelect", FilterSelect);
   app.component("FlexContainer", FlexContainer);
-  app.component("FontAwesomeIcon", FontAwesomeIcon);
   app.component("FormDatePicker", FormDatePicker);
   app.component("FormSelect", FormSelect);
   app.component("FormTextField", FormTextField);
-  app.component("GradientButton", GradientButton);
   app.component("GridColumn", GridColumn);
   app.component("GridRow", GridRow);
   app.component("HeaderTabs", HeaderTabs);

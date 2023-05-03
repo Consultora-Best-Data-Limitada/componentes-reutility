@@ -33,14 +33,8 @@
           class="data-table__row--empty"
         >
           <template v-if="!checkSlot('no-data')">
-            <FontAwesomeIcon
-              v-if="!hideNoDataIcon && noDataIcon.startsWith('fa')"
-              size="5rem"
-              color="neutro-4"
-              :name="noDataIcon"
-            />
             <FigmaIcon
-              v-else-if="!hideNoDataIcon && noDataIcon.startsWith('fm')"
+              v-if="!hideNoDataIcon && noDataIcon.startsWith('fm')"
               size="5rem"
               color="neutro-4"
               :name="noDataIcon"
@@ -82,7 +76,7 @@
     >
       <IconButton
         size="1rem"
-        icon="fas-arrow-left"
+        icon="fm-arrow-left"
         color="acento-principal"
         :disabled="currentPage === 1"
         @click="previousPage"
@@ -99,7 +93,7 @@
       </div>
       <IconButton
         size="1rem"
-        icon="fas-arrow-right"
+        icon="fm-arrow-right"
         color="acento-principal"
         :disabled="currentPage === pageCount"
         @click="nextPage"
@@ -123,7 +117,6 @@ import { useDateTable } from "../composables/dataTable";
 import SvgIcon from "./SvgIcon.vue";
 import FigmaIcon from "./FigmaIcon.vue";
 import IconButton from "./IconButton.vue";
-import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 
@@ -173,7 +166,7 @@ const props = defineProps({
   },
   noDataIcon: {
     type: String,
-    default: "far-face-frown-slight",
+    default: "fm-sad-face",
   },
 });
 
@@ -226,7 +219,7 @@ const getSortIcon = (value: string) => {
   if (dataTable.isSortedBy(value)) {
     return dataTable.getSortOrder.value === "asc" ? "fm-arrow-down" : "fm-arrow-up";
   }
-  return "fas-sort";
+  return "fm-contract";
 };
 
 const sortBy = (header: DataTableHeader) => {

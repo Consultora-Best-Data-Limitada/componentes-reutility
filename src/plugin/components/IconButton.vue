@@ -8,14 +8,8 @@
       @mouseenter.stop="onMouseEnter"
       @mouseleave.stop="onMouseLeave"
     >
-      <FontAwesomeIcon
-        v-if="icon.startsWith('fa')"
-        :name="icon"
-        :size="size"
-        :color="colorInner"
-      />
       <FigmaIcon
-        v-else-if="icon.startsWith('fm')"
+        v-if="icon.startsWith('fm')"
         :name="icon"
         :size="size"
         :color="colorInner"
@@ -51,7 +45,6 @@ import type {PropType} from "vue";
 //Componentes
 import SvgIcon from "./SvgIcon.vue";
 import FigmaIcon from "./FigmaIcon.vue";
-import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 

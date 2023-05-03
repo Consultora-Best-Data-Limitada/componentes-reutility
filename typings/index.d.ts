@@ -13,7 +13,6 @@ import {IDataTableItem} from "./dataTableItem";
 import {IFilterDatePicker} from "./filterDatePicker";
 import {IFilterSelect} from "./filterSelect";
 import {IFlexContainer} from "./flexContainer";
-import {IFontAwesomeIcon} from "./fontAwesomeIcon";
 import {IFormDatePicker} from "./formDatePicker";
 import {IFormSelect} from "./formSelect";
 import {IFormTextField} from "./formTextField";
@@ -35,6 +34,8 @@ import {IFormColorPicker} from "./formColorPicker";
 import {ICustomMenu} from "./customMenu";
 import {IFigmaIcon} from "./figmaIcon";
 import {IExpansionPanel} from "./expansionPanel";
+import {IAbsoluteContainer} from "./absoluteContainer";
+import {IRelativeContainer} from "./relativeContainer";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -57,7 +58,6 @@ declare module '@vue/runtime-core' {
     FilterDatePicker: typeof IFilterDatePicker;
     FilterSelect: typeof IFilterSelect;
     FlexContainer: typeof IFlexContainer;
-    FontAwesomeIcon: typeof IFontAwesomeIcon;
     FormDatePicker: typeof IFormDatePicker;
     FormSelect: typeof IFormSelect;
     FormTextField: typeof IFormTextField;
@@ -79,5 +79,7 @@ declare module '@vue/runtime-core' {
     CustomMenu: typeof ICustomMenu;
     FigmaIcon: typeof IFigmaIcon;
     ExpansionPanel: typeof IExpansionPanel;
+    AbsoluteContainer: typeof IAbsoluteContainer;
+    RelativeContainer: typeof IRelativeContainer;
   }
 }

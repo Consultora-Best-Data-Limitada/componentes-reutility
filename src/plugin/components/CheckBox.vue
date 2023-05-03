@@ -11,14 +11,8 @@
         v-if="model"
         class="check-box__icon"
       >
-        <FontAwesomeIcon
-          v-if="checkedIcon && checkedIcon.startsWith('fa')"
-          :name="checkedIcon"
-          :size="checkedIconSize"
-          :color="checkedColorInner"
-        />
         <FigmaIcon
-          v-else-if="checkedIcon && checkedIcon.startsWith('fm')"
+          v-if="checkedIcon && checkedIcon.startsWith('fm')"
           :name="checkedIcon"
           :size="checkedIconSize"
           :color="checkedColorInner"
@@ -31,14 +25,8 @@
         />
       </div>
     </transition>
-    <FontAwesomeIcon
-      v-if="boxIcon && boxIcon.startsWith('fa')"
-      :name="boxIcon"
-      :size="boxIconSize"
-      :color="boxColorInner"
-    />
     <FigmaIcon
-      v-else-if="boxIcon && boxIcon.startsWith('fm')"
+      v-if="boxIcon && boxIcon.startsWith('fm')"
       :name="boxIcon"
       :size="boxIconSize"
       :color="boxColorInner"
@@ -63,7 +51,6 @@ import type { PropType } from "vue";
 // Componentes
 import SvgIcon from "./SvgIcon.vue";
 import FigmaIcon from "./FigmaIcon.vue";
-import FontAwesomeIcon from "./FontAwesomeIcon.vue";
 
 // Definiciones
 const props = defineProps({
