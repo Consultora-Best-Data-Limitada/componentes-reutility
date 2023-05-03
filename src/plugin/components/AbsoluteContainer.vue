@@ -68,6 +68,10 @@ const props = defineProps({
     default: "unset",
     type: String as PropType<CSS.TransformProperty>,
   },
+  zIndex: {
+    default: "1",
+    type: String as PropType<CSS.ZIndexProperty>,
+  },
 });
 
 // Composables
@@ -91,6 +95,7 @@ const backgroundColorInner = computed(() => {
   bottom: v-bind(bottom);
   margin: v-bind(margin);
   height: v-bind(height);
+  z-index: v-bind(zIndex);
   padding: v-bind(padding);
   overflow: v-bind(overflow);
   transform: v-bind(transform);

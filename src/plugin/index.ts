@@ -40,8 +40,12 @@ import CustomMenu from "@/plugin/components/CustomMenu.vue";
 import FigmaIcon from "@/plugin/components/FigmaIcon.vue";
 import ExpansionPanel from "@/plugin/components/ExpansionPanel.vue";
 import GridContainer from "@/plugin/components/GridContainer.vue";
+import AbsoluteContainer from "@/plugin/components/AbsoluteContainer.vue";
+import RelativeContainer from "@/plugin/components/RelativeContainer.vue";
 
 export const componentesReutility = (app: App) => {
+  app.component("AbsoluteContainer", AbsoluteContainer);
+  app.component("RelativeContainer", RelativeContainer);
   app.component("CheckBox", CheckBox);
   app.component("ConfirmationDialog", ConfirmationDialog);
   app.component("CustomButton", CustomButton);
