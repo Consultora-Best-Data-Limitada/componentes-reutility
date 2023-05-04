@@ -15,7 +15,7 @@ export declare interface AbsoluteContainerProps {
   bottom?: CSS.BottomProperty<string>;
   left?: CSS.LeftProperty<string>;
   transform?: CSS.TransformProperty;
-  zIndex?: CSS.ZIndexProperty;
+  zIndex?: string | number;
 }
 
 export declare const IAbsoluteContainer: new () => {
