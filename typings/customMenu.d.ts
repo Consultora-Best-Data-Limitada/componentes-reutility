@@ -3,6 +3,10 @@ import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} fro
 export declare interface CustomMenuProps {
   default?: boolean;
   disabled?: boolean;
+  nudgeTop?: number;
+  nudgeBottom?: number;
+  nudgeLeft?: number;
+  nudgeRigth?: number;
 }
 
 export declare const ICustomMenu: new () => {

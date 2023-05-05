@@ -34,6 +34,22 @@ const props = defineProps({
     type: Boolean,
     default: undefined,
   },
+  nudgeTop: {
+    default: 0,
+    type: Number,
+  },
+  nudgeBottom: {
+    default: 0,
+    type: Number,
+  },
+  nudgeLeft: {
+    default: 0,
+    type: Number,
+  },
+  nudgeRight: {
+    default: 0,
+    type: Number,
+  },
 });
 
 // Mounted
@@ -65,11 +81,14 @@ const updatePosition = async () => {
   if (!containerEl || !menuContainerEl) return;
   const rect = containerEl.getBoundingClientRect();
   const menuRect = menuContainerEl.getBoundingClientRect();
-  left.value = `${rect.left}px`;
+  const nudgeX = props.nudgeLeft - props.nudgeRight;
+  const nudgeY = props.nudgeTop - props.nudgeBottom;
+  const realLeft = rect.left + nudgeX;
+  left.value = `${realLeft}px`;
   width.value = `${rect.width}px`;
   const menuEnd = rect.top + rect.height + menuRect.height;
   const windowHeight = window.innerHeight;
-  const realTop = rect.top + rect.height;
+  const realTop = rect.top + rect.height + nudgeY;
   if (menuEnd > windowHeight) {
     const diferencia = menuEnd - windowHeight;
     top.value = `${realTop - diferencia - 16}px`;
@@ -80,7 +99,7 @@ const updatePosition = async () => {
   const windowWidth = window.innerWidth;
   if (menuRight > windowWidth) {
     const diferencia = menuRight - windowWidth;
-    left.value = `${rect.left - diferencia}px`;
+    left.value = `${realLeft - diferencia}px`;
   }
 };
 
