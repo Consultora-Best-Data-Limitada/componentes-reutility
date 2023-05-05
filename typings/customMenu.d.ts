@@ -6,7 +6,7 @@ export declare interface CustomMenuProps {
   nudgeTop?: number;
   nudgeBottom?: number;
   nudgeLeft?: number;
-  nudgeRigth?: number;
+  nudgeRight?: number;
 }
 
 export declare const ICustomMenu: new () => {
