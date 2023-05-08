@@ -4,7 +4,10 @@
       class="expansion-panel__activator"
       @click="toggle"
     >
-      <slot name="activator" />
+      <slot
+        :opened="opened"
+        name="activator"
+      />
     </div>
     <div :class="wrapperClass">
       <div class="expansion-panel__content">

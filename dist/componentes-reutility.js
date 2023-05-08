@@ -12844,11 +12844,11 @@ const qg = /* @__PURE__ */ Pe(jg, [["__scopeId", "data-v-23955344"]]), Gg = { cl
   setup(e, { emit: t }) {
     const n = e;
     Re((v) => ({
-      e7fc3308: e.boxShadow,
-      "1c1a4a8d": e.borderRadius,
-      "26cb9430": c(d),
-      75354978: e.transitionDuration,
-      e9f741b4: e.transitionTimingFunction
+      "4b5e9328": e.boxShadow,
+      "3cdb96c6": e.borderRadius,
+      "57006e40": c(d),
+      "740d30f0": e.transitionDuration,
+      fbc49d94: e.transitionTimingFunction
     }));
     const r = ot(), a = M(!1), o = k({
       get() {
@@ -12874,7 +12874,7 @@ const qg = /* @__PURE__ */ Pe(jg, [["__scopeId", "data-v-23955344"]]), Gg = { cl
         class: "expansion-panel__activator",
         onClick: p
       }, [
-        G(v.$slots, "activator", {}, void 0, !0)
+        G(v.$slots, "activator", { opened: a.value }, void 0, !0)
       ]),
       U("div", {
         class: ce(c(u))
@@ -12886,7 +12886,7 @@ const qg = /* @__PURE__ */ Pe(jg, [["__scopeId", "data-v-23955344"]]), Gg = { cl
     ], 2));
   }
 });
-const Zg = /* @__PURE__ */ Pe(Qg, [["__scopeId", "data-v-76ab8089"]]), Xg = { class: "grid__container" }, Kg = /* @__PURE__ */ he({
+const Zg = /* @__PURE__ */ Pe(Qg, [["__scopeId", "data-v-34e49431"]]), Xg = { class: "grid__container" }, Kg = /* @__PURE__ */ he({
   __name: "GridContainer",
   props: {
     height: {
