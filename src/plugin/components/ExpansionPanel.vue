@@ -1,30 +1,22 @@
 <template>
-  <div
-    :class="containerClass"
-    @transitionend="transitionEndHandler"
-  >
+  <div :class="containerClass">
     <div
-      ref="activatorRef"
       class="expansion-panel__activator"
-      @click="toogleOpened"
+      @click="toggle"
     >
-      <slot
-        name="activator"
-        :opened="dummyOpened"
-      />
+      <slot name="activator" />
     </div>
-    <div
-      ref="contentRef"
-      class="expansion-panel__content"
-    >
-      <slot/>
+    <div :class="wrapperClass">
+      <div class="expansion-panel__content">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 // Vue
-import {onMounted, ref, computed, watch} from "vue";
+import {ref, computed} from "vue";
 
 // Composables
 import {useColors} from "@/plugin/composables/colors";
@@ -59,6 +51,10 @@ const props = defineProps({
     default: "ease-in-out",
     type: String as PropType<CSS.TransitionTimingFunctionProperty>,
   },
+  boxShadow: {
+    default: "initial",
+    type: String as PropType<CSS.BoxShadowProperty>,
+  },
 });
 
 const emits = defineEmits([
@@ -71,42 +67,34 @@ const colors = useColors();
 
 // Data
 
-const contentHeight = ref(0);
-const activatorHeight = ref(0);
-const maxHeight = ref("initial");
-const opened = ref(props.modelValue ?? false);
-const dummyOpened = ref(props.modelValue ?? false);
-const contentRef = ref<HTMLDivElement | null>(null);
-const activatorRef = ref<HTMLDivElement | null>(null);
-
-// Mounted
-
-onMounted(() => {
-  if (!activatorRef.value || !contentRef.value) return;
-  activatorHeight.value = activatorRef.value.offsetHeight;
-  contentHeight.value = contentRef.value.offsetHeight;
-  let height = activatorHeight.value;
-  if (props.modelValue === true) {
-    height += contentHeight.value;
-  }
-  maxHeight.value = `${height}px`;
-});
+const opened = ref(false);
 
 // Computed
 
 const model = computed({
   get() {
-    return props.modelValue ?? false;
+    if(props.modelValue === undefined) return opened.value;
+    return props.modelValue;
   },
   set(value: boolean) {
+    opened.value = value;
     emits("update:model-value", value);
-  },
+  }
+})
+
+const containerClass = computed(() => {
+  return {
+    "expansion-panel__container": true,
+    "expansion-panel__container--outlined": props.outlined,
+  };
 });
 
-const containerClass = computed(() => ({
-  'expansion-panel__container': true,
-  'expansion-panel__container--outlined': props.outlined,
-}));
+const wrapperClass = computed(() => {
+  return {
+    "expansion-panel__wrapper": true,
+    "expansion-panel__wrapper--opened": model.value,
+  };
+});
 
 const backgroundColorInner = computed(() => {
   return colors.getRealColor(props.backgroundColor);
@@ -114,36 +102,17 @@ const backgroundColorInner = computed(() => {
 
 // Methods
 
-function transitionEndHandler() {
-  opened.value = !opened.value;
+function toggle() {
+  model.value = !model.value;
 }
-
-function toogleOpened() {
-  dummyOpened.value = !opened.value;
-  model.value = dummyOpened.value;
-  const openedHeight = opened.value ? 0 : contentHeight.value;
-  const height = activatorHeight.value + openedHeight;
-  maxHeight.value = `${height}px`;
-}
-
-// Watchs
-
-watch(model, (value: boolean) => {
-  if (dummyOpened.value !== value) {
-    toogleOpened();
-  }
-});
 </script>
 
 <style scoped lang="scss">
 .expansion-panel__container {
   overflow: hidden;
-  max-height: v-bind(maxHeight);
-  transition-property: max-height;
+  box-shadow: v-bind(boxShadow);
   border-radius: v-bind(borderRadius);
   background-color: v-bind(backgroundColorInner);
-  transition-duration: v-bind(transitionDuration);
-  transition-timing-function: v-bind(transitionTimingFunction);
 
   &--outlined {
     border: 1px solid rgb(var(--neutro-3));
@@ -153,5 +122,21 @@ watch(model, (value: boolean) => {
 .expansion-panel__activator {
   cursor: pointer;
   user-select: none;
+}
+
+.expansion-panel__wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition-property: grid-template-rows;
+  transition-duration: v-bind(transitionDuration);
+  transition-timing-function: v-bind(transitionTimingFunction);
+}
+
+.expansion-panel__content {
+  overflow: hidden;
+}
+
+.expansion-panel__wrapper--opened {
+  grid-template-rows: 1fr;
 }
 </style>
