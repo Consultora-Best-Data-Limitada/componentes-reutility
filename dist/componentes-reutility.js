@@ -11994,9 +11994,9 @@ const yg = /* @__PURE__ */ Pe(mg, [["__scopeId", "data-v-eb6d75f4"]]), vg = { cl
   },
   setup(e) {
     return Re((t) => ({
-      a5ffcb44: e.padding,
-      "41c490aa": e.gridTemplateColumns,
-      "7591f94c": e.textTransform
+      "46b9d440": e.padding,
+      b75f4da8: e.gridTemplateColumns,
+      "7cb6cb4e": e.textTransform
     })), (t, n) => (y(), P("div", vg, [
       U("div", hg, ke(e.label), 1),
       U("div", gg, [
@@ -12005,7 +12005,7 @@ const yg = /* @__PURE__ */ Pe(mg, [["__scopeId", "data-v-eb6d75f4"]]), vg = { cl
     ]));
   }
 });
-const _g = /* @__PURE__ */ Pe(bg, [["__scopeId", "data-v-6a5dc30c"]]), wg = { class: "page-switch__tooltip-container" }, kg = /* @__PURE__ */ he({
+const _g = /* @__PURE__ */ Pe(bg, [["__scopeId", "data-v-e5fa5dcd"]]), wg = { class: "page-switch__tooltip-container" }, kg = /* @__PURE__ */ he({
   __name: "PageSwitch",
   props: {
     modelValue: {

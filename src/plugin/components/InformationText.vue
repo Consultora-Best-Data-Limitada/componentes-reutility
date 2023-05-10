@@ -42,6 +42,7 @@ defineProps({
   column-gap: 0.75rem;
   align-items: center;
   padding: v-bind(padding);
+  font-family: "Metropolis", sans-serif;
   grid-template-columns: v-bind(gridTemplateColumns);
 }
 
