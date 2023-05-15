@@ -6,7 +6,8 @@ export declare interface DataTableProps {
   headers: DataTableHeader[];
   itemsPerPage?: number;
   maxHeight?: string;
-  stickyColumn?: boolean;
+  stickyFirstColumn?: boolean;
+  stickyLastColumn?: boolean;
   stickyHead?: boolean;
   backgroundColor?: CSS.BackgroundColorProperty;
   height?: CSS.HeightProperty<string>;

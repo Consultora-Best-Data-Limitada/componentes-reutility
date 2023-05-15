@@ -5,7 +5,8 @@
         :headers="headers"
         :items="items"
         sticky-head
-        sticky-column
+        sticky-last-column
+        sticky-first-column
         background-color="white"
         :items-per-page="30"
         max-height="calc(100vh - 3.25rem)"

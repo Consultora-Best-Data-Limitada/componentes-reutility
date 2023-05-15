@@ -172,7 +172,10 @@ const props = defineProps({
     type: String,
     default: "fm-sad-face",
   },
-  stickyColumn: {
+  stickyFirstColumn: {
+    type: Boolean,
+  },
+  stickyLastColumn: {
     type: Boolean,
   },
   stickyHead: {
@@ -203,11 +206,14 @@ const itemsCurrentPage = dataTable.itemsCurrentPage;
 const theadClass = computed(() => ({
   "data-table__head": true,
   "data-table__head--sticky": props.stickyHead,
+  "data-table__head--sticky-last": props.stickyLastColumn,
+  "data-table__head--sticky-first": props.stickyFirstColumn,
 }));
 
 const tableClass = computed(() => ({
   "data-table__table": true,
-  "data-table__table--sticky": props.stickyHead || props.stickyColumn,
+  "data-table__table--sticky":
+    props.stickyHead || props.stickyFirstColumn || props.stickyLastColumn,
 }));
 
 const pages = computed(() => {
@@ -268,7 +274,8 @@ const thClass = (header: DataTableHeader) => ({
 
 const rowClass = (item: DataTableItem) => ({
   "data-table__row": true,
-  "data-table__row--sticky": props.stickyColumn,
+  "data-table__row--sticky-last": props.stickyLastColumn,
+  "data-table__row--sticky-first": props.stickyFirstColumn,
   "data-table__row--selected": item[props.compareSelectedWith] === props.selected,
   "data-table__row--disabled":
     props.disabledKey && props.disabledValue && item[props.disabledKey] === props.disabledValue,
@@ -313,6 +320,19 @@ const sortIconColor = (value: string): CustomColor =>
     z-index: 2;
     position: sticky;
     background-color: v-bind(backgroundColor);
+  }
+
+  &--sticky-last th:last-child,
+  &--sticky-first th:first-child {
+    left: 0;
+    z-index: 1;
+    position: sticky;
+    background-color: v-bind(backgroundColor);
+  }
+
+  &--sticky-last th:last-child {
+    left: initial;
+    right: 0;
   }
 
   .data-table__th {
@@ -371,15 +391,22 @@ const sortIconColor = (value: string): CustomColor =>
   .data-table__row {
     border-bottom: 1px solid rgb(var(--neutro-3));
 
-    &--sticky td:first-child {
+    &--sticky-last td:last-child,
+    &--sticky-first td:first-child {
       left: 0;
       z-index: 1;
       position: sticky;
       background-color: v-bind(backgroundColor);
     }
 
+    &--sticky-last td:last-child {
+      left: initial;
+      right: 0;
+    }
+
     &:hover,
-    &--sticky:hover td:first-child {
+    &--sticky-first:hover td:last-child,
+    &--sticky-first:hover td:first-child {
       background-color: rgb(var(--neutro-2));
     }
 

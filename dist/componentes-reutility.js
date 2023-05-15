@@ -11239,7 +11239,10 @@ const Po = /* @__PURE__ */ Pe(Ph, [["__scopeId", "data-v-cc69e9df"]]), Th = { cl
       type: String,
       default: "fm-sad-face"
     },
-    stickyColumn: {
+    stickyFirstColumn: {
+      type: Boolean
+    },
+    stickyLastColumn: {
       type: Boolean
     },
     stickyHead: {
@@ -11253,17 +11256,19 @@ const Po = /* @__PURE__ */ Pe(Ph, [["__scopeId", "data-v-cc69e9df"]]), Th = { cl
   setup(e) {
     const t = e;
     Re((g) => ({
-      "1b5a2eac": e.height,
-      af274570: e.maxHeight,
-      "34373a9c": e.backgroundColor,
-      "3951f33a": e.gridTemplateColumns
+      "40089b3b": e.height,
+      "587955d2": e.maxHeight,
+      bbdff97e: e.backgroundColor,
+      "82e6976e": e.gridTemplateColumns
     }));
     const n = k(() => t.items), r = k(() => t.itemsPerPage), a = Vt(), o = Oh(n, r), l = o.pageCount, u = o.currentPage, d = o.itemsCurrentPage, p = k(() => ({
       "data-table__head": !0,
-      "data-table__head--sticky": t.stickyHead
+      "data-table__head--sticky": t.stickyHead,
+      "data-table__head--sticky-last": t.stickyLastColumn,
+      "data-table__head--sticky-first": t.stickyFirstColumn
     })), v = k(() => ({
       "data-table__table": !0,
-      "data-table__table--sticky": t.stickyHead || t.stickyColumn
+      "data-table__table--sticky": t.stickyHead || t.stickyFirstColumn || t.stickyLastColumn
     })), m = k(() => {
       const g = u.value;
       let C;
@@ -11281,7 +11286,8 @@ const Po = /* @__PURE__ */ Pe(Ph, [["__scopeId", "data-v-cc69e9df"]]), Th = { cl
       "data-table__th--sortable": g.sortable !== !1
     }), N = (g) => ({
       "data-table__row": !0,
-      "data-table__row--sticky": t.stickyColumn,
+      "data-table__row--sticky-last": t.stickyLastColumn,
+      "data-table__row--sticky-first": t.stickyFirstColumn,
       "data-table__row--selected": g[t.compareSelectedWith] === t.selected,
       "data-table__row--disabled": t.disabledKey && t.disabledValue && g[t.disabledKey] === t.disabledValue
     }), w = (g) => o.isSortedBy(g) ? "acento-secundario" : "neutro-3";
@@ -11373,7 +11379,7 @@ const Po = /* @__PURE__ */ Pe(Ph, [["__scopeId", "data-v-cc69e9df"]]), Th = { cl
     ]));
   }
 });
-const Eh = /* @__PURE__ */ Pe(Ah, [["__scopeId", "data-v-fb34852e"]]), Yh = /* @__PURE__ */ he({
+const Eh = /* @__PURE__ */ Pe(Ah, [["__scopeId", "data-v-3e0c8ae5"]]), Yh = /* @__PURE__ */ he({
   __name: "DataTableItem",
   props: {
     disabled: {
