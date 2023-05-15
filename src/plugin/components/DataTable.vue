@@ -1,10 +1,10 @@
 <template>
   <div class="data-table__container">
     <table
-      class="data-table__table"
+      :class="tableClass"
       aria-describedby="Reutility"
     >
-      <thead class="data-table__head">
+      <thead :class="theadClass">
         <tr>
           <th
             v-for="header in headers"
@@ -47,7 +47,7 @@
             />
             {{ noDataText }}
           </template>
-          <slot name="no-data"/>
+          <slot name="no-data" />
         </tr>
         <tr
           v-for="item in itemsCurrentPage"
@@ -129,12 +129,16 @@ const props = defineProps({
     required: true,
     type: Array as PropType<DataTableHeader[]>,
   },
+  backgroundColor: {
+    default: "initial",
+    type: String as PropType<CSS.BackgroundColorProperty>,
+  },
   itemsPerPage: {
     default: 10,
     type: Number,
   },
   height: {
-    default: "100%",
+    default: "initial",
     type: String as PropType<CSS.HeightProperty<string>>,
   },
   gridTemplateColumns: {
@@ -168,6 +172,16 @@ const props = defineProps({
     type: String,
     default: "fm-sad-face",
   },
+  stickyColumn: {
+    type: Boolean,
+  },
+  stickyHead: {
+    type: Boolean,
+  },
+  maxHeight: {
+    default: "inital",
+    type: String as PropType<CSS.MaxHeightProperty<string>>,
+  },
 });
 
 // Composables
@@ -185,6 +199,16 @@ const pageCount = dataTable.pageCount;
 const currentPage = dataTable.currentPage;
 
 const itemsCurrentPage = dataTable.itemsCurrentPage;
+
+const theadClass = computed(() => ({
+  "data-table__head": true,
+  "data-table__head--sticky": props.stickyHead,
+}));
+
+const tableClass = computed(() => ({
+  "data-table__table": true,
+  "data-table__table--sticky": props.stickyHead || props.stickyColumn,
+}));
 
 const pages = computed(() => {
   const page = currentPage.value;
@@ -244,6 +268,7 @@ const thClass = (header: DataTableHeader) => ({
 
 const rowClass = (item: DataTableItem) => ({
   "data-table__row": true,
+  "data-table__row--sticky": props.stickyColumn,
   "data-table__row--selected": item[props.compareSelectedWith] === props.selected,
   "data-table__row--disabled":
     props.disabledKey && props.disabledValue && item[props.disabledKey] === props.disabledValue,
@@ -258,11 +283,18 @@ const sortIconColor = (value: string): CustomColor =>
   display: grid;
   row-gap: 1rem;
   height: v-bind(height);
-  grid-template-rows: 1fr auto;
+  grid-template-rows: minmax(0, 1fr);
 }
 
 .data-table__table {
+  overflow: auto;
   border-collapse: collapse;
+  max-height: v-bind(maxHeight);
+  background-color: v-bind(backgroundColor);
+
+  &--sticky {
+    display: block;
+  }
 }
 
 .data-table__head,
@@ -276,6 +308,13 @@ const sortIconColor = (value: string): CustomColor =>
 }
 
 .data-table__head {
+  &--sticky {
+    top: 0;
+    z-index: 2;
+    position: sticky;
+    background-color: v-bind(backgroundColor);
+  }
+
   .data-table__th {
     display: grid;
     min-height: 3rem;
@@ -332,7 +371,15 @@ const sortIconColor = (value: string): CustomColor =>
   .data-table__row {
     border-bottom: 1px solid rgb(var(--neutro-3));
 
-    &:hover {
+    &--sticky td:first-child {
+      left: 0;
+      z-index: 1;
+      position: sticky;
+      background-color: v-bind(backgroundColor);
+    }
+
+    &:hover,
+    &--sticky:hover td:first-child {
       background-color: rgb(var(--neutro-2));
     }
 

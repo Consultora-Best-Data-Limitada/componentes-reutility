@@ -1,10 +1,14 @@
 import type CSS from "csstype";
-import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface DataTableProps {
   items: DataTableItem[];
   headers: DataTableHeader[];
   itemsPerPage?: number;
+  maxHeight?: string;
+  stickyColumn?: boolean;
+  stickyHead?: boolean;
+  backgroundColor?: CSS.BackgroundColorProperty;
   height?: CSS.HeightProperty<string>;
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
   noDataText?: string;
@@ -19,15 +23,13 @@ export declare interface DataTableProps {
 export declare const IDataTable: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & DataTableProps;
   $slots: {
-    [key: string]: (({Component, item}: {
-      Component: VNode;
-      item: DataTableItem;
-    }) => VNode[]) | undefined;
+    [key: string]:
+      | (({ Component, item }: { Component: VNode; item: DataTableItem }) => VNode[])
+      | undefined;
   };
   "v-slots": {
-    [key: string]: (({Component, item}: {
-      Component: VNode;
-      item: DataTableItem;
-    }) => VNode[]) | undefined;
-  },
+    [key: string]:
+      | (({ Component, item }: { Component: VNode; item: DataTableItem }) => VNode[])
+      | undefined;
+  };
 };
