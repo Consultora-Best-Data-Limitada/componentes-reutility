@@ -10313,6 +10313,9 @@ const Kv = { class: "custom-date-picker__container" }, Jv = ["value", "disabled"
       default: null,
       type: [Array, Date]
     },
+    monthPicker: {
+      type: Boolean
+    },
     range: {
       type: Boolean
     },
@@ -10343,6 +10346,9 @@ const Kv = { class: "custom-date-picker__container" }, Jv = ["value", "disabled"
     },
     dark: {
       type: Boolean
+    },
+    clearable: {
+      type: Boolean
     }
   },
   emits: ["update:model-value"],
@@ -10354,7 +10360,7 @@ const Kv = { class: "custom-date-picker__container" }, Jv = ["value", "disabled"
       set(b) {
         t("update:model-value", b);
       }
-    }), l = k(() => n.range ? "dd/MM/yy" : "dd/MM/yyyy"), u = k(() => Array.isArray(o.value) ? o.value.length > 0 : !!o.value), m = k(() => ({
+    }), l = k(() => n.monthPicker ? "MM yyyy" : n.range ? "dd/MM/yy" : "dd/MM/yyyy"), u = k(() => Array.isArray(o.value) ? o.value.length > 0 : !!o.value), m = k(() => ({
       "custom-date-picker__input-container": !0,
       "custom-date-picker__input-container--dark": n.dark,
       "custom-date-picker__input-container--disabled": n.disabled,
@@ -10384,6 +10390,7 @@ const Kv = { class: "custom-date-picker__container" }, Jv = ["value", "disabled"
         "min-date": e.minDate,
         disabled: e.disabled,
         readonly: e.readonly,
+        "month-picker": e.monthPicker,
         "enable-time-picker": !1,
         class: "custom-date-picker__picker",
         onOpen: d,
@@ -10410,7 +10417,7 @@ const Kv = { class: "custom-date-picker__container" }, Jv = ["value", "disabled"
               class: "custom-date-picker__clear",
               onClick: Qe(I, ["stop"])
             }, [
-              R && !e.readonly && !e.disabled ? (y(), re(Xe, {
+              R && !e.readonly && !e.disabled && e.clearable ? (y(), re(Xe, {
                 key: 0,
                 size: "1rem",
                 color: "neutro-4",
@@ -10442,12 +10449,12 @@ const Kv = { class: "custom-date-picker__container" }, Jv = ["value", "disabled"
           })
         ]),
         _: 1
-      }, 8, ["modelValue", "range", "format", "max-date", "min-date", "disabled", "readonly"]),
+      }, 8, ["modelValue", "range", "format", "max-date", "min-date", "disabled", "readonly", "month-picker"]),
       e.errorMessage ? (y(), P("div", nh, ke(e.errorMessage), 1)) : M("", !0)
     ]));
   }
 });
-const zo = /* @__PURE__ */ Pe(rh, [["__scopeId", "data-v-a86ef16f"]]), uu = (e, t, n) => {
+const zo = /* @__PURE__ */ Pe(rh, [["__scopeId", "data-v-43bb74e4"]]), uu = (e, t, n) => {
   const r = t.length - 1;
   if (r < 0)
     return e === void 0 ? n : e;
@@ -11471,6 +11478,12 @@ const Vh = /* @__PURE__ */ Pe(Yh, [["__scopeId", "data-v-b1c2b384"]]), Fh = /* @
     minDate: {
       default: "",
       type: [String, Date]
+    },
+    monthPicker: {
+      type: Boolean
+    },
+    clearable: {
+      type: Boolean
     }
   },
   emits: ["update:model-value"],
@@ -11491,12 +11504,14 @@ const Vh = /* @__PURE__ */ Pe(Yh, [["__scopeId", "data-v-b1c2b384"]]), Fh = /* @
         range: e.range,
         "max-date": e.maxDate,
         "min-date": e.minDate,
-        placeholder: e.placeholder
-      }, null, 8, ["modelValue", "range", "max-date", "min-date", "placeholder"])
+        clearable: e.clearable,
+        placeholder: e.placeholder,
+        "month-picker": e.monthPicker
+      }, null, 8, ["modelValue", "range", "max-date", "min-date", "clearable", "placeholder", "month-picker"])
     ]));
   }
 });
-const Hh = /* @__PURE__ */ Pe(Lh, [["__scopeId", "data-v-279f171d"]]), zh = { class: "filter-select__container" }, jh = { class: "filter-select__label" }, qh = /* @__PURE__ */ ve({
+const Hh = /* @__PURE__ */ Pe(Lh, [["__scopeId", "data-v-fb41ba3d"]]), zh = { class: "filter-select__container" }, jh = { class: "filter-select__label" }, qh = /* @__PURE__ */ ve({
   __name: "FilterSelect",
   props: {
     label: {
@@ -11676,14 +11691,17 @@ const cu = /* @__PURE__ */ Pe(Zh, [["__scopeId", "data-v-eaa92100"]]), Xh = { cl
     },
     dark: {
       type: Boolean
+    },
+    monthPicker: {
+      type: Boolean
     }
   },
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
     Re((o) => ({
-      "09c329ec": e.gridTemplateColumns,
-      "4fd55502": c(a)
+      "32c054e4": e.gridTemplateColumns,
+      "148d45fe": c(a)
     }));
     const r = k({
       get() {
@@ -11705,13 +11723,15 @@ const cu = /* @__PURE__ */ Pe(Zh, [["__scopeId", "data-v-eaa92100"]]), Xh = { cl
         disabled: e.disabled,
         outlined: e.outlined,
         readonly: e.readonly,
+        clearable: e.clearable,
         placeholder: e.placeholder,
+        "month-picker": e.monthPicker,
         "error-message": e.errorMessage
-      }, null, 8, ["modelValue", "dark", "range", "min-date", "max-date", "disabled", "outlined", "readonly", "placeholder", "error-message"])
+      }, null, 8, ["modelValue", "dark", "range", "min-date", "max-date", "disabled", "outlined", "readonly", "clearable", "placeholder", "month-picker", "error-message"])
     ]));
   }
 });
-const eg = /* @__PURE__ */ Pe(Jh, [["__scopeId", "data-v-0c79f251"]]), tg = { class: "form-select__container" }, ng = { class: "form-select__label" }, rg = /* @__PURE__ */ ve({
+const eg = /* @__PURE__ */ Pe(Jh, [["__scopeId", "data-v-b0254936"]]), tg = { class: "form-select__container" }, ng = { class: "form-select__label" }, rg = /* @__PURE__ */ ve({
   __name: "FormSelect",
   props: {
     label: {
