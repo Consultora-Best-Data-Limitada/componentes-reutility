@@ -11289,10 +11289,10 @@ const Po = /* @__PURE__ */ Pe(Ch, [["__scopeId", "data-v-5c469b4f"]]), Dh = { cl
   setup(e) {
     const t = e;
     Re((g) => ({
-      "40089b3b": e.height,
-      "587955d2": e.maxHeight,
-      bbdff97e: e.backgroundColor,
-      "82e6976e": e.gridTemplateColumns
+      "460686a8": e.height,
+      "1bab168a": e.maxHeight,
+      "76cfa274": e.backgroundColor,
+      "4198fc08": e.gridTemplateColumns
     }));
     const n = k(() => t.items), r = k(() => t.itemsPerPage), a = Bt(), o = xh(n, r), l = o.pageCount, u = o.currentPage, m = o.itemsCurrentPage, p = k(() => ({
       "data-table__head": !0,
@@ -11412,7 +11412,7 @@ const Po = /* @__PURE__ */ Pe(Ch, [["__scopeId", "data-v-5c469b4f"]]), Dh = { cl
     ]));
   }
 });
-const Vh = /* @__PURE__ */ Pe(Yh, [["__scopeId", "data-v-3e0c8ae5"]]), Fh = /* @__PURE__ */ ve({
+const Vh = /* @__PURE__ */ Pe(Yh, [["__scopeId", "data-v-b1c2b384"]]), Fh = /* @__PURE__ */ ve({
   __name: "DataTableItem",
   props: {
     disabled: {

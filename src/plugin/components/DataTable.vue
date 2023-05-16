@@ -301,6 +301,11 @@ const sortIconColor = (value: string): CustomColor =>
 
   &--sticky {
     display: block;
+
+    .data-table__head,
+    .data-table__body {
+      display: block;
+    }
   }
 }
 

@@ -32,7 +32,6 @@
 <script setup lang="ts">
 import DataTable from "@/plugin/components/DataTable.vue";
 import IconButton from "@/plugin/components/IconButton.vue";
-import CustomTooltip from "@/plugin/components/CustomTooltip.vue";
 import {ref} from "vue";
 import PageSwitch from "@/plugin/components/PageSwitch.vue";
 
