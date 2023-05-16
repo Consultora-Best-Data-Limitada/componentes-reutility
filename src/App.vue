@@ -1,14 +1,7 @@
 <template>
   <div class="container">
-    <div style="width: 24px">
-      <PageSwitch
-        v-model="v"
-        tooltip="asd"
-        active-color="red"
-        color="purple"
-        disabled
-      />
-    </div>
+    <FilterDatePicker v-model="v" label="asd" month-picker/>
+    {{v}}
     <div class="row">
       <DataTable
         :headers="headers"
@@ -34,8 +27,9 @@ import DataTable from "@/plugin/components/DataTable.vue";
 import IconButton from "@/plugin/components/IconButton.vue";
 import {ref} from "vue";
 import PageSwitch from "@/plugin/components/PageSwitch.vue";
+import FilterDatePicker from "@/plugin/components/FilterDatePicker.vue";
 
-const v = ref(true);
+const v = ref(new Date());
 
 const items = [...Array(60).keys()].map((i) => {
   return {

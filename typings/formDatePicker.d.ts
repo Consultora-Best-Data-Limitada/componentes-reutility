@@ -5,7 +5,6 @@ export declare interface FormDatePickerProps {
   label: string;
   errorMessage?: string;
   placeholder: string;
-  clearable?: boolean;
   range?: boolean;
   disabled?: boolean;
   readonly?: boolean;
@@ -14,6 +13,8 @@ export declare interface FormDatePickerProps {
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
   maxDate?: string | Date;
   minDate?: string | Date;
+  clearable?: boolean;
+  monthPicker?: boolean;
   dark?: boolean;
   "@update:model-value"?: (value: Date | Date[] | null) => void;
 }

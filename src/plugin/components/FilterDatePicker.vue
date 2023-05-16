@@ -8,7 +8,9 @@
       :range="range"
       :max-date="maxDate"
       :min-date="minDate"
+      :clearable="clearable"
       :placeholder="placeholder"
+      :month-picker="monthPicker"
     />
   </div>
 </template>
@@ -48,6 +50,12 @@ const props = defineProps({
   minDate: {
     default: "",
     type: [String, Date],
+  },
+  monthPicker: {
+    type: Boolean,
+  },
+  clearable: {
+    type: Boolean,
   },
 });
 

@@ -13,6 +13,7 @@
       :min-date="minDate"
       :disabled="disabled"
       :readonly="readonly"
+      :month-picker="monthPicker"
       :enable-time-picker="false"
       class="custom-date-picker__picker"
       @open="onOpen"
@@ -37,7 +38,7 @@
             @click.stop="onClear"
           >
             <FigmaIcon
-              v-if="value && !readonly && !disabled"
+              v-if="value && !readonly && !disabled && clearable"
               size="1rem"
               color="neutro-4"
               name="fm-circle-close"
@@ -98,6 +99,9 @@ const props = defineProps({
     default: null,
     type: [Array, Date] as PropType<Date[] | Date | null>,
   },
+  monthPicker: {
+    type: Boolean,
+  },
   range: {
     type: Boolean,
   },
@@ -129,6 +133,9 @@ const props = defineProps({
   dark: {
     type: Boolean,
   },
+  clearable: {
+    type: Boolean,
+  },
 });
 
 const emits = defineEmits(["update:model-value"]);
@@ -149,7 +156,10 @@ const model = computed({
   },
 });
 
-const format = computed(() => (props.range ? "dd/MM/yy" : "dd/MM/yyyy"));
+const format = computed(() => {
+  if (props.monthPicker) return "MM yyyy";
+  return props.range ? "dd/MM/yy" : "dd/MM/yyyy";
+});
 
 const hasValue = computed(() => {
   if (Array.isArray(model.value)) {
@@ -264,6 +274,7 @@ const onClosed = () => {
   line-height: 1rem;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: rgba(var(--secundario));
   font-family: "Metropolis", sans-serif;
 
   &::placeholder {
@@ -288,6 +299,12 @@ const onClosed = () => {
 }
 
 .custom-date-picker__picker {
+  :deep(.dp__pointer),
+  :deep(.dp__overlay_cell),
+  :deep(.dp__overlay_cell_active) {
+    font-family: "Metropolis", sans-serif !important;
+  }
+
   :deep(.dp__arrow_top),
   :deep(.dp__arrow_bottom),
   :deep(.dp__calendar_header_separator) {

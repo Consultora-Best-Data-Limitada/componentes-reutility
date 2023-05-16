@@ -7,6 +7,8 @@ export declare interface FilterDatePickerProps {
   range?: boolean;
   maxDate?: string | Date;
   minDate?: string | Date;
+  clearable?: boolean;
+  monthPicker?: boolean;
   "@update:model-value"?: (value: Date | Date[] | null) => void;
 }
 

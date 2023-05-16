@@ -12,7 +12,9 @@
       :disabled="disabled"
       :outlined="outlined"
       :readonly="readonly"
+      :clearable="clearable"
       :placeholder="placeholder"
+      :month-picker="monthPicker"
       :error-message="errorMessage"
     />
   </div>
@@ -76,6 +78,9 @@ const props = defineProps({
     type: [String, Date],
   },
   dark: {
+    type: Boolean,
+  },
+  monthPicker: {
     type: Boolean,
   },
 });

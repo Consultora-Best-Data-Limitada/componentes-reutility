@@ -9,6 +9,8 @@ export declare interface CustomDatePickerProps {
   maxDate?: string | Date;
   minDate?: string | Date;
   errorMessage?: string;
+  clearable?: boolean;
+  monthPicker?: boolean;
   outlined?: boolean;
   dark?: boolean;
   "@update:model-value"?: (value: Date | Date[] | null) => void;
