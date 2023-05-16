@@ -1,50 +1,48 @@
 <template>
-  <div
-    :class="iconTooltipContainerClass"
-  >
-    <div
-      :class="iconButtonClass"
-      @click="onClick"
-      @mouseenter.stop="onMouseEnter"
-      @mouseleave.stop="onMouseLeave"
+  <CustomTooltip :disabled="disabled">
+    <template #activator>
+      <div
+        :class="iconButtonClass"
+        @click="onClick"
+      >
+        <FigmaIcon
+          v-if="icon.startsWith('fm')"
+          :name="icon"
+          :size="size"
+          :color="colorInner"
+        />
+        <SvgIcon
+          v-else
+          :src="icon"
+          :size="size"
+          :color="colorInner"
+        />
+      </div>
+    </template>
+    <template
+      v-if="checkSlot() && !disabled"
+      #default
     >
-      <FigmaIcon
-        v-if="icon.startsWith('fm')"
-        :name="icon"
-        :size="size"
-        :color="colorInner"
-      />
-      <SvgIcon
-        v-else
-        :src="icon"
-        :size="size"
-        :color="colorInner"
-      />
-    </div>
-    <div
-      v-if="checkSlot()"
-      ref="tooltipRef"
-      :class="tooltipClass"
-    >
-      <slot/>
-    </div>
-  </div>
+      <slot />
+    </template>
+  </CustomTooltip>
 </template>
 
 <script setup lang="ts">
 // Vue
-import {computed, nextTick, ref, useSlots} from "vue";
+import { computed, useSlots } from "vue";
 
 // Composables
-import {useColors} from "../composables/colors";
+import { useColors } from "../composables/colors";
 
 //Tipos
 import type CSS from "csstype";
-import type {PropType} from "vue";
+import type { PropType } from "vue";
 
 //Componentes
 import SvgIcon from "./SvgIcon.vue";
 import FigmaIcon from "./FigmaIcon.vue";
+import CustomTooltip from "./CustomTooltip.vue";
 
 // Definiciones
 
@@ -76,6 +74,9 @@ const props = defineProps({
     default: "1rem",
     type: String as PropType<CSS.BorderRadiusProperty<string>>,
   },
+  inactive: {
+    type: Boolean,
+  },
 });
 
 const emits = defineEmits(["click"]);
@@ -85,29 +86,12 @@ const emits = defineEmits(["click"]);
 const slots = useSlots();
 const colors = useColors();
 
-// Data
-
-const open = ref(false);
-const top = ref("initial");
-const left = ref("initial");
-const right = ref("initial");
-const tooltipRef = ref<HTMLDivElement | null>(null);
-
 // Computed
-
-const tooltipClass = computed(() => ({
-  'icon-button__tooltip': true,
-  'icon-button__tooltip--opened': open.value,
-}));
-
-const iconTooltipContainerClass = computed(() => ({
-  'icon-button__tooltip-container': true,
-  'icon-button__tooltip-container--disabled': props.disabled,
-}));
 
 const iconButtonClass = computed(() => ({
   "icon-button__button": true,
   "icon-button__button--disabled": props.disabled,
+  "icon-button__button--inactive": props.inactive,
   "icon-button__button--background": !!props.backgroundColor,
   "icon-button__button--background-disabled": props.disabled && props.backgroundColor,
 }));
@@ -117,43 +101,16 @@ const backgroundInner = computed(() => {
   return colors.getRealColor(props.backgroundColor);
 });
 
-const colorInner = computed(() =>
-  props.disabled ? "neutro-4" : props.color,
-);
+const colorInner = computed(() => (props.disabled ? "neutro-4" : props.color));
 
 // Methods
 
 const checkSlot = () => !!slots["default"];
 
-const onMouseEnter = async () => {
-  if (!tooltipRef.value) return;
-  open.value = true;
-  await nextTick();
-  const rect = tooltipRef.value.getBoundingClientRect();
-  const rightX = rect.x + rect.width;
-  if (rect.x < 0) {
-    left.value = "0";
-    right.value = "initial";
-  } else if (rightX >= window.innerWidth) {
-    left.value = "initial";
-    right.value = "0";
-  } else {
-    left.value = "initial";
-    right.value = "initial";
-  }
-  top.value = `calc(${rect.top + 8}px + ${props.containerSize || props.size})`;
-};
-
-const onMouseLeave = () => {
-  top.value = "";
-  left.value = "";
-  right.value = "";
-  open.value = false;
-};
-
 // Emits
 
 const onClick = (ev: MouseEvent) => {
+  if (props.disabled || props.inactive) return;
   emits("click", ev);
 };
 </script>
@@ -179,49 +136,12 @@ const onClick = (ev: MouseEvent) => {
     background-color: rgb(var(--neutro-3));
   }
 
-  &:hover {
+  &:not(&--inactive):hover {
     opacity: 0.6;
   }
 
-  &:active {
+  &:not(&--inactive):active {
     opacity: 1;
   }
-}
-
-.icon-button__tooltip-container {
-  display: flex;
-  cursor: pointer;
-  justify-content: center;
-
-  &--disabled {
-    pointer-events: none;
-  }
-
-  .icon-button__tooltip {
-    opacity: 0;
-    z-index: 1007;
-    display: none;
-    position: fixed;
-    padding: 0.5rem;
-    top: v-bind(top);
-    left: v-bind(left);
-    border-radius: 1rem;
-    right: v-bind(right);
-    transition: all 300ms ease;
-    color: rgb(var(--neutro-1));
-    background-color: rgba(var(--neutro-4), 0.7);
-    // Text style
-    font-size: 1rem;
-    text-align: center;
-    white-space: nowrap;
-    line-height: 1.25rem;
-    font-family: "Metropolis", sans-serif !important;
-
-    &--opened {
-      opacity: 1;
-      display: block;
-    }
-  }
-
 }
 </style>

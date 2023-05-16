@@ -1,51 +1,48 @@
 <template>
-  <div class="page-switch__tooltip-container">
-    <div
-      :style="pageSwitchContainer"
-      class="page-switch__container"
-      @click="toggle"
-      @mouseenter="onMouseEnter"
-      @mouseleave="onMouseLeave"
-    >
+  <CustomTooltip :disabled="disabled">
+    <template #activator>
       <div
-        v-if="label"
-        :style="labelStyle"
-        class="page-switch__label"
+        :class="pageSwitchContainerClass"
+        @click="toggle"
       >
-        {{ label }}
+        <div
+          v-if="label"
+          class="page-switch__label"
+        >
+          {{ label }}
+        </div>
+        <div class="page-switch__switch">
+          <input
+            v-model="model"
+            type="checkbox"
+            class="page-switch__checkbox"
+          />
+          <div :class="pageSwitchSliderClass"></div>
+        </div>
       </div>
-      <div
-        :style="pageSwitchStyle"
-        class="page-switch__switch"
-      >
-        <input
-          v-model="model"
-          type="checkbox"
-          class="page-switch__checkbox"
-        />
-        <div :class="pageSwitchSliderClass"></div>
-      </div>
-    </div>
-    <div
-      v-if="tooltip"
-      ref="tooltipRef"
-      class="page-switch__tooltip"
+    </template>
+    <template
+      v-if="tooltip && !disabled"
+      #default
     >
       {{ tooltip }}
-    </div>
-  </div>
+    </template>
+  </CustomTooltip>
 </template>
 
 <script setup lang="ts">
 // Vue
-import {computed, ref} from "vue";
+import { computed } from "vue";
 
 // Composables
-import {useColors} from "../composables/colors";
+import { useColors } from "../composables/colors";
 
 // Tipos
 import type CSS from "csstype";
-import type {PropType, StyleValue} from "vue";
+import type { PropType } from "vue";
+
+// Componentes
+import CustomTooltip from "./CustomTooltip.vue";
 
 // Definiciones
 
@@ -100,12 +97,6 @@ const emits = defineEmits(["update:model-value"]);
 
 const colors = useColors();
 
-// Data
-
-const left = ref("initial");
-const right = ref("initial");
-const tooltipRef = ref<HTMLDivElement | null>(null);
-
 // Computed
 
 const model = computed<boolean>({
@@ -126,6 +117,7 @@ const colorInner = computed(() => {
 });
 
 const realColor = computed(() => {
+  if (props.disabled) return "rgb(var(--neutro-4))";
   if (!props.activeColor) return colorInner.value;
   return model.value ? activeColorInner.value : colorInner.value;
 });
@@ -135,19 +127,9 @@ const pageSwitchSliderClass = computed(() => ({
   "page-switch__slider--active": model.value,
 }));
 
-const pageSwitchContainer = computed<StyleValue>(() => ({
-  "justify-content": props.justifyContent,
-  "pointer-events": props.disabled ? "none" : "initial",
-  "grid-template-columns": props.label ? props.gridTemplateColumns : "1fr",
-}));
-
-const pageSwitchStyle = computed<StyleValue>(() => ({
-  width: props.width,
-  "background-color": props.disabled ? "rgb(var(--neutro-4))" : realColor.value,
-}));
-
-const labelStyle = computed<StyleValue>(() => ({
-  "font-weight": props.labelWeight,
+const pageSwitchContainerClass = computed(() => ({
+  "page-switch__container": true,
+  "page-switch__container--disabled": props.disabled,
 }));
 
 // Methods
@@ -156,27 +138,6 @@ const toggle = () => {
   if (props.readonly || props.disabled) return;
   model.value = !model.value;
 };
-
-const onMouseEnter = () => {
-  if (!tooltipRef.value) return;
-  const rect = tooltipRef.value.getBoundingClientRect();
-  const rightX = rect.x + rect.width;
-  if (rect.x < 0) {
-    left.value = "0";
-    right.value = "initial";
-  } else if (rightX >= window.innerWidth) {
-    left.value = "initial";
-    right.value = "0";
-  } else {
-    left.value = "initial";
-    right.value = "initial";
-  }
-};
-
-const onMouseLeave = () => {
-  left.value = "";
-  right.value = "";
-}
 </script>
 
 <style lang="scss" scoped>
@@ -185,54 +146,31 @@ const onMouseLeave = () => {
   cursor: pointer;
   column-gap: 0.75rem;
   align-items: center;
-}
+  grid-auto-flow: column;
+  grid-template-columns: 1fr;
+  justify-content: v-bind(justifyContent);
 
-.page-switch__tooltip-container {
-  display: flex;
-  position: relative;
-  justify-content: center;
-
-  .page-switch__tooltip {
-    opacity: 0;
-    z-index: 1007;
-    display: none;
-    padding: 0.5rem;
-    left: v-bind(left);
-    border-radius: 1rem;
-    right: v-bind(right);
-    top: calc(100% + 0.5rem);
-    transition: all 300ms ease;
-    color: rgb(var(--neutro-1));
-    background-color: rgba(var(--neutro-4), 0.7);
-    // Text style
-    font-size: 1rem;
-    position: absolute;
-    white-space: nowrap;
-    line-height: 1.25rem;
-    font-family: "Metropolis", sans-serif;
-  }
-
-  &:hover .page-switch__tooltip {
-    opacity: 1;
-    display: block;
+  &--disabled {
+    pointer-events: none;
   }
 }
-
 
 .page-switch__label {
   font-size: 1rem;
   line-height: 1rem;
   user-select: none;
   color: rgb(var(--secundario));
+  font-weight: v-bind(labelWeight);
   font-family: "Metropolis", sans-serif;
 }
 
 .page-switch__switch {
   height: 1rem;
-  width: 1.5rem;
   cursor: pointer;
   position: relative;
   border-radius: 1rem;
+  width: v-bind(width);
+  background-color: v-bind(realColor);
   transition: background-color 100ms ease, opacity 100ms ease;
 
   &:hover {

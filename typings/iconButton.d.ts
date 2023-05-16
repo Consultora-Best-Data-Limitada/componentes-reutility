@@ -6,6 +6,7 @@ export declare interface IconButtonProps {
   icon: string | FigmaIconChoice;
   size?: CSS.WidthProperty<string>;
   disabled?: boolean;
+  inactive?: boolean;
   backgroundColor?: CSS.BackgroundColorProperty | CustomColor;
   containerSize?: CSS.WidthProperty<string>;
   borderRadius?: CSS.BorderRadiusProperty<string>;

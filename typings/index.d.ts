@@ -1,41 +1,42 @@
-import type {App} from "vue";
+import type { App } from "vue";
 
-import {ITexContainer} from "./textContainer";
-import {ICheckBox} from "./checkBox";
-import {IConfirmationDialog} from "./confirmationDialog";
-import {ICustomButton} from "./customButton";
-import {ICustomDatePicker} from "./customDatePicker";
-import {ICustomDialog} from "./customDialog";
-import {ICustomSelect} from "./customSelect";
-import {ICustomTextField} from "./customTextField";
-import {IDataTable} from "./dataTable";
-import {IDataTableItem} from "./dataTableItem";
-import {IFilterDatePicker} from "./filterDatePicker";
-import {IFilterSelect} from "./filterSelect";
-import {IFlexContainer} from "./flexContainer";
-import {IFormDatePicker} from "./formDatePicker";
-import {IFormSelect} from "./formSelect";
-import {IFormTextField} from "./formTextField";
-import {IGradientButton} from "./gradientButton";
-import {IGridColumn} from "./gridColumn";
-import {IGridContainer} from "./gridContainer";
-import {IGridRow} from "./gridRow";
-import {IHeaderTabs} from "./headerTabs";
-import {IIconButton} from "./iconButton";
-import {IImageContainer} from "./imageContainer";
-import {IInformationText} from "./informationText";
-import {IPageSwitch} from "./pageSwitch";
-import {IPanelTitle} from "./panelTitle";
-import {ISearchTextField} from "./searchTextField";
-import {ISuccessDialog} from "./successDialog";
-import {ISvgIcon} from "./svgIcon";
-import {IColorPicker} from "./colorPicker";
-import {IFormColorPicker} from "./formColorPicker";
-import {ICustomMenu} from "./customMenu";
-import {IFigmaIcon} from "./figmaIcon";
-import {IExpansionPanel} from "./expansionPanel";
-import {IAbsoluteContainer} from "./absoluteContainer";
-import {IRelativeContainer} from "./relativeContainer";
+import { ITexContainer } from "./textContainer";
+import { ICheckBox } from "./checkBox";
+import { IConfirmationDialog } from "./confirmationDialog";
+import { ICustomButton } from "./customButton";
+import { ICustomDatePicker } from "./customDatePicker";
+import { ICustomDialog } from "./customDialog";
+import { ICustomSelect } from "./customSelect";
+import { ICustomTextField } from "./customTextField";
+import { IDataTable } from "./dataTable";
+import { IDataTableItem } from "./dataTableItem";
+import { IFilterDatePicker } from "./filterDatePicker";
+import { IFilterSelect } from "./filterSelect";
+import { IFlexContainer } from "./flexContainer";
+import { IFormDatePicker } from "./formDatePicker";
+import { IFormSelect } from "./formSelect";
+import { IFormTextField } from "./formTextField";
+import { IGradientButton } from "./gradientButton";
+import { IGridColumn } from "./gridColumn";
+import { IGridContainer } from "./gridContainer";
+import { IGridRow } from "./gridRow";
+import { IHeaderTabs } from "./headerTabs";
+import { IIconButton } from "./iconButton";
+import { IImageContainer } from "./imageContainer";
+import { IInformationText } from "./informationText";
+import { IPageSwitch } from "./pageSwitch";
+import { IPanelTitle } from "./panelTitle";
+import { ISearchTextField } from "./searchTextField";
+import { ISuccessDialog } from "./successDialog";
+import { ISvgIcon } from "./svgIcon";
+import { IColorPicker } from "./colorPicker";
+import { IFormColorPicker } from "./formColorPicker";
+import { ICustomMenu } from "./customMenu";
+import { IFigmaIcon } from "./figmaIcon";
+import { IExpansionPanel } from "./expansionPanel";
+import { IAbsoluteContainer } from "./absoluteContainer";
+import { IRelativeContainer } from "./relativeContainer";
+import { ICustomTooltip } from "./customTooltip";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -43,7 +44,7 @@ export declare interface ComponentesReutility {
 
 export declare function componentesReutility(): ComponentesReutility;
 
-declare module '@vue/runtime-core' {
+declare module "@vue/runtime-core" {
   export interface GlobalComponents {
     TextContainer: typeof ITexContainer;
     CheckBox: typeof ICheckBox;
@@ -81,5 +82,6 @@ declare module '@vue/runtime-core' {
     ExpansionPanel: typeof IExpansionPanel;
     AbsoluteContainer: typeof IAbsoluteContainer;
     RelativeContainer: typeof IRelativeContainer;
+    CustomTooltip: typeof ICustomTooltip;
   }
 }

@@ -1,5 +1,14 @@
 <template>
   <div class="container">
+    <div style="width: 24px">
+      <PageSwitch
+        v-model="v"
+        tooltip="asd"
+        active-color="red"
+        color="purple"
+        disabled
+      />
+    </div>
     <div class="row">
       <DataTable
         :headers="headers"
@@ -11,13 +20,23 @@
         :items-per-page="30"
         max-height="calc(100vh - 3.25rem)"
         :grid-template-columns="`repeat(${headers.length}, 150px)`"
-      />
+      >
+        <template #r>
+            <IconButton icon="fm-circle">Hola mundo</IconButton>
+        </template>
+      </DataTable>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import DataTable from "@/plugin/components/DataTable.vue";
+import IconButton from "@/plugin/components/IconButton.vue";
+import CustomTooltip from "@/plugin/components/CustomTooltip.vue";
+import {ref} from "vue";
+import PageSwitch from "@/plugin/components/PageSwitch.vue";
+
+const v = ref(true);
 
 const items = [...Array(60).keys()].map((i) => {
   return {
@@ -84,6 +103,9 @@ const headers = [
 .container {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .row {
