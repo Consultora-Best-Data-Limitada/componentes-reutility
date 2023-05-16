@@ -8,7 +8,7 @@ export declare interface FormDatePickerProps {
   range?: boolean;
   disabled?: boolean;
   readonly?: boolean;
-  modelValue?: Date[] | Date | null
+  modelValue?: Date[] | Date | null | { month: number; year: number };
   outlined?: boolean;
   gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
   maxDate?: string | Date;
@@ -16,7 +16,7 @@ export declare interface FormDatePickerProps {
   clearable?: boolean;
   monthPicker?: boolean;
   dark?: boolean;
-  "@update:model-value"?: (value: Date | Date[] | null) => void;
+  "@update:model-value"?: (value: Date | Date[] | null | { month: number; year: number }) => void;
 }
 
 export declare const IFormDatePicker: new () => {
