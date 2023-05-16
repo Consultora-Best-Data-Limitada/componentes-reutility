@@ -1,7 +1,7 @@
-import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface CustomDatePickerProps {
-  modelValue?: Date[] | Date | null,
+  modelValue?: Date[] | Date | null | { month: number; year: number };
   range?: boolean;
   readonly?: boolean;
   disabled?: boolean;
@@ -13,7 +13,7 @@ export declare interface CustomDatePickerProps {
   monthPicker?: boolean;
   outlined?: boolean;
   dark?: boolean;
-  "@update:model-value"?: (value: Date | Date[] | null) => void;
+  "@update:model-value"?: (value: Date | Date[] | null | { month: number; year: number }) => void;
 }
 
 export declare const ICustomDatePicker: new () => {

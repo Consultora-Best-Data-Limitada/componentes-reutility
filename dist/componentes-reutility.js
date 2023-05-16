@@ -10311,7 +10311,7 @@ const Kv = { class: "custom-date-picker__container" }, Jv = ["value", "disabled"
   props: {
     modelValue: {
       default: null,
-      type: [Array, Date]
+      type: [Array, Date, Object]
     },
     monthPicker: {
       type: Boolean
@@ -10454,7 +10454,7 @@ const Kv = { class: "custom-date-picker__container" }, Jv = ["value", "disabled"
     ]));
   }
 });
-const zo = /* @__PURE__ */ Pe(rh, [["__scopeId", "data-v-43bb74e4"]]), uu = (e, t, n) => {
+const zo = /* @__PURE__ */ Pe(rh, [["__scopeId", "data-v-aebb70e3"]]), uu = (e, t, n) => {
   const r = t.length - 1;
   if (r < 0)
     return e === void 0 ? n : e;
@@ -11466,7 +11466,7 @@ const Vh = /* @__PURE__ */ Pe(Yh, [["__scopeId", "data-v-b1c2b384"]]), Fh = /* @
     },
     modelValue: {
       default: null,
-      type: [Array, Date]
+      type: [Array, Date, Object]
     },
     range: {
       type: Boolean
@@ -11511,7 +11511,7 @@ const Vh = /* @__PURE__ */ Pe(Yh, [["__scopeId", "data-v-b1c2b384"]]), Fh = /* @
     ]));
   }
 });
-const Hh = /* @__PURE__ */ Pe(Lh, [["__scopeId", "data-v-fb41ba3d"]]), zh = { class: "filter-select__container" }, jh = { class: "filter-select__label" }, qh = /* @__PURE__ */ ve({
+const Hh = /* @__PURE__ */ Pe(Lh, [["__scopeId", "data-v-885bf1b1"]]), zh = { class: "filter-select__container" }, jh = { class: "filter-select__label" }, qh = /* @__PURE__ */ ve({
   __name: "FilterSelect",
   props: {
     label: {
@@ -11672,7 +11672,7 @@ const cu = /* @__PURE__ */ Pe(Zh, [["__scopeId", "data-v-eaa92100"]]), Xh = { cl
     },
     modelValue: {
       default: null,
-      type: [Array, Date]
+      type: [Array, Date, Object]
     },
     outlined: {
       type: Boolean
@@ -11700,8 +11700,8 @@ const cu = /* @__PURE__ */ Pe(Zh, [["__scopeId", "data-v-eaa92100"]]), Xh = { cl
   setup(e, { emit: t }) {
     const n = e;
     Re((o) => ({
-      "32c054e4": e.gridTemplateColumns,
-      "148d45fe": c(a)
+      69397340: e.gridTemplateColumns,
+      "300a40ec": c(a)
     }));
     const r = k({
       get() {
@@ -11731,7 +11731,7 @@ const cu = /* @__PURE__ */ Pe(Zh, [["__scopeId", "data-v-eaa92100"]]), Xh = { cl
     ]));
   }
 });
-const eg = /* @__PURE__ */ Pe(Jh, [["__scopeId", "data-v-b0254936"]]), tg = { class: "form-select__container" }, ng = { class: "form-select__label" }, rg = /* @__PURE__ */ ve({
+const eg = /* @__PURE__ */ Pe(Jh, [["__scopeId", "data-v-13f2a19b"]]), tg = { class: "form-select__container" }, ng = { class: "form-select__label" }, rg = /* @__PURE__ */ ve({
   __name: "FormSelect",
   props: {
     label: {

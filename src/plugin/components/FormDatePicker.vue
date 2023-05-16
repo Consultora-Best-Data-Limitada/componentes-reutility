@@ -60,7 +60,7 @@ const props = defineProps({
   },
   modelValue: {
     default: null,
-    type: [Array, Date] as PropType<Date[] | Date | null>,
+    type: [Array, Date, Object] as PropType<Date[] | Date | null | DatePickerMonthValue>,
   },
   outlined: {
     type: Boolean,
@@ -93,7 +93,7 @@ const model = computed({
   get() {
     return props.modelValue;
   },
-  set(value: Date[] | Date | null) {
+  set(value: Date[] | Date | null | DatePickerMonthValue) {
     emits("update:model-value", value);
   },
 });

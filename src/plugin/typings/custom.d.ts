@@ -13,3 +13,8 @@ interface IConfirmationDialog {
   no?: () => void | null;
   yes: () => void | null;
 }
+
+interface DatePickerMonthValue {
+  year: number;
+  month: number;
+}
