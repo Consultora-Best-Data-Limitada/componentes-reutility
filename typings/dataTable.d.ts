@@ -26,12 +26,12 @@ export declare const IDataTable: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & DataTableProps;
   $slots: {
     [key: string]:
-      | (({ Component, item }: { Component: VNode; item: DataTableItem }) => VNode[])
+      | (({ Component, item, text }: { Component: VNode; item: DataTableItem; text: string }) => VNode[])
       | undefined;
   };
   "v-slots": {
     [key: string]:
-      | (({ Component, item }: { Component: VNode; item: DataTableItem }) => VNode[])
+      | (({ Component, item, text }: { Component: VNode; item: DataTableItem; text: string }) => VNode[])
       | undefined;
   };
 };
