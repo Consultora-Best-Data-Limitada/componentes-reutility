@@ -53,6 +53,7 @@
           v-for="item in itemsCurrentPage"
           :key="getRowKey(item)"
           :class="rowClass(item)"
+          @click="onClickRow(item)"
         >
           <td
             v-for="header in headers"
@@ -187,6 +188,8 @@ const props = defineProps({
   },
 });
 
+const emits = defineEmits(["click:row"]);
+
 // Composables
 
 const computedItems = computed(() => props.items);
@@ -283,6 +286,10 @@ const rowClass = (item: DataTableItem) => ({
 
 const sortIconColor = (value: string): CustomColor =>
   dataTable.isSortedBy(value) ? "acento-secundario" : "neutro-3";
+
+function onClickRow(item: DataTableItem) {
+  emits("click:row", item);
+}
 </script>
 
 <style scoped lang="scss">

@@ -19,6 +19,7 @@ export declare interface DataTableProps {
   disabledValue?: string;
   hideNoDataIcon?: boolean;
   noDataIcon?: string;
+  "@click:row": (item: any) => void;
 }
 
 export declare const IDataTable: new () => {

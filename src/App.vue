@@ -26,7 +26,6 @@
 import DataTable from "@/plugin/components/DataTable.vue";
 import IconButton from "@/plugin/components/IconButton.vue";
 import {ref} from "vue";
-import PageSwitch from "@/plugin/components/PageSwitch.vue";
 import FilterDatePicker from "@/plugin/components/FilterDatePicker.vue";
 
 const v = ref(new Date());
