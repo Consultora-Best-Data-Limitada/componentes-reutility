@@ -11297,10 +11297,10 @@ const Po = /* @__PURE__ */ Pe(Ch, [["__scopeId", "data-v-5c469b4f"]]), Dh = { cl
   setup(e, { emit: t }) {
     const n = e;
     Re((E) => ({
-      "57fdde76": e.height,
-      "4b83f808": e.maxHeight,
-      33433266: e.backgroundColor,
-      "1699c8ee": e.gridTemplateColumns
+      "52310d26": e.height,
+      "3737d168": e.maxHeight,
+      "274189b6": e.backgroundColor,
+      ac080f84: e.gridTemplateColumns
     }));
     const r = w(() => n.items), a = w(() => n.itemsPerPage), o = Bt(), l = xh(r, a), u = l.pageCount, d = l.currentPage, m = l.itemsCurrentPage, v = w(() => ({
       "data-table__head": !0,
@@ -11352,7 +11352,7 @@ const Po = /* @__PURE__ */ Pe(Ch, [["__scopeId", "data-v-5c469b4f"]]), Dh = { cl
               F("div", Rh, [
                 C(`header.${Z.value}`) ? Q(E.$slots, `header.${Z.value}`, {
                   key: 0,
-                  text: Z.text
+                  headerText: Z.text
                 }, void 0, !0) : (y(), P(be, { key: 1 }, [
                   Le(ke(Z.text), 1)
                 ], 64))
@@ -11431,7 +11431,7 @@ const Po = /* @__PURE__ */ Pe(Ch, [["__scopeId", "data-v-5c469b4f"]]), Dh = { cl
     ]));
   }
 });
-const Fh = /* @__PURE__ */ Pe(Vh, [["__scopeId", "data-v-cad989af"]]), Uh = /* @__PURE__ */ ve({
+const Fh = /* @__PURE__ */ Pe(Vh, [["__scopeId", "data-v-cf12a77f"]]), Uh = /* @__PURE__ */ ve({
   __name: "DataTableItem",
   props: {
     disabled: {

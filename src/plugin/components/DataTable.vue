@@ -15,7 +15,7 @@
             <div class="data-table__header-text">
               <slot
                 v-if="checkSlot(`header.${header.value}`)"
-                :text="header.text"
+                :header-text="header.text"
                 :name="`header.${header.value}`"
               />
               <template v-else>
