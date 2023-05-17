@@ -311,7 +311,7 @@ function onClickRow(item: DataTableItem) {
 
     .data-table__head,
     .data-table__body {
-      display: block;
+      display: grid;
     }
   }
 }
