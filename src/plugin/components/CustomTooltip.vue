@@ -2,14 +2,14 @@
   <div :class="tooltipContainerClass">
     <div
       @mouseenter.stop="onMouseEnter"
-      @mouseleave.stop="onMouseLeave"
+      @mouseout.stop="onMouseLeave"
     >
       <slot name="activator" />
     </div>
     <div
       v-if="checkSlot()"
       ref="tooltipRef"
-      :class="tooltipClass"
+      class="custom-tooltip__tooltip"
     >
       <slot />
     </div>
@@ -34,18 +34,16 @@ const slots = useSlots();
 
 // Data
 
-const open = ref(false);
 const top = ref("initial");
 const left = ref("initial");
 const right = ref("initial");
 const tooltipRef = ref<HTMLDivElement | null>(null);
+const overlayContainer = ref<HTMLDivElement | null>(
+  (document.getElementsByClassName("custom-tooltip--overlay")[0] as HTMLDivElement | undefined) ??
+    null,
+);
 
 // Computed
-
-const tooltipClass = computed(() => ({
-  "custom-tooltip__tooltip": true,
-  "custom-tooltip__tooltip--opened": open.value,
-}));
 
 const tooltipContainerClass = computed(() => ({
   "custom-tooltip__container": true,
@@ -57,10 +55,11 @@ const tooltipContainerClass = computed(() => ({
 const checkSlot = () => !!slots["default"];
 
 const onMouseEnter = async (ev: MouseEvent) => {
-  if (!tooltipRef.value) return;
-  open.value = true;
+  if (!tooltipRef.value || !overlayContainer.value) return;
+  overlayContainer.value.innerHTML = tooltipRef.value.innerHTML;
+  overlayContainer.value.classList.add("custom-tooltip--overlay--opened");
   await nextTick();
-  const rect = tooltipRef.value.getBoundingClientRect();
+  const rect = overlayContainer.value.getBoundingClientRect();
   const targetRect = (ev.target as HTMLDivElement).getBoundingClientRect();
   const rightX = targetRect.x + rect.width;
   if (targetRect.x < 0) {
@@ -76,13 +75,21 @@ const onMouseEnter = async (ev: MouseEvent) => {
     right.value = "initial";
   }
   top.value = `${targetRect.top + targetRect.height + 8}px`;
+  overlayContainer.value.style.top = top.value;
+  overlayContainer.value.style.left = left.value;
+  overlayContainer.value.style.right = right.value;
 };
 
 const onMouseLeave = () => {
   top.value = "";
   left.value = "";
   right.value = "";
-  open.value = false;
+  if (overlayContainer.value) {
+    overlayContainer.value.classList.remove("custom-tooltip--overlay--opened");
+    overlayContainer.value.style.top = top.value;
+    overlayContainer.value.style.left = left.value;
+    overlayContainer.value.style.right = right.value;
+  }
 };
 </script>
 
@@ -97,29 +104,7 @@ const onMouseLeave = () => {
   }
 
   .custom-tooltip__tooltip {
-    opacity: 0;
-    z-index: 1007;
     display: none;
-    position: fixed;
-    padding: 0.5rem;
-    top: v-bind(top);
-    left: v-bind(left);
-    border-radius: 1rem;
-    right: v-bind(right);
-    transition: all 300ms ease;
-    color: rgb(var(--neutro-1));
-    background-color: rgba(var(--neutro-4), 0.7);
-    // Text style
-    font-size: 1rem;
-    text-align: center;
-    white-space: nowrap;
-    line-height: 1.25rem;
-    font-family: "Metropolis", sans-serif !important;
-
-    &--opened {
-      opacity: 1;
-      display: block;
-    }
   }
 }
 </style>

@@ -46,6 +46,10 @@ import CustomTooltip from "@/plugin/components/CustomTooltip.vue";
 import ExpandableDataTableItem from "@/plugin/components/ExpandableDataTableItem.vue";
 
 export const componentesReutility = (app: App) => {
+  const div = document.createElement("div");
+  div.classList.add("custom-tooltip--overlay");
+  document.body.appendChild(div);
+
   app.component("AbsoluteContainer", AbsoluteContainer);
   app.component("RelativeContainer", RelativeContainer);
   app.component("CheckBox", CheckBox);

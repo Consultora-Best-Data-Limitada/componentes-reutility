@@ -19,7 +19,22 @@
           :key="index"
           #[header.value]="{ item }"
         >
-          <IconButton icon="fm-circle">{{ item[header.value] }}</IconButton>
+          <IconButton icon="fm-circle">
+            <GridColumn>
+              <TextContainer
+                predefined-style="body-1"
+                color="acento-principal"
+              >
+                Perro
+              </TextContainer>
+              <TextContainer
+                predefined-style="body-2"
+                color="error"
+              >
+                Gato
+              </TextContainer>
+            </GridColumn>
+          </IconButton>
           <GridColumn v-if="item.id === v">
             <p>Lorem ipsum</p>
             <p>Lorem ipsum</p>
@@ -35,9 +50,10 @@
 <script setup lang="ts">
 import DataTable from "@/plugin/components/DataTable.vue";
 import IconButton from "@/plugin/components/IconButton.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import FilterDatePicker from "@/plugin/components/FilterDatePicker.vue";
 import GridColumn from "@/plugin/components/GridColumn.vue";
+import TextContainer from "@/plugin/components/TextContainer.vue";
 
 const v = ref<number | null>(null);
 
