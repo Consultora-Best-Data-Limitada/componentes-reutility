@@ -21,7 +21,7 @@
     <template v-if="opened">
       <TextContainer
         v-for="(value, key) in items"
-        :key="`item-${key}`"
+        :key="`item-${key.toString()}`"
         :color="itemColor"
         padding="0.125rem 0"
         predefined-style="caption"
@@ -48,15 +48,15 @@ import TextContainer from "./TextContainer.vue";
 
 defineProps({
   title: {
-    type: String,
     required: true,
+    type: [String, Number],
   },
   opened: {
     type: Boolean,
   },
   items: {
     required: true,
-    type: Array as PropType<string[]>,
+    type: [Array, Object] as PropType<string[] | Record<string, string | number>>,
   },
   showActiveStyle: {
     type: Boolean,

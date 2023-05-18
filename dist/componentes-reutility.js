@@ -13200,15 +13200,15 @@ const i0 = /* @__PURE__ */ Pe(l0, [["__scopeId", "data-v-1c705701"]]), u0 = /* @
   __name: "ExpandableDataTableItem",
   props: {
     title: {
-      type: String,
-      required: !0
+      required: !0,
+      type: [String, Number]
     },
     opened: {
       type: Boolean
     },
     items: {
       required: !0,
-      type: Array
+      type: [Array, Object]
     },
     showActiveStyle: {
       type: Boolean
@@ -13250,7 +13250,7 @@ const i0 = /* @__PURE__ */ Pe(l0, [["__scopeId", "data-v-1c705701"]]), u0 = /* @
           } : void 0
         ]), 1024),
         e.opened ? (y(!0), P(be, { key: 0 }, Ie(e.items, (o, l) => (y(), ae(At, {
-          key: `item-${l}`,
+          key: `item-${l.toString()}`,
           color: e.itemColor,
           padding: "0.125rem 0",
           "predefined-style": "caption"
