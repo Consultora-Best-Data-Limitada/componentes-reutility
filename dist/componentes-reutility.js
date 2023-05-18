@@ -13197,7 +13197,7 @@ const a0 = /* @__PURE__ */ Pe(r0, [["__scopeId", "data-v-0941e6e3"]]), o0 = { cl
   }
 });
 const i0 = /* @__PURE__ */ Pe(l0, [["__scopeId", "data-v-1c705701"]]), u0 = /* @__PURE__ */ ye({
-  __name: "ExpandableDateTableItem",
+  __name: "ExpandableDataTableItem",
   props: {
     title: {
       type: String,
@@ -13265,7 +13265,7 @@ const i0 = /* @__PURE__ */ Pe(l0, [["__scopeId", "data-v-1c705701"]]), u0 = /* @
     }));
   }
 }), c0 = (e) => {
-  e.component("AbsoluteContainer", a0), e.component("RelativeContainer", i0), e.component("CheckBox", Di), e.component("ConfirmationDialog", ju), e.component("CustomButton", pa), e.component("CustomDatePicker", jo), e.component("CustomDialog", Mo), e.component("CustomSelect", qo), e.component("CustomTextField", Go), e.component("DataTable", Fh), e.component("DataTableItem", Uh), e.component("FilterDatePicker", zh), e.component("FilterSelect", Qh), e.component("FlexContainer", cu), e.component("FormDatePicker", tg), e.component("FormSelect", og), e.component("FormTextField", sg), e.component("GridColumn", zr), e.component("GridRow", Mi), e.component("HeaderTabs", pg), e.component("IconButton", Co), e.component("ImageContainer", vg), e.component("InformationText", wg), e.component("PageSwitch", Og), e.component("PanelTitle", Pg), e.component("SearchTextField", Tg), e.component("SuccessDialog", Dg), e.component("SvgIcon", Ft), e.component("TextContainer", At), e.component("FormColorPicker", jg), e.component("ColorPicker", fu), e.component("CustomMenu", Qg), e.component("FigmaIcon", Xe), e.component("ExpansionPanel", Kg), e.component("GridContainer", t0), e.component("CustomTooltip", Gr), e.component("ExpandableDateTableItem", u0);
+  e.component("AbsoluteContainer", a0), e.component("RelativeContainer", i0), e.component("CheckBox", Di), e.component("ConfirmationDialog", ju), e.component("CustomButton", pa), e.component("CustomDatePicker", jo), e.component("CustomDialog", Mo), e.component("CustomSelect", qo), e.component("CustomTextField", Go), e.component("DataTable", Fh), e.component("DataTableItem", Uh), e.component("FilterDatePicker", zh), e.component("FilterSelect", Qh), e.component("FlexContainer", cu), e.component("FormDatePicker", tg), e.component("FormSelect", og), e.component("FormTextField", sg), e.component("GridColumn", zr), e.component("GridRow", Mi), e.component("HeaderTabs", pg), e.component("IconButton", Co), e.component("ImageContainer", vg), e.component("InformationText", wg), e.component("PageSwitch", Og), e.component("PanelTitle", Pg), e.component("SearchTextField", Tg), e.component("SuccessDialog", Dg), e.component("SvgIcon", Ft), e.component("TextContainer", At), e.component("FormColorPicker", jg), e.component("ColorPicker", fu), e.component("CustomMenu", Qg), e.component("FigmaIcon", Xe), e.component("ExpansionPanel", Kg), e.component("GridContainer", t0), e.component("CustomTooltip", Gr), e.component("ExpandableDataTableItem", u0);
 };
 export {
   c0 as componentesReutility
