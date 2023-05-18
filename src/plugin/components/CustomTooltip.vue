@@ -20,6 +20,9 @@
 // Vue
 import { ref, computed, nextTick, useSlots } from "vue";
 
+// Composables
+import { useTooltips } from "@/plugin/composables/tooltip";
+
 // Definiciones
 
 const props = defineProps({
@@ -31,6 +34,7 @@ const props = defineProps({
 // Composables
 
 const slots = useSlots();
+const { overlayContainer } = useTooltips();
 
 // Data
 
@@ -38,10 +42,6 @@ const top = ref("initial");
 const left = ref("initial");
 const right = ref("initial");
 const tooltipRef = ref<HTMLDivElement | null>(null);
-const overlayContainer = ref<HTMLDivElement | null>(
-  (document.getElementsByClassName("custom-tooltip--overlay")[0] as HTMLDivElement | undefined) ??
-    null,
-);
 
 // Computed
 

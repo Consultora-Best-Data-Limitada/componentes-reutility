@@ -50,10 +50,14 @@
 <script setup lang="ts">
 import DataTable from "@/plugin/components/DataTable.vue";
 import IconButton from "@/plugin/components/IconButton.vue";
-import { onMounted, ref } from "vue";
-import FilterDatePicker from "@/plugin/components/FilterDatePicker.vue";
+import { ref } from "vue";
 import GridColumn from "@/plugin/components/GridColumn.vue";
 import TextContainer from "@/plugin/components/TextContainer.vue";
+import { useTooltips } from "@/plugin/composables/tooltip";
+
+const { generateOverlayContainer } = useTooltips();
+
+generateOverlayContainer();
 
 const v = ref<number | null>(null);
 

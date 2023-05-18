@@ -6,6 +6,9 @@ import "./assets/css/main.css";
 import "./assets/icomoon/icomoon.css";
 import "./assets/fonts/metropolis/metropolis.css";
 
+// Composables
+import { useTooltips } from "@/plugin/composables/tooltip";
+
 // Componentes
 import CheckBox from "@/plugin/components/CheckBox.vue";
 import ConfirmationDialog from "@/plugin/components/ConfirmationDialog.vue";
@@ -46,9 +49,8 @@ import CustomTooltip from "@/plugin/components/CustomTooltip.vue";
 import ExpandableDataTableItem from "@/plugin/components/ExpandableDataTableItem.vue";
 
 export const componentesReutility = (app: App) => {
-  const div = document.createElement("div");
-  div.classList.add("custom-tooltip--overlay");
-  document.body.appendChild(div);
+  const tooltips = useTooltips();
+  tooltips.generateOverlayContainer();
 
   app.component("AbsoluteContainer", AbsoluteContainer);
   app.component("RelativeContainer", RelativeContainer);
