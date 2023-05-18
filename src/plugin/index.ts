@@ -43,6 +43,7 @@ import GridContainer from "@/plugin/components/GridContainer.vue";
 import AbsoluteContainer from "@/plugin/components/AbsoluteContainer.vue";
 import RelativeContainer from "@/plugin/components/RelativeContainer.vue";
 import CustomTooltip from "@/plugin/components/CustomTooltip.vue";
+import ExpandableDataTableItem from "@/plugin/components/ExpandableDataTableItem.vue";
 
 export const componentesReutility = (app: App) => {
   app.component("AbsoluteContainer", AbsoluteContainer);
@@ -81,4 +82,5 @@ export const componentesReutility = (app: App) => {
   app.component("ExpansionPanel", ExpansionPanel);
   app.component("GridContainer", GridContainer);
   app.component("CustomTooltip", CustomTooltip);
+  app.component("ExpandableDataTableItem", ExpandableDataTableItem);
 };

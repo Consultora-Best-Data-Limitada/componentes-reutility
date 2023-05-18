@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <FilterDatePicker v-model="v" label="asd" month-picker/>
-    {{v}}
+    {{ v }}
     <div class="row">
       <DataTable
         :headers="headers"
@@ -13,9 +12,20 @@
         :items-per-page="30"
         max-height="calc(100vh - 3.25rem)"
         :grid-template-columns="`repeat(${headers.length}, 150px)`"
+        @click:row="seleccionarFila"
       >
-        <template #r>
-            <IconButton icon="fm-circle">Hola mundo</IconButton>
+        <template
+          v-for="(header, index) in headers"
+          :key="index"
+          #[header.value]="{ item }"
+        >
+          <IconButton icon="fm-circle">{{ item[header.value] }}</IconButton>
+          <GridColumn v-if="item.id === v">
+            <p>Lorem ipsum</p>
+            <p>Lorem ipsum</p>
+            <p>Lorem ipsum</p>
+            <p>Lorem ipsum</p>
+          </GridColumn>
         </template>
       </DataTable>
     </div>
@@ -25,13 +35,15 @@
 <script setup lang="ts">
 import DataTable from "@/plugin/components/DataTable.vue";
 import IconButton from "@/plugin/components/IconButton.vue";
-import {ref} from "vue";
+import { ref } from "vue";
 import FilterDatePicker from "@/plugin/components/FilterDatePicker.vue";
+import GridColumn from "@/plugin/components/GridColumn.vue";
 
-const v = ref(new Date());
+const v = ref<number | null>(null);
 
 const items = [...Array(60).keys()].map((i) => {
   return {
+    id: i,
     a: `AAAAA - ${i}`,
     b: `BBBBB - ${i}`,
     c: `CCCCC - ${i}`,
@@ -89,6 +101,10 @@ const headers = [
   { value: "y", text: "Y" },
   { value: "z", text: "Z" },
 ];
+
+function seleccionarFila(item: (typeof items)[0]) {
+  v.value = item.id;
+}
 </script>
 
 <style scoped>
