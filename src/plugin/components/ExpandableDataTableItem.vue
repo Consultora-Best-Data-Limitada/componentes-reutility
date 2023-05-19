@@ -19,15 +19,24 @@
       </template>
     </CustomTooltip>
     <template v-if="opened">
-      <TextContainer
+      <template
         v-for="(value, key) in items"
         :key="`item-${key.toString()}`"
-        :color="itemColor"
-        padding="0.125rem 0"
-        predefined-style="caption"
       >
-        {{ value }}
-      </TextContainer>
+        <slot
+          v-if="checkSlot('item')"
+          name="item"
+          :item="value"
+        />
+        <TextContainer
+          v-else
+          :color="itemColor"
+          padding="0.125rem 0"
+          predefined-style="caption"
+        >
+          {{ value }}
+        </TextContainer>
+      </template>
     </template>
   </GridColumn>
 </template>
@@ -73,7 +82,7 @@ const slots = useSlots();
 
 // Methods
 
-function checkSlot() {
-  return !!slots["default"];
+function checkSlot(name = "default") {
+  return !!slots[name];
 }
 </script>
