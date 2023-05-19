@@ -14,5 +14,6 @@ export declare const IExpandableDataTableItem: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & ExpandableDataTableItemProps;
   $slots: {
     default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
+    value?: (({ Component, value }: { Component: VNode, value: any }) => VNode[]) | undefined;
   };
 };
