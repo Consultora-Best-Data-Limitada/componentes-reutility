@@ -24,9 +24,9 @@
         :key="`item-${key.toString()}`"
       >
         <slot
-          v-if="checkSlot('item')"
-          name="item"
-          :item="value"
+          v-if="checkSlot('value')"
+          name="value"
+          :value="value"
         />
         <TextContainer
           v-else

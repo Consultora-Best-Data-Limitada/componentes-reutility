@@ -13258,9 +13258,9 @@ const c0 = /* @__PURE__ */ Pe(s0, [["__scopeId", "data-v-1c705701"]]), f0 = /* @
         e.opened ? (y(!0), P(be, { key: 0 }, Re(e.items, (o, l) => (y(), P(be, {
           key: `item-${l.toString()}`
         }, [
-          n("item") ? G(r.$slots, "item", {
+          n("value") ? G(r.$slots, "value", {
             key: 0,
-            item: o
+            value: o
           }) : (y(), ae(At, {
             key: 1,
             color: e.itemColor,
