@@ -11099,7 +11099,7 @@ const Go = /* @__PURE__ */ Pe(Th, [["__scopeId", "data-v-a2651073"]]), Ch = (e, 
       t.value = C;
     }
   };
-}, Dh = ["onMouseenter", "onMouseout"], Mh = /* @__PURE__ */ ye({
+}, Dh = ["onMouseenter", "onMouseleave"], Mh = /* @__PURE__ */ ye({
   __name: "CustomTooltip",
   props: {
     disabled: {
@@ -11124,7 +11124,7 @@ const Go = /* @__PURE__ */ Pe(Th, [["__scopeId", "data-v-a2651073"]]), Ch = (e, 
     }, [
       F("div", {
         onMouseenter: Qe(v, ["stop"]),
-        onMouseout: Qe(p, ["stop"])
+        onMouseleave: Qe(p, ["stop"])
       }, [
         Q(s.$slots, "activator", {}, void 0, !0)
       ], 40, Dh),
@@ -11139,7 +11139,7 @@ const Go = /* @__PURE__ */ Pe(Th, [["__scopeId", "data-v-a2651073"]]), Ch = (e, 
     ], 2));
   }
 });
-const Gr = /* @__PURE__ */ Pe(Mh, [["__scopeId", "data-v-60947134"]]), Rh = /* @__PURE__ */ ye({
+const Gr = /* @__PURE__ */ Pe(Mh, [["__scopeId", "data-v-bc62f519"]]), Rh = /* @__PURE__ */ ye({
   __name: "IconButton",
   props: {
     color: {

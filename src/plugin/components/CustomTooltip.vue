@@ -2,7 +2,7 @@
   <div :class="tooltipContainerClass">
     <div
       @mouseenter.stop="onMouseEnter"
-      @mouseout.stop="onMouseLeave"
+      @mouseleave.stop="onMouseLeave"
     >
       <slot name="activator" />
     </div>
