@@ -13208,6 +13208,10 @@ const c0 = /* @__PURE__ */ Pe(s0, [["__scopeId", "data-v-1c705701"]]), f0 = /* @
     opened: {
       type: Boolean
     },
+    textTransform: {
+      default: "capitalize",
+      type: String
+    },
     items: {
       required: !0,
       type: [Array, Object]
@@ -13231,7 +13235,7 @@ const c0 = /* @__PURE__ */ Pe(s0, [["__scopeId", "data-v-1c705701"]]), f0 = /* @
           activator: ne(() => [
             $e(At, {
               padding: "0.125rem 0",
-              "text-transform": "capitalize",
+              "text-transform": e.textTransform,
               "predefined-style": e.opened && e.showActiveStyle ? "body-2" : "body-1",
               color: e.opened && e.showActiveStyle ? "acento-principal" : "secundario"
             }, {
@@ -13239,7 +13243,7 @@ const c0 = /* @__PURE__ */ Pe(s0, [["__scopeId", "data-v-1c705701"]]), f0 = /* @
                 Ve(we(e.title), 1)
               ]),
               _: 1
-            }, 8, ["predefined-style", "color"])
+            }, 8, ["text-transform", "predefined-style", "color"])
           ]),
           _: 2
         }, [

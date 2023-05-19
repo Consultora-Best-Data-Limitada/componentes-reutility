@@ -4,7 +4,7 @@
       <template #activator>
         <TextContainer
           padding="0.125rem 0"
-          text-transform="capitalize"
+          :text-transform="textTransform"
           :predefined-style="opened && showActiveStyle ? 'body-2' : 'body-1'"
           :color="opened && showActiveStyle ? 'acento-principal' : 'secundario'"
         >
@@ -46,6 +46,7 @@
 import { useSlots } from "vue";
 
 // Tipos
+import type CSS from "csstype";
 import type { PropType } from "vue";
 
 // Componentes
@@ -63,6 +64,10 @@ defineProps({
   opened: {
     type: Boolean,
   },
+  textTransform: {
+    default: "capitalize",
+    type: String as PropType<CSS.TextTransformProperty>,
+  },
   items: {
     required: true,
     type: [Array, Object] as PropType<string[] | Record<string, string | number>>,
@@ -72,7 +77,7 @@ defineProps({
   },
   itemColor: {
     default: "neutro-4",
-    type: String as PropType<CustomColor>,
+    type: String as PropType<CSS.Color | CustomColor>,
   },
 });
 
