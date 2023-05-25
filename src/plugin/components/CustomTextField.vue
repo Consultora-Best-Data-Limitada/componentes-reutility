@@ -2,6 +2,7 @@
   <div class="custom-text-field__container">
     <div :class="inputContainerClass">
       <input
+        v-if="mask"
         v-model="model"
         v-maska
         :type="type"
@@ -10,6 +11,20 @@
         :readonly="readonly"
         :placeholder="placeholder"
         :data-maska-tokens="maskTokens"
+        class="custom-text-field__input"
+        @blur="onBlur"
+        @focus="onFocus"
+        @input="onInput"
+        @keyup="onKeyup"
+        @keydown="onKeydown"
+      />
+      <input
+        v-else
+        v-model="model"
+        :type="type"
+        :disabled="disabled"
+        :readonly="readonly"
+        :placeholder="placeholder"
         class="custom-text-field__input"
         @blur="onBlur"
         @focus="onFocus"
