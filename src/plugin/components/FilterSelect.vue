@@ -15,13 +15,20 @@
       :text-multiple="textMultiple"
       :return-object="returnObject"
       :text-transform="textTransform"
-    />
+    >
+      <template
+        v-if="slots['append-item']"
+        #append-item
+      >
+        <slot name="append-item" />
+      </template>
+    </CustomSelect>
   </div>
 </template>
 
 <script setup lang="ts">
 // Vue
-import { computed } from "vue";
+import { computed, useSlots } from "vue";
 
 // Tipos
 import type CSS from "csstype";
@@ -81,6 +88,10 @@ const props = defineProps({
 });
 
 const emits = defineEmits(["update:model-value"]);
+
+// Composables
+
+const slots = useSlots();
 
 // Computed
 

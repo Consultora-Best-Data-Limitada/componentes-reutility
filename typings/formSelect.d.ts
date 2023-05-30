@@ -1,5 +1,5 @@
 import type CSS from "csstype";
-import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { AllowedComponentProps, ComponentCustomProps, VNodeProps, VNode } from "vue";
 
 export declare interface FormSelectProps {
   label: string;
@@ -15,9 +15,9 @@ export declare interface FormSelectProps {
   multiple?: boolean;
   disabled?: boolean;
   readonly?: boolean;
-  modelValue?: string | number | Record<string, any> | unknown[] | null
+  modelValue?: string | number | Record<string, any> | unknown[] | null;
   outlined?: boolean;
-  gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>
+  gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
   searchable?: boolean;
   dark?: boolean;
   "@update:model-value"?: (value: string | number | Record<string, any> | unknown[] | null) => void;
@@ -25,4 +25,7 @@ export declare interface FormSelectProps {
 
 export declare const IFormSelect: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FormSelectProps;
+  $slots: {
+    appendItem?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
+  };
 };

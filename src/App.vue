@@ -1,26 +1,65 @@
 <template>
   <div>
-    <CustomSelect :items="[]" placeholder="Perro">
+    <CustomSelect
+      :items="[]"
+      placeholder="Perro"
+    >
       <template #append-item>
-        <TextContainer clickable predefined-style="body-2" color="acento-principal">
+        <TextContainer
+          clickable
+          predefined-style="body-2"
+          color="acento-principal"
+        >
           Gato
         </TextContainer>
       </template>
     </CustomSelect>
+    <FilterSelect
+      :items="[]"
+      placeholder="Perro"
+      label="Perro"
+    >
+      <template #append-item>
+        <TextContainer
+          clickable
+          predefined-style="body-2"
+          color="acento-principal"
+        >
+          Gato
+        </TextContainer>
+      </template>
+    </FilterSelect>
+    <FormSelect
+      :items="[]"
+      placeholder="Perro"
+      label="Perro"
+    >
+      <template #append-item>
+        <TextContainer
+          clickable
+          predefined-style="body-2"
+          color="acento-principal"
+        >
+          Gato
+        </TextContainer>
+      </template>
+    </FormSelect>
   </div>
 </template>
 
 <script setup lang="ts">
 import DataTable from "@/plugin/components/DataTable.vue";
 import IconButton from "@/plugin/components/IconButton.vue";
-import {computed, ref} from "vue";
+import { computed, ref } from "vue";
 import GridColumn from "@/plugin/components/GridColumn.vue";
 import TextContainer from "@/plugin/components/TextContainer.vue";
-import {useTooltips} from "@/plugin/composables/tooltip";
+import { useTooltips } from "@/plugin/composables/tooltip";
 import CustomTextField from "@/plugin/components/CustomTextField.vue";
 import CustomSelect from "@/plugin/components/CustomSelect.vue";
+import FilterSelect from "@/plugin/components/FilterSelect.vue";
+import FormSelect from "@/plugin/components/FormSelect.vue";
 
-const {generateOverlayContainer} = useTooltips();
+const { generateOverlayContainer } = useTooltips();
 
 generateOverlayContainer();
 
@@ -37,8 +76,8 @@ const a = computed({
 });
 
 setTimeout(() => {
-  b.value = "100"
-}, 500)
+  b.value = "100";
+}, 500);
 
 const v = ref<number | null>(null);
 
@@ -75,32 +114,32 @@ const items = [...Array(60).keys()].map((i) => {
 });
 
 const headers = [
-  {value: "a", text: "A"},
-  {value: "b", text: "B"},
-  {value: "c", text: "C"},
-  {value: "d", text: "D"},
-  {value: "e", text: "E"},
-  {value: "f", text: "F"},
-  {value: "g", text: "G"},
-  {value: "h", text: "H"},
-  {value: "i", text: "I"},
-  {value: "j", text: "J"},
-  {value: "k", text: "K"},
-  {value: "l", text: "L"},
-  {value: "m", text: "M"},
-  {value: "n", text: "N"},
-  {value: "o", text: "O"},
-  {value: "p", text: "P"},
-  {value: "q", text: "Q"},
-  {value: "r", text: "R"},
-  {value: "s", text: "S"},
-  {value: "t", text: "T"},
-  {value: "u", text: "U"},
-  {value: "v", text: "V"},
-  {value: "w", text: "W"},
-  {value: "x", text: "X"},
-  {value: "y", text: "Y"},
-  {value: "z", text: "Z"},
+  { value: "a", text: "A" },
+  { value: "b", text: "B" },
+  { value: "c", text: "C" },
+  { value: "d", text: "D" },
+  { value: "e", text: "E" },
+  { value: "f", text: "F" },
+  { value: "g", text: "G" },
+  { value: "h", text: "H" },
+  { value: "i", text: "I" },
+  { value: "j", text: "J" },
+  { value: "k", text: "K" },
+  { value: "l", text: "L" },
+  { value: "m", text: "M" },
+  { value: "n", text: "N" },
+  { value: "o", text: "O" },
+  { value: "p", text: "P" },
+  { value: "q", text: "Q" },
+  { value: "r", text: "R" },
+  { value: "s", text: "S" },
+  { value: "t", text: "T" },
+  { value: "u", text: "U" },
+  { value: "v", text: "V" },
+  { value: "w", text: "W" },
+  { value: "x", text: "X" },
+  { value: "y", text: "Y" },
+  { value: "z", text: "Z" },
 ];
 
 function seleccionarFila(item: (typeof items)[0]) {
