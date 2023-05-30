@@ -74,6 +74,7 @@
           />
           {{ getText(item) }}
         </div>
+        <slot name="append-item" />
       </div>
     </transition>
     <div

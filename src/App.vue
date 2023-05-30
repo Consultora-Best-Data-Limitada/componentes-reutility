@@ -1,6 +1,12 @@
 <template>
   <div>
-    <CustomTextField placeholder="asd" v-model="a"/>
+    <CustomSelect :items="[]" placeholder="Perro">
+      <template #append-item>
+        <TextContainer clickable predefined-style="body-2" color="acento-principal">
+          Gato
+        </TextContainer>
+      </template>
+    </CustomSelect>
   </div>
 </template>
 
@@ -12,6 +18,7 @@ import GridColumn from "@/plugin/components/GridColumn.vue";
 import TextContainer from "@/plugin/components/TextContainer.vue";
 import {useTooltips} from "@/plugin/composables/tooltip";
 import CustomTextField from "@/plugin/components/CustomTextField.vue";
+import CustomSelect from "@/plugin/components/CustomSelect.vue";
 
 const {generateOverlayContainer} = useTooltips();
 
