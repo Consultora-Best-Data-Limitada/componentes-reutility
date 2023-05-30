@@ -19,6 +19,6 @@ export declare interface FilterSelectProps {
 export declare const IFilterSelect: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FilterSelectProps;
   $slots: {
-    appendItem?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
+    "append-item"?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
   };
 };

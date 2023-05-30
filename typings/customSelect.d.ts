@@ -24,6 +24,6 @@ export declare interface CustomSelectProps {
 export declare const ICustomSelect: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CustomSelectProps;
   $slots: {
-    appendItem?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
+    "append-item"?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
   };
 };

@@ -26,6 +26,6 @@ export declare interface FormSelectProps {
 export declare const IFormSelect: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FormSelectProps;
   $slots: {
-    appendItem?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
+    "append-item"?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
   };
 };
