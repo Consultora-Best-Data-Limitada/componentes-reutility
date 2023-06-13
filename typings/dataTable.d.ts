@@ -1,24 +1,24 @@
-import type CSS from "csstype";
+import type { Property } from "csstype";
 import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface DataTableProps {
-  items: DataTableItem[];
-  headers: DataTableHeader[];
-  itemsPerPage?: number;
-  maxHeight?: string;
-  stickyFirstColumn?: boolean;
-  stickyLastColumn?: boolean;
-  stickyHead?: boolean;
-  backgroundColor?: CSS.BackgroundColorProperty;
-  height?: CSS.HeightProperty<string>;
-  gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
-  noDataText?: string;
   selected?: string;
-  compareSelectedWith?: string;
-  disabledKey?: string;
-  disabledValue?: string;
-  hideNoDataIcon?: boolean;
+  maxHeight?: string;
+  noDataText?: string;
   noDataIcon?: string;
+  stickyHead?: boolean;
+  disabledKey?: string;
+  itemsPerPage?: number;
+  items: DataTableItem[];
+  disabledValue?: string;
+  height?: Property.Height;
+  hideNoDataIcon?: boolean;
+  headers: DataTableHeader[];
+  stickyLastColumn?: boolean;
+  stickyFirstColumn?: boolean;
+  compareSelectedWith?: string;
+  backgroundColor?: Property.BackgroundColor;
+  gridTemplateColumns?: Property.GridTemplateColumns;
   "@click:row"?: (item: any) => void;
 }
 

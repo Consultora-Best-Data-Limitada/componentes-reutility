@@ -1,29 +1,27 @@
-import type CSS from "csstype";
-import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { Property } from "csstype";
+import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface GridContainerProps {
-  height?: CSS.HeightProperty<string | number>;
-  alignItems?: CSS.AlignItemsProperty;
-  alignContent?: CSS.AlignContentProperty;
-  justifyContent?: CSS.JustifyContentProperty;
-  justifyItems?: CSS.JustifyItemsProperty;
-  gridTemplateRows?: CSS.GridTemplateRowsProperty<string | number>;
-  rowGap?: CSS.RowGapProperty<string | number>;
-  margin?: CSS.MarginProperty<string | number>;
-  padding?: CSS.PaddingProperty<string | number>;
-  gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string | number>;
-  columnGap?: CSS.ColumnGapProperty<string | number>;
-  gridAutoFlow?: CSS.GridAutoFlowProperty;
-  backgroundColor?: CSS.BackgroundColorProperty | CustomColor;
-  borderRadius?: CSS.BorderRadiusProperty<string>;
-  boxShadow?: CSS.BoxShadowProperty;
+  height?: Property.Height;
+  rowGap?: Property.RowGap;
+  margin?: Property.Margin;
+  padding?: Property.Padding;
+  columnGap?: Property.ColumnGap;
+  boxShadow?: Property.BoxShadow;
+  alignItems?: Property.AlignItems;
+  alignContent?: Property.AlignContent;
+  justifyItems?: Property.JustifyItems;
+  gridAutoFlow?: Property.GridAutoFlow;
+  borderRadius?: Property.BorderRadius;
+  justifyContent?: Property.JustifyContent;
+  gridTemplateRows?: Property.GridTemplateRows;
+  gridTemplateColumns?: Property.GridTemplateColumns;
+  backgroundColor?: Property.BackgroundColor | CustomColor;
 }
 
 export declare const IGridContainer: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & GridContainerProps;
   $slots: {
-    default?: (({Component}: {
-      Component: VNode;
-    }) => VNode[]) | undefined;
+    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
   };
 };

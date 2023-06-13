@@ -1,16 +1,16 @@
-import type CSS from "csstype";
-import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { Property } from "csstype";
+import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface CheckBoxProps {
-  boxIcon?: string | FigmaIconChoice;
-  boxColor?: CSS.ColorProperty | CustomColor;
-  checkedColor?: CSS.ColorProperty | CustomColor;
   readonly?: boolean;
   disabled?: boolean;
-  boxIconSize?: CSS.FontSizeProperty<string>;
-  checkedIcon?: string | FigmaIconChoice;
-  checkedIconSize?: CSS.FontSizeProperty<string>;
   modelValue: boolean;
+  boxIconSize?: Property.FontSize;
+  boxIcon?: string | FigmaIconChoice;
+  checkedIconSize?: Property.FontSize;
+  checkedIcon?: string | FigmaIconChoice;
+  boxColor?: Property.Color | CustomColor;
+  checkedColor?: Property.Color | CustomColor;
   "@update:model-value"?: (value: boolean) => void;
 }
 

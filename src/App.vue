@@ -1,116 +1,71 @@
 <template>
-  <div>
-    <CustomSelect
-      :items="[]"
-      placeholder="Perro"
-    >
-      <template #append-item>
-        <TextContainer
-          clickable
-          predefined-style="body-2"
-          color="acento-principal"
-        >
-          Gato
-        </TextContainer>
-      </template>
-    </CustomSelect>
-    <FilterSelect
-      :items="[]"
-      placeholder="Perro"
-      label="Perro"
-    >
-      <template #append-item>
-        <TextContainer
-          clickable
-          predefined-style="body-2"
-          color="acento-principal"
-        >
-          Gato
-        </TextContainer>
-      </template>
-    </FilterSelect>
-    <FormSelect
-      :items="[]"
-      placeholder="Perro"
-      label="Perro"
-    >
-      <template #append-item>
-        <TextContainer
-          clickable
-          predefined-style="body-2"
-          color="acento-principal"
-        >
-          Gato
-        </TextContainer>
-      </template>
-    </FormSelect>
+  <div style="height: 50%">
   </div>
 </template>
 
 <script setup lang="ts">
-import DataTable from "@/plugin/components/DataTable.vue";
-import IconButton from "@/plugin/components/IconButton.vue";
-import { computed, ref } from "vue";
-import GridColumn from "@/plugin/components/GridColumn.vue";
-import TextContainer from "@/plugin/components/TextContainer.vue";
-import { useTooltips } from "@/plugin/composables/tooltip";
-import CustomTextField from "@/plugin/components/CustomTextField.vue";
-import CustomSelect from "@/plugin/components/CustomSelect.vue";
-import FilterSelect from "@/plugin/components/FilterSelect.vue";
-import FormSelect from "@/plugin/components/FormSelect.vue";
-
-const { generateOverlayContainer } = useTooltips();
-
-generateOverlayContainer();
-
-const b = ref("");
-
-const a = computed({
-  get() {
-    return b.value;
-  },
-  set(value: string) {
-    console.log(value);
-    b.value = value;
-  },
-});
-
-setTimeout(() => {
-  b.value = "100";
-}, 500);
-
-const v = ref<number | null>(null);
-
 const items = [...Array(60).keys()].map((i) => {
-  return {
-    id: i,
-    a: `AAAAA - ${i}`,
-    b: `BBBBB - ${i}`,
-    c: `CCCCC - ${i}`,
-    d: `DDDDD - ${i}`,
-    e: `EEEEE - ${i}`,
-    f: `FFFFF - ${i}`,
-    g: `GGGGG - ${i}`,
-    h: `HHHHH - ${i}`,
-    i: `IIIII - ${i}`,
-    j: `JJJJJ - ${i}`,
-    k: `KKKKK - ${i}`,
-    l: `LLLLL - ${i}`,
-    m: `MMMMM - ${i}`,
-    n: `NNNNN - ${i}`,
-    o: `OOOOO - ${i}`,
-    p: `PPPPP - ${i}`,
-    q: `QQQQQ - ${i}`,
-    r: `RRRRR - ${i}`,
-    s: `SSSSS - ${i}`,
-    t: `TTTTT - ${i}`,
-    u: `UUUUU - ${i}`,
-    v: `VVVVV - ${i}`,
-    w: `WWWWW - ${i}`,
-    x: `XXXXX - ${i}`,
-    y: `YYYYY - ${i}`,
-    z: `ZZZZZ - ${i}`,
-  };
+  if (i > 20) {
+    return {
+      id: i,
+      a: `AAAAA - ${i}`,
+      b: `BBBBB - ${i}`,
+      c: `CCCCC - ${i}`,
+      d: `DDDDD - ${i}`,
+      e: `EEEEE - ${i}`,
+      f: `FFFFF - ${i}`,
+      g: `GGGGG - ${i}`,
+      h: `HHHHH - ${i}`,
+      i: `IIIII - ${i}`,
+      j: `JJJJJ - ${i}`,
+      k: `KKKKK - ${i}`,
+      l: `LLLLL - ${i}`,
+      m: `MMMMM - ${i}`,
+      n: `NNNNN - ${i}`,
+      o: `OOOOO - ${i}`,
+      p: `PPPPP - ${i}`,
+      q: `QQQQQ - ${i}`,
+      r: `RRRRR - ${i}`,
+      s: `SSSSS - ${i}`,
+      t: `TTTTT - ${i}`,
+      u: `UUUUU - ${i}`,
+      v: `VVVVV - ${i}`,
+      w: `WWWWW - ${i}`,
+      x: `XXXXX - ${i}`,
+      y: `YYYYY - ${i}`,
+      z: `ZZZZZ - ${i}`,
+    };
+  } else {
+    return {
+      id: i,
+      a: `AAAAA AAAAA AAAAA AAAAA - ${i}`,
+      b: `BBBBB BBBBB BBBBB BBBBB - ${i}`,
+      c: `CCCCC CCCCC CCCCC CCCCC - ${i}`,
+      d: `DDDDD DDDDD DDDDD DDDDD - ${i}`,
+      e: `EEEEE EEEEE EEEEE EEEEE - ${i}`,
+      f: `FFFFF FFFFF FFFFF FFFFF - ${i}`,
+      g: `GGGGG GGGGG GGGGG GGGGG - ${i}`,
+      h: `HHHHH HHHHH HHHHH HHHHH - ${i}`,
+      i: `IIIII IIIII IIIII IIIII - ${i}`,
+      j: `JJJJJ JJJJJ JJJJJ JJJJJ - ${i}`,
+      k: `KKKKK KKKKK KKKKK KKKKK - ${i}`,
+      l: `LLLLL LLLLL LLLLL LLLLL - ${i}`,
+      m: `MMMMM MMMMM MMMMM MMMMM - ${i}`,
+      n: `NNNNN NNNNN NNNNN NNNNN - ${i}`,
+      o: `OOOOO OOOOO OOOOO OOOOO - ${i}`,
+      p: `PPPPP PPPPP PPPPP PPPPP - ${i}`,
+      q: `QQQQQ QQQQQ QQQQQ QQQQQ - ${i}`,
+      r: `RRRRR RRRRR RRRRR RRRRR - ${i}`,
+      s: `SSSSS SSSSS SSSSS SSSSS - ${i}`,
+      t: `TTTTT TTTTT TTTTT TTTTT - ${i}`,
+      u: `UUUUU UUUUU UUUUU UUUUU - ${i}`,
+      v: `VVVVV VVVVV VVVVV VVVVV - ${i}`,
+      w: `WWWWW WWWWW WWWWW WWWWW - ${i}`,
+      x: `XXXXX XXXXX XXXXX XXXXX - ${i}`,
+      y: `YYYYY YYYYY YYYYY YYYYY - ${i}`,
+      z: `ZZZZZ ZZZZZ ZZZZZ ZZZZZ - ${i}`,
+    };
+  }
 });
 
 const headers = [
@@ -141,24 +96,4 @@ const headers = [
   { value: "y", text: "Y" },
   { value: "z", text: "Z" },
 ];
-
-function seleccionarFila(item: (typeof items)[0]) {
-  v.value = item.id;
-}
 </script>
-
-<style scoped>
-.container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.row {
-  height: 100%;
-  display: grid;
-  overflow: auto;
-}
-</style>

@@ -1,20 +1,18 @@
-import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
-import type CSS from "csstype";
+import type { Property } from "csstype";
+import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface PanelTitleProps {
   closable?: boolean;
   iconSize?: string;
   predefinedStyle?: PredefinedStyle;
-  textColor?: CustomColor | CSS.ColorProperty;
-  backgroundColor?: CustomColor | CSS.BackgroundColorProperty;
+  textColor?: CustomColor | Property.Color;
+  backgroundColor?: CustomColor | Property.BackgroundColor;
   "@click:close"?: () => void;
 }
 
 export declare const IPanelTitle: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & PanelTitleProps;
   $slots: {
-    default?: (({Component}: {
-      Component: VNode;
-    }) => VNode[]) | undefined;
+    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
   };
 };

@@ -1,11 +1,11 @@
-import type CSS from "csstype";
-import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { Property } from "csstype";
+import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface InformationTextProps {
   label: string;
-  gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
-  padding?: CSS.PaddingProperty<string>;
-  textTransform?: CSS.TextTransformProperty;
+  padding?: Property.Padding;
+  textTransform?: Property.TextTransform;
+  gridTemplateColumns?: Property.GridTemplateColumns;
 }
 
 export declare const IInformationText: new () => {
