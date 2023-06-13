@@ -1,18 +1,18 @@
 import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface CustomDatePickerProps {
-  modelValue?: Date[] | Date | null | { month: number; year: number };
+  dark?: boolean;
   range?: boolean;
   readonly?: boolean;
   disabled?: boolean;
+  outlined?: boolean;
+  clearable?: boolean;
   placeholder?: string;
+  errorMessage?: string;
+  monthPicker?: boolean;
   maxDate?: string | Date;
   minDate?: string | Date;
-  errorMessage?: string;
-  clearable?: boolean;
-  monthPicker?: boolean;
-  outlined?: boolean;
-  dark?: boolean;
+  modelValue?: Date[] | Date | null | { month: number; year: number };
   "@update:model-value"?: (value: Date | Date[] | null | { month: number; year: number }) => void;
 }
 

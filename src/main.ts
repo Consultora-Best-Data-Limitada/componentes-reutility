@@ -1,12 +1,11 @@
-import {createApp} from 'vue';
-import App from './App.vue';
+import { createApp } from "vue";
+import App from "./App.vue";
 
-import './plugin/assets/fonts/metropolis/metropolis.css'
-import './plugin/assets/icomoon/icomoon.css';
+import "./assets/fonts/metropolis/metropolis.css";
+import "./assets/icomoon/icomoon.css";
 
-
-import { componentesReutility } from "./plugin/"
+import { componentesReutility } from "./";
 
 const app = createApp(App);
-app.use(componentesReutility)
-app.mount('#app')
+app.use(componentesReutility);
+app.mount("#app");

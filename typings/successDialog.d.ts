@@ -1,14 +1,14 @@
-import type CSS from "csstype";
-import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { Property } from "csstype";
+import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface SuccessDialogProps {
   text: string;
   duration?: number;
-  modelValue: boolean;
   subtitle?: string;
+  modelValue: boolean;
+  width?: Property.Width;
   icon: string | FigmaIconChoice;
-  width?: CSS.WidthProperty<string>;
-  iconColor?: CSS.ColorProperty | CustomColor;
+  iconColor?: Property.Color | CustomColor;
   "@close"?: () => void;
   "@update:model-value"?: (value: boolean) => void;
 }

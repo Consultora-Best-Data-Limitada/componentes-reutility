@@ -1,15 +1,15 @@
-import type CSS from "csstype";
+import type { Property } from "csstype";
 import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
 
 export declare interface GradientButtonProps {
-  width?: CSS.WidthProperty<string | number>;
-  height?: CSS.HeightProperty<string | number>;
-  colorFrom?: CSS.ColorProperty | CustomColor;
-  colorTo?: CSS.ColorProperty | CustomColor;
-  textColor?: CSS.ColorProperty | CustomColor;
-  disabled?: boolean;
   icon?: string;
   loading?: boolean;
+  disabled?: boolean;
+  width?: Property.Width;
+  height?: Property.Height;
+  colorTo?: Property.Color | CustomColor;
+  colorFrom?: Property.Color | CustomColor;
+  textColor?: Property.Color | CustomColor;
   "@click"?: (ev: MouseEvent) => void;
 }
 

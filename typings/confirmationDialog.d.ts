@@ -1,11 +1,11 @@
-import type CSS from "csstype";
-import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { Property } from "csstype";
+import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface ConfirmationDialogProps {
   title: string;
   subtitle?: string;
   modelValue: boolean;
-  width?: CSS.WidthProperty<string>;
+  width?: Property.Width;
   "@click:no"?: () => void;
   "@click:yes"?: () => void;
   "@update:model-value"?: (value: boolean) => void;

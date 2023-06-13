@@ -1,21 +1,21 @@
-import type CSS from "csstype";
-import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { Property } from "csstype";
+import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface FormDatePickerProps {
   label: string;
-  errorMessage?: string;
-  placeholder: string;
+  dark?: boolean;
   range?: boolean;
   disabled?: boolean;
   readonly?: boolean;
-  modelValue?: Date[] | Date | null | { month: number; year: number };
   outlined?: boolean;
-  gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
+  placeholder: string;
+  clearable?: boolean;
+  errorMessage?: string;
+  monthPicker?: boolean;
   maxDate?: string | Date;
   minDate?: string | Date;
-  clearable?: boolean;
-  monthPicker?: boolean;
-  dark?: boolean;
+  gridTemplateColumns?: Property.GridTemplateColumns;
+  modelValue?: Date[] | Date | null | { month: number; year: number };
   "@update:model-value"?: (value: Date | Date[] | null | { month: number; year: number }) => void;
 }
 

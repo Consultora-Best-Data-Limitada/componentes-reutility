@@ -1,29 +1,27 @@
-import type CSS from "csstype";
-import type {AllowedComponentProps, ComponentCustomProps, VNodeProps, VNode} from "vue";
+import type { Property } from "csstype";
+import type { AllowedComponentProps, ComponentCustomProps, VNodeProps, VNode } from "vue";
 
 export declare interface CustomButtonProps {
-  color?: CSS.ColorProperty | CustomColor;
-  contentColor?: CSS.ColorProperty | CustomColor;
-  hoverColor?: CSS.ColorProperty | CustomColor;
-  activeColor?: CSS.ColorProperty | CustomColor;
+  loading?: boolean;
   outlined?: boolean;
-  width?: CSS.WidthProperty<string>;
-  height?: CSS.HeightProperty<string>;
   disabled?: boolean;
+  width?: Property.Width;
+  height?: Property.Height;
+  color?: Property.Color | CustomColor;
+  justifyItems?: Property.JustifyItems;
   appendIcon?: string | FigmaIconChoice;
   preppendIcon?: string | FigmaIconChoice;
-  justifyItems?: CSS.JustifyItemsProperty;
-  justifyContent?: CSS.JustifyContentProperty;
-  gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
-  loading?: boolean;
+  justifyContent?: Property.JustifyContent;
+  hoverColor?: Property.Color | CustomColor;
+  activeColor?: Property.Color | CustomColor;
+  contentColor?: Property.Color | CustomColor;
+  gridTemplateColumns?: Property.GridTemplateColumns;
   "@click"?: (ev: MouseEvent) => void;
 }
 
 export declare const ICustomButton: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CustomButtonProps;
   $slots: {
-    default?: (({Component}: {
-      Component: VNode;
-    }) => VNode[]) | undefined;
+    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
   };
 };

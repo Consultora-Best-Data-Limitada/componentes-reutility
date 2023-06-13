@@ -38,6 +38,7 @@ import { IAbsoluteContainer } from "./absoluteContainer";
 import { IRelativeContainer } from "./relativeContainer";
 import { ICustomTooltip } from "./customTooltip";
 import { IExpandableDataTableItem } from "./expandableDataTableItem";
+import { ImageInput } from "./imageInput";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -85,5 +86,6 @@ declare module "@vue/runtime-core" {
     RelativeContainer: typeof IRelativeContainer;
     CustomTooltip: typeof ICustomTooltip;
     ExpandableDataTableItem: typeof IExpandableDataTableItem;
+    ImageInput: ImageInput;
   }
 }

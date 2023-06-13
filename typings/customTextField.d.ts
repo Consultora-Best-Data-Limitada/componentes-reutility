@@ -1,30 +1,28 @@
-import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface CustomTextFieldProps {
-  placeholder: string;
-  modelValue?: string | number;
-  clearable?: boolean;
-  errorMessage?: string;
+  dark?: string;
+  mask?: string;
   disabled?: boolean;
   outlined?: boolean;
   readonly?: boolean;
-  type?: "email" | "phone" | "text" | "time" | "password";
-  dark?: string;
-  mask?: string;
+  placeholder: string;
+  clearable?: boolean;
   maskTokens?: string;
-  "@update:model-value"?: (value: string | number) => void;
-  "@keydown"?: (ev: KeyboardEvent) => void;
+  errorMessage?: string;
+  modelValue?: string | number;
+  type?: "email" | "phone" | "text" | "time" | "password";
+  "@blur"?: (ev: FocusEvent) => void;
+  "@focus"?: (ev: FocusEvent) => void;
   "@keyup"?: (ev: KeyboardEvent) => void;
   "@input"?: (ev: KeyboardEvent) => void;
-  "@focus"?: (ev: FocusEvent) => void;
-  "@blur"?: (ev: FocusEvent) => void;
+  "@keydown"?: (ev: KeyboardEvent) => void;
+  "@update:model-value"?: (value: string | number) => void;
 }
 
 export declare const ICustomTextField: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CustomTextFieldProps;
   $slots: {
-    append?: (({Component}: {
-      Component: VNode;
-    }) => VNode[]) | undefined;
+    append?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
   };
 };

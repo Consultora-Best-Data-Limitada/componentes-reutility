@@ -22,7 +22,7 @@ export default defineConfig({
     lib: {
       formats: ["es", "cjs"],
       name: 'ComponentesReutility',
-      entry: "./src/plugin/index.ts",
+      entry: "./src/index.ts",
       fileName: 'componentes-reutility',
     },
     rollupOptions: {

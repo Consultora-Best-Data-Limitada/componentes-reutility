@@ -1,11 +1,11 @@
-import type CSS from "csstype";
-import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { Property } from "csstype";
+import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface HeaderTabsProps {
   items: string[];
   modelValue: number;
-  columnGap?: CSS.ColumnGapProperty<string>;
-  color?: CSS.BackgroundColorProperty | CustomColor;
+  columnGap?: Property.ColumnGap;
+  color?: Property.BackgroundColor | CustomColor;
   "@update:model-value"?: (value: number) => void;
 }
 

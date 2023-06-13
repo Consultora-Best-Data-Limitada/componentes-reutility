@@ -1,0 +1,46 @@
+@mixin text-h1 {
+  font-weight: 800;
+  font-size: 2.375rem;
+  line-height: 2.75rem;
+  font-family: "Metropolis", sans-serif;
+}
+
+@mixin text-h2 {
+  font-weight: 800;
+  line-height: 2rem;
+  font-size: 1.5625rem;
+  font-family: "Metropolis", sans-serif;
+}
+
+@mixin text-subtitle-1 {
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  font-family: "Metropolis", sans-serif;
+}
+
+@mixin text-subtitle-2 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  font-family: "Metropolis", sans-serif;
+}
+
+@mixin text-body-1 {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-family: "Metropolis", sans-serif;
+}
+
+@mixin text-body-2 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  font-family: "Metropolis", sans-serif;
+}
+
+@mixin text-caption {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-family: "Metropolis", sans-serif;
+}

@@ -1,25 +1,25 @@
-import type CSS from "csstype";
+import type { Property } from "csstype";
 import type { AllowedComponentProps, ComponentCustomProps, VNodeProps, VNode } from "vue";
 
 export declare interface FormSelectProps {
   label: string;
-  errorMessage?: string;
-  placeholder: string;
+  dark?: boolean;
+  items: unknown[];
   itemValue?: string;
   itemTitle?: string;
-  returnObject?: boolean;
-  clearable?: boolean;
-  textMultiple?: string;
-  items: unknown[];
-  textTransform?: CSS.TextTransformProperty;
   multiple?: boolean;
   disabled?: boolean;
   readonly?: boolean;
-  modelValue?: string | number | Record<string, any> | unknown[] | null;
   outlined?: boolean;
-  gridTemplateColumns?: CSS.GridTemplateColumnsProperty<string>;
+  placeholder: string;
+  clearable?: boolean;
   searchable?: boolean;
-  dark?: boolean;
+  errorMessage?: string;
+  textMultiple?: string;
+  returnObject?: boolean;
+  textTransform?: Property.TextTransform;
+  gridTemplateColumns?: Property.GridTemplateColumns;
+  modelValue?: string | number | Record<string, any> | unknown[] | null;
   "@update:model-value"?: (value: string | number | Record<string, any> | unknown[] | null) => void;
 }
 

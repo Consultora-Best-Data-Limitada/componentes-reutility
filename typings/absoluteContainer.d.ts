@@ -1,28 +1,26 @@
-import type CSS from "csstype";
-import type {VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { Property } from "csstype";
+import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface AbsoluteContainerProps {
-  width?: CSS.WidthProperty<string | number>;
-  height?: CSS.HeightProperty<string | number>;
-  margin?: CSS.MarginProperty<string | number>;
-  padding?: CSS.PaddingProperty<string | number>;
-  backgroundColor?: CSS.BackgroundColorProperty | CustomColor;
-  borderRadius?: CSS.BorderRadiusProperty<string>;
-  boxShadow?: CSS.BoxShadowProperty;
-  overflow?: CSS.OverflowProperty;
-  top?: CSS.TopProperty<string>;
-  right?: CSS.RightProperty<string>;
-  bottom?: CSS.BottomProperty<string>;
-  left?: CSS.LeftProperty<string>;
-  transform?: CSS.TransformProperty;
+  top?: Property.Top;
+  left?: Property.Left;
+  width?: Property.Width;
+  right?: Property.Right;
+  height?: Property.Height;
+  margin?: Property.Margin;
+  bottom?: Property.Bottom;
   zIndex?: string | number;
+  padding?: Property.Padding;
+  overflow?: Property.Overflow;
+  boxShadow?: Property.BoxShadow;
+  transform?: Property.Transform;
+  borderRadius?: Property.BorderRadius;
+  backgroundColor?: Property.BackgroundColor | CustomColor;
 }
 
 export declare const IAbsoluteContainer: new () => {
   $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & AbsoluteContainerProps;
   $slots: {
-    default?: (({Component}: {
-      Component: VNode;
-    }) => VNode[]) | undefined;
+    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
   };
 };

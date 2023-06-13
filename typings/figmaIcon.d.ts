@@ -1,10 +1,10 @@
-import type CSS from "csstype";
-import type {AllowedComponentProps, ComponentCustomProps, VNodeProps} from "vue";
+import type { Property } from "csstype";
+import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
 
 export declare interface FontAwesomeIconProps {
   name: FigmaIconChoice;
-  color?: CSS.ColorProperty | CustomColor;
-  size: CSS.FontSizeProperty<string | number>;
+  size: Property.FontSize;
+  color?: Property.Color | CustomColor;
 }
 
 export declare const IFigmaIcon: new () => {
