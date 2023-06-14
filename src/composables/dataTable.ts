@@ -113,13 +113,17 @@ export const useDateTable = (items: Ref<DataTableItem[]>, itemsPerPage: Ref<numb
       sortOrder.value = "asc";
     }
     if (itemsPerPage.value !== null) return;
-    pagination.value = [];
-    await nextTick();
-    calculatePagination(el);
+    await recalculatePagination(el);
   }
 
   function isSortedBy(value: string) {
     return sortBy.value?.value === value;
+  }
+
+  async function recalculatePagination(el: HTMLTableSectionElement) {
+    pagination.value = [];
+    await nextTick();
+    calculatePagination(el);
   }
 
   function calculatePagination(el: HTMLTableSectionElement) {
@@ -160,5 +164,6 @@ export const useDateTable = (items: Ref<DataTableItem[]>, itemsPerPage: Ref<numb
     previousPage,
     setCurrentPage,
     calculatePagination,
+    recalculatePagination,
   };
 };

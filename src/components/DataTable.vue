@@ -221,11 +221,15 @@ const {
   previousPage,
   setCurrentPage,
   calculatePagination,
+  recalculatePagination,
 } = useDateTable(computedItems, computedItemsPerPage);
 
 // Mounted
 
-onMounted(onCalculatePagination);
+onMounted(() => {
+  if (!tableBodyRef.value || noCalculatePagination.value) return;
+  calculatePagination(tableBodyRef.value);
+});
 
 // Data
 
@@ -246,19 +250,16 @@ const tableClass = computed(() => ({
     props.stickyHead || props.stickyFirstColumn || props.stickyLastColumn,
 }));
 
-// Methods
-
-function onCalculatePagination() {
-  if (
+const noCalculatePagination = computed(() => {
+  return (
     props.stickyHead ||
     props.stickyLastColumn ||
     props.stickyFirstColumn ||
     props.itemsPerPage !== null
-  )
-    return;
-  if (!tableBodyRef.value) return;
-  calculatePagination(tableBodyRef.value);
-}
+  );
+});
+
+// Methods
 
 function checkSlot(name: string) {
   return !!slots[name];
@@ -320,7 +321,13 @@ function onClickRow(item: DataTableItem) {
 
 // Watchs
 
-watch(() => props.items, onCalculatePagination);
+watch(
+  () => props.items,
+  async () => {
+    if (!tableBodyRef.value || noCalculatePagination.value) return;
+    await recalculatePagination(tableBodyRef.value);
+  },
+);
 </script>
 
 <style scoped lang="scss">
