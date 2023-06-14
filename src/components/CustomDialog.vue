@@ -1,26 +1,17 @@
 <template>
-  <transition name="fade">
-    <div
-      v-if="model"
-      ref="container"
-      tabindex="-1"
-      :class="containerClass"
-      @keyup="clearClosing"
-      @mouseover="mouseOver"
-      @mouseup="clearClosing"
-      @keydown.esc="keydownEsc"
-      @mousedown="clickOutside"
-    >
-      <slot />
-    </div>
-  </transition>
+  <dialog
+    ref="dialogRef"
+    :class="dialogClass"
+    @click="onClick"
+    @keydown="onKeydown"
+    @animationend="onAnimationEnd"
+  >
+    <slot />
+  </dialog>
 </template>
 
 <script setup lang="ts">
-// Vue
-import { computed, ref } from "vue";
-
-// Definiciones
+import { computed, ref, watch } from "vue";
 
 const props = defineProps({
   modelValue: {
@@ -34,12 +25,20 @@ const props = defineProps({
 
 const emits = defineEmits(["update:model-value"]);
 
-// Data
+const dialogRef = ref<HTMLDialogElement | null>(null);
 
+const opening = ref(false);
 const closing = ref(false);
-const container = ref<HTMLDivElement | null>(null);
+const shaking = ref(false);
 
-// Computed
+const dialogClass = computed(() => {
+  return {
+    custom__dialog: true,
+    "custom__dialog--closing": closing.value,
+    "custom__dialog--shaking": shaking.value,
+    "custom__dialog--opening": opening.value,
+  };
+});
 
 const model = computed({
   get() {
@@ -50,67 +49,95 @@ const model = computed({
   },
 });
 
-const containerClass = computed(() => ({
-  "custom-dialog__container": true,
-  "custom-dialog__container--closing": closing.value,
-}));
-
-// Methods
-
-const keydownEsc = () => {
-  if (props.persistent) {
+watch(model, (value: boolean) => {
+  if (!dialogRef.value) return;
+  if (value) {
+    opening.value = true;
+    dialogRef.value.showModal();
+  } else {
     closing.value = true;
+  }
+});
+
+function startClosingAnimation() {
+  if (props.persistent) {
+    shaking.value = true;
   } else {
     model.value = false;
   }
-};
+}
 
-const clearClosing = () => {
-  closing.value = false;
-};
-
-const mouseOver = () => {
-  if (!container.value) return;
-  container.value.focus();
-};
-
-const clickOutside = (ev: MouseEvent) => {
-  if (ev.currentTarget === ev.target) {
-    if (props.persistent) {
-      closing.value = true;
-    } else {
-      model.value = false;
-    }
+function onClick(ev: MouseEvent) {
+  if (ev.target === ev.currentTarget) {
+    startClosingAnimation();
   }
-};
+}
+
+function onAnimationEnd() {
+  if (shaking.value) {
+    shaking.value = false;
+  } else if (closing.value) {
+    closing.value = false;
+    if (!dialogRef.value) return;
+    dialogRef.value.close();
+  } else if (opening.value) {
+    opening.value = false;
+  }
+}
+
+function onKeydown(ev: KeyboardEvent) {
+  if (ev.key !== "Escape") return;
+  ev.preventDefault();
+  startClosingAnimation();
+}
 </script>
 
 <style scoped lang="scss">
-.custom-dialog__container {
-  top: 0;
-  left: 0;
-  width: 100vw;
-  z-index: 2000;
+.custom__dialog {
+  margin: auto;
+  border: none;
   outline: none;
-  height: 100vh;
-  display: flex;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(5px);
-  background-color: rgba(var(--neutro-3), 0.5);
+  padding: 2rem;
+  background: transparent;
+  --animation-in-settings: 500ms cubic-bezier(0.25, 0, 0.3, 1) normal;
+  --animation-out-settings: 500ms cubic-bezier(0.5, -0.5, 0.1, 1.5) normal;
 
-  &--closing :deep(> *) {
-    animation: scale 100ms ease;
+  &::backdrop {
+    background: rgba(196, 211, 229, 0.5);
+    backdrop-filter: blur(5px);
+  }
+
+  &--opening {
+    animation: fadein var(--animation-in-settings);
+
+    &::backdrop {
+      animation: fadein var(--animation-in-settings);
+    }
+  }
+
+  &--closing {
+    animation: minimize var(--animation-out-settings);
+  }
+
+  &--shaking {
+    animation: scale 100ms ease !important;
   }
 }
 
-.fade-enter-active {
-  animation: fade 300ms ease;
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.fade-leave-active {
-  animation: fade 300ms reverse ease;
+@keyframes minimize {
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
 }
 
 @keyframes scale {
@@ -119,15 +146,6 @@ const clickOutside = (ev: MouseEvent) => {
   }
   to {
     transform: scale(1.05);
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 </style>
