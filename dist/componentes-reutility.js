@@ -11367,10 +11367,10 @@ const Co = /* @__PURE__ */ ke(Yh, [["__scopeId", "data-v-35d7f4fd"]]), Vh = { cl
   setup(e, { emit: t }) {
     const n = e;
     xe((c) => ({
-      a5aed41a: e.height,
-      "5f868142": e.maxHeight,
-      "55dad0ee": e.backgroundColor,
-      "6bc836de": e.gridTemplateColumns
+      "732f1607": e.height,
+      "3eaf56cb": e.maxHeight,
+      "4418edf5": e.backgroundColor,
+      "07f924fd": e.gridTemplateColumns
     }));
     const r = k(() => n.items), a = k(() => n.itemsPerPage), o = pt(), {
       pages: i,
@@ -11446,7 +11446,7 @@ const Co = /* @__PURE__ */ ke(Yh, [["__scopeId", "data-v-35d7f4fd"]]), Vh = { cl
     return ut(
       () => n.items,
       async () => {
-        console.log(n.items), !(!K.value || R.value) && await q(K.value);
+        !K.value || R.value || await q(K.value);
       }
     ), (c, S) => (y(), O("div", Vh, [
       H("table", {
@@ -11548,7 +11548,7 @@ const Co = /* @__PURE__ */ ke(Yh, [["__scopeId", "data-v-35d7f4fd"]]), Vh = { cl
     ]));
   }
 });
-const Gh = /* @__PURE__ */ ke(qh, [["__scopeId", "data-v-29e632ba"]]), Qh = /* @__PURE__ */ fe({
+const Gh = /* @__PURE__ */ ke(qh, [["__scopeId", "data-v-a1f0ed3d"]]), Qh = /* @__PURE__ */ fe({
   __name: "DataTableItem",
   props: {
     disabled: {
