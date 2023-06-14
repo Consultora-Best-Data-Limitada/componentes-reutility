@@ -1,28 +1,59 @@
-import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { DefineComponent, PropType } from "vue";
 
-export declare interface CustomTextFieldProps {
-  dark?: string;
-  mask?: string;
-  disabled?: boolean;
-  outlined?: boolean;
-  readonly?: boolean;
-  placeholder: string;
-  clearable?: boolean;
-  maskTokens?: string;
-  errorMessage?: string;
-  modelValue?: string | number;
-  type?: "email" | "phone" | "text" | "time" | "password";
-  "@blur"?: (ev: FocusEvent) => void;
-  "@focus"?: (ev: FocusEvent) => void;
-  "@keyup"?: (ev: KeyboardEvent) => void;
-  "@input"?: (ev: KeyboardEvent) => void;
-  "@keydown"?: (ev: KeyboardEvent) => void;
-  "@update:model-value"?: (value: string | number) => void;
-}
-
-export declare const ICustomTextField: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CustomTextFieldProps;
-  $slots: {
-    append?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
-  };
-};
+export type CustomTextField = DefineComponent<
+  {
+    placeholder: {
+      type: StringConstructor;
+      required: true;
+    };
+    modelValue: {
+      default: "";
+      type: [StringConstructor, NumberConstructor];
+    };
+    clearable: {
+      type: BooleanConstructor;
+    };
+    errorMessage: {
+      default: "";
+      type: StringConstructor;
+    };
+    disabled: {
+      type: BooleanConstructor;
+    };
+    outlined: {
+      type: BooleanConstructor;
+    };
+    readonly: {
+      type: BooleanConstructor;
+    };
+    type: {
+      default: "text";
+      type: PropType<"email" | "phone" | "text" | "time" | "password">;
+    };
+    dark: {
+      type: BooleanConstructor;
+    };
+    mask: {
+      default: "";
+      type: StringConstructor;
+    };
+    maskTokens: {
+      default: "";
+      type: StringConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    blur: void;
+    keyup: void;
+    input: void;
+    focus: void;
+    keydown: void;
+    "update:model-value": void;
+  }
+>;

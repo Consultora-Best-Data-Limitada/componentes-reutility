@@ -1,31 +1,81 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps, VNode } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface FormSelectProps {
-  label: string;
-  dark?: boolean;
-  items: unknown[];
-  itemValue?: string;
-  itemTitle?: string;
-  multiple?: boolean;
-  disabled?: boolean;
-  readonly?: boolean;
-  outlined?: boolean;
-  placeholder: string;
-  clearable?: boolean;
-  searchable?: boolean;
-  errorMessage?: string;
-  textMultiple?: string;
-  returnObject?: boolean;
-  textTransform?: Property.TextTransform;
-  gridTemplateColumns?: Property.GridTemplateColumns;
-  modelValue?: string | number | Record<string, any> | unknown[] | null;
-  "@update:model-value"?: (value: string | number | Record<string, any> | unknown[] | null) => void;
-}
-
-export declare const IFormSelect: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FormSelectProps;
-  $slots: {
-    "append-item"?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
-  };
-};
+export type FormSelect = DefineComponent<
+  {
+    label: {
+      type: StringConstructor;
+      required: true;
+    };
+    errorMessage: {
+      default: "";
+      type: StringConstructor;
+    };
+    placeholder: {
+      type: StringConstructor;
+      required: true;
+    };
+    itemValue: {
+      type: StringConstructor;
+      default: "value";
+    };
+    itemTitle: {
+      type: StringConstructor;
+      default: "title";
+    };
+    returnObject: {
+      type: BooleanConstructor;
+      default: false;
+    };
+    clearable: {
+      type: BooleanConstructor;
+    };
+    textMultiple: {
+      default: "";
+      type: StringConstructor;
+    };
+    items: {
+      required: true;
+      type: PropType<unknown[]>;
+    };
+    textTransform: {
+      default: "initial";
+      type: PropType<Property.TextTransform>;
+    };
+    multiple: {
+      type: BooleanConstructor;
+    };
+    disabled: {
+      type: BooleanConstructor;
+    };
+    readonly: {
+      type: BooleanConstructor;
+    };
+    modelValue: {
+      default: null;
+      type: PropType<string | number | Record<string, any> | unknown[] | null>;
+    };
+    outlined: {
+      type: BooleanConstructor;
+    };
+    gridTemplateColumns: {
+      default: "1fr 3fr";
+      type: PropType<Property.GridTemplateColumns>;
+    };
+    searchable: {
+      type: BooleanConstructor;
+    };
+    dark: {
+      type: BooleanConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "update:model-value": void;
+  }
+>;

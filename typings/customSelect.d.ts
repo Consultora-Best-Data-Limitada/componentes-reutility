@@ -1,29 +1,73 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps, VNode } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface CustomSelectProps {
-  dark?: boolean;
-  items: unknown[];
-  itemValue?: string;
-  itemTitle?: string;
-  multiple?: boolean;
-  disabled?: boolean;
-  readonly?: boolean;
-  outlined?: boolean;
-  placeholder: string;
-  clearable?: boolean;
-  searchable?: boolean;
-  errorMessage?: string;
-  textMultiple?: string;
-  returnObject?: boolean;
-  textTransform?: Property.TextTransform;
-  modelValue?: string | number | Record<string, any> | unknown[] | null;
-  "@update:model-value"?: (value: string | number | Record<string, any> | unknown[] | null) => void;
-}
-
-export declare const ICustomSelect: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CustomSelectProps;
-  $slots: {
-    "append-item"?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
-  };
-};
+export type CustomSelect = DefineComponent<
+  {
+    errorMessage: {
+      default: "";
+      type: StringConstructor;
+    };
+    placeholder: {
+      type: StringConstructor;
+      required: true;
+    };
+    itemValue: {
+      type: StringConstructor;
+      default: "value";
+    };
+    itemTitle: {
+      type: StringConstructor;
+      default: "title";
+    };
+    returnObject: {
+      type: BooleanConstructor;
+      default: false;
+    };
+    clearable: {
+      type: BooleanConstructor;
+    };
+    textMultiple: {
+      default: "";
+      type: StringConstructor;
+    };
+    items: {
+      required: true;
+      type: PropType<unknown[]>;
+    };
+    textTransform: {
+      default: "initial";
+      type: PropType<Property.TextTransform>;
+    };
+    multiple: {
+      type: BooleanConstructor;
+    };
+    disabled: {
+      type: BooleanConstructor;
+    };
+    readonly: {
+      type: BooleanConstructor;
+    };
+    modelValue: {
+      default: null;
+      type: PropType<string | number | Record<string, any> | unknown[] | null>;
+    };
+    outlined: {
+      type: BooleanConstructor;
+    };
+    searchable: {
+      type: BooleanConstructor;
+    };
+    dark: {
+      type: BooleanConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "update:model-value": void;
+  }
+>;

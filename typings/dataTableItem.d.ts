@@ -1,16 +1,19 @@
 import type { Property } from "csstype";
-import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface DataTableItemProps {
-  disabled?: boolean;
-  selected?: boolean;
-  textAlign?: Property.TextAlign;
-  textTransform?: Property.TextTransform;
-}
-
-export declare const IDataTableItem: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & DataTableItemProps;
-  $slots: {
-    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
+export type DataTableItem = DefineComponent<{
+  disabled: {
+    type: BooleanConstructor;
   };
-};
+  selected: {
+    type: BooleanConstructor;
+  };
+  textTransform: {
+    default: "initial";
+    type: PropType<Property.TextTransform>;
+  };
+  textAlign: {
+    default: "center";
+    type: PropType<Property.TextAlign>;
+  };
+}>;

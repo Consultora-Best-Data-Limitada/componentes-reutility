@@ -1,21 +1,58 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface PageSwitchProps {
-  label?: string;
-  tooltip?: string;
-  disabled?: boolean;
-  readonly?: boolean;
-  modelValue: boolean;
-  width?: Property.Width;
-  color?: Property.Color;
-  activeColor?: Property.Color;
-  labelWeight?: Property.FontWeight;
-  justifyContent?: Property.JustifyContent;
-  gridTemplateColumns?: Property.GridTemplateColumns;
-  "@update:model-value"?: (value: boolean) => void;
-}
-
-export declare const IPageSwitch: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & PageSwitchProps;
-};
+export type PageSwitch = DefineComponent<
+  {
+    modelValue: {
+      type: BooleanConstructor;
+      required: true;
+    };
+    label: {
+      default: "";
+      type: StringConstructor;
+    };
+    tooltip: {
+      default: "";
+      type: StringConstructor;
+    };
+    disabled: {
+      type: BooleanConstructor;
+    };
+    activeColor: {
+      default: "acento-principal";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    width: {
+      default: "1.5rem";
+      type: PropType<Property.Width>;
+    };
+    color: {
+      default: "neutro-4";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    readonly: {
+      type: BooleanConstructor;
+    };
+    labelWeight: {
+      default: 600;
+      type: PropType<Property.FontWeight>;
+    };
+    gridTemplateColumns: {
+      default: "1fr auto";
+      type: PropType<Property.GridTemplateColumns>;
+    };
+    justifyContent: {
+      default: "initial";
+      type: PropType<Property.JustifyContent>;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "update:model-value": void;
+  }
+>;

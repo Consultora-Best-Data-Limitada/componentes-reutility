@@ -1,19 +1,50 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface CheckBoxProps {
-  readonly?: boolean;
-  disabled?: boolean;
-  modelValue: boolean;
-  boxIconSize?: Property.FontSize;
-  boxIcon?: string | FigmaIconChoice;
-  checkedIconSize?: Property.FontSize;
-  checkedIcon?: string | FigmaIconChoice;
-  boxColor?: Property.Color | CustomColor;
-  checkedColor?: Property.Color | CustomColor;
-  "@update:model-value"?: (value: boolean) => void;
-}
-
-export declare const ICheckBox: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CheckBoxProps;
-};
+export type CheckBox = DefineComponent<
+  {
+    boxIcon: {
+      type: StringConstructor;
+      default: "fm-square-outlined";
+    };
+    boxColor: {
+      default: "acento-principal";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    checkedColor: {
+      default: "acento-principal";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    readonly: {
+      type: BooleanConstructor;
+    };
+    disabled: {
+      type: BooleanConstructor;
+    };
+    boxIconSize: {
+      default: "1rem";
+      type: PropType<Property.FontSize>;
+    };
+    checkedIcon: {
+      default: "fm-square-check";
+      type: StringConstructor;
+    };
+    checkedIconSize: {
+      default: "1rem";
+      type: PropType<Property.FontSize>;
+    };
+    modelValue: {
+      type: BooleanConstructor;
+      required: true;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "update:model-value": void;
+  }
+>;

@@ -1,19 +1,51 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface ImageContainerProps {
-  src: string;
-  alt?: string;
-  clickable?: boolean;
-  width?: Property.Width;
-  height?: Property.Height;
-  objectFit?: Property.ObjectFit;
-  aspectRatio?: Property.AspectRatio;
-  borderRadius?: Property.BorderRadius;
-  objectPosition?: Property.ObjectPosition;
-  "@click"?: (ev: MouseEvent) => void;
-}
-
-export declare const IImageContainer: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & ImageContainerProps;
-};
+export type ImageContainer = DefineComponent<
+  {
+    src: {
+      type: StringConstructor;
+      required: true;
+    };
+    alt: {
+      type: StringConstructor;
+      default: "Image";
+    };
+    objectPosition: {
+      default: "initial";
+      type: PropType<Property.ObjectPosition>;
+    };
+    width: {
+      default: "initial";
+      type: PropType<Property.Width>;
+    };
+    height: {
+      default: "initial";
+      type: PropType<Property.Height>;
+    };
+    objectFit: {
+      default: "initial";
+      type: PropType<Property.ObjectFit>;
+    };
+    aspectRatio: {
+      default: "initial";
+      type: PropType<Property.AspectRatio>;
+    };
+    clickable: {
+      type: BooleanConstructor;
+    };
+    borderRadius: {
+      default: "initial";
+      type: PropType<Property.BorderRadius>;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    click: void;
+  }
+>;

@@ -1,23 +1,49 @@
 import type { Property } from "csstype";
-import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface GridRowProps {
-  width?: Property.Width;
-  height?: Property.Height;
-  gridRow?: Property.GridRow;
-  padding?: Property.Padding;
-  columnGap?: Property.ColumnGap;
-  gridColumn?: Property.GridColumn;
-  alignItems?: Property.AlignItems;
-  justifyContent?: Property.JustifyContent;
-  gridAutoColumns?: Property.GridAutoColumns;
-  gridTemplateColumns?: Property.GridTemplateColumns;
-  backgroundColor?: Property.BackgroundColor | CustomColor;
-}
-
-export declare const IGridRow: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & GridRowProps;
-  $slots: {
-    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
+export type GridRow = DefineComponent<{
+  width: {
+    default: "initial";
+    type: PropType<Property.Width>;
   };
-};
+  backgroundColor: {
+    default: "initial";
+    type: PropType<Property.BackgroundColor | CustomColor>;
+  };
+  gridColumn: {
+    default: "initial";
+    type: PropType<Property.GridColumn>;
+  };
+  gridRow: {
+    default: "initial";
+    type: PropType<Property.GridRow>;
+  };
+  padding: {
+    default: "initial";
+    type: PropType<Property.Padding>;
+  };
+  columnGap: {
+    default: "initial";
+    type: PropType<Property.ColumnGap>;
+  };
+  gridTemplateColumns: {
+    default: "initial";
+    type: PropType<Property.GridTemplateColumns>;
+  };
+  gridAutoColumns: {
+    default: "initial";
+    type: PropType<Property.GridAutoColumns>;
+  };
+  justifyContent: {
+    default: "initial";
+    type: PropType<Property.JustifyContent>;
+  };
+  alignItems: {
+    default: "initial";
+    type: PropType<Property.AlignItems>;
+  };
+  height: {
+    default: "initial";
+    type: PropType<Property.Height>;
+  };
+}>;

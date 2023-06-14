@@ -1,14 +1,31 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface ColorPickerProps {
-  dark?: boolean;
-  modelValue: string;
-  pickableColors?: string[];
-  background?: Property.BackgroundColor | CustomColor;
-  "@update:model-value": (value: string) => void;
-}
-
-export declare const IColorPicker: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & ColorPickerProps;
-};
+export type ColorPicker = DefineComponent<
+  {
+    modelValue: {
+      type: StringConstructor;
+      required: true;
+    };
+    background: {
+      default: "neutro-1";
+      type: PropType<Property.BackgroundColor | CustomColor>;
+    };
+    dark: {
+      type: BooleanConstructor;
+    };
+    pickableColors: {
+      type: PropType<string[]>;
+      default: () => [];
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "update:model-value": void;
+  }
+>;

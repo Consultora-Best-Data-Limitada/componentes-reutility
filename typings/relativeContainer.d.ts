@@ -1,20 +1,37 @@
 import type { Property } from "csstype";
-import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface RelativeContainerProps {
-  width?: Property.Width;
-  height?: Property.Height;
-  margin?: Property.Margin;
-  padding?: Property.Padding;
-  overflow?: Property.Overflow;
-  boxShadow?: Property.BoxShadow;
-  borderRadius?: Property.BorderRadius;
-  backgroundColor?: Property.BackgroundColor | CustomColor;
-}
-
-export declare const IRelativeContainer: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & RelativeContainerProps;
-  $slots: {
-    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
+export type RelativeContainer = DefineComponent<{
+  width: {
+    default: "initial";
+    type: PropType<Property.Width>;
   };
-};
+  height: {
+    default: "initial";
+    type: PropType<Property.Height>;
+  };
+  margin: {
+    default: "initial";
+    type: PropType<Property.Margin>;
+  };
+  padding: {
+    default: "initial";
+    type: PropType<Property.Padding>;
+  };
+  backgroundColor: {
+    default: "initial";
+    type: PropType<Property.BackgroundColor | CustomColor>;
+  };
+  borderRadius: {
+    default: "initial";
+    type: PropType<Property.BorderRadius>;
+  };
+  boxShadow: {
+    default: "initial";
+    type: PropType<Property.BoxShadow>;
+  };
+  overflow: {
+    default: "initial";
+    type: PropType<Property.Overflow>;
+  };
+}>;

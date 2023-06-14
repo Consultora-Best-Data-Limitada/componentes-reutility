@@ -1,19 +1,27 @@
 import type { Property } from "csstype";
-import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface ExpandableDataTableItemProps {
-  opened?: boolean;
-  title: string | number;
-  showActiveStyle?: boolean;
-  textTransform?: Property.TextTransform;
-  itemColor?: Property.Color | CustomColor;
-  items: (string | number)[] | Record<string, string | number>;
-}
-
-export declare const IExpandableDataTableItem: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & ExpandableDataTableItemProps;
-  $slots: {
-    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
-    value?: (({ Component, value }: { Component: VNode; value: any }) => VNode[]) | undefined;
+export type ExpandableDataTableItem = DefineComponent<{
+  title: {
+    required: true;
+    type: [NumberConstructor, NumberConstructor];
   };
-};
+  opened: {
+    type: BooleanConstructor;
+  };
+  textTransform: {
+    default: "capitalize";
+    type: PropType<Property.TextTransform>;
+  };
+  items: {
+    required: true;
+    type: PropType<string[] | Record<string, string | number>>;
+  };
+  showActiveStyle: {
+    type: BooleanConstructor;
+  };
+  itemColor: {
+    default: "neutro-4";
+    type: PropType<Property.Color | CustomColor>;
+  };
+}>;

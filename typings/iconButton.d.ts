@@ -1,21 +1,46 @@
 import type { Property } from "csstype";
-import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface IconButtonProps {
-  disabled?: boolean;
-  inactive?: boolean;
-  size?: Property.Width;
-  icon: string | FigmaIconChoice;
-  containerSize?: Property.Width;
-  color?: Property.Color | CustomColor;
-  borderRadius?: Property.BorderRadius;
-  backgroundColor?: Property.BackgroundColor | CustomColor;
-  "@click"?: (ev: MouseEvent) => void;
-}
-
-export declare const IIconButton: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & IconButtonProps;
-  $slots: {
-    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
-  };
-};
+export type IconButton = DefineComponent<
+  {
+    color: {
+      default: "black";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    icon: {
+      type: StringConstructor;
+      required: true;
+    };
+    size: {
+      default: "20px";
+      type: PropType<Property.Width>;
+    };
+    disabled: {
+      type: BooleanConstructor;
+    };
+    backgroundColor: {
+      default: "";
+      type: PropType<Property.BackgroundColor | CustomColor>;
+    };
+    containerSize: {
+      default: "initial";
+      type: PropType<Property.Width>;
+    };
+    borderRadius: {
+      default: "1rem";
+      type: PropType<Property.BorderRadius>;
+    };
+    inactive: {
+      type: BooleanConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    click: void;
+  }
+>;

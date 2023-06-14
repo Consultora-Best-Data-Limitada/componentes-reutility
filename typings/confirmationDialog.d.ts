@@ -1,16 +1,34 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { DefineComponent, PropType } from "vue";
 
-export declare interface ConfirmationDialogProps {
-  title: string;
-  subtitle?: string;
-  modelValue: boolean;
-  width?: Property.Width;
-  "@click:no"?: () => void;
-  "@click:yes"?: () => void;
-  "@update:model-value"?: (value: boolean) => void;
-}
-
-export declare const IConfirmationDialog: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & ConfirmationDialogProps;
-};
+export type ConfirmationDialog = DefineComponent<
+  {
+    title: {
+      type: StringConstructor;
+      required: true;
+    };
+    subtitle: {
+      default: "";
+      type: StringConstructor;
+    };
+    modelValue: {
+      type: BooleanConstructor;
+      required: true;
+    };
+    width: {
+      default: "520px";
+      type: PropType<Property.Width>;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "click:no": void;
+    "click:yes": void;
+    "update:model-value": void;
+  }
+>;

@@ -1,19 +1,43 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps, VNode } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface ExpansionPanelProps {
-  outlined?: boolean;
-  modelValue?: boolean;
-  transitionDuration?: string;
-  borderRadius?: Property.BorderRadius;
-  backgroundColor?: CustomColor | Property.BackgroundColor;
-  transitionTimingFunction?: Property.TransitionTimingFunction;
-}
-
-export declare const IExpansionPanel: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & ExpansionPanelProps;
-  $slots: {
-    default?: (({ Component, close }: { Component: VNode }) => VNode[]) | undefined;
-    activator?: (({ Component }: { Component: VNode; opened: boolean }) => VNode[]) | undefined;
-  };
-};
+export type ExpansionPanel = DefineComponent<
+  {
+    outlined: {
+      type: BooleanConstructor;
+    };
+    backgroundColor: {
+      default: "neutro-1";
+      type: PropType<CustomColor | Property.BackgroundColor>;
+    };
+    borderRadius: {
+      default: "initial";
+      type: PropType<Property.BorderRadius>;
+    };
+    modelValue: {
+      default: undefined;
+      type: BooleanConstructor;
+    };
+    transitionDuration: {
+      default: "250ms";
+      type: StringConstructor;
+    };
+    transitionTimingFunction: {
+      default: "ease-in-out";
+      type: PropType<Property.TransitionTimingFunction>;
+    };
+    boxShadow: {
+      default: "initial";
+      type: PropType<Property.BoxShadow>;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "update:model-value": void;
+  }
+>;

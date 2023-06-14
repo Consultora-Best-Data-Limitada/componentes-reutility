@@ -1,13 +1,21 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface InformationTextProps {
-  label: string;
-  padding?: Property.Padding;
-  textTransform?: Property.TextTransform;
-  gridTemplateColumns?: Property.GridTemplateColumns;
-}
-
-export declare const IInformationText: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & InformationTextProps;
-};
+export type InformationText = DefineComponent<{
+  label: {
+    type: StringConstructor;
+    required: true;
+  };
+  gridTemplateColumns: {
+    default: "1fr 3fr";
+    type: PropType<Property.GridTemplateColumns>;
+  };
+  padding: {
+    default: "0.75rem 0";
+    type: PropType<Property.Padding>;
+  };
+  textTransform: {
+    default: "capitalize";
+    type: PropType<Property.TextTransform>;
+  };
+}>;

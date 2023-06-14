@@ -190,6 +190,7 @@ const onClick = (ev: MouseEvent) => {
   align-items: center;
   width: v-bind(width);
   height: v-bind(height);
+  grid-auto-flow: column;
   border: 2px solid transparent;
   color: v-bind(contentColorInner);
   justify-items: v-bind(justifyItems);

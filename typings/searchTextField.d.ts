@@ -1,11 +1,23 @@
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { DefineComponent } from "vue";
 
-export declare interface SearchTextFieldProps {
-  placeholder: string;
-  modelValue?: string;
-  "@update:model-value"?: (value: string) => void;
-}
-
-export declare const ISearchTextField: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & SearchTextFieldProps;
-};
+export type SearchTextField = DefineComponent<
+  {
+    placeholder: {
+      type: StringConstructor;
+      required: true;
+    };
+    modelValue: {
+      default: "";
+      type: StringConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "update:model-value";
+  }
+>;

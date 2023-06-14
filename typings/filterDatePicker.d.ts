@@ -1,17 +1,44 @@
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface FilterDatePickerProps {
-  label: string;
-  range?: boolean;
-  clearable?: boolean;
-  placeholder?: string;
-  monthPicker?: boolean;
-  maxDate?: string | Date;
-  minDate?: string | Date;
-  modelValue?: Date[] | Date | null | { month: number; year: number };
-  "@update:model-value"?: (value: Date | Date[] | null | { month: number; year: number }) => void;
-}
-
-export declare const IFilterDatePicker: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FilterDatePickerProps;
-};
+export type FilterDatePicker = DefineComponent<
+  {
+    label: {
+      type: StringConstructor;
+      required: true;
+    };
+    placeholder: {
+      default: "";
+      type: StringConstructor;
+    };
+    modelValue: {
+      default: null;
+      type: PropType<Date[] | Date | null | DatePickerMonthValue>;
+    };
+    range: {
+      type: BooleanConstructor;
+    };
+    maxDate: {
+      default: "";
+      type: [StringConstructor, DateConstructor];
+    };
+    minDate: {
+      default: "";
+      type: [StringConstructor, DateConstructor];
+    };
+    monthPicker: {
+      type: BooleanConstructor;
+    };
+    clearable: {
+      type: BooleanConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "update:model-value": void;
+  }
+>;

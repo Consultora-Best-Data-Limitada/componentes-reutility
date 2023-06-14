@@ -1,31 +1,68 @@
 import type { Property } from "csstype";
-import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface FormTextFieldProps {
-  label: string;
-  mask?: string;
-  dark?: boolean;
-  readonly?: boolean;
-  disabled?: boolean;
-  outlined?: boolean;
-  placeholder: string;
-  clearable?: boolean;
-  maskTokens?: string;
-  errorMessage?: string;
-  modelValue?: string | number;
-  gridTemplateColumns?: Property.GridTemplateColumns;
-  type?: "email" | "phone" | "text" | "time" | "password";
-  "@blur"?: (ev: FocusEvent) => void;
-  "@focus"?: (ev: FocusEvent) => void;
-  "@keyup"?: (ev: KeyboardEvent) => void;
-  "@input"?: (ev: KeyboardEvent) => void;
-  "@keydown"?: (ev: KeyboardEvent) => void;
-  "@update:model-value"?: (value: string | number) => void;
-}
-
-export declare const IFormTextField: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FormTextFieldProps;
-  $slots: {
-    append?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
-  };
-};
+export type FormTextField = DefineComponent<
+  {
+    modelValue: {
+      default: "";
+      type: [StringConstructor, NumberConstructor];
+    };
+    label: {
+      type: StringConstructor;
+      required: true;
+    };
+    placeholder: {
+      type: StringConstructor;
+      required: true;
+    };
+    errorMessage: {
+      default: "";
+      type: StringConstructor;
+    };
+    readonly: {
+      type: BooleanConstructor;
+    };
+    dark: {
+      type: BooleanConstructor;
+    };
+    disabled: {
+      type: BooleanConstructor;
+    };
+    outlined: {
+      type: BooleanConstructor;
+    };
+    clearable: {
+      type: BooleanConstructor;
+    };
+    gridTemplateColumns: {
+      default: "1fr 3fr";
+      type: PropType<Property.GridTemplateColumns>;
+    };
+    type: {
+      default: "text";
+      type: PropType<"email" | "phone" | "text" | "time" | "password">;
+    };
+    mask: {
+      default: "";
+      type: StringConstructor;
+    };
+    maskTokens: {
+      default: "";
+      type: StringConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    blur: void;
+    keyup: void;
+    input: void;
+    focus: void;
+    keydown: void;
+    "update:model-value": void;
+  }
+>;

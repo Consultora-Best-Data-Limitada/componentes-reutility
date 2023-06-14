@@ -1,24 +1,65 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface FormDatePickerProps {
-  label: string;
-  dark?: boolean;
-  range?: boolean;
-  disabled?: boolean;
-  readonly?: boolean;
-  outlined?: boolean;
-  placeholder: string;
-  clearable?: boolean;
-  errorMessage?: string;
-  monthPicker?: boolean;
-  maxDate?: string | Date;
-  minDate?: string | Date;
-  gridTemplateColumns?: Property.GridTemplateColumns;
-  modelValue?: Date[] | Date | null | { month: number; year: number };
-  "@update:model-value"?: (value: Date | Date[] | null | { month: number; year: number }) => void;
-}
-
-export declare const IFormDatePicker: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FormDatePickerProps;
-};
+export type FormDatePicker = DefineComponent<
+  {
+    label: {
+      type: StringConstructor;
+      required: true;
+    };
+    errorMessage: {
+      default: "";
+      type: StringConstructor;
+    };
+    placeholder: {
+      type: StringConstructor;
+      required: true;
+    };
+    clearable: {
+      type: BooleanConstructor;
+    };
+    range: {
+      type: BooleanConstructor;
+    };
+    disabled: {
+      type: BooleanConstructor;
+    };
+    readonly: {
+      type: BooleanConstructor;
+    };
+    modelValue: {
+      default: null;
+      type: PropType<Date[] | Date | null | DatePickerMonthValue>;
+    };
+    outlined: {
+      type: BooleanConstructor;
+    };
+    gridTemplateColumns: {
+      default: "1fr 3fr";
+      type: PropType<Property.GridTemplateColumns>;
+    };
+    maxDate: {
+      default: "";
+      type: [StringConstructor, DateConstructor];
+    };
+    minDate: {
+      default: "";
+      type: [StringConstructor, DateConstructor];
+    };
+    dark: {
+      type: BooleanConstructor;
+    };
+    monthPicker: {
+      type: BooleanConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "update:model-value": void;
+  }
+>;

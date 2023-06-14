@@ -1,27 +1,69 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps, VNode } from "vue";
+import type { DefineComponent, PropType } from "vue";
 
-export declare interface CustomButtonProps {
-  loading?: boolean;
-  outlined?: boolean;
-  disabled?: boolean;
-  width?: Property.Width;
-  height?: Property.Height;
-  color?: Property.Color | CustomColor;
-  justifyItems?: Property.JustifyItems;
-  appendIcon?: string | FigmaIconChoice;
-  preppendIcon?: string | FigmaIconChoice;
-  justifyContent?: Property.JustifyContent;
-  hoverColor?: Property.Color | CustomColor;
-  activeColor?: Property.Color | CustomColor;
-  contentColor?: Property.Color | CustomColor;
-  gridTemplateColumns?: Property.GridTemplateColumns;
-  "@click"?: (ev: MouseEvent) => void;
-}
-
-export declare const ICustomButton: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & CustomButtonProps;
-  $slots: {
-    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
-  };
-};
+export type CustomButton = DefineComponent<
+  {
+    color: {
+      default: "#000000";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    contentColor: {
+      default: "#ffffff";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    hoverColor: {
+      default: "";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    activeColor: {
+      default: "";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    outlined: {
+      type: BooleanConstructor;
+    };
+    width: {
+      default: "initial";
+      type: PropType<Property.Width>;
+    };
+    height: {
+      default: "2.5rem";
+      type: PropType<Property.Height>;
+    };
+    disabled: {
+      type: BooleanConstructor;
+    };
+    appendIcon: {
+      default: "initial";
+      type: StringConstructor;
+    };
+    preppendIcon: {
+      default: "initial";
+      type: StringConstructor;
+    };
+    justifyContent: {
+      default: "center";
+      type: PropType<Property.JustifyContent>;
+    };
+    justifyItems: {
+      default: "initial";
+      type: PropType<Property.JustifyItems>;
+    };
+    gridTemplateColumns: {
+      default: "initial";
+      type: PropType<Property.GridTemplateColumns>;
+    };
+    loading: {
+      type: BooleanConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    click: void;
+  }
+>;

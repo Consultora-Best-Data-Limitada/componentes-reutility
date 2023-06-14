@@ -1,24 +1,59 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps, VNode } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface FilterSelectProps {
-  label: string;
-  items: unknown[];
-  itemValue?: string;
-  itemTitle?: string;
-  multiple?: boolean;
-  placeholder: string;
-  searchable?: boolean;
-  textMultiple?: string;
-  returnObject?: boolean;
-  textTransform?: Property.TextTransform;
-  modelValue?: string | number | Record<string, any> | unknown[] | null;
-  "@update:model-value"?: (value: string | number | Record<string, any> | unknown[] | null) => void;
-}
-
-export declare const IFilterSelect: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & FilterSelectProps;
-  $slots: {
-    "append-item"?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
-  };
-};
+export type FilterSelect = DefineComponent<
+  {
+    label: {
+      type: StringConstructor;
+      required: true;
+    };
+    placeholder: {
+      type: StringConstructor;
+      required: true;
+    };
+    itemValue: {
+      type: StringConstructor;
+      default: "value";
+    };
+    itemTitle: {
+      type: StringConstructor;
+      default: "title";
+    };
+    returnObject: {
+      type: BooleanConstructor;
+      default: false;
+    };
+    textMultiple: {
+      default: "";
+      type: StringConstructor;
+    };
+    items: {
+      required: true;
+      type: PropType<unknown[]>;
+    };
+    textTransform: {
+      default: "initial";
+      type: PropType<Property.TextTransform>;
+    };
+    multiple: {
+      type: BooleanConstructor;
+      default: false;
+    };
+    modelValue: {
+      default: null;
+      type: PropType<string | number | Record<string, any> | unknown[] | null>;
+    };
+    searchable: {
+      type: BooleanConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    "update:model-value": void;
+  }
+>;

@@ -1,31 +1,83 @@
 import type { Property } from "csstype";
-import type { VNode, AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface TextContainerProps {
-  clickable?: boolean;
-  specialText?: string;
-  padding?: Property.Padding;
-  fontSize?: Property.FontSize;
-  fontWeight?: string | number;
-  textAlign?: Property.TextAlign;
-  lineHeight?: Property.LineHeight;
-  whiteSpace?: Property.WhiteSpace;
-  fontFamily?: Property.FontFamily;
-  predefinedStyle?: PredefinedStyle;
-  color?: Property.Color | CustomColor;
-  borderRadius?: Property.BorderRadius;
-  textTransform?: Property.TextTransform;
-  letterSpacing?: Property.LetterSpacing;
-  hoverColor?: Property.Color | CustomColor;
-  activeColor?: Property.Color | CustomColor;
-  hoverBackground?: Property.BackgroundColor | CustomColor;
-  activeBackground?: Property.BackgroundColor | CustomColor;
-  "@click"?: (ev: MouseEvent) => void;
-}
-
-export declare const ITexContainer: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & TextContainerProps;
-  $slots: {
-    default?: (({ Component }: { Component: VNode }) => VNode[]) | undefined;
-  };
-};
+export type TextContainer = DefineComponent<
+  {
+    fontSize: {
+      default: "1rem";
+      type: PropType<Property.FontSize>;
+    };
+    padding: {
+      default: "initial";
+      type: PropType<Property.Padding>;
+    };
+    lineHeight: {
+      default: "1rem";
+      type: PropType<Property.LineHeight>;
+    };
+    textAlign: {
+      default: "initial";
+      type: PropType<Property.TextAlign>;
+    };
+    textTransform: {
+      default: "initial";
+      type: PropType<Property.TextTransform>;
+    };
+    color: {
+      default: "";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    hoverColor: {
+      default: "";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    activeColor: {
+      default: "#ffffff";
+      type: PropType<Property.Color | CustomColor>;
+    };
+    hoverBackground: {
+      default: "neutro-1";
+      type: PropType<Property.BackgroundColor | CustomColor>;
+    };
+    activeBackground: {
+      default: "neutro-3";
+      type: PropType<Property.BackgroundColor | CustomColor>;
+    };
+    whiteSpace: {
+      default: "initial";
+      type: PropType<Property.WhiteSpace>;
+    };
+    fontWeight: {
+      default: "initial";
+      type: [StringConstructor, NumberConstructor];
+    };
+    letterSpacing: {
+      default: "initial";
+      type: PropType<Property.LetterSpacing>;
+    };
+    predefinedStyle: {
+      default: "";
+      type: PropType<PredefinedStyle>;
+    };
+    clickable: {
+      type: BooleanConstructor;
+    };
+    borderRadius: {
+      default: "initial";
+      type: PropType<Property.BorderRadius>;
+    };
+    specialText: {
+      default: "";
+      type: StringConstructor;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    click: void;
+  }
+>;

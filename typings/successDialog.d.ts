@@ -1,18 +1,45 @@
 import type { Property } from "csstype";
-import type { AllowedComponentProps, ComponentCustomProps, VNodeProps } from "vue";
+import type { PropType, DefineComponent } from "vue";
 
-export declare interface SuccessDialogProps {
-  text: string;
-  duration?: number;
-  subtitle?: string;
-  modelValue: boolean;
-  width?: Property.Width;
-  icon: string | FigmaIconChoice;
-  iconColor?: Property.Color | CustomColor;
-  "@close"?: () => void;
-  "@update:model-value"?: (value: boolean) => void;
-}
-
-export declare const ISuccessDialog: new () => {
-  $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & SuccessDialogProps;
-};
+export type SuccessDialog = DefineComponent<
+  {
+    icon: {
+      type: StringConstructor;
+      required: true;
+    };
+    text: {
+      type: StringConstructor;
+      required: true;
+    };
+    duration: {
+      type: NumberConstructor;
+      default: 3000;
+    };
+    modelValue: {
+      type: BooleanConstructor;
+      required: true;
+    };
+    subtitle: {
+      default: "";
+      type: StringConstructor;
+    };
+    width: {
+      default: "520px";
+      type: PropType<Property.Width>;
+    };
+    iconColor: {
+      default: "acento-principal";
+      type: PropType<Property.Color | CustomColor>;
+    };
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {
+    close: void;
+    "update:model-value": void;
+  }
+>;
