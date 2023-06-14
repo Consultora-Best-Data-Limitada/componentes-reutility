@@ -92,11 +92,11 @@ const props = defineProps({
     type: Boolean,
   },
   appendIcon: {
-    default: "initial",
+    default: "",
     type: String,
   },
   preppendIcon: {
-    default: "initial",
+    default: "",
     type: String,
   },
   justifyContent: {

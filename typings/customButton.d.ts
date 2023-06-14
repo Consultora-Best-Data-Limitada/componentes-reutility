@@ -34,11 +34,11 @@ export type CustomButton = DefineComponent<
       type: BooleanConstructor;
     };
     appendIcon: {
-      default: "initial";
+      default: "";
       type: StringConstructor;
     };
     preppendIcon: {
-      default: "initial";
+      default: "";
       type: StringConstructor;
     };
     justifyContent: {

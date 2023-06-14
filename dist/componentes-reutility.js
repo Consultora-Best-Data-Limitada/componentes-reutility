@@ -479,11 +479,11 @@ const Hr = /* @__PURE__ */ ke(Bu, [["__scopeId", "data-v-4058c78a"]]), Au = ["wi
       type: Boolean
     },
     appendIcon: {
-      default: "initial",
+      default: "",
       type: String
     },
     preppendIcon: {
-      default: "initial",
+      default: "",
       type: String
     },
     justifyContent: {
@@ -506,15 +506,15 @@ const Hr = /* @__PURE__ */ ke(Bu, [["__scopeId", "data-v-4058c78a"]]), Au = ["wi
   setup(e, { emit: t }) {
     const n = e;
     xe((s) => ({
-      "13ff2940": e.width,
-      "9f83f266": e.height,
-      "667788a6": f(i),
-      dcf66f94: e.justifyItems,
-      "97e6f14e": f(o),
-      "03f06122": e.justifyContent,
-      "7696b7ee": f(y),
-      "8c978302": f(p),
-      "61f3b7ae": f(u)
+      "29a0064f": e.width,
+      "1edc6c84": e.height,
+      bc5995d6: f(i),
+      "4d3cd267": e.justifyItems,
+      "4df369ca": f(o),
+      a833dd40: e.justifyContent,
+      "8d5f1d10": f(y),
+      "6909c830": f(p),
+      "461fbf50": f(u)
     }));
     const r = Je(), a = k(() => n.disabled ? "neutro-4" : n.outlined ? n.color : n.contentColor), o = k(() => r.getRealColor(n.color)), i = k(() => r.getRealColor(n.contentColor)), u = k(() => {
       const s = `${n.color}-hover`;
@@ -574,7 +574,7 @@ const Hr = /* @__PURE__ */ ke(Bu, [["__scopeId", "data-v-4058c78a"]]), Au = ["wi
     ], 10, qu));
   }
 });
-const pa = /* @__PURE__ */ ke(Qu, [["__scopeId", "data-v-27ee1a61"]]), Zu = /* @__PURE__ */ fe({
+const pa = /* @__PURE__ */ ke(Qu, [["__scopeId", "data-v-007c780d"]]), Zu = /* @__PURE__ */ fe({
   __name: "CustomDialog",
   props: {
     modelValue: {
