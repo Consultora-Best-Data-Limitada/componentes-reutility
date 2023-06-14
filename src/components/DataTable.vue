@@ -324,6 +324,7 @@ function onClickRow(item: DataTableItem) {
 watch(
   () => props.items,
   async () => {
+    console.log(props.items)
     if (!tableBodyRef.value || noCalculatePagination.value) return;
     await recalculatePagination(tableBodyRef.value);
   },
