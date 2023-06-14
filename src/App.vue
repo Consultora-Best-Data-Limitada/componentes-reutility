@@ -1,16 +1,11 @@
 <template>
   <div style="height: 50%">
-    <CustomButton
-      outlined
-      preppend-icon="fm-fire"
-    >
-      Crear perro
-    </CustomButton>
+    <DataTable height="100%" :items="items" :headers="headers"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import CustomButton from "@/components/CustomButton.vue";
+import DataTable from "@/components/DataTable.vue";
 
 const items = [...Array(60).keys()].map((i) => {
   if (i > 20) {

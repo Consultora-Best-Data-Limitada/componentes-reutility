@@ -115,7 +115,7 @@
 
 <script setup lang="ts">
 // Vue
-import { useSlots, computed, onMounted, ref } from "vue";
+import { useSlots, computed, onMounted, ref, watch } from "vue";
 
 // Composables
 import { useDateTable } from "@/composables/dataTable";
@@ -225,17 +225,7 @@ const {
 
 // Mounted
 
-onMounted(() => {
-  if (
-    props.stickyHead ||
-    props.stickyLastColumn ||
-    props.stickyFirstColumn ||
-    props.itemsPerPage !== null
-  )
-    return;
-  if (!tableBodyRef.value) return;
-  calculatePagination(tableBodyRef.value);
-});
+onMounted(onCalculatePagination);
 
 // Data
 
@@ -257,6 +247,18 @@ const tableClass = computed(() => ({
 }));
 
 // Methods
+
+function onCalculatePagination() {
+  if (
+    props.stickyHead ||
+    props.stickyLastColumn ||
+    props.stickyFirstColumn ||
+    props.itemsPerPage !== null
+  )
+    return;
+  if (!tableBodyRef.value) return;
+  calculatePagination(tableBodyRef.value);
+}
 
 function checkSlot(name: string) {
   return !!slots[name];
@@ -315,6 +317,10 @@ function sortBy(header: DataTableHeader) {
 function onClickRow(item: DataTableItem) {
   emits("click:row", item);
 }
+
+// Watchs
+
+watch(() => props.items, onCalculatePagination);
 </script>
 
 <style scoped lang="scss">
