@@ -4,7 +4,7 @@ import type { PropType, DefineComponent } from "vue";
 export type ExpandableDataTableItem = DefineComponent<{
   title: {
     required: true;
-    type: PropType<NumberConstructor | StringConstructor>;
+    type: PropType<string | number>;
   };
   opened: {
     type: BooleanConstructor;
