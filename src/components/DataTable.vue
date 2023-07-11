@@ -345,11 +345,8 @@ watch(
   overflow: auto;
   border-collapse: collapse;
   max-height: v-bind(maxHeight);
+  grid-template-rows: auto minmax(0, 1fr);
   background-color: v-bind(backgroundColor);
-
-  &:not(&--sticky) {
-    grid-template-rows: auto minmax(0, 1fr);
-  }
 }
 
 .data-table__head,
