@@ -341,17 +341,13 @@ watch(
 }
 
 .data-table__table {
+  display: grid;
   overflow: auto;
   border-collapse: collapse;
   max-height: v-bind(maxHeight);
   background-color: v-bind(backgroundColor);
 
-  &--sticky {
-    display: block;
-  }
-
   &:not(&--sticky) {
-    display: grid;
     grid-template-rows: auto minmax(0, 1fr);
   }
 }
