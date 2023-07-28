@@ -12,7 +12,7 @@ export type SuccessDialog = DefineComponent<
       required: true;
     };
     duration: {
-      type: NumberConstructor;
+      type: PropType<number | undefined>;
       default: 3000;
     };
     modelValue: {

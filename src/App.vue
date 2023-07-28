@@ -1,16 +1,31 @@
 <template>
-  <div style="height: 50%">
-    <DataTable
+  <div style="">
+    <!--    <DataTable
       height="100%"
       :items="items"
       :headers="headers"
       background-color="#fff"
+    />-->
+    {{animal}}
+    <CustomChip
+      v-model="animal"
+      value="perro"
+      text="Perro"
+    />
+    <CustomChip
+      v-model="animal"
+      value="gato"
+      text="Gato"
     />
   </div>
 </template>
 
 <script setup lang="ts">
+import {ref} from "vue"
 import DataTable from "@/components/DataTable.vue";
+import CustomChip from "@/components/CustomChip.vue";
+
+const animal = ref("")
 
 const items = [...Array(60).keys()].map((i) => {
   if (i > 20) {

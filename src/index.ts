@@ -48,6 +48,7 @@ import RelativeContainer from "@/components/RelativeContainer.vue";
 import CustomTooltip from "@/components/CustomTooltip.vue";
 import ExpandableDataTableItem from "@/components/ExpandableDataTableItem.vue";
 import ImageInput from "@/components/ImageInput.vue";
+import CustomChip from "@/components/CustomChip.vue";
 
 export const componentesReutility = (app: App) => {
   const tooltips = useTooltips();
@@ -91,4 +92,5 @@ export const componentesReutility = (app: App) => {
   app.component("CustomTooltip", CustomTooltip);
   app.component("ExpandableDataTableItem", ExpandableDataTableItem);
   app.component("ImageInput", ImageInput);
+  app.component("CustomChip", CustomChip);
 };

@@ -38,6 +38,7 @@ import { SearchTextField } from "./searchTextField";
 import { SuccessDialog } from "./successDialog";
 import { SvgIcon } from "./svgIcon";
 import { TextContainer } from "./textContainer";
+import { CustomChip } from "./customChip";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -85,5 +86,6 @@ declare module "@vue/runtime-core" {
     SuccessDialog: SuccessDialog;
     SvgIcon: SvgIcon;
     TextContainer: TextContainer;
+    CustomChip: CustomChip;
   }
 }
