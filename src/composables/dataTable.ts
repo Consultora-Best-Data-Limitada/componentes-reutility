@@ -127,6 +127,7 @@ export const useDateTable = (items: Ref<DataTableItem[]>, itemsPerPage: Ref<numb
   }
 
   function calculatePagination(el: HTMLTableSectionElement) {
+    if (items.value.length === 0) return;
     const temp: number[] = [];
     const bounds = el.getBoundingClientRect();
     const tableHeight = Math.floor(bounds.height - 52);
@@ -143,6 +144,15 @@ export const useDateTable = (items: Ref<DataTableItem[]>, itemsPerPage: Ref<numb
       temp.push(pageNumber);
     }
     pagination.value = [...temp];
+    const pages = Math.max(...pagination.value);
+    if (currentPage.value > pages) {
+      currentPage.value = pages;
+    }
+  }
+
+  function paginationToZero() {
+    pagination.value = [];
+    currentPage.value = 1;
   }
 
   return {
@@ -163,6 +173,7 @@ export const useDateTable = (items: Ref<DataTableItem[]>, itemsPerPage: Ref<numb
     getCellValue,
     previousPage,
     setCurrentPage,
+    paginationToZero,
     calculatePagination,
     recalculatePagination,
   };

@@ -220,6 +220,7 @@ const {
   getCellValue,
   previousPage,
   setCurrentPage,
+  paginationToZero,
   calculatePagination,
   recalculatePagination,
 } = useDateTable(computedItems, computedItemsPerPage);

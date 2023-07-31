@@ -1,33 +1,33 @@
 <template>
-  <div style="">
-    <!--    <DataTable
+  <div style="height: 50vh">
+    <DataTable
       height="100%"
       :items="items"
       :headers="headers"
       background-color="#fff"
-    />-->
-    {{animal}}
-    <CustomChip
-      v-model="animal"
-      value="perro"
-      text="Perro"
-    />
-    <CustomChip
-      v-model="animal"
-      value="gato"
-      text="Gato"
     />
   </div>
+  <button @click="agregar">Agregar</button>
+  <button @click="eliminar">Eliminar</button>
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue"
+import { ref } from "vue";
 import DataTable from "@/components/DataTable.vue";
-import CustomChip from "@/components/CustomChip.vue";
 
-const animal = ref("")
+const items = ref([{ id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }]);
 
-const items = [...Array(60).keys()].map((i) => {
+function agregar() {
+  items.value = [...items.value, { id: items.value.length + 1, a: "a" }];
+}
+
+function eliminar() {
+  const copia = [...items.value];
+  copia.splice(items.value.length - 1, 1);
+  items.value = copia;
+}
+
+/*const items = [...Array(60).keys()].map((i) => {
   if (i > 20) {
     return {
       id: i,
@@ -89,7 +89,7 @@ const items = [...Array(60).keys()].map((i) => {
       // z: `ZZZZZ ZZZZZ ZZZZZ ZZZZZ - ${i}`,
     };
   }
-});
+});*/
 
 const headers = [
   { value: "a", text: "A" },
