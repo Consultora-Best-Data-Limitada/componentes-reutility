@@ -4,7 +4,6 @@
     :model-value="model"
   >
     <GridColumn
-      v-if="model"
       :width="width"
       padding="1rem"
       row-gap="1rem"

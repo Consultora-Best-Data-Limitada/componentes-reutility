@@ -9,12 +9,27 @@
   </div>
   <button @click="agregar">Agregar</button>
   <button @click="eliminar">Eliminar</button>
+  <button @click="abrir">Abrir</button>
+  <CustomDialog v-model="dialogo" margin="0.5rem">
+    <GridColumn
+      width="calc(100vw - 1rem)"
+      height="calc(100vh - 1rem)"
+      background-color="neutro-1"
+      box-shadow="3px 3px 17px 0px rgba(151, 168, 194, 0.24)"
+      border-radius="1rem"
+    >
+
+    </GridColumn>
+  </CustomDialog>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import DataTable from "@/components/DataTable.vue";
+import CustomDialog from "@/components/CustomDialog.vue";
+import GridColumn from "@/components/GridColumn.vue";
 
+const dialogo = ref(false);
 const items = ref([{ id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }]);
 
 function agregar() {
@@ -25,6 +40,10 @@ function eliminar() {
   const copia = [...items.value];
   copia.splice(items.value.length - 1, 1);
   items.value = copia;
+}
+
+function abrir() {
+  dialogo.value = true;
 }
 
 /*const items = [...Array(60).keys()].map((i) => {

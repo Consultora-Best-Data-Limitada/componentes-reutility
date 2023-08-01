@@ -11,7 +11,12 @@
 </template>
 
 <script setup lang="ts">
+// Vue
 import { computed, ref, watch } from "vue";
+
+// Tipos
+import type { PropType } from "vue";
+import type { Property } from "csstype";
 
 const props = defineProps({
   modelValue: {
@@ -20,6 +25,10 @@ const props = defineProps({
   },
   persistent: {
     type: Boolean,
+  },
+  margin: {
+    default: "auto",
+    type: String as PropType<Property.Margin>,
   },
 });
 
@@ -94,10 +103,10 @@ function onKeydown(ev: KeyboardEvent) {
 
 <style scoped lang="scss">
 .custom__dialog {
-  margin: auto;
   border: none;
   outline: none;
-  padding: 2rem;
+  overflow: initial;
+  margin: v-bind(margin);
   background: transparent;
   --animation-in-settings: 500ms cubic-bezier(0.25, 0, 0.3, 1) normal;
   --animation-out-settings: 500ms cubic-bezier(0.5, -0.5, 0.1, 1.5) normal;
