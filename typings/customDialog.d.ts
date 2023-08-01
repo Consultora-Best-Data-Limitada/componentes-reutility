@@ -1,4 +1,5 @@
-import type { DefineComponent } from "vue";
+import type { Property } from "csstype";
+import type { DefineComponent, PropType } from "vue";
 
 export type CustomDialog = DefineComponent<
   {
@@ -8,6 +9,10 @@ export type CustomDialog = DefineComponent<
     };
     persistent: {
       type: BooleanConstructor;
+    };
+    margin: {
+      default: "auto";
+      type: PropType<Property.Margin>;
     };
   },
   {},

@@ -1,7 +1,7 @@
 var gu = Object.defineProperty;
 var bu = (e, t, n) => t in e ? gu(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
 var cn = (e, t, n) => (bu(e, typeof t != "symbol" ? t + "" : t, n), n);
-import { ref as N, defineComponent as se, useCssVars as xe, unref as c, onMounted as Ke, computed as _, watch as it, openBlock as v, createElementBlock as O, createElementVNode as H, normalizeClass as ie, createVNode as ge, Transition as _t, withCtx as K, createBlock as te, createCommentVNode as C, renderSlot as j, Fragment as ye, useSlots as pt, isRef as Fe, createTextVNode as Ie, toDisplayString as he, reactive as Ct, toRef as tr, onUnmounted as Do, mergeProps as je, createSlots as We, renderList as Te, normalizeProps as Qe, guardReactiveProps as mt, resolveDynamicComponent as Rl, Teleport as _u, withKeys as be, withModifiers as Be, normalizeStyle as $t, nextTick as dt, withDirectives as Tt, vShow as pn, onBeforeUpdate as wu, getCurrentScope as ku, onScopeDispose as Su, vModelText as Ml, vModelDynamic as Zo, vModelCheckbox as $u, pushScopeId as Ou, popScopeId as xu } from "vue";
+import { ref as N, defineComponent as se, useCssVars as Oe, unref as c, onMounted as Ke, computed as _, watch as it, openBlock as v, createElementBlock as O, createElementVNode as H, normalizeClass as ie, createVNode as ge, Transition as _t, withCtx as K, createBlock as te, createCommentVNode as C, renderSlot as j, Fragment as ye, useSlots as pt, isRef as Fe, createTextVNode as Ie, toDisplayString as he, reactive as Ct, toRef as tr, onUnmounted as Do, mergeProps as je, createSlots as We, renderList as Te, normalizeProps as Qe, guardReactiveProps as mt, resolveDynamicComponent as Rl, Teleport as _u, withKeys as be, withModifiers as Be, normalizeStyle as $t, nextTick as dt, withDirectives as Tt, vShow as pn, onBeforeUpdate as wu, getCurrentScope as ku, onScopeDispose as Su, vModelText as Ml, vModelDynamic as Zo, vModelCheckbox as $u, pushScopeId as Ou, popScopeId as xu } from "vue";
 const Il = N(null);
 function Tu() {
   const e = document.createElement("div");
@@ -57,7 +57,7 @@ const Je = () => {
   },
   setup(e) {
     const t = e;
-    xe((i) => ({
+    Oe((i) => ({
       "5f21c29a": e.size,
       "6c3a208c": c(a)
     }));
@@ -108,7 +108,7 @@ const we = (e, t) => {
   },
   setup(e) {
     const t = e;
-    xe((o) => ({
+    Oe((o) => ({
       "660f41a2": e.size,
       "90a78d3e": c(a)
     }));
@@ -265,7 +265,7 @@ const Mu = { class: "grid-row__container" }, Iu = /* @__PURE__ */ se({
   },
   setup(e) {
     const t = e;
-    xe((a) => ({
+    Oe((a) => ({
       e65cafee: e.width,
       "18d74178": e.height,
       "1f0e3194": e.padding,
@@ -354,7 +354,7 @@ const Bl = /* @__PURE__ */ we(Iu, [["__scopeId", "data-v-65fb3aec"]]), Nu = { cl
   },
   setup(e) {
     const t = e;
-    xe((a) => ({
+    Oe((a) => ({
       "6781f214": e.width,
       "77414b20": e.margin,
       "6eed5699": e.height,
@@ -505,7 +505,7 @@ const Lr = /* @__PURE__ */ we(Au, [["__scopeId", "data-v-4058c78a"]]), Bu = ["wi
   emits: ["click"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((s) => ({
+    Oe((s) => ({
       "29a0064f": e.width,
       "1edc6c84": e.height,
       bc5995d6: c(i),
@@ -583,11 +583,19 @@ const ma = /* @__PURE__ */ we(Qu, [["__scopeId", "data-v-007c780d"]]), Zu = /* @
     },
     persistent: {
       type: Boolean
+    },
+    margin: {
+      default: "auto",
+      type: String
     }
   },
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
-    const n = e, r = N(null), a = N(!1), o = N(!1), i = N(!1), u = _(() => ({
+    const n = e;
+    Oe((h) => ({
+      "27124f62": e.margin
+    }));
+    const r = N(null), a = N(!1), o = N(!1), i = N(!1), u = _(() => ({
       custom__dialog: !0,
       "custom__dialog--closing": o.value,
       "custom__dialog--shaking": i.value,
@@ -634,7 +642,7 @@ const ma = /* @__PURE__ */ we(Qu, [["__scopeId", "data-v-007c780d"]]), Zu = /* @
     ], 34));
   }
 });
-const Ro = /* @__PURE__ */ we(Zu, [["__scopeId", "data-v-e186ca82"]]), Xu = /* @__PURE__ */ se({
+const Ro = /* @__PURE__ */ we(Zu, [["__scopeId", "data-v-9da45797"]]), Xu = /* @__PURE__ */ se({
   __name: "TextContainer",
   props: {
     fontSize: {
@@ -708,7 +716,7 @@ const Ro = /* @__PURE__ */ we(Zu, [["__scopeId", "data-v-e186ca82"]]), Xu = /* @
   emits: ["click"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((k) => ({
+    Oe((k) => ({
       "19a94f92": e.padding,
       "2756fecd": c(u),
       "59f3098a": e.fontSize,
@@ -1081,7 +1089,7 @@ function Hl(e, t) {
   var n = de(e), r = Ft(n, t).getTime() - fs(n, t).getTime();
   return Math.round(r / ds) + 1;
 }
-function Oe(e, t) {
+function xe(e, t) {
   for (var n = e < 0 ? "-" : "", r = Math.abs(e).toString(); r.length < t; )
     r = "0" + r;
   return n + r;
@@ -1090,16 +1098,16 @@ var ps = {
   // Year
   y: function(t, n) {
     var r = t.getUTCFullYear(), a = r > 0 ? r : 1 - r;
-    return Oe(n === "yy" ? a % 100 : a, n.length);
+    return xe(n === "yy" ? a % 100 : a, n.length);
   },
   // Month
   M: function(t, n) {
     var r = t.getUTCMonth();
-    return n === "M" ? String(r + 1) : Oe(r + 1, 2);
+    return n === "M" ? String(r + 1) : xe(r + 1, 2);
   },
   // Day of the month
   d: function(t, n) {
-    return Oe(t.getUTCDate(), n.length);
+    return xe(t.getUTCDate(), n.length);
   },
   // AM or PM
   a: function(t, n) {
@@ -1119,24 +1127,24 @@ var ps = {
   },
   // Hour [1-12]
   h: function(t, n) {
-    return Oe(t.getUTCHours() % 12 || 12, n.length);
+    return xe(t.getUTCHours() % 12 || 12, n.length);
   },
   // Hour [0-23]
   H: function(t, n) {
-    return Oe(t.getUTCHours(), n.length);
+    return xe(t.getUTCHours(), n.length);
   },
   // Minute
   m: function(t, n) {
-    return Oe(t.getUTCMinutes(), n.length);
+    return xe(t.getUTCMinutes(), n.length);
   },
   // Second
   s: function(t, n) {
-    return Oe(t.getUTCSeconds(), n.length);
+    return xe(t.getUTCSeconds(), n.length);
   },
   // Fraction of second
   S: function(t, n) {
     var r = n.length, a = t.getUTCMilliseconds(), o = Math.floor(a * Math.pow(10, r - 3));
-    return Oe(o, n.length);
+    return xe(o, n.length);
   }
 };
 const Pt = ps;
@@ -1186,16 +1194,16 @@ var Lt = {
     var o = No(t, a), i = o > 0 ? o : 1 - o;
     if (n === "YY") {
       var u = i % 100;
-      return Oe(u, 2);
+      return xe(u, 2);
     }
     return n === "Yo" ? r.ordinalNumber(i, {
       unit: "year"
-    }) : Oe(i, n.length);
+    }) : xe(i, n.length);
   },
   // ISO week-numbering year
   R: function(t, n) {
     var r = Fl(t);
-    return Oe(r, n.length);
+    return xe(r, n.length);
   },
   // Extended year. This is a single number designating the year of this calendar system.
   // The main difference between `y` and `u` localizers are B.C. years:
@@ -1208,7 +1216,7 @@ var Lt = {
   // while `uu` pads single digit years to 2 characters and returns other years unchanged.
   u: function(t, n) {
     var r = t.getUTCFullYear();
-    return Oe(r, n.length);
+    return xe(r, n.length);
   },
   // Quarter
   Q: function(t, n, r) {
@@ -1217,7 +1225,7 @@ var Lt = {
       case "Q":
         return String(a);
       case "QQ":
-        return Oe(a, 2);
+        return xe(a, 2);
       case "Qo":
         return r.ordinalNumber(a, {
           unit: "quarter"
@@ -1247,7 +1255,7 @@ var Lt = {
       case "q":
         return String(a);
       case "qq":
-        return Oe(a, 2);
+        return xe(a, 2);
       case "qo":
         return r.ordinalNumber(a, {
           unit: "quarter"
@@ -1306,7 +1314,7 @@ var Lt = {
       case "L":
         return String(a + 1);
       case "LL":
-        return Oe(a + 1, 2);
+        return xe(a + 1, 2);
       case "Lo":
         return r.ordinalNumber(a + 1, {
           unit: "month"
@@ -1334,14 +1342,14 @@ var Lt = {
     var o = Hl(t, a);
     return n === "wo" ? r.ordinalNumber(o, {
       unit: "week"
-    }) : Oe(o, n.length);
+    }) : xe(o, n.length);
   },
   // ISO week of year
   I: function(t, n, r) {
     var a = Wl(t);
     return n === "Io" ? r.ordinalNumber(a, {
       unit: "week"
-    }) : Oe(a, n.length);
+    }) : xe(a, n.length);
   },
   // Day of the month
   d: function(t, n, r) {
@@ -1354,7 +1362,7 @@ var Lt = {
     var a = us(t);
     return n === "Do" ? r.ordinalNumber(a, {
       unit: "dayOfYear"
-    }) : Oe(a, n.length);
+    }) : xe(a, n.length);
   },
   // Day of week
   E: function(t, n, r) {
@@ -1392,7 +1400,7 @@ var Lt = {
       case "e":
         return String(i);
       case "ee":
-        return Oe(i, 2);
+        return xe(i, 2);
       case "eo":
         return r.ordinalNumber(i, {
           unit: "day"
@@ -1427,7 +1435,7 @@ var Lt = {
       case "c":
         return String(i);
       case "cc":
-        return Oe(i, n.length);
+        return xe(i, n.length);
       case "co":
         return r.ordinalNumber(i, {
           unit: "day"
@@ -1462,7 +1470,7 @@ var Lt = {
       case "i":
         return String(o);
       case "ii":
-        return Oe(o, n.length);
+        return xe(o, n.length);
       case "io":
         return r.ordinalNumber(o, {
           unit: "day"
@@ -1591,14 +1599,14 @@ var Lt = {
     var a = t.getUTCHours() % 12;
     return n === "Ko" ? r.ordinalNumber(a, {
       unit: "hour"
-    }) : Oe(a, n.length);
+    }) : xe(a, n.length);
   },
   // Hour [1-24]
   k: function(t, n, r) {
     var a = t.getUTCHours();
     return a === 0 && (a = 24), n === "ko" ? r.ordinalNumber(a, {
       unit: "hour"
-    }) : Oe(a, n.length);
+    }) : xe(a, n.length);
   },
   // Minute
   m: function(t, n, r) {
@@ -1677,12 +1685,12 @@ var Lt = {
   // Seconds timestamp
   t: function(t, n, r, a) {
     var o = a._originalDate || t, i = Math.floor(o.getTime() / 1e3);
-    return Oe(i, n.length);
+    return xe(i, n.length);
   },
   // Milliseconds timestamp
   T: function(t, n, r, a) {
     var o = a._originalDate || t, i = o.getTime();
-    return Oe(i, n.length);
+    return xe(i, n.length);
   }
 };
 function Jo(e, t) {
@@ -1690,17 +1698,17 @@ function Jo(e, t) {
   if (o === 0)
     return n + String(a);
   var i = t || "";
-  return n + String(a) + i + Oe(o, 2);
+  return n + String(a) + i + xe(o, 2);
 }
 function ei(e, t) {
   if (e % 60 === 0) {
     var n = e > 0 ? "-" : "+";
-    return n + Oe(Math.abs(e) / 60, 2);
+    return n + xe(Math.abs(e) / 60, 2);
   }
   return Et(e, t);
 }
 function Et(e, t) {
-  var n = t || "", r = e > 0 ? "-" : "+", a = Math.abs(e), o = Oe(Math.floor(a / 60), 2), i = Oe(a % 60, 2);
+  var n = t || "", r = e > 0 ? "-" : "+", a = Math.abs(e), o = xe(Math.floor(a / 60), 2), i = xe(a % 60, 2);
   return r + o + n + i;
 }
 const ys = ms;
@@ -10568,7 +10576,7 @@ const jo = /* @__PURE__ */ we(sh, [["__scopeId", "data-v-59b9c697"]]), pu = (e, 
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((g) => ({
+    Oe((g) => ({
       "2508ba42": e.textTransform,
       "5320c375": a.value,
       "10f3e1e7": o.value,
@@ -11002,7 +11010,7 @@ const Co = /* @__PURE__ */ new WeakMap(), Th = (e) => {
   emits: ["update:model-value", "keydown", "keyup", "input", "focus", "blur"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((I) => ({
+    Oe((I) => ({
       c1a04602: c(u),
       "6895a22e": c(i)
     }));
@@ -11259,7 +11267,7 @@ const qr = /* @__PURE__ */ we(Bh, [["__scopeId", "data-v-50fd21fc"]]), Eh = /* @
   emits: ["click"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((y) => ({
+    Oe((y) => ({
       f72a63ea: e.containerSize,
       "0695c4d5": e.borderRadius,
       "49fc9571": c(i)
@@ -11381,7 +11389,7 @@ const Hr = /* @__PURE__ */ we(Eh, [["__scopeId", "data-v-35d7f4fd"]]), Yh = { cl
   emits: ["click:row"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((g) => ({
+    Oe((g) => ({
       "93d70248": e.height,
       "0551c1d6": e.maxHeight,
       ec38b680: e.backgroundColor,
@@ -11781,7 +11789,7 @@ const ng = /* @__PURE__ */ we(tg, [["__scopeId", "data-v-e667d313"]]), rg = { cl
     }
   },
   setup(e) {
-    return xe((t) => ({
+    return Oe((t) => ({
       "59751ba7": e.width,
       78995826: e.margin,
       89414134: e.height,
@@ -11852,7 +11860,7 @@ const yu = /* @__PURE__ */ we(ag, [["__scopeId", "data-v-4706ceca"]]), og = { cl
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((o) => ({
+    Oe((o) => ({
       "0e7787b6": e.gridTemplateColumns,
       dfcc6cf2: c(a)
     }));
@@ -11956,7 +11964,7 @@ const ug = /* @__PURE__ */ we(lg, [["__scopeId", "data-v-e3f90221"]]), sg = { cl
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((i) => ({
+    Oe((i) => ({
       "2fcd44d0": e.gridTemplateColumns,
       "0563447c": c(o)
     }));
@@ -12054,7 +12062,7 @@ const dg = /* @__PURE__ */ we(fg, [["__scopeId", "data-v-a76ba798"]]), pg = { cl
   emits: ["update:model-value", "keydown", "keyup", "input", "focus", "blur"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((s) => ({
+    Oe((s) => ({
       "3f6ca2c4": e.gridTemplateColumns,
       "1c87faee": c(o)
     }));
@@ -12131,7 +12139,7 @@ const vg = /* @__PURE__ */ we(yg, [["__scopeId", "data-v-8806e5e8"]]), hg = { cl
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((f) => ({
+    Oe((f) => ({
       "23c11578": e.columnGap,
       "1d8cf5db": c(o),
       "3f1506a2": c(i)
@@ -12200,7 +12208,7 @@ const _g = /* @__PURE__ */ we(bg, [["__scopeId", "data-v-bc4f98ee"]]), wg = ["al
   emits: ["click"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((i) => ({
+    Oe((i) => ({
       "4b1fc71c": e.width,
       "01ebbade": e.height,
       "43df32a8": e.objectFit,
@@ -12243,7 +12251,7 @@ const Sg = /* @__PURE__ */ we(kg, [["__scopeId", "data-v-2d0c5d22"]]), $g = { cl
     }
   },
   setup(e) {
-    return xe((t) => ({
+    return Oe((t) => ({
       "29358aff": e.padding,
       "69b917cb": e.gridTemplateColumns,
       "34bead2d": e.textTransform
@@ -12307,7 +12315,7 @@ const Pg = /* @__PURE__ */ we(Tg, [["__scopeId", "data-v-75c5c153"]]), Cg = {
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((m) => ({
+    Oe((m) => ({
       "5b5105e1": e.justifyContent,
       adc51118: e.labelWeight,
       "051666a4": e.width,
@@ -12388,7 +12396,7 @@ const Mg = /* @__PURE__ */ we(Rg, [["__scopeId", "data-v-a322991a"]]), Ig = /* @
   emits: ["click:close"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((u) => ({
+    Oe((u) => ({
       "1ef6cbe8": c(o),
       befa93fe: e.iconSize
     }));
@@ -12499,8 +12507,8 @@ const Ng = /* @__PURE__ */ we(Ig, [["__scopeId", "data-v-e0769a10"]]), Ag = /* @
   emits: ["close", "update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((a) => ({
-      a073eb70: e.width
+    Oe((a) => ({
+      b64fba12: e.width
     }));
     const r = _({
       get() {
@@ -12526,8 +12534,7 @@ const Ng = /* @__PURE__ */ we(Ig, [["__scopeId", "data-v-e0769a10"]]), Ag = /* @
       "model-value": c(r)
     }, {
       default: K(() => [
-        c(r) ? (v(), te(Lr, {
-          key: 0,
+        ge(Lr, {
           width: e.width,
           padding: "1rem",
           "row-gap": "1rem",
@@ -12575,13 +12582,13 @@ const Ng = /* @__PURE__ */ we(Ig, [["__scopeId", "data-v-e0769a10"]]), Ag = /* @
             })) : C("", !0)
           ]),
           _: 1
-        }, 8, ["width"])) : C("", !0)
+        }, 8, ["width"])
       ]),
       _: 1
     }, 8, ["model-value"]));
   }
 });
-const Eg = /* @__PURE__ */ we(Bg, [["__scopeId", "data-v-946512d1"]]);
+const Eg = /* @__PURE__ */ we(Bg, [["__scopeId", "data-v-5bd362ef"]]);
 class St {
   // 0-1
   constructor(t, n, r) {
@@ -12702,7 +12709,7 @@ const Qo = (e) => (Ou("data-v-851bc20e"), e = e(), xu(), e), Yg = ["onMousedown"
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((L) => ({
+    Oe((L) => ({
       "44519b14": c(M),
       "21503e0b": c(Y),
       d11f3254: c(I),
@@ -12868,7 +12875,7 @@ const vu = /* @__PURE__ */ we(Gg, [["__scopeId", "data-v-851bc20e"]]), Qg = { cl
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((I) => ({
+    Oe((I) => ({
       dd83820e: e.gridTemplateColumns,
       b764ef9a: c(M),
       cb454576: c(y),
@@ -12963,7 +12970,7 @@ const Xg = /* @__PURE__ */ we(Zg, [["__scopeId", "data-v-7110e29a"]]), Kg = ["on
   },
   setup(e) {
     const t = e;
-    xe((k) => ({
+    Oe((k) => ({
       "26fcb3e4": n.value,
       b8a15b24: r.value
     })), Ke(() => {
@@ -13056,7 +13063,7 @@ const e0 = /* @__PURE__ */ we(Jg, [["__scopeId", "data-v-de3c3a3e"]]), t0 = { cl
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((y) => ({
+    Oe((y) => ({
       "38b8b2fd": e.boxShadow,
       "089aa26c": e.borderRadius,
       "06bcc5e2": c(p),
@@ -13165,7 +13172,7 @@ const r0 = /* @__PURE__ */ we(n0, [["__scopeId", "data-v-d630979d"]]), a0 = { cl
   },
   setup(e) {
     const t = e;
-    xe((a) => ({
+    Oe((a) => ({
       "59a767b6": e.height,
       "61fb5c3d": e.margin,
       "6b4aad2b": e.rowGap,
@@ -13250,7 +13257,7 @@ const i0 = /* @__PURE__ */ we(o0, [["__scopeId", "data-v-546aaa6e"]]), l0 = { cl
   },
   setup(e) {
     const t = e;
-    xe((a) => ({
+    Oe((a) => ({
       "757d0361": e.top,
       "3a1f9f7b": e.left,
       "0a2ab128": e.right,
@@ -13310,7 +13317,7 @@ const s0 = /* @__PURE__ */ we(u0, [["__scopeId", "data-v-b5f56ae6"]]), c0 = { cl
   },
   setup(e) {
     const t = e;
-    xe((a) => ({
+    Oe((a) => ({
       "66ca137e": e.width,
       "956e66da": e.margin,
       a6164fe8: e.height,
@@ -13444,7 +13451,7 @@ const d0 = /* @__PURE__ */ we(f0, [["__scopeId", "data-v-c8285f36"]]), p0 = /* @
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((f) => ({
+    Oe((f) => ({
       "072260b7": e.width,
       "794a8754": e.height,
       c5747066: e.borderRadius,
@@ -13519,7 +13526,7 @@ const y0 = /* @__PURE__ */ we(m0, [["__scopeId", "data-v-6bd971ca"]]), v0 = /* @
   emits: ["update:model-value"],
   setup(e, { emit: t }) {
     const n = e;
-    xe((f) => ({
+    Oe((f) => ({
       "0cf12c20": e.maxWidth,
       "594394ee": c(i)
     }));
