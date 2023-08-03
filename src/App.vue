@@ -1,5 +1,6 @@
 <template>
   <div style="height: 50vh">
+    <CustomSelect :items="[]" placeholder="" searchable/>
     <DataTable
       height="100%"
       :items="items"
@@ -28,6 +29,7 @@ import { ref } from "vue";
 import DataTable from "@/components/DataTable.vue";
 import CustomDialog from "@/components/CustomDialog.vue";
 import GridColumn from "@/components/GridColumn.vue";
+import CustomSelect from "@/components/CustomSelect.vue";
 
 const dialogo = ref(false);
 const items = ref([{ id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }]);
