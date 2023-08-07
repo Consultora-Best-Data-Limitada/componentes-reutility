@@ -132,6 +132,11 @@ const pageSwitchContainerClass = computed(() => ({
   "page-switch__container--disabled": props.disabled,
 }));
 
+const labelColor = computed(() => {
+  if(props.disabled) return "rgb(var(--neutro-4))"
+  return "rgb(var(--secundario))"
+})
+
 // Methods
 
 const toggle = () => {
@@ -159,7 +164,7 @@ const toggle = () => {
   font-size: 1rem;
   line-height: 1rem;
   user-select: none;
-  color: rgb(var(--secundario));
+  color: v-bind(labelColor);
   font-weight: v-bind(labelWeight);
   font-family: "Metropolis", sans-serif;
 }
