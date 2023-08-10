@@ -1,6 +1,10 @@
 <template>
   <div style="height: 50vh">
-    <CustomSelect :items="[]" placeholder="" searchable/>
+    <CustomSelect
+      :items="[]"
+      placeholder=""
+      searchable
+    />
     <DataTable
       height="100%"
       :items="items"
@@ -8,10 +12,20 @@
       background-color="#fff"
     />
   </div>
+  <div style="width: 30rem">
+    <FormColorPicker
+      v-model="color"
+      large
+      label="asd"
+    />
+  </div>
   <button @click="agregar">Agregar</button>
   <button @click="eliminar">Eliminar</button>
   <button @click="abrir">Abrir</button>
-  <CustomDialog v-model="dialogo" margin="0.5rem">
+  <CustomDialog
+    v-model="dialogo"
+    margin="0.5rem"
+  >
     <GridColumn
       width="calc(100vw - 1rem)"
       height="calc(100vh - 1rem)"
@@ -19,7 +33,6 @@
       box-shadow="3px 3px 17px 0px rgba(151, 168, 194, 0.24)"
       border-radius="1rem"
     >
-
     </GridColumn>
   </CustomDialog>
 </template>
@@ -30,9 +43,25 @@ import DataTable from "@/components/DataTable.vue";
 import CustomDialog from "@/components/CustomDialog.vue";
 import GridColumn from "@/components/GridColumn.vue";
 import CustomSelect from "@/components/CustomSelect.vue";
+import FormColorPicker from "@/components/FormColorPicker.vue";
+import FigmaIcon from "@/components/FigmaIcon.vue";
 
+const color = ref("");
 const dialogo = ref(false);
-const items = ref([{ id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }, { id: 1, a: "a" }]);
+const items = ref([
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+  { id: 1, a: "a" },
+]);
 
 function agregar() {
   items.value = [...items.value, { id: items.value.length + 1, a: "a" }];
