@@ -46,7 +46,7 @@
         class="custom-select__menu"
       >
         <div
-          v-if="searchable"
+          v-if="searchable && items.length > 5"
           class="custom-select__search-container"
         >
           <input

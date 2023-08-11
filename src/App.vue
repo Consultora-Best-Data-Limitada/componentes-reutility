@@ -1,10 +1,5 @@
 <template>
   <div style="height: 50vh">
-    <CustomSelect
-      :items="[]"
-      placeholder=""
-      searchable
-    />
     <DataTable
       height="100%"
       :items="items"
@@ -12,102 +7,44 @@
       background-color="#fff"
     />
   </div>
-  <div style="width: 30rem">
-    <FormColorPicker
-      v-model="color"
-      large
-      label="asd"
-    />
-  </div>
-  <button @click="agregar">Agregar</button>
-  <button @click="eliminar">Eliminar</button>
-  <button @click="abrir">Abrir</button>
-  <CustomDialog
-    v-model="dialogo"
-    margin="0.5rem"
-  >
-    <GridColumn
-      width="calc(100vw - 1rem)"
-      height="calc(100vh - 1rem)"
-      background-color="neutro-1"
-      box-shadow="3px 3px 17px 0px rgba(151, 168, 194, 0.24)"
-      border-radius="1rem"
-    >
-    </GridColumn>
-  </CustomDialog>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import DataTable from "@/components/DataTable.vue";
-import CustomDialog from "@/components/CustomDialog.vue";
-import GridColumn from "@/components/GridColumn.vue";
-import CustomSelect from "@/components/CustomSelect.vue";
-import FormColorPicker from "@/components/FormColorPicker.vue";
-import FigmaIcon from "@/components/FigmaIcon.vue";
 
-const color = ref("");
-const dialogo = ref(false);
-const items = ref([
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-  { id: 1, a: "a" },
-]);
-
-function agregar() {
-  items.value = [...items.value, { id: items.value.length + 1, a: "a" }];
-}
-
-function eliminar() {
-  const copia = [...items.value];
-  copia.splice(items.value.length - 1, 1);
-  items.value = copia;
-}
-
-function abrir() {
-  dialogo.value = true;
-}
-
-/*const items = [...Array(60).keys()].map((i) => {
-  if (i > 20) {
-    return {
-      id: i,
-      a: `AAAAA - ${i}`,
-      b: `BBBBB - ${i}`,
-      c: `CCCCC - ${i}`,
-      // d: `DDDDD - ${i}`,
-      // e: `EEEEE - ${i}`,
-      // f: `FFFFF - ${i}`,
-      // g: `GGGGG - ${i}`,
-      // h: `HHHHH - ${i}`,
-      // i: `IIIII - ${i}`,
-      // j: `JJJJJ - ${i}`,
-      // k: `KKKKK - ${i}`,
-      // l: `LLLLL - ${i}`,
-      // m: `MMMMM - ${i}`,
-      // n: `NNNNN - ${i}`,
-      // o: `OOOOO - ${i}`,
-      // p: `PPPPP - ${i}`,
-      // q: `QQQQQ - ${i}`,
-      // r: `RRRRR - ${i}`,
-      // s: `SSSSS - ${i}`,
-      // t: `TTTTT - ${i}`,
-      // u: `UUUUU - ${i}`,
-      // v: `VVVVV - ${i}`,
-      // w: `WWWWW - ${i}`,
-      // x: `XXXXX - ${i}`,
-      // y: `YYYYY - ${i}`,
-      // z: `ZZZZZ - ${i}`,
-    };
+const items = [...Array(60).keys()].map((i) => {
+  return {
+    id: i,
+    a: `AAAAA - ${i}`,
+    b: `BBBBB - ${i}`,
+    c: `CCCCC - ${i}`,
+    // d: `DDDDD - ${i}`,
+    // e: `EEEEE - ${i}`,
+    // f: `FFFFF - ${i}`,
+    // g: `GGGGG - ${i}`,
+    // h: `HHHHH - ${i}`,
+    // i: `IIIII - ${i}`,
+    // j: `JJJJJ - ${i}`,
+    // k: `KKKKK - ${i}`,
+    // l: `LLLLL - ${i}`,
+    // m: `MMMMM - ${i}`,
+    // n: `NNNNN - ${i}`,
+    // o: `OOOOO - ${i}`,
+    // p: `PPPPP - ${i}`,
+    // q: `QQQQQ - ${i}`,
+    // r: `RRRRR - ${i}`,
+    // s: `SSSSS - ${i}`,
+    // t: `TTTTT - ${i}`,
+    // u: `UUUUU - ${i}`,
+    // v: `VVVVV - ${i}`,
+    // w: `WWWWW - ${i}`,
+    // x: `XXXXX - ${i}`,
+    // y: `YYYYY - ${i}`,
+    // z: `ZZZZZ - ${i}`,
+  };
+});
+  /*if (i > 20) {
   } else {
     return {
       id: i,

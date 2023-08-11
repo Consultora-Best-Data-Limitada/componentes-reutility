@@ -117,6 +117,7 @@ const onClick = (ev: MouseEvent) => {
 
 <style scoped lang="scss">
 .icon-button__button {
+  user-select: none;
   width: v-bind(containerSize);
   height: v-bind(containerSize);
 
