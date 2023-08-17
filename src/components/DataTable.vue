@@ -220,7 +220,6 @@ const {
   getCellValue,
   previousPage,
   setCurrentPage,
-  paginationToZero,
   calculatePagination,
   recalculatePagination,
 } = useDateTable(computedItems, computedItemsPerPage);
@@ -325,7 +324,12 @@ function onClickRow(item: DataTableItem) {
 watch(
   () => props.items,
   async () => {
-    if (!tableBodyRef.value || noCalculatePagination.value) return;
+    if (!tableBodyRef.value || noCalculatePagination.value) {
+      if (currentPage.value > pageCount.value) {
+        currentPage.value = pageCount.value;
+      }
+      return;
+    }
     await recalculatePagination(tableBodyRef.value);
   },
 );
