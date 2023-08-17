@@ -49,7 +49,7 @@
 
 <script setup lang="ts">
 // Vue
-import { computed } from "vue";
+import { computed, nextTick, watch } from "vue";
 
 // Tipos
 import type { PropType } from "vue";
@@ -98,11 +98,21 @@ const model = computed({
 
 // Emits
 
-const onClickYes = (): void => {
+function onClickYes(): void {
   emits("click:yes");
-};
+}
 
-const onClickNo = (): void => {
+function onClickNo(): void {
   emits("click:no");
-};
+}
+
+// Watchs
+
+watch(model, async (val) => {
+  if (val) {
+    await nextTick();
+    const activeElement = document.activeElement as HTMLElement;
+    activeElement?.blur();
+  }
+});
 </script>

@@ -1,6 +1,6 @@
 {
   "name": "componentes-reutility",
-  "version": "0.4.7",
+  "version": "0.5.1",
   "private": true,
   "main": "dist/componentes-reutility.umd.cjs",
   "module": "dist/componentes-reutility.js",

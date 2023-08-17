@@ -92,6 +92,18 @@
         :disabled="currentPage === 1"
         @click="previousPage"
       />
+      <div
+        v-if="currentPage > 2"
+        class="data-table__footer-outside-button"
+      >
+        <button
+          class="data-table__footer-page"
+          @click="setCurrentPage(1)"
+        >
+          1
+        </button>
+        <span>...</span>
+      </div>
       <div class="data-table__footer-buttons">
         <button
           v-for="page in pages"
@@ -100,6 +112,18 @@
           @click="setCurrentPage(page)"
         >
           {{ page }}
+        </button>
+      </div>
+      <div
+        v-if="currentPage < pageCount - 1"
+        class="data-table__footer-outside-button"
+      >
+        <span>...</span>
+        <button
+          class="data-table__footer-page"
+          @click="setCurrentPage(pageCount)"
+        >
+          {{ pageCount }}
         </button>
       </div>
       <IconButton
@@ -477,6 +501,7 @@ watch(
 
 .data-table__footer {
   display: flex;
+  user-select: none;
   column-gap: 0.5rem;
   align-items: center;
   justify-content: center;
@@ -485,6 +510,10 @@ watch(
 .data-table__footer-buttons {
   display: flex;
   column-gap: 0.25rem;
+}
+
+.data-table__footer-outside-button {
+  @include text-caption;
 }
 
 .data-table__footer-page {

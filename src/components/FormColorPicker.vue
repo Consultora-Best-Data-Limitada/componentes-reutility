@@ -45,6 +45,9 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  large: {
+    type: Boolean,
+  },
   background: {
     default: "neutro-1",
     type: String as PropType<Property.BackgroundColor | CustomColor>,
@@ -95,9 +98,22 @@ const model = computed({
   },
 });
 
+// Computed
+
+const labelColor = computed(() => {
+  if (props.disabled) return "rgb(var(--neutro-4))";
+  if (props.dark) return "rgb(var(--neutro-1))";
+  return "rgb(var(--secundario))";
+});
+
+const colorWidth = computed(() => {
+  if (props.large) return "100%";
+  return "2.75rem";
+});
+
 // Methods
 
-const updatePosition = async () => {
+async function updatePosition() {
   await nextTick();
   const containerEl = container.value;
   const menuContainerEl = menuContainer.value;
@@ -115,34 +131,28 @@ const updatePosition = async () => {
   } else {
     top.value = `${realTop}px`;
   }
-};
+}
 
-const openMenu = () => {
+function openMenu() {
   if (props.disabled || props.readonly || menu.value) return;
   menu.value = true;
   updatePosition();
   listenerExist.value = true;
   document.addEventListener("click", closeMenuHandler);
-};
+}
 
-const closeMenuHandler = (ev: MouseEvent) => {
+function closeMenuHandler(ev: MouseEvent) {
   if (!container.value || !ev.target) return;
   if (!container.value.contains(ev.target as Node)) {
     closeMenu();
   }
-};
+}
 
-const closeMenu = () => {
+function closeMenu() {
   menu.value = false;
   listenerExist.value = false;
   document.removeEventListener("click", closeMenuHandler);
-};
-
-const labelColor = computed(() => {
-  if (props.disabled) return "rgb(var(--neutro-4))";
-  if (props.dark) return "rgb(var(--neutro-1))";
-  return "rgb(var(--secundario))";
-});
+}
 </script>
 
 <style scoped lang="scss">
@@ -164,10 +174,10 @@ const labelColor = computed(() => {
 
 .form-color-picker__input {
   outline: none;
-  width: 2.75rem;
   cursor: pointer;
   height: 2.75rem;
   border-radius: 0.5rem;
+  width: v-bind(colorWidth);
   background: v-bind(model);
   border: 1px solid v-bind(labelColor);
 }

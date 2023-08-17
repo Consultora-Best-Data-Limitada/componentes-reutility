@@ -14,6 +14,9 @@ export type FormColorPicker = DefineComponent<
     dark: {
       type: BooleanConstructor;
     };
+    large: {
+      type: BooleanConstructor,
+    },
     pickableColors: {
       default: undefined;
       type: PropType<string[]>;

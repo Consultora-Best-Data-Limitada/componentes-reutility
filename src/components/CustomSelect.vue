@@ -46,7 +46,7 @@
         class="custom-select__menu"
       >
         <div
-          v-if="searchable"
+          v-if="searchable && items.length > 5"
           class="custom-select__search-container"
         >
           <input
@@ -57,10 +57,22 @@
             @click.stop
           />
           <FigmaIcon
+            v-if="!search"
             size="1rem"
             color="acento-principal"
             name="fm-magnify-glass"
           />
+          <button
+            v-else
+            class="custom-select__search--clear"
+            @click.stop="search = ''"
+          >
+            <FigmaIcon
+              size="1rem"
+              color="neutro-4"
+              name="fm-circle-close"
+            />
+          </button>
         </div>
         <div
           v-for="(item, index) in filteredItems"
@@ -561,6 +573,18 @@ function clear() {
 
   &::placeholder {
     color: rgb(var(--neutro-4));
+  }
+}
+
+.custom-select__search--clear {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 1;
   }
 }
 
