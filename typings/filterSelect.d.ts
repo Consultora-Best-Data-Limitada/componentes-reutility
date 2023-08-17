@@ -52,10 +52,10 @@ export type FilterSelect = DefineComponent<
     };
     searchPlaceholder: {
       default: "";
-      type: String;
+      type: StringConstructor;
     };
     hideNoDataMessage: {
-      type: Boolean;
+      type: BooleanConstructor;
     };
   },
   {},

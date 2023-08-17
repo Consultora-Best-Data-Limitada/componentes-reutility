@@ -74,10 +74,10 @@ export type FormSelect = DefineComponent<
     };
     searchPlaceholder: {
       default: "";
-      type: String;
+      type: StringConstructor;
     };
     hideNoDataMessage: {
-      type: Boolean;
+      type: BooleanConstructor;
     };
   },
   {},
