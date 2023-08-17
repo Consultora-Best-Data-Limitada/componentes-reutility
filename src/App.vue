@@ -7,11 +7,23 @@
       background-color="#fff"
     />
   </div>
+  <CustomSelect
+    searchable
+    item-title="a"
+    item-value="a"
+    :items="items"
+    placeholder="asdasd"
+    hide-no-data-message
+  >
+    <template #append-item="{close}">
+      <p @click="close">asd</p>
+    </template>
+  </CustomSelect>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import DataTable from "@/components/DataTable.vue";
+import CustomSelect from "@/components/CustomSelect.vue";
 
 const items = [...Array(60).keys()].map((i) => {
   return {
@@ -44,7 +56,7 @@ const items = [...Array(60).keys()].map((i) => {
     // z: `ZZZZZ - ${i}`,
   };
 });
-  /*if (i > 20) {
+/*if (i > 20) {
   } else {
     return {
       id: i,

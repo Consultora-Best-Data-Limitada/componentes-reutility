@@ -46,6 +46,17 @@ export type FilterSelect = DefineComponent<
     searchable: {
       type: BooleanConstructor;
     };
+    searchFunction: {
+      default: null;
+      type: PropType<(item: unknown) => boolean>;
+    };
+    searchPlaceholder: {
+      default: "";
+      type: String;
+    };
+    hideNoDataMessage: {
+      type: Boolean;
+    };
   },
   {},
   {},

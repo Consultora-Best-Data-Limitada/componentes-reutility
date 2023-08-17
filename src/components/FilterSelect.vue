@@ -15,6 +15,9 @@
       :text-multiple="textMultiple"
       :return-object="returnObject"
       :text-transform="textTransform"
+      :search-function="searchFunction"
+      :search-placeholder="searchPlaceholder"
+      :hide-no-data-message="hideNoDataMessage"
     >
       <template
         v-if="slots['append-item']"
@@ -83,6 +86,17 @@ const props = defineProps({
     >,
   },
   searchable: {
+    type: Boolean,
+  },
+  searchFunction: {
+    default: null,
+    type: Function as PropType<(item: unknown) => boolean>,
+  },
+  searchPlaceholder: {
+    default: "",
+    type: String,
+  },
+  hideNoDataMessage: {
     type: Boolean,
   },
 });

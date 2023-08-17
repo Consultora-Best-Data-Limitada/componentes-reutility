@@ -52,8 +52,8 @@
           <input
             v-model="search"
             type="text"
-            placeholder="Buscar"
             class="custom-select__search"
+            :placeholder="searchPlaceholder || 'Buscar'"
             @click.stop
           />
           <FigmaIcon
@@ -87,12 +87,15 @@
           {{ getText(item) }}
         </div>
         <div
-          v-if="filteredItems.length === 0"
+          v-if="filteredItems.length === 0 && !hideNoDataMessage"
           class="custom-select__no-data"
         >
           Sin datos disponibles
         </div>
-        <slot name="append-item" />
+        <slot
+          name="append-item"
+          :close="closeMenu"
+        />
       </div>
     </transition>
     <div
@@ -181,6 +184,17 @@ const props = defineProps({
   dark: {
     type: Boolean,
   },
+  searchFunction: {
+    default: null,
+    type: Function as PropType<(item: unknown) => boolean>,
+  },
+  searchPlaceholder: {
+    default: "",
+    type: String,
+  },
+  hideNoDataMessage: {
+    type: Boolean,
+  }
 });
 
 const emits = defineEmits(["update:model-value"]);
@@ -228,12 +242,7 @@ const caretColor = computed<CustomColor>(() => {
 
 const filteredItems = computed(() => {
   if (!props.searchable || !search.value) return props.items;
-  return props.items.filter((_item) => {
-    const searchText = search.value.trim().toLowerCase();
-    if (!searchText) return true;
-    const text = getText(_item).toLowerCase();
-    return text.includes(searchText);
-  });
+  return props.items.filter(props.searchFunction ?? searchItem);
 });
 
 const hasValue = computed(() => {
@@ -272,6 +281,13 @@ const text = computed(() => {
 });
 
 // Methods
+
+function searchItem(_item: unknown) {
+  const searchText = search.value.trim().toLowerCase();
+  if (!searchText) return true;
+  const text = getText(_item).toLowerCase();
+  return text.includes(searchText);
+}
 
 function getText(item: unknown) {
   return getPropertyFromItem(item, props.itemTitle, item);

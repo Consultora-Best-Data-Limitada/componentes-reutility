@@ -60,6 +60,17 @@ export type CustomSelect = DefineComponent<
     dark: {
       type: BooleanConstructor;
     };
+    searchFunction: {
+      default: null;
+      type: PropType<(item: unknown) => boolean>;
+    };
+    searchPlaceholder: {
+      default: "";
+      type: String;
+    };
+    hideNoDataMessage: {
+      type: Boolean;
+    };
   },
   {},
   {},
