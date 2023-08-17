@@ -26,9 +26,13 @@
     >
       <template
         v-if="slots['append-item']"
-        #append-item
+        #append-item="{ close, filteredItems }"
       >
-        <slot name="append-item" />
+        <slot
+          :close="close"
+          name="append-item"
+          :filtered-items="filteredItems"
+        />
       </template>
     </CustomSelect>
   </div>

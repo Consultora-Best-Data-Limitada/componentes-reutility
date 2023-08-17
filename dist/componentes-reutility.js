@@ -11810,8 +11810,11 @@ const ag = /* @__PURE__ */ ke(rg, [["__scopeId", "data-v-4d3bdb3f"]]), og = { cl
       }, He({ _: 2 }, [
         c(r)["append-item"] ? {
           name: "append-item",
-          fn: K(() => [
-            q(o.$slots, "append-item", {}, void 0, !0)
+          fn: K(({ close: u, filteredItems: p }) => [
+            q(o.$slots, "append-item", {
+              close: u,
+              filteredItems: p
+            }, void 0, !0)
           ]),
           key: "0"
         } : void 0
@@ -11819,7 +11822,7 @@ const ag = /* @__PURE__ */ ke(rg, [["__scopeId", "data-v-4d3bdb3f"]]), og = { cl
     ]));
   }
 });
-const ug = /* @__PURE__ */ ke(lg, [["__scopeId", "data-v-e4973369"]]), sg = { class: "flex__container" }, cg = /* @__PURE__ */ se({
+const ug = /* @__PURE__ */ ke(lg, [["__scopeId", "data-v-c6827c14"]]), sg = { class: "flex__container" }, cg = /* @__PURE__ */ se({
   __name: "FlexContainer",
   props: {
     padding: {
@@ -12047,8 +12050,8 @@ const mg = /* @__PURE__ */ ke(pg, [["__scopeId", "data-v-e3f90221"]]), yg = { cl
   setup(e, { emit: t }) {
     const n = e;
     Oe((i) => ({
-      "593d7a3c": e.gridTemplateColumns,
-      "7b990590": c(o)
+      "1b0112f5": e.gridTemplateColumns,
+      "754dee92": c(o)
     }));
     const r = pt(), a = _({
       get() {
@@ -12084,8 +12087,11 @@ const mg = /* @__PURE__ */ ke(pg, [["__scopeId", "data-v-e3f90221"]]), yg = { cl
       }, He({ _: 2 }, [
         c(r)["append-item"] ? {
           name: "append-item",
-          fn: K(() => [
-            q(i.$slots, "append-item", {}, void 0, !0)
+          fn: K(({ close: p, filteredItems: d }) => [
+            q(i.$slots, "append-item", {
+              close: p,
+              filteredItems: d
+            }, void 0, !0)
           ]),
           key: "0"
         } : void 0
@@ -12093,7 +12099,7 @@ const mg = /* @__PURE__ */ ke(pg, [["__scopeId", "data-v-e3f90221"]]), yg = { cl
     ]));
   }
 });
-const gg = /* @__PURE__ */ ke(hg, [["__scopeId", "data-v-879894d6"]]), bg = { class: "form-text-field__container" }, _g = { class: "form-text-field__label" }, wg = /* @__PURE__ */ se({
+const gg = /* @__PURE__ */ ke(hg, [["__scopeId", "data-v-4c4f3efe"]]), bg = { class: "form-text-field__container" }, _g = { class: "form-text-field__label" }, wg = /* @__PURE__ */ se({
   __name: "FormTextField",
   props: {
     modelValue: {
