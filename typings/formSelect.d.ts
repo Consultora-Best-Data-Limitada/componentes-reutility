@@ -70,7 +70,7 @@ export type FormSelect = DefineComponent<
     };
     searchFunction: {
       default: null;
-      type: PropType<(item: unknown) => boolean>;
+      type: PropType<(search: string, item: unknown) => boolean>;
     };
     searchPlaceholder: {
       default: "";

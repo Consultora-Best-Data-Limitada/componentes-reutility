@@ -186,7 +186,7 @@ const props = defineProps({
   },
   searchFunction: {
     default: null,
-    type: Function as PropType<(item: unknown) => boolean>,
+    type: Function as PropType<(search: string, item: unknown) => boolean>,
   },
   searchPlaceholder: {
     default: "",
@@ -194,7 +194,7 @@ const props = defineProps({
   },
   hideNoDataMessage: {
     type: Boolean,
-  }
+  },
 });
 
 const emits = defineEmits(["update:model-value"]);
@@ -242,7 +242,10 @@ const caretColor = computed<CustomColor>(() => {
 
 const filteredItems = computed(() => {
   if (!props.searchable || !search.value) return props.items;
-  return props.items.filter(props.searchFunction ?? searchItem);
+  return props.items.filter((_item) => {
+    if (props.searchFunction) props.searchFunction(search.value, _item);
+    return searchItem(_item);
+  });
 });
 
 const hasValue = computed(() => {
