@@ -15,15 +15,26 @@
     placeholder="asdasd"
     hide-no-data-message
   >
-    <template #append-item="{close}">
+    <template #append-item="{ close }">
       <p @click="close">asd</p>
     </template>
   </CustomSelect>
+  <button @click="con = true">Abrir</button>
+  <ConfirmationDialog
+    v-model="con"
+    title="asd"
+    @click:yes="con = false"
+    @click:no="con = false"
+  />
 </template>
 
 <script setup lang="ts">
 import DataTable from "@/components/DataTable.vue";
 import CustomSelect from "@/components/CustomSelect.vue";
+import { ref } from "vue";
+import ConfirmationDialog from "@/components/ConfirmationDialog.vue";
+
+const con = ref(false);
 
 const items = [...Array(60).keys()].map((i) => {
   return {

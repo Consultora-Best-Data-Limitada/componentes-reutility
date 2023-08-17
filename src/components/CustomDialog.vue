@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 // Vue
-import { computed, ref, watch } from "vue";
+import { computed, nextTick, ref, watch } from "vue";
 
 // Tipos
 import type { PropType } from "vue";
@@ -69,6 +69,7 @@ watch(model, (value: boolean) => {
 });
 
 function startClosingAnimation() {
+  console.log(props.persistent);
   if (props.persistent) {
     shaking.value = true;
   } else {
@@ -99,6 +100,14 @@ function onKeydown(ev: KeyboardEvent) {
   ev.preventDefault();
   startClosingAnimation();
 }
+
+// Watchs
+
+watch(model, async (val) => {
+  if (!val) return;
+  await nextTick();
+  dialogRef.value?.focus();
+});
 </script>
 
 <style scoped lang="scss">

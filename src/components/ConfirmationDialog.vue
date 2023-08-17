@@ -49,7 +49,7 @@
 
 <script setup lang="ts">
 // Vue
-import { computed, nextTick, watch } from "vue";
+import { computed } from "vue";
 
 // Tipos
 import type { PropType } from "vue";
@@ -105,14 +105,4 @@ function onClickYes(): void {
 function onClickNo(): void {
   emits("click:no");
 }
-
-// Watchs
-
-watch(model, async (val) => {
-  if (val) {
-    await nextTick();
-    const activeElement = document.activeElement as HTMLElement;
-    activeElement?.blur();
-  }
-});
 </script>
