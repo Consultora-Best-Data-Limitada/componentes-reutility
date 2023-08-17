@@ -95,6 +95,7 @@
         <slot
           name="append-item"
           :close="closeMenu"
+          :filtered-items="filteredItems"
         />
       </div>
     </transition>
