@@ -244,7 +244,7 @@ const caretColor = computed<CustomColor>(() => {
 const filteredItems = computed(() => {
   if (!props.searchable || !search.value) return props.items;
   return props.items.filter((_item) => {
-    if (props.searchFunction) props.searchFunction(search.value, _item);
+    if (props.searchFunction) return props.searchFunction(search.value, _item);
     return searchItem(_item);
   });
 });

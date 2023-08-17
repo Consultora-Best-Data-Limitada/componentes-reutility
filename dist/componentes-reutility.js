@@ -10596,10 +10596,10 @@ const jo = /* @__PURE__ */ ke(ch, [["__scopeId", "data-v-59b9c697"]]), yu = (e, 
   setup(e, { emit: t }) {
     const n = e;
     Oe((h) => ({
-      "77756b63": e.textTransform,
-      "411ea0f9": a.value,
-      "3a9c963a": o.value,
-      "7421b46a": i.value
+      "131c3f86": e.textTransform,
+      "0a929648": a.value,
+      "5c1c1d60": o.value,
+      "28045b8d": i.value
     }));
     const { getPropertyFromItem: r } = ph(), a = I(""), o = I(""), i = I(""), u = I(""), p = I(!1), d = I(!1), v = I(!1), m = I(null), s = I(null), g = I(null), k = _({
       get() {
@@ -10610,7 +10610,7 @@ const jo = /* @__PURE__ */ ke(ch, [["__scopeId", "data-v-59b9c697"]]), yu = (e, 
       }
     }), R = _(
       () => F.value && n.clearable && !n.readonly && !n.disabled
-    ), Y = _(() => n.dark ? n.disabled ? "neutro-3" : "neutro-1" : n.disabled ? "neutro-4" : "acento-principal"), E = _(() => !n.searchable || !u.value ? n.items : n.items.filter((h) => (n.searchFunction && n.searchFunction(u.value, h), X(h)))), F = _(() => Array.isArray(k.value) ? k.value.length > 0 : !!k.value), M = _(() => ({
+    ), Y = _(() => n.dark ? n.disabled ? "neutro-3" : "neutro-1" : n.disabled ? "neutro-4" : "acento-principal"), E = _(() => !n.searchable || !u.value ? n.items : n.items.filter((h) => n.searchFunction ? n.searchFunction(u.value, h) : X(h))), F = _(() => Array.isArray(k.value) ? k.value.length > 0 : !!k.value), M = _(() => ({
       "custom-select__text-container": !0,
       "custom-select__text-container--dark": n.dark,
       "custom-select__text-container--opened": p.value,
@@ -10811,7 +10811,7 @@ const jo = /* @__PURE__ */ ke(ch, [["__scopeId", "data-v-59b9c697"]]), yu = (e, 
     ], 544));
   }
 });
-const qo = /* @__PURE__ */ ke(Sh, [["__scopeId", "data-v-5c7419b5"]]);
+const qo = /* @__PURE__ */ ke(Sh, [["__scopeId", "data-v-e1747cb0"]]);
 /*! maska v2.1.7 | (c) Alexander Shabunevich | Released under the MIT license */
 var $h = Object.defineProperty, Oh = (e, t, n) => t in e ? $h(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n, ln = (e, t, n) => (Oh(e, typeof t != "symbol" ? t + "" : t, n), n);
 const Pl = {
