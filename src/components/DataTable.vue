@@ -93,7 +93,7 @@
         @click="previousPage"
       />
       <div
-        v-if="currentPage > 2"
+        v-if="currentPage > 3"
         class="data-table__footer-outside-button"
       >
         <button
@@ -115,7 +115,7 @@
         </button>
       </div>
       <div
-        v-if="currentPage < pageCount - 1"
+        v-if="currentPage < pageCount - 2"
         class="data-table__footer-outside-button"
       >
         <span>...</span>
