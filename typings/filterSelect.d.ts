@@ -48,7 +48,7 @@ export type FilterSelect = DefineComponent<
     };
     searchFunction: {
       default: null;
-      type: PropType<(search: string, item: unknown) => boolean>;
+      type: PropType<(search: string, item: any) => boolean>;
     };
     searchPlaceholder: {
       default: "";

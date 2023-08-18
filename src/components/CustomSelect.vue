@@ -187,7 +187,7 @@ const props = defineProps({
   },
   searchFunction: {
     default: null,
-    type: Function as PropType<(search: string, item: unknown) => boolean>,
+    type: Function as PropType<(search: string, item: any) => boolean>,
   },
   searchPlaceholder: {
     default: "",
