@@ -57,10 +57,18 @@ export const useDateTable = (items: Ref<DataTableItem[]>, itemsPerPage: Ref<numb
     const page = currentPage.value;
     let pagesToShow: number[];
     if (page === 1) {
-      pagesToShow = [page, page + 1, page + 2];
+      pagesToShow = [page, page + 1, page + 2,page+3];
     } else if (page === pageCount.value) {
-      pagesToShow = [page - 2, page - 1, page];
-    } else {
+      pagesToShow = [page-3 ,page - 2, page - 1, page];
+    } else if (page === 3 ){
+      pagesToShow = [page-2,page-1,page,page+1]
+    } else if (page === 2){
+      pagesToShow = [page-1,page,page+1,page+2]
+    } else if (page === pageCount.value-1){
+      pagesToShow = [page-2,page-1,page,page+1]
+    }else if(page === pageCount.value-2){
+      pagesToShow =[page-1,page,page+1,page+2]
+    }else {
       pagesToShow = [page - 1, page, page + 1];
     }
     return pagesToShow.filter((p) => p > 0 && p <= pageCount.value);
