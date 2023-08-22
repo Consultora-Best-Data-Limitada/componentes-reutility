@@ -178,15 +178,10 @@ function createImage() {
   return new Promise<HTMLImageElement>((resolve) => {
     const img = new Image();
     img.onload = () => {
-      resolve(img);
       const aspectRatio = img.width / img.height;
-      if (aspectRatio > 1) {
-        img.height = props.height;
-        img.width = props.height * aspectRatio;
-      } else {
-        img.width = props.height;
-        img.height = props.height * (1 + aspectRatio);
-      }
+      img.width = Math.max(props.height, props.height * aspectRatio);
+      img.height = Math.max(props.height, props.height / aspectRatio);
+      resolve(img);
     };
     img.src = URL.createObjectURL(props.file);
   });

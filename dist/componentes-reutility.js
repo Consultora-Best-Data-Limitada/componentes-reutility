@@ -13745,7 +13745,7 @@ const O0 = /* @__PURE__ */ we($0, [["__scopeId", "data-v-81015ccc"]]), _u = (e) 
     }, P0, 544));
   }
 });
-const wu = /* @__PURE__ */ we(C0, [["__scopeId", "data-v-f500483c"]]), D0 = (e) => (Hr("data-v-4be1a221"), e = e(), zr(), e), R0 = { class: "image-editor__wrapper grid gap-y-8" }, M0 = ["width", "height"], I0 = /* @__PURE__ */ D0(() => /* @__PURE__ */ F("div", { class: "absolute w-full top-0 left-0 h-full image-editor__area" }, null, -1)), N0 = {
+const wu = /* @__PURE__ */ we(C0, [["__scopeId", "data-v-f500483c"]]), D0 = (e) => (Hr("data-v-ec8ab006"), e = e(), zr(), e), R0 = { class: "image-editor__wrapper grid gap-y-8" }, M0 = ["width", "height"], I0 = /* @__PURE__ */ D0(() => /* @__PURE__ */ F("div", { class: "absolute w-full top-0 left-0 h-full image-editor__area" }, null, -1)), N0 = {
   key: 0,
   class: "absolute grid grid-cols-[auto_1fr] gap-x-2 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] image-cropper__tooltip rounded-2xl p-2"
 }, B0 = { class: "text-white text-base leading-5" }, A0 = { class: "grid grid-cols-[auto_50%_auto] justify-center gap-x-3 items-center" }, E0 = /* @__PURE__ */ le({
@@ -13787,8 +13787,8 @@ const wu = /* @__PURE__ */ we(C0, [["__scopeId", "data-v-f500483c"]]), D0 = (e) 
   setup(e, { expose: t }) {
     const n = e;
     Se((N) => ({
-      "4bc93bce": c(h),
-      "4c0d5f12": c(B)
+      "701c0bdd": c(h),
+      "0b28d123": c(B)
     }));
     const r = R(1), a = R(0), o = R(0), i = R(0), u = R(0), m = R(0), d = R(!0), y = R(null), p = R(null), s = R(null);
     qe(async () => {
@@ -13818,9 +13818,8 @@ const wu = /* @__PURE__ */ we(C0, [["__scopeId", "data-v-f500483c"]]), D0 = (e) 
       return new Promise((N) => {
         const x = new Image();
         x.onload = () => {
-          N(x);
           const l = x.width / x.height;
-          l > 1 ? (x.height = n.height, x.width = n.height * l) : (x.width = n.height, x.height = n.height * (1 + l));
+          x.width = Math.max(n.height, n.height * l), x.height = Math.max(n.height, n.height / l), N(x);
         }, x.src = URL.createObjectURL(n.file);
       });
     }
@@ -13914,7 +13913,7 @@ const wu = /* @__PURE__ */ we(C0, [["__scopeId", "data-v-f500483c"]]), D0 = (e) 
     ]));
   }
 });
-const Y0 = /* @__PURE__ */ we(E0, [["__scopeId", "data-v-4be1a221"]]), U0 = (e) => {
+const Y0 = /* @__PURE__ */ we(E0, [["__scopeId", "data-v-ec8ab006"]]), U0 = (e) => {
   Al().generateOverlayContainer(), e.component("AbsoluteContainer", h0), e.component("RelativeContainer", _0), e.component("CheckBox", El), e.component("ConfirmationDialog", ts), e.component("CustomButton", va), e.component("CustomDatePicker", Go), e.component("CustomDialog", Io), e.component("CustomSelect", Qo), e.component("CustomTextField", Zo), e.component("DataTable", tg), e.component("DataTableItem", ng), e.component("FilterDatePicker", ig), e.component("FilterSelect", cg), e.component("FlexContainer", gu), e.component("FormDatePicker", vg), e.component("FormSelect", _g), e.component("FormTextField", $g), e.component("GridColumn", jr), e.component("GridRow", Yl), e.component("HeaderTabs", Pg), e.component("IconButton", Qt), e.component("ImageContainer", Rg), e.component("InformationText", Ag), e.component("PageSwitch", Fg), e.component("PanelTitle", Wg), e.component("SearchTextField", Lg), e.component("SuccessDialog", zg), e.component("SvgIcon", Rt), e.component("TextContainer", gt), e.component("FormColorPicker", o0), e.component("ColorPicker", bu), e.component("CustomMenu", u0), e.component("FigmaIcon", Ye), e.component("ExpansionPanel", f0), e.component("GridContainer", p0), e.component("CustomTooltip", Qr), e.component("ExpandableDataTableItem", w0), e.component("ImageInput", S0), e.component("CustomChip", O0), e.component("InputRange", wu), e.component("ImageCropper", Y0);
 };
 export {
