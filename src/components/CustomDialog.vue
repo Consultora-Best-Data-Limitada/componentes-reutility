@@ -69,7 +69,6 @@ watch(model, (value: boolean) => {
 });
 
 function startClosingAnimation() {
-  console.log(props.persistent);
   if (props.persistent) {
     shaking.value = true;
   } else {

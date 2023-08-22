@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --acento-principal: 36, 183, 112;
   --acento-principal-hover: 99, 227, 176;
