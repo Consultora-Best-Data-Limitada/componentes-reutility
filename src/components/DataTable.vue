@@ -350,7 +350,7 @@ watch(
   async () => {
     if (!tableBodyRef.value || noCalculatePagination.value) {
       if (currentPage.value > pageCount.value) {
-        currentPage.value = pageCount.value;
+        currentPage.value = Math.max(1, pageCount.value);
       }
       return;
     }
