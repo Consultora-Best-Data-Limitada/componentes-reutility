@@ -1,7 +1,19 @@
 <template>
   <div class="bg-red-950">
-    <button @click="a = !a">abrir</button>
-    <ExpansionPanel :model-value="a">
+    <button @click="a += 1">abrir</button>
+    <ExpansionPanel :model-value="a === 0">
+      <template #activator>
+        <TextContainer>Muy buenos días</TextContainer>
+      </template>
+      <GridColumn row-gap="0.5rem">
+        <TextContainer>Muy buenos días</TextContainer>
+        <TextContainer>Muy buenos días</TextContainer>
+        <TextContainer>Muy buenos días</TextContainer>
+        <TextContainer>Muy buenos días</TextContainer>
+        <TextContainer>Muy buenos días</TextContainer>
+      </GridColumn>
+    </ExpansionPanel>
+    <ExpansionPanel :model-value="a === 1">
       <template #activator>
         <TextContainer>Muy buenos días</TextContainer>
       </template>
@@ -26,7 +38,7 @@ import TextContainer from "@/components/TextContainer.vue";
 import GridColumn from "@/components/GridColumn.vue";
 
 
-const a = ref(false)
+const a = ref(0)
 const file = ref<File | null>(null);
 const cropper = ref<{ crop: () => Promise<Blob> } | null>(null);
 

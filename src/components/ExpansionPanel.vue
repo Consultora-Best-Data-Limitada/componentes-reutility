@@ -119,9 +119,15 @@ function toggle() {
 
 // Watchs
 
-watch(model, (val) => {
-  opened.value = val;
-});
+watch(
+  model,
+  (val) => {
+    opened.value = val;
+  },
+  {
+    immediate: true,
+  },
+);
 </script>
 
 <style scoped lang="scss">

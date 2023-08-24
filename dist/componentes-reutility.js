@@ -13164,11 +13164,11 @@ const u0 = /* @__PURE__ */ we(l0, [["__scopeId", "data-v-de3c3a3e"]]), s0 = {
   setup(e, { emit: t }) {
     const n = e;
     Se((p) => ({
-      "6d3094b9": e.boxShadow,
-      "593ed1a0": e.borderRadius,
-      "1ecee45a": c(d),
-      "282a4fdb": e.transitionDuration,
-      "4ca5cf49": e.transitionTimingFunction
+      "64dc3d0c": e.boxShadow,
+      f74cac06: e.borderRadius,
+      "232c83a0": c(d),
+      "06eb54e8": e.transitionDuration,
+      f4ffd2d4: e.transitionTimingFunction
     }));
     const r = Ze(), a = R(!1), o = b(() => {
       const p = parseInt(n.transitionDuration);
@@ -13190,9 +13190,15 @@ const u0 = /* @__PURE__ */ we(l0, [["__scopeId", "data-v-de3c3a3e"]]), s0 = {
     function y() {
       i.value = !i.value;
     }
-    return qe(i, (p) => {
-      a.value = p;
-    }), (p, s) => (v(), $("div", {
+    return qe(
+      i,
+      (p) => {
+        a.value = p;
+      },
+      {
+        immediate: !0
+      }
+    ), (p, s) => (v(), $("div", {
       class: ie(c(u))
     }, [
       F("div", {
@@ -13216,7 +13222,7 @@ const u0 = /* @__PURE__ */ we(l0, [["__scopeId", "data-v-de3c3a3e"]]), s0 = {
     ], 2));
   }
 });
-const f0 = /* @__PURE__ */ we(c0, [["__scopeId", "data-v-242203b9"]]), d0 = { class: "grid__container" }, m0 = /* @__PURE__ */ le({
+const f0 = /* @__PURE__ */ we(c0, [["__scopeId", "data-v-2759fd24"]]), d0 = { class: "grid__container" }, m0 = /* @__PURE__ */ le({
   __name: "GridContainer",
   props: {
     height: {
