@@ -10,9 +10,14 @@
       />
     </div>
     <div :class="wrapperClass">
-      <div class="expansion-panel__content">
-        <slot />
-      </div>
+      <transition :duration="durationNumber">
+        <div
+          v-if="opened"
+          class="expansion-panel__content"
+        >
+          <slot />
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -71,6 +76,11 @@ const colors = useColors();
 const opened = ref(false);
 
 // Computed
+
+const durationNumber = computed(() => {
+  const dur = parseInt(props.transitionDuration);
+  return isNaN(dur) ? 0 : dur;
+});
 
 const model = computed({
   get() {

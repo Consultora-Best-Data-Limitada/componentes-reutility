@@ -1,14 +1,17 @@
 <template>
   <div class="bg-red-950">
-    <ImageInput v-model="file" />
-    <ImageCropper
-      v-if="file"
-      ref="cropper"
-      :file="file"
-      :height="440"
-      :width="880"
-    />
-    <CustomButton @click="crop"> Crop </CustomButton>
+    <ExpansionPanel>
+      <template #activator>
+        <TextContainer>Muy buenos días</TextContainer>
+      </template>
+      <GridColumn row-gap="0.5rem">
+        <TextContainer>Muy buenos días</TextContainer>
+        <TextContainer>Muy buenos días</TextContainer>
+        <TextContainer>Muy buenos días</TextContainer>
+        <TextContainer>Muy buenos días</TextContainer>
+        <TextContainer>Muy buenos días</TextContainer>
+      </GridColumn>
+    </ExpansionPanel>
   </div>
 </template>
 
@@ -17,6 +20,9 @@ import ImageCropper from "@/components/ImageCropper.vue";
 import ImageInput from "@/components/ImageInput.vue";
 import { ref } from "vue";
 import CustomButton from "@/components/CustomButton.vue";
+import ExpansionPanel from "@/components/ExpansionPanel.vue";
+import TextContainer from "@/components/TextContainer.vue";
+import GridColumn from "@/components/GridColumn.vue";
 
 const file = ref<File | null>(null);
 const cropper = ref<{ crop: () => Promise<Blob> } | null>(null);
