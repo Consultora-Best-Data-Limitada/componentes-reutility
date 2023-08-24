@@ -1,7 +1,7 @@
 var Su = Object.defineProperty;
 var $u = (e, t, n) => t in e ? Su(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
 var fn = (e, t, n) => ($u(e, typeof t != "symbol" ? t + "" : t, n), n);
-import { ref as R, defineComponent as le, useCssVars as Se, unref as c, onMounted as Ge, computed as b, watch as qe, openBlock as v, createElementBlock as $, createElementVNode as F, normalizeClass as ie, createVNode as pe, Transition as yt, withCtx as J, createBlock as ne, createCommentVNode as D, renderSlot as G, Fragment as ve, nextTick as lt, useSlots as mt, isRef as We, createTextVNode as Ne, toDisplayString as he, reactive as Ct, toRef as nr, onUnmounted as Mo, mergeProps as je, createSlots as Le, renderList as Te, normalizeProps as Ke, guardReactiveProps as pt, resolveDynamicComponent as Il, Teleport as xu, withKeys as be, withModifiers as Ie, normalizeStyle as $t, withDirectives as Tt, vShow as pn, onBeforeUpdate as Ou, getCurrentScope as Tu, onScopeDispose as Pu, vModelText as Nl, vModelDynamic as Ko, pushScopeId as Hr, popScopeId as zr, vModelCheckbox as Cu } from "vue";
+import { ref as R, defineComponent as le, useCssVars as Se, unref as c, onMounted as qe, computed as b, watch as Qe, openBlock as v, createElementBlock as $, createElementVNode as F, normalizeClass as ie, createVNode as pe, Transition as yt, withCtx as J, createBlock as ne, createCommentVNode as D, renderSlot as G, Fragment as ve, nextTick as lt, useSlots as mt, isRef as We, createTextVNode as Ne, toDisplayString as he, reactive as Ct, toRef as nr, onUnmounted as Mo, mergeProps as je, createSlots as Le, renderList as Te, normalizeProps as Ke, guardReactiveProps as pt, resolveDynamicComponent as Il, Teleport as xu, withKeys as be, withModifiers as Ie, normalizeStyle as $t, withDirectives as Tt, vShow as pn, onBeforeUpdate as Ou, getCurrentScope as Tu, onScopeDispose as Pu, vModelText as Nl, vModelDynamic as Ko, pushScopeId as Hr, popScopeId as zr, vModelCheckbox as Cu } from "vue";
 const Bl = R(null);
 function Du() {
   const e = document.createElement("div");
@@ -62,7 +62,7 @@ const Ze = () => {
       "6c3a208c": c(a)
     }));
     const n = Ze();
-    Ge(() => {
+    qe(() => {
       o();
     });
     const r = R(null), a = b(() => n.getRealColor(t.color)), o = async () => {
@@ -78,7 +78,7 @@ const Ze = () => {
           console.log(i);
         }
     };
-    return qe(() => t.src, o), qe(() => t.size, o), (i, u) => (v(), $("div", {
+    return Qe(() => t.src, o), Qe(() => t.size, o), (i, u) => (v(), $("div", {
       ref_key: "svgContent",
       ref: r,
       class: "svg-icon__container"
@@ -608,7 +608,7 @@ const va = /* @__PURE__ */ we(Ku, [["__scopeId", "data-v-007c780d"]]), Ju = /* @
         t("update:model-value", h);
       }
     });
-    qe(m, (h) => {
+    Qe(m, (h) => {
       r.value && (h ? (a.value = !0, r.value.showModal()) : o.value = !0);
     });
     function d() {
@@ -630,7 +630,7 @@ const va = /* @__PURE__ */ we(Ku, [["__scopeId", "data-v-007c780d"]]), Ju = /* @
     function s(h) {
       h.key === "Escape" && (h.preventDefault(), d());
     }
-    return qe(m, async (h) => {
+    return Qe(m, async (h) => {
       var _;
       h && (await lt(), (_ = r.value) == null || _.focus());
     }), (h, _) => (v(), $("dialog", {
@@ -736,7 +736,7 @@ const Io = /* @__PURE__ */ we(Ju, [["__scopeId", "data-v-1120d4aa"]]), es = /* @
       "1f388388": c(p)
     }));
     const r = mt(), a = Ze();
-    Ge(() => {
+    qe(() => {
       s(n.specialText);
     });
     const o = R(null), i = b(() => {
@@ -750,7 +750,7 @@ const Io = /* @__PURE__ */ we(Ju, [["__scopeId", "data-v-1120d4aa"]]), es = /* @
     }, h = (_) => {
       t("click", _);
     };
-    return qe(() => n.specialText, s), (_, C) => (v(), $("div", {
+    return Qe(() => n.specialText, s), (_, C) => (v(), $("div", {
       ref_key: "container",
       ref: o,
       class: ie(c(i)),
@@ -7398,7 +7398,7 @@ const Vy = (e, t = 3) => {
     1: []
   },
   monthPicker: []
-}), sa = R(null), mn = R(!1), ca = R(!1), fa = R(!1), da = R(!1), nt = R(0), Qe = R(0), Mt = () => {
+}), sa = R(null), mn = R(!1), ca = R(!1), fa = R(!1), da = R(!1), nt = R(0), Ge = R(0), Mt = () => {
   const e = b(() => mn.value ? [...Ce.selectionGrid, Ce.actionRow].filter((p) => p.length) : ca.value ? [
     ...Ce.timePicker[0],
     ...Ce.timePicker[1],
@@ -7407,12 +7407,12 @@ const Vy = (e, t = 3) => {
   ].filter((p) => p.length) : fa.value ? [...Ce.monthPicker, Ce.actionRow] : [Ce.monthYear, ...Ce.calendar, Ce.time, Ce.actionRow].filter((p) => p.length)), t = (p) => {
     nt.value = p ? nt.value + 1 : nt.value - 1;
     let s = null;
-    e.value[Qe.value] && (s = e.value[Qe.value][nt.value]), s || (nt.value = p ? nt.value - 1 : nt.value + 1);
+    e.value[Ge.value] && (s = e.value[Ge.value][nt.value]), s || (nt.value = p ? nt.value - 1 : nt.value + 1);
   }, n = (p) => {
-    Qe.value === 0 && !p || Qe.value === e.value.length && p || (Qe.value = p ? Qe.value + 1 : Qe.value - 1, e.value[Qe.value] ? e.value[Qe.value] && !e.value[Qe.value][nt.value] && nt.value !== 0 && (nt.value = e.value[Qe.value].length - 1) : Qe.value = p ? Qe.value - 1 : Qe.value + 1);
+    Ge.value === 0 && !p || Ge.value === e.value.length && p || (Ge.value = p ? Ge.value + 1 : Ge.value - 1, e.value[Ge.value] ? e.value[Ge.value] && !e.value[Ge.value][nt.value] && nt.value !== 0 && (nt.value = e.value[Ge.value].length - 1) : Ge.value = p ? Ge.value - 1 : Ge.value + 1);
   }, r = (p) => {
     let s = null;
-    e.value[Qe.value] && (s = e.value[Qe.value][nt.value]), s ? s.focus({ preventScroll: !mn.value }) : nt.value = p ? nt.value - 1 : nt.value + 1;
+    e.value[Ge.value] && (s = e.value[Ge.value][nt.value]), s ? s.focus({ preventScroll: !mn.value }) : nt.value = p ? nt.value - 1 : nt.value + 1;
   }, a = () => {
     t(!0), r(!0);
   }, o = () => {
@@ -7426,7 +7426,7 @@ const Vy = (e, t = 3) => {
   }, d = (p, s) => {
     Ce[s] = p;
   }, y = () => {
-    nt.value = 0, Qe.value = 0;
+    nt.value = 0, Ge.value = 0;
   };
   return {
     buildMatrix: m,
@@ -7471,7 +7471,7 @@ const Vy = (e, t = 3) => {
       !e.readonly && !e.disabled && t("update:internal-model-value", w);
     }
   }), h = R([]);
-  qe(s, () => {
+  Qe(s, () => {
     X();
   });
   const _ = R([{ month: De(H()), year: Re(H()) }]), C = Ct({
@@ -7488,7 +7488,7 @@ const Vy = (e, t = 3) => {
   }, j = (w, W) => {
     C[w] = W;
   };
-  Ge(() => {
+  qe(() => {
     s.value || (e.startDate && (I(0, De(H(e.startDate)), Re(H(e.startDate))), p.value.multiCalendars && Pe(0)), p.value.startTime && N()), X(!0);
   });
   const X = (w = !1) => {
@@ -7719,9 +7719,9 @@ const Vy = (e, t = 3) => {
     setDateMonthOrYear: p,
     defaults: s
   } = ct(t), h = R(""), _ = nr(t, "format");
-  qe(r, () => {
+  Qe(r, () => {
     e("internal-model-change", r.value);
-  }), qe(_, () => {
+  }), Qe(_, () => {
     f();
   });
   const C = (x) => {
@@ -7834,7 +7834,7 @@ const ev = (e, t, n, r) => {
     left: "0",
     transform: "none"
   }), o = R(!1), i = nr(r, "teleportCenter");
-  qe(i, () => {
+  Qe(i, () => {
     C();
   });
   const u = (P) => {
@@ -8259,7 +8259,7 @@ const ev = (e, t, n, r) => {
   emits: ["close-picker", "select-date", "invalid-select"],
   setup(e, { emit: t }) {
     const n = e, { formatDate: r, isValidTime: a, defaults: o } = ct(n), { buildMatrix: i } = Mt(), u = R(null), m = R(null);
-    Ge(() => {
+    qe(() => {
       n.arrowNavigation && i([He(u), He(m)], "actionRow");
     });
     const d = b(() => n.range && !n.partialRange && n.internalModelValue ? n.internalModelValue.length === 2 : !0), y = b(() => !s.value || !h.value || !d.value), p = b(() => ({
@@ -8378,7 +8378,7 @@ const ev = (e, t, n, r) => {
       left: "",
       transform: ""
     }), d = R([]), y = R(null), p = R(!0), s = R(""), h = R({ startX: 0, endX: 0, startY: 0, endY: 0 }), _ = R([]), C = R({ left: "50%" }), B = b(() => r.dayNames ? Array.isArray(r.dayNames) ? r.dayNames : r.dayNames(r.locale, +r.weekStart) : Fy(r.locale, +r.weekStart));
-    Ge(() => {
+    qe(() => {
       n("mount", { cmp: "calendar", refs: d }), r.noSwipe || y.value && (y.value.addEventListener("touchstart", M, { passive: !1 }), y.value.addEventListener("touchend", Q, { passive: !1 }), y.value.addEventListener("touchmove", ee, { passive: !1 })), r.monthChangeOnScroll && y.value && y.value.addEventListener("wheel", O, { passive: !1 });
     });
     const A = (l) => l ? r.vertical ? "vNext" : "next" : r.vertical ? "vPrevious" : "previous", U = (l, f) => {
@@ -8590,7 +8590,7 @@ const ev = (e, t, n, r) => {
   emits: ["activate", "set-ref"],
   setup(e, { emit: t }) {
     const n = R(null);
-    return Ge(() => t("set-ref", n)), (r, a) => (v(), $("div", {
+    return qe(() => t("set-ref", n)), (r, a) => (v(), $("div", {
       class: "dp__month_year_col_nav",
       onClick: a[0] || (a[0] = (o) => r.$emit("activate")),
       onKeydown: [
@@ -8639,7 +8639,7 @@ const ev = (e, t, n, r) => {
     const r = e, { setSelectionGrid: a, buildMultiLevelMatrix: o, setMonthPicker: i } = Mt(), { hideNavigationButtons: u } = ct(r), m = R(!1), d = R(null), y = R(null), p = R([]), s = R(), h = R(null), _ = R(0), C = R(null);
     Ou(() => {
       d.value = null;
-    }), Ge(() => {
+    }), qe(() => {
       lt().then(() => S()), A(), B(!0);
     }), Mo(() => B(!1));
     const B = (O) => {
@@ -8818,7 +8818,7 @@ const ev = (e, t, n, r) => {
   emits: ["update:model-value", "toggle", "set-ref"],
   setup(e, { emit: t }) {
     const n = e, { transitionName: r, showTransition: a } = Gr(n.transitions), o = R(null);
-    return Ge(() => t("set-ref", o)), (i, u) => (v(), $(ve, null, [
+    return qe(() => t("set-ref", o)), (i, u) => (v(), $(ve, null, [
       F("div", {
         class: "dp__month_year_select",
         onClick: u[0] || (u[0] = (m) => i.$emit("toggle")),
@@ -8904,7 +8904,7 @@ const ev = (e, t, n, r) => {
   emits: ["update-month-year", "month-year-select", "mount", "reset-flow", "overlay-closed"],
   setup(e, { expose: t, emit: n }) {
     const r = e, { defaults: a } = ct(r), { transitionName: o, showTransition: i } = Gr(a.value.transitions), { buildMatrix: u } = Mt(), { handleMonthYearChange: m, isDisabled: d, updateMonthYear: y } = Jy(r, n), p = R(!1), s = R(!1), h = R([null, null, null, null]), _ = R(null), C = R(null), B = R(null);
-    Ge(() => {
+    qe(() => {
       n("mount");
     });
     const A = (k) => ({
@@ -9293,7 +9293,7 @@ const ev = (e, t, n, r) => {
       minutes: !1,
       seconds: !1
     }), y = R("AM"), p = R(null), s = R([]);
-    Ge(() => {
+    qe(() => {
       n("mounted");
     });
     const h = b(() => (l) => !!(r.maxTime && r.maxTime[l] && r.maxTime[l] < r[l] + +r[`${l}Increment`])), _ = b(() => (l) => !!(r.minTime && r.minTime[l] && r.minTime[l] > r[l] - +r[`${l}Increment`])), C = (l, f) => Vl(Je(H(), l), f), B = (l, f) => uy(Je(H(), l), f), A = b(
@@ -9508,7 +9508,7 @@ const ev = (e, t, n, r) => {
   ],
   setup(e, { expose: t, emit: n }) {
     const r = e, { buildMatrix: a, setTimePicker: o } = Mt(), i = mt(), { hideNavigationButtons: u, defaults: m } = ct(r), { transitionName: d, showTransition: y } = Gr(m.value.transitions), p = R(null), s = R(null), h = R([]), _ = R(null);
-    Ge(() => {
+    qe(() => {
       n("mount"), !r.timePicker && r.arrowNavigation ? a([He(p.value)], "time") : o(!0, r.timePicker);
     });
     const C = b(() => r.range && r.modelAuto ? pu(r.internalModelValue) : !0), B = R(!1), A = (M) => ({
@@ -9778,7 +9778,7 @@ const ev = (e, t, n, r) => {
       monthYearInput: !!r.timePicker,
       calendar: !1
     }), s = R([]), h = R([]), _ = R(null), C = R(null), B = R(0), A = R(!1), U = R(0);
-    Ge(() => {
+    qe(() => {
       var V;
       A.value = !0, !((V = r.presetRanges) != null && V.length) && !d["left-sidebar"] && !d["right-sidebar"] && ge();
       const ae = He(C);
@@ -9827,7 +9827,7 @@ const ev = (e, t, n, r) => {
       selectCurrentDate: k,
       presetDateRange: z
     } = Xy(r, n, S, L, U), { setHoverDate: ke, clearHoverDate: oe, getDayClassData: me } = qv(Q, r);
-    qe(
+    Qe(
       M,
       () => {
         r.openOnTop && setTimeout(() => {
@@ -10112,7 +10112,7 @@ const ev = (e, t, n, r) => {
   if (!e)
     return pa;
   let a = pa;
-  const o = qe(
+  const o = Qe(
     () => c(e),
     (u) => {
       a(), u && (u.addEventListener(t, n, r), a = () => {
@@ -10155,7 +10155,7 @@ const ev = (e, t, n, r) => {
   ],
   setup(e, { expose: t, emit: n }) {
     const r = e, a = mt(), o = R(!1), i = nr(r, "modelValue"), u = nr(r, "timezone"), m = R(null), d = R(null), y = R(!1), p = R(null), { setMenuFocused: s, setShiftKey: h } = fu(), { clearArrowNav: _ } = Mt(), { validateDate: C, isValidTime: B, defaults: A } = ct(r);
-    Ge(() => {
+    qe(() => {
       M(r.modelValue), r.inline || (P(p.value).addEventListener("scroll", f), window.addEventListener("resize", T)), r.inline && (o.value = !0);
     }), Mo(() => {
       if (!r.inline) {
@@ -10164,7 +10164,7 @@ const ev = (e, t, n, r) => {
       }
     });
     const U = Yt(a, "all", r.presetRanges), I = Yt(a, "input");
-    qe(
+    Qe(
       [i, u],
       () => {
         M(i.value);
@@ -11449,7 +11449,7 @@ const Qt = /* @__PURE__ */ we(Uh, [["__scopeId", "data-v-afde288b"]]), hu = (e) 
       calculatePagination: I,
       recalculatePagination: j
     } = Yh(r, a);
-    Ge(() => {
+    qe(() => {
       !X.value || P.value || I(X.value);
     });
     const X = R(null), K = b(() => ({
@@ -11503,7 +11503,7 @@ const Qt = /* @__PURE__ */ we(Uh, [["__scopeId", "data-v-afde288b"]]), hu = (e) 
     function l(f) {
       t("click:row", f);
     }
-    return qe(
+    return Qe(
       () => n.items,
       async () => {
         if (!X.value || P.value) {
@@ -12607,11 +12607,11 @@ const Wg = /* @__PURE__ */ we(Ug, [["__scopeId", "data-v-e0769a10"]]), Lg = /* @
         t("update:model-value", a);
       }
     });
-    return qe(r, (a) => {
+    return Qe(r, (a) => {
       a && n.duration > 0 && window.setTimeout(() => {
         t("close");
       }, n.duration);
-    }), qe(
+    }), Qe(
       () => n.duration,
       (a) => {
         a > 0 && window.setTimeout(() => {
@@ -12814,7 +12814,7 @@ const Xo = (e) => (Hr("data-v-851bc20e"), e = e(), zr(), e), jg = ["onMousedown"
       width: 0,
       height: 0
     });
-    Ge(() => {
+    qe(() => {
       I();
     });
     const h = b({
@@ -13070,7 +13070,7 @@ const o0 = /* @__PURE__ */ we(a0, [["__scopeId", "data-v-2d3b2229"]]), i0 = ["on
     Se((_) => ({
       "26fcb3e4": n.value,
       b8a15b24: r.value
-    })), Ge(() => {
+    })), qe(() => {
       t.default === !0 && y();
     });
     const n = R(""), r = R(""), a = R(""), o = R(!1), i = R(!1), u = R(null), m = R(null), d = async () => {
@@ -13164,11 +13164,11 @@ const u0 = /* @__PURE__ */ we(l0, [["__scopeId", "data-v-de3c3a3e"]]), s0 = {
   setup(e, { emit: t }) {
     const n = e;
     Se((p) => ({
-      "64dc3d0c": e.boxShadow,
-      f74cac06: e.borderRadius,
-      "232c83a0": c(d),
-      "06eb54e8": e.transitionDuration,
-      f4ffd2d4: e.transitionTimingFunction
+      "2e51e708": e.boxShadow,
+      cfec22fe: e.borderRadius,
+      "27a20424": c(d),
+      "050f266c": e.transitionDuration,
+      "5a79b51a": e.transitionTimingFunction
     }));
     const r = Ze(), a = R(!1), o = b(() => {
       const p = parseInt(n.transitionDuration);
@@ -13190,15 +13190,7 @@ const u0 = /* @__PURE__ */ we(l0, [["__scopeId", "data-v-de3c3a3e"]]), s0 = {
     function y() {
       i.value = !i.value;
     }
-    return qe(
-      i,
-      (p) => {
-        a.value = p;
-      },
-      {
-        immediate: !0
-      }
-    ), (p, s) => (v(), $("div", {
+    return (p, s) => (v(), $("div", {
       class: ie(c(u))
     }, [
       F("div", {
@@ -13212,7 +13204,7 @@ const u0 = /* @__PURE__ */ we(l0, [["__scopeId", "data-v-de3c3a3e"]]), s0 = {
       }, [
         pe(yt, { duration: c(o) }, {
           default: J(() => [
-            a.value ? (v(), $("div", s0, [
+            a.value || c(i) ? (v(), $("div", s0, [
               G(p.$slots, "default", {}, void 0, !0)
             ])) : D("", !0)
           ]),
@@ -13222,7 +13214,7 @@ const u0 = /* @__PURE__ */ we(l0, [["__scopeId", "data-v-de3c3a3e"]]), s0 = {
     ], 2));
   }
 });
-const f0 = /* @__PURE__ */ we(c0, [["__scopeId", "data-v-2759fd24"]]), d0 = { class: "grid__container" }, m0 = /* @__PURE__ */ le({
+const f0 = /* @__PURE__ */ we(c0, [["__scopeId", "data-v-25b57f9a"]]), d0 = { class: "grid__container" }, m0 = /* @__PURE__ */ le({
   __name: "GridContainer",
   props: {
     height: {
@@ -13728,7 +13720,7 @@ const x0 = /* @__PURE__ */ we($0, [["__scopeId", "data-v-81015ccc"]]), _u = (e) 
       "205f17ff": c(m)
     }));
     const { getRealColor: r } = Ze(), a = R(""), o = R(null);
-    Ge(s);
+    qe(s);
     const i = b(() => r(n.thumbColor)), u = b(() => r(n.trackColor)), m = b(() => r(n.progressColor)), d = b({
       get() {
         return n.modelValue;
@@ -13755,7 +13747,7 @@ const x0 = /* @__PURE__ */ we($0, [["__scopeId", "data-v-81015ccc"]]), _u = (e) 
     function h() {
       document.body.style.userSelect = "inital", document.removeEventListener("mouseup", h), document.removeEventListener("mousemove", p);
     }
-    return qe(d, s), (_, C) => (v(), $("div", {
+    return Qe(d, s), (_, C) => (v(), $("div", {
       ref_key: "barRef",
       ref: o,
       role: "slider",
@@ -13810,7 +13802,7 @@ const wu = /* @__PURE__ */ we(C0, [["__scopeId", "data-v-f500483c"]]), D0 = (e) 
       "0b28d123": c(B)
     }));
     const r = R(1), a = R(0), o = R(0), i = R(0), u = R(0), m = R(0), d = R(!0), y = R(null), p = R(null), s = R(null);
-    Ge(async () => {
+    qe(async () => {
       p.value && (s.value = p.value.getContext("2d"), y.value = await K(), X());
     });
     const h = b(() => `${n.width}px`), _ = b(() => n.width / 2), C = b(() => n.height / 2), B = b(() => `${C.value}px`), A = b(() => {
@@ -13877,7 +13869,7 @@ const wu = /* @__PURE__ */ we(C0, [["__scopeId", "data-v-f500483c"]]), D0 = (e) 
     async function te(N) {
       i.value = Math.max(0, Math.min(100, N * 10 + i.value)), await P();
     }
-    return t({ crop: ee }), qe(
+    return t({ crop: ee }), Qe(
       () => n.file,
       async () => {
         y.value = await K(), await L(), X();

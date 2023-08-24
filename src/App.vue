@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-red-950">
+  <div class="bg-red-950 grid gap-y-8">
     <button @click="a += 1">abrir</button>
-    <ExpansionPanel :model-value="a === 0">
+    <ExpansionPanel :model-value="a === 0" @update:model-value="a = 0">
       <template #activator>
         <TextContainer>Muy buenos días</TextContainer>
       </template>
@@ -13,7 +13,7 @@
         <TextContainer>Muy buenos días</TextContainer>
       </GridColumn>
     </ExpansionPanel>
-    <ExpansionPanel :model-value="a === 1">
+    <ExpansionPanel :model-value="a === 1" @update:model-value="a = 1">
       <template #activator>
         <TextContainer>Muy buenos días</TextContainer>
       </template>

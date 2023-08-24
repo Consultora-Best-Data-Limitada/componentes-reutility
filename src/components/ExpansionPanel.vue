@@ -12,7 +12,7 @@
     <div :class="wrapperClass">
       <transition :duration="durationNumber">
         <div
-          v-if="opened"
+          v-if="opened || model"
           class="expansion-panel__content"
         >
           <slot />
@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 // Vue
-import { ref, watch, computed } from "vue";
+import { ref, computed } from "vue";
 
 // Composables
 import { useColors } from "@/composables/colors";
@@ -116,18 +116,6 @@ const backgroundColorInner = computed(() => {
 function toggle() {
   model.value = !model.value;
 }
-
-// Watchs
-
-watch(
-  model,
-  (val) => {
-    opened.value = val;
-  },
-  {
-    immediate: true,
-  },
-);
 </script>
 
 <style scoped lang="scss">
