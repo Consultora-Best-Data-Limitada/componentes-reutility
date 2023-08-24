@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 // Vue
-import { ref, computed } from "vue";
+import { ref, watch, computed } from "vue";
 
 // Composables
 import { useColors } from "@/composables/colors";
@@ -116,6 +116,12 @@ const backgroundColorInner = computed(() => {
 function toggle() {
   model.value = !model.value;
 }
+
+// Watchs
+
+watch(model, (val) => {
+  opened.value = val;
+});
 </script>
 
 <style scoped lang="scss">

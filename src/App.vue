@@ -1,6 +1,7 @@
 <template>
   <div class="bg-red-950">
-    <ExpansionPanel>
+    <button @click="a = !a">abrir</button>
+    <ExpansionPanel :model-value="a">
       <template #activator>
         <TextContainer>Muy buenos días</TextContainer>
       </template>
@@ -24,6 +25,8 @@ import ExpansionPanel from "@/components/ExpansionPanel.vue";
 import TextContainer from "@/components/TextContainer.vue";
 import GridColumn from "@/components/GridColumn.vue";
 
+
+const a = ref(false)
 const file = ref<File | null>(null);
 const cropper = ref<{ crop: () => Promise<Blob> } | null>(null);
 
