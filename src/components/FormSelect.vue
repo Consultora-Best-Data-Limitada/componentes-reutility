@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-y-1 gap-x-3 items-center form-text-field__container">
+  <div class="grid gap-y-1 gap-x-3 items-center form-select__container">
     <div
       :data-dark="dark"
       :data-readonly="readonly"
