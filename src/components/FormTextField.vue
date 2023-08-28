@@ -1,6 +1,11 @@
 <template>
-  <div class="form-text-field__container">
-    <div class="form-text-field__label">
+  <div class="grid gap-y-1 gap-x-3 items-center form-text-field__container">
+    <div
+      :data-dark="dark"
+      :data-readonly="readonly"
+      :data-disabled="disabled"
+      class="text-base leading-5 font-semibold text-secundario data-[readonly=true]:font-normal data-[dark=true]:text-neutro-1 data-[disabled=true]:text-neutro-4"
+    >
       {{ label }}
     </div>
     <CustomTextField
@@ -111,12 +116,6 @@ const model = computed({
   },
 });
 
-const labelColor = computed(() => {
-  if (props.disabled) return "rgb(var(--neutro-4))";
-  if (props.dark) return "rgb(var(--neutro-1))";
-  return "rgb(var(--secundario))";
-});
-
 // Methods
 
 const checkSlot = () => {
@@ -146,20 +145,8 @@ const onKeydown = (ev: KeyboardEvent) => {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .form-text-field__container {
-  display: grid;
-  row-gap: 0.25rem;
-  column-gap: 0.75rem;
-  align-items: center;
   grid-template-columns: v-bind(gridTemplateColumns);
-
-  .form-text-field__label {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.25rem;
-    color: v-bind(labelColor);
-    font-family: "Metropolis", sans-serif;
-  }
 }
 </style>
