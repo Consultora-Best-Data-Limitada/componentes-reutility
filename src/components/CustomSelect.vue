@@ -1,26 +1,32 @@
 <template>
   <div
     ref="container"
-    class="custom-select__container"
+    class="grid gap-y-1"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
   >
     <div
-      :class="textContainerClass"
+      :data-dark="dark"
+      :data-filled="!!hasValue"
+      :data-outlined="outlined"
+      :data-readonly="readonly"
+      :data-error="!!errorMessage"
+      class="h-10 cursor-pointer pr-3 grid grid-flow-col grid-cols-1 items-center gap-x-3 bg-neutro-1 rounded-xl data-[dark=true]:bg-transparent"
       @mousedown.stop="toggleMenu"
     >
       <input
         ref="input"
         readonly
         :value="text"
+        :disabled="disabled"
         :placeholder="placeholder"
-        class="custom-select__text"
+        class="h-9 outline-0 cursor-pointer px-3 text-secundario text-base placeholder-neutro-4"
         @focus="openMenu"
         @blur="closeMenuBlur"
         @keydown.tab="closeMenuTab"
       />
       <div
-        class="custom-select__clear"
+        class="cursor-pointer hover:opacity-60 active:opacity-100"
         @mousedown.stop
         @click.stop="clear"
       >
@@ -31,7 +37,11 @@
           name="fm-circle-close"
         />
       </div>
-      <div class="custom-select__icon">
+      <div
+        v-if="!readonly"
+        :data-opened="menu"
+        class="transition-all duration-200 ease-out data-[opened=true]:rotate-180"
+      >
         <FigmaIcon
           size="1rem"
           :color="caretColor"
@@ -43,41 +53,28 @@
       <div
         v-if="menu"
         ref="menuContainer"
-        class="custom-select__menu"
+        class="z-[1008] grid p-4 fixed gap-y-2 overflow-y-auto max-h-80 bg-neutro-1 rounded-2xl custom-select__menu"
       >
-        <div
+        <CustomTextField
           v-if="searchable && items.length > 5"
-          class="custom-select__search-container"
+          v-model="search"
+          outlined
+          clearable
+          :placeholder="searchPlaceholder || 'Buscar'"
         >
-          <input
-            v-model="search"
-            type="text"
-            class="custom-select__search"
-            :placeholder="searchPlaceholder || 'Buscar'"
-            @click.stop
-          />
-          <FigmaIcon
-            v-if="!search"
-            size="1rem"
-            color="acento-principal"
-            name="fm-magnify-glass"
-          />
-          <button
-            v-else
-            class="custom-select__search--clear"
-            @click.stop="search = ''"
-          >
+          <template #append>
             <FigmaIcon
               size="1rem"
-              color="neutro-4"
-              name="fm-circle-close"
+              color="acento-principal"
+              name="fm-magnify-glass"
             />
-          </button>
-        </div>
+          </template>
+        </CustomTextField>
         <div
           v-for="(item, index) in filteredItems"
           :key="`item-${index}`"
-          :class="getItemClass(item)"
+          :data-selected="isSelected(item)"
+          class="custom-select__menu-item flex cursor-pointer text-base leading-5 gap-x-2 justify-start text-secundario transition-colors duration-100 data-[selected=true]:font-semibold"
           @click.stop="selectItem(item)"
         >
           <CheckBox
@@ -88,7 +85,7 @@
         </div>
         <div
           v-if="filteredItems.length === 0 && !hideNoDataMessage"
-          class="custom-select__no-data"
+          class="leading-5 text-base text-center text-secundario"
         >
           Sin datos disponibles
         </div>
@@ -101,7 +98,7 @@
     </transition>
     <div
       v-if="errorMessage"
-      class="custom-select__error"
+      class="font-medium text-sm leading-[0.875rem] text-error"
     >
       {{ errorMessage }}
     </div>
@@ -119,9 +116,10 @@ import { useSelects } from "@/composables/selects";
 import type { PropType } from "vue";
 import type { Property } from "csstype";
 
-// Composables
+// Components
 import CheckBox from "./CheckBox.vue";
 import FigmaIcon from "./FigmaIcon.vue";
+import CustomTextField from "./CustomTextField.vue";
 
 // Definiciones
 
@@ -233,6 +231,7 @@ const showClearIcon = computed(
 );
 
 const caretColor = computed<CustomColor>(() => {
+  if (props.errorMessage) return "error";
   if (props.dark) {
     if (props.disabled) return "neutro-3";
     return "neutro-1";
@@ -253,16 +252,6 @@ const hasValue = computed(() => {
   if (Array.isArray(model.value)) return model.value.length > 0;
   return !!model.value;
 });
-
-const textContainerClass = computed(() => ({
-  "custom-select__text-container": true,
-  "custom-select__text-container--dark": props.dark,
-  "custom-select__text-container--opened": menu.value,
-  "custom-select__text-container--active": hasValue.value,
-  "custom-select__text-container--disabled": props.disabled,
-  "custom-select__text-container--outlined": props.outlined,
-  "custom-select__text-container--error": !!props.errorMessage,
-}));
 
 const text = computed(() => {
   if (model.value) {
@@ -303,13 +292,6 @@ function onMouseEnter() {
 
 function onMouseLeave() {
   mouseInside.value = false;
-}
-
-function getItemClass(item: unknown) {
-  return {
-    "custom-select__menu-item": true,
-    "custom-select__menu-item--selected": isSelected(item),
-  };
 }
 
 async function updatePosition() {
@@ -420,138 +402,102 @@ function clear() {
 </script>
 
 <style scoped lang="scss">
-@import "../scss/mixins";
+[data-dark="true"] {
+  border: 1px solid rgb(var(--neutro-4));
 
-.custom-select__container {
-  display: grid;
-  row-gap: 0.25rem;
-}
+  input {
+    color: rgb(var(--neutro-1));
+  }
 
-.custom-select__text-container {
-  display: grid;
-  height: 2.5rem;
-  cursor: pointer;
-  padding: 0 0.75rem;
-  position: relative;
-  column-gap: 0.25rem;
-  align-items: center;
-  border-radius: 0.75rem;
-  grid-template-columns: 1fr auto auto;
-  background: rgb(var(--neutro-1));
+  &[data-filled="true"],
+  &[data-outlined="true"] {
+    border: 1px solid rgb(var(--neutro-1));
+  }
 
-  .custom-select__text {
-    @include text-body-1;
-    outline: none;
-    cursor: pointer;
-    overflow: hidden;
-    user-select: none;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: rgb(var(--secundario));
+  &[data-error="false"][data-readonly="false"]:has(input:focus) {
+    border: 2px solid rgb(var(--neutro-1));
+  }
 
-    &::placeholder {
-      color: rgb(var(--neutro-4));
+  &[data-readonly="true"] {
+    border: none;
+    background: transparent;
+
+    input {
+      font-weight: 600;
     }
   }
 
-  .custom-select__clear {
-    &:hover {
-      opacity: 0.8;
-    }
+  &:has(input:disabled) {
+    border: none;
+    background-color: rgb(var(--neutro-4));
 
-    &:active {
-      opacity: 0.6;
-    }
-  }
-
-  .custom-select__icon {
-    transition: all 200ms ease-out;
-  }
-
-  &--dark {
-    background-color: transparent;
-    border: 1px solid rgb(var(--neutro-4));
-
-    .custom-select__text {
-      color: rgb(var(--neutro-1));
+    input,
+    input::placeholder {
+      font-weight: initial;
+      color: rgb(var(--neutro-3));
     }
   }
 
-  &--outlined {
-    border: 1px solid rgb(var(--neutro-4));
-  }
-
-  &--opened:not(&--error),
-  &--active:not(&--error) {
-    border: 2px solid rgb(var(--acento-principal));
-
-    &.custom-select__text-container--dark {
-      border: 2px solid rgb(var(--neutro-1));
-    }
-  }
-
-  &--opened .custom-select__icon {
-    transform: rotate(180deg);
-  }
-
-  &--active .custom-select__text {
-    text-transform: v-bind(textTransform);
-  }
-
-  &--error {
+  &[data-error="true"] {
     border: 2px solid rgb(var(--error));
 
-    .custom-select__text,
-    .custom-select__text::placeholder {
+    input,
+    input::placeholder {
       color: rgb(var(--error));
     }
   }
+}
 
-  &--disabled {
+[data-dark="false"] {
+  &[data-filled="true"],
+  &[data-outlined="true"] {
+    border: 1px solid rgb(var(--neutro-4));
+  }
+
+  &[data-error="false"][data-readonly="false"]:has(input:focus) {
+    border: 2px solid rgb(var(--acento-principal));
+  }
+
+  &[data-readonly="true"] {
     border: none;
-    cursor: default;
+    background: transparent;
+
+    input {
+      font-weight: 600;
+    }
+  }
+
+  &:has(input:disabled) {
+    border: none;
     background-color: rgb(var(--neutro-2));
 
-    .custom-select__text {
+    input,
+    input::placeholder {
+      font-weight: initial;
       color: rgb(var(--neutro-4));
     }
+  }
 
-    &.custom-select__text-container--dark {
-      background-color: rgb(var(--neutro-4));
+  &[data-error="true"] {
+    border: 2px solid rgb(var(--error));
 
-      .custom-select__text::placeholder {
-        color: rgb(var(--neutro-3));
-      }
+    input,
+    input::placeholder {
+      color: rgb(var(--error));
     }
   }
 }
 
 .custom-select__menu {
-  z-index: 1008;
-  display: grid;
-  padding: 1rem;
-  position: fixed;
-  row-gap: 0.5rem;
   top: v-bind(top);
-  overflow-y: auto;
-  max-height: 19rem;
   left: v-bind(left);
-  background: #ffffff;
-  border-radius: 1rem;
   width: v-bind(width);
   box-shadow: 3px 3px 17px rgba(151, 168, 194, 0.24);
 
   .custom-select__menu-item {
-    display: flex;
-    cursor: pointer;
-    column-gap: 0.5rem;
-    @include text-body-1;
-    justify-content: flex-start;
-    color: rgb(var(--secundario));
-    transition: background-color 100ms;
     text-transform: v-bind(textTransform);
 
-    &:not(&--selected):hover {
+    &[data-selected="false"]:hover {
       color: rgb(var(--neutro-3));
 
       :deep(*) {
@@ -560,7 +506,7 @@ function clear() {
       }
     }
 
-    &:not(&--selected):active {
+    &[data-selected="false"]:active {
       color: rgb(var(--neutro-4));
 
       :deep(*) {
@@ -568,56 +514,7 @@ function clear() {
         color: rgb(var(--acento-principal-pressed)) !important;
       }
     }
-
-    &--selected {
-      font-weight: 600;
-    }
   }
-}
-
-.custom-select__search-container {
-  display: grid;
-  column-gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-radius: 0.75rem;
-  padding-right: 0.75rem;
-  grid-template-columns: 1fr 1rem;
-  border: 1px solid rgb(var(--neutro-4));
-}
-
-.custom-select__search {
-  @include text-body-1;
-  width: 100%;
-  outline: none;
-  padding: 0.75rem;
-
-  &::placeholder {
-    color: rgb(var(--neutro-4));
-  }
-}
-
-.custom-select__search--clear {
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.6;
-  }
-
-  &:active {
-    opacity: 1;
-  }
-}
-
-.custom-select__error {
-  @include text-caption;
-  text-align: left;
-  color: rgb(var(--error));
-}
-
-.custom-select__no-data {
-  @include text-body-1;
-  text-align: center;
-  color: rgb(var(--secundario));
 }
 
 .v-enter-active,

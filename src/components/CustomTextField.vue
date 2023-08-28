@@ -1,6 +1,13 @@
 <template>
-  <div class="custom-text-field__container">
-    <div :class="inputContainerClass">
+  <div class="grid gap-y-1">
+    <div
+      :data-dark="dark"
+      :data-filled="!!model"
+      :data-outlined="outlined"
+      :data-error="!!errorMessage"
+      :data-padding-right="clearable || checkSlot()"
+      class="h-10 grid grid-flow-col grid-cols-1 items-center gap-x-3 bg-neutro-1 rounded-xl data-[dark=true]:bg-transparent"
+    >
       <input
         v-if="mask"
         v-model="model"
@@ -11,7 +18,7 @@
         :readonly="readonly"
         :placeholder="placeholder"
         :data-maska-tokens="maskTokens"
-        class="custom-text-field__input"
+        class="h-9 outline-0 px-3 text-secundario text-base placeholder-neutro-4"
         @blur="onBlur"
         @focus="onFocus"
         @input="onInput"
@@ -25,7 +32,7 @@
         :disabled="disabled"
         :readonly="readonly"
         :placeholder="placeholder"
-        class="custom-text-field__input"
+        class="h-9 outline-0 px-3 text-secundario text-base placeholder-neutro-4"
         @blur="onBlur"
         @focus="onFocus"
         @input="onInput"
@@ -34,8 +41,8 @@
       />
       <div
         v-if="clearable && !disabled && !readonly"
-        class="custom-text-field__button"
-        @click="clear"
+        class="cursor-pointer hover:opacity-60 active:opacity-100"
+        @click.stop="clear"
       >
         <FigmaIcon
           v-if="model"
@@ -51,7 +58,7 @@
     </div>
     <div
       v-if="errorMessage"
-      class="custom-text-field__error"
+      class="font-medium text-sm leading-[0.875rem] text-error"
     >
       {{ errorMessage }}
     </div>
@@ -60,7 +67,7 @@
 
 <script setup lang="ts">
 // Vue
-import { computed, ref, useSlots } from "vue";
+import { computed, useSlots } from "vue";
 
 // Maska
 import { vMaska } from "maska";
@@ -121,10 +128,6 @@ const emits = defineEmits(["update:model-value", "keydown", "keyup", "input", "f
 
 const slots = useSlots();
 
-// Data
-
-const focused = ref(false);
-
 // Computed
 
 const model = computed<string | number>({
@@ -136,27 +139,6 @@ const model = computed<string | number>({
     emits("update:model-value", value);
   },
 });
-
-const gridTemplateColumns = computed(() => {
-  let result = "1fr";
-  if (props.clearable) result += " 1rem";
-  if (checkSlot()) result += " 1rem";
-  return result;
-});
-
-const paddingRight = computed(() => {
-  if (props.clearable || checkSlot()) return "0.75rem";
-  return 0;
-});
-
-const inputContainerClass = computed(() => ({
-  "custom-text-field__input-container": true,
-  "custom-text-field__input-container--dark": props.dark,
-  "custom-text-field__input-container--outlined": props.outlined,
-  "custom-text-field__input-container--disabled": props.disabled,
-  "custom-text-field__input-container--error": !!props.errorMessage,
-  "custom-text-field__input-container--focused": focused.value || !!model.value,
-}));
 
 // Methods
 
@@ -173,13 +155,11 @@ const clear = () => {
 
 const onFocus = (ev: MouseEvent) => {
   if (props.disabled || props.readonly) return;
-  focused.value = true;
   emits("focus", ev);
 };
 
 const onBlur = (ev: MouseEvent) => {
   if (props.disabled || props.readonly) return;
-  focused.value = false;
   emits("blur", ev);
 };
 
@@ -200,108 +180,121 @@ const onKeydown = (ev: KeyboardEvent) => {
 </script>
 
 <style scoped lang="scss">
-.custom-text-field__container {
-  display: grid;
-  row-gap: 0.25rem;
+[data-padding-right="true"] {
+  padding-right: 0.75rem;
+
+  input {
+    padding-right: 0;
+  }
 }
 
-.custom-text-field__input-container {
-  display: grid;
-  height: 2.5rem;
-  align-items: center;
-  column-gap: 0.25rem;
-  border-radius: 0.75rem;
-  padding-right: v-bind(paddingRight);
-  background: rgb(var(--neutro-1));
-  grid-template-columns: v-bind(gridTemplateColumns);
+[data-dark="true"] {
+  border: 1px solid rgb(var(--neutro-4));
 
-  &--dark {
-    background-color: transparent;
-    border: 1px solid rgb(var(--neutro-4));
+  input {
+    color: rgb(var(--neutro-1));
+  }
 
-    .custom-text-field__input {
-      color: rgb(var(--neutro-1));
+  &[data-filled="true"],
+  &[data-outlined="true"] {
+    border: 1px solid rgb(var(--neutro-1));
+  }
+
+  &:has(input:-webkit-autofill),
+  &[data-error="false"]:has(input:focus:not(:read-only)) {
+    border: 2px solid rgb(var(--neutro-1));
+  }
+
+  &:has(input:read-only) {
+    border: none;
+    background: transparent;
+
+    input {
+      font-weight: 600;
     }
   }
 
-  &--outlined {
-    border: 1px solid rgb(var(--neutro-4));
-  }
+  &:has(input:disabled) {
+    border: none;
+    background-color: rgb(var(--neutro-4));
 
-  &--focused,
-  &:has(.custom-text-field__input:-webkit-autofill) {
-    border: 2px solid rgb(var(--acento-principal));
-
-    &.custom-text-field__input-container--dark {
-      border: 2px solid rgb(var(--neutro-1));
+    input,
+    input::placeholder {
+      font-weight: initial;
+      color: rgb(var(--neutro-3));
     }
   }
 
-  &--error {
+  &[data-error="true"] {
     border: 2px solid rgb(var(--error));
 
-    .custom-text-field__input,
-    .custom-text-field__input::placeholder {
+    input,
+    input::placeholder {
       color: rgb(var(--error));
     }
   }
 
-  &--disabled {
-    border: none;
-    cursor: default;
-    background-color: rgb(var(--neutro-2));
-
-    &.custom-text-field__input-container--dark {
-      background-color: rgb(var(--neutro-4));
-
-      .custom-text-field__input::placeholder {
-        color: rgb(var(--neutro-3));
-      }
+  input {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border-radius: 0.75rem;
+      -webkit-text-fill-color: rgb(var(--neutro-1));
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-box-shadow: 0 0 0 100vw rgb(var(--secundario)) inset;
     }
   }
 }
 
-.custom-text-field__input:-webkit-autofill,
-.custom-text-field__input:-webkit-autofill:hover,
-.custom-text-field__input:-webkit-autofill:focus {
-  border-radius: 0.75rem;
-  -webkit-text-fill-color: rgb(var(--secundario));
-  -webkit-box-shadow: 0 0 0 1000px rgb(var(--neutro-1)) inset;
-}
-
-.custom-text-field__input {
-  width: 100%;
-  outline: none;
-  height: 2.25rem;
-  font-size: 1rem;
-  padding: 0.75rem;
-  line-height: 1rem;
-  color: rgb(var(--secundario));
-  font-family: "Metropolis", sans-serif;
-
-  &::placeholder {
-    color: rgb(var(--neutro-4));
-  }
-}
-
-.custom-text-field__button {
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.6;
+[data-dark="false"] {
+  &[data-filled="true"],
+  &[data-outlined="true"] {
+    border: 1px solid rgb(var(--neutro-4));
   }
 
-  &:active {
-    opacity: 1;
+  &:has(input:-webkit-autofill),
+  &[data-error="false"]:has(input:focus:not(:read-only)) {
+    border: 2px solid rgb(var(--acento-principal));
   }
-}
 
-.custom-text-field__error {
-  font-weight: 500;
-  text-align: left;
-  font-size: 0.875rem;
-  line-height: 0.875rem;
-  color: rgb(var(--error));
-  font-family: "Metropolis", sans-serif;
+  &:has(input:read-only) {
+    border: none;
+    background: transparent;
+
+    input {
+      font-weight: 600;
+    }
+  }
+
+  &:has(input:disabled) {
+    border: none;
+    background-color: rgb(var(--neutro-2));
+
+    input,
+    input::placeholder {
+      font-weight: initial;
+      color: rgb(var(--neutro-4));
+    }
+  }
+
+  &[data-error="true"] {
+    border: 2px solid rgb(var(--error));
+
+    input,
+    input::placeholder {
+      color: rgb(var(--error));
+    }
+  }
+
+  input {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border-radius: 0.75rem;
+      -webkit-text-fill-color: rgb(var(--secundario));
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-box-shadow: 0 0 0 100vw rgb(var(--neutro-1)) inset;
+    }
+  }
 }
 </style>
