@@ -11453,10 +11453,10 @@ const Qt = /* @__PURE__ */ we(Wh, [["__scopeId", "data-v-afde288b"]]), Lh = { cl
   setup(e, { emit: t }) {
     const n = e;
     Se((q) => ({
-      "015a2f87": e.height,
-      ef88656a: e.maxHeight,
-      "71daf716": e.backgroundColor,
-      a1790906: e.gridTemplateColumns
+      "2635d436": e.height,
+      87459388: e.maxHeight,
+      "197896b4": e.backgroundColor,
+      "020f2b2e": e.gridTemplateColumns
     }));
     const r = b(() => n.items), a = b(() => n.itemsPerPage), o = mt(), {
       pageCount: i,
@@ -11610,7 +11610,7 @@ const Qt = /* @__PURE__ */ we(Wh, [["__scopeId", "data-v-afde288b"]]), Lh = { cl
     ]));
   }
 });
-const rg = /* @__PURE__ */ we(ng, [["__scopeId", "data-v-bdc6062a"]]), ag = /* @__PURE__ */ ie({
+const rg = /* @__PURE__ */ we(ng, [["__scopeId", "data-v-f6176713"]]), ag = /* @__PURE__ */ ie({
   __name: "DataTableItem",
   props: {
     disabled: {

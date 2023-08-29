@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?l319yo');
-  src:  url('fonts/icomoon.eot?l319yo#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?l319yo') format('truetype'),
-    url('fonts/icomoon.woff?l319yo') format('woff'),
-    url('fonts/icomoon.svg?l319yo#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?g5n54h');
+  src:  url('fonts/icomoon.eot?g5n54h#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?g5n54h') format('truetype'),
+    url('fonts/icomoon.woff?g5n54h') format('woff'),
+    url('fonts/icomoon.svg?g5n54h#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -229,132 +229,135 @@
 .icon-fm-information-circle:before {
   content: "\e943";
 }
-.icon-fm-link:before {
+.icon-fm-line:before {
   content: "\e944";
 }
-.icon-fm-list:before {
+.icon-fm-link:before {
   content: "\e945";
 }
-.icon-fm-lock:before {
+.icon-fm-list:before {
   content: "\e946";
 }
-.icon-fm-lock-shield:before {
+.icon-fm-lock:before {
   content: "\e947";
 }
-.icon-fm-magnify-glass:before {
+.icon-fm-lock-shield:before {
   content: "\e948";
 }
-.icon-fm-mail:before {
+.icon-fm-magnify-glass:before {
   content: "\e949";
 }
-.icon-fm-map-marker:before {
+.icon-fm-mail:before {
   content: "\e94a";
 }
-.icon-fm-minus-circle:before {
+.icon-fm-map-marker:before {
   content: "\e94b";
 }
-.icon-fm-move:before {
+.icon-fm-minus-circle:before {
   content: "\e94c";
 }
-.icon-fm-paper-plane:before {
+.icon-fm-move:before {
   content: "\e94d";
 }
-.icon-fm-pause:before {
+.icon-fm-paper-plane:before {
   content: "\e94e";
 }
-.icon-fm-pause-circle:before {
+.icon-fm-pause:before {
   content: "\e94f";
 }
-.icon-fm-pencil:before {
+.icon-fm-pause-circle:before {
   content: "\e950";
 }
-.icon-fm-pin:before {
+.icon-fm-pencil:before {
   content: "\e951";
 }
-.icon-fm-play-circle:before {
+.icon-fm-pin:before {
   content: "\e952";
 }
-.icon-fm-plus-bag:before {
+.icon-fm-play-circle:before {
   content: "\e953";
 }
-.icon-fm-plus-circle:before {
+.icon-fm-plus-bag:before {
   content: "\e954";
 }
-.icon-fm-plus-doc:before {
+.icon-fm-plus-circle:before {
   content: "\e955";
 }
-.icon-fm-plus-square:before {
+.icon-fm-plus-doc:before {
   content: "\e956";
 }
-.icon-fm-power:before {
+.icon-fm-plus-square:before {
   content: "\e957";
 }
-.icon-fm-printer:before {
+.icon-fm-power:before {
   content: "\e958";
 }
-.icon-fm-recycle:before {
+.icon-fm-printer:before {
   content: "\e959";
 }
-.icon-fm-recycle-alternative:before {
+.icon-fm-recycle:before {
   content: "\e95a";
 }
-.icon-fm-sad-face:before {
+.icon-fm-recycle-alternative:before {
   content: "\e95b";
 }
-.icon-fm-send:before {
+.icon-fm-sad-face:before {
   content: "\e95c";
 }
-.icon-fm-square-and-circle:before {
+.icon-fm-send:before {
   content: "\e95d";
 }
-.icon-fm-square-check:before {
+.icon-fm-square-and-circle:before {
   content: "\e95e";
 }
-.icon-fm-square-outlined:before {
+.icon-fm-square-check:before {
   content: "\e95f";
 }
-.icon-fm-target:before {
+.icon-fm-square-outlined:before {
   content: "\e960";
 }
-.icon-fm-thumb-up:before {
+.icon-fm-target:before {
   content: "\e961";
 }
-.icon-fm-trash-can:before {
+.icon-fm-thumb-up:before {
   content: "\e962";
 }
-.icon-fm-trash-can-alternative:before {
+.icon-fm-trash-can:before {
   content: "\e963";
 }
-.icon-fm-truck:before {
+.icon-fm-trash-can-alternative:before {
   content: "\e964";
 }
-.icon-fm-user:before {
+.icon-fm-truck:before {
   content: "\e965";
 }
-.icon-fm-user-circle:before {
+.icon-fm-user:before {
   content: "\e966";
 }
-.icon-fm-user-list:before {
+.icon-fm-user-circle:before {
   content: "\e967";
 }
-.icon-fm-user-rectangle-and-line:before {
+.icon-fm-user-list:before {
   content: "\e968";
 }
-.icon-fm-user-square:before {
+.icon-fm-user-rectangle-and-line:before {
   content: "\e969";
 }
-.icon-fm-user-viewfinder:before {
+.icon-fm-user-square:before {
   content: "\e96a";
 }
-.icon-fm-vibrating-phone:before {
+.icon-fm-user-viewfinder:before {
   content: "\e96b";
 }
-.icon-fm-video-camera:before {
+.icon-fm-vibrating-phone:before {
   content: "\e96c";
 }
-.icon-fm-warning:before {
+.icon-fm-video-camera:before {
   content: "\e96d";
 }
-.icon-fm-xmark-circle:before {
+.icon-fm-warning:before {
   content: "\e96e";
+}
+.icon-fm-xmark-circle:before {
+  content: "\e96f";
 }
