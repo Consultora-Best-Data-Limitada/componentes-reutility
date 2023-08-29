@@ -202,6 +202,10 @@ const onClosed = () => {
 </script>
 
 <style scoped lang="scss">
+input {
+  font-family: "Metropolis", sans-serif;
+}
+
 [data-dark="true"] {
   border: 1px solid rgb(var(--neutro-4));
 
