@@ -81,59 +81,10 @@
         </tr>
       </tbody>
     </table>
-    <div
-      v-if="pageCount > 1"
-      class="data-table__footer"
-    >
-      <IconButton
-        size="1rem"
-        icon="fm-arrow-left"
-        color="acento-principal"
-        :disabled="currentPage === 1"
-        @click="previousPage"
-      />
-      <div
-        v-if="currentPage > 2"
-        class="data-table__footer-outside-button"
-      >
-        <button
-          class="data-table__footer-page"
-          @click="setCurrentPage(1)"
-        >
-          1
-        </button>
-        <span>...</span>
-      </div>
-      <div class="data-table__footer-buttons">
-        <button
-          v-for="page in pages"
-          :key="`page-${page}`"
-          :class="pageButtonClass(page)"
-          @click="setCurrentPage(page)"
-        >
-          {{ page }}
-        </button>
-      </div>
-      <div
-        v-if="currentPage < pageCount - 1"
-        class="data-table__footer-outside-button"
-      >
-        <span>...</span>
-        <button
-          class="data-table__footer-page"
-          @click="setCurrentPage(pageCount)"
-        >
-          {{ pageCount }}
-        </button>
-      </div>
-      <IconButton
-        size="1rem"
-        icon="fm-arrow-right"
-        color="acento-principal"
-        :disabled="currentPage === pageCount"
-        @click="nextPage"
-      />
-    </div>
+    <TPagination
+      v-model="currentPage"
+      :page-count="pageCount"
+    />
   </div>
 </template>
 
@@ -151,7 +102,7 @@ import type { Property } from "csstype";
 // Componentes
 import SvgIcon from "./SvgIcon.vue";
 import FigmaIcon from "./FigmaIcon.vue";
-import IconButton from "./IconButton.vue";
+import TPagination from "./TPagination.vue";
 
 // Definiciones
 
@@ -231,19 +182,15 @@ const computedItemsPerPage = computed(() => props.itemsPerPage);
 
 const slots = useSlots();
 const {
-  pages,
   pageCount,
   currentPage,
   getSortOrder,
   itemsCurrentPage,
-  nextPage,
   setSortBy,
   getRowKey,
   isSortedBy,
   getCellKey,
   getCellValue,
-  previousPage,
-  setCurrentPage,
   calculatePagination,
   recalculatePagination,
 } = useDateTable(computedItems, computedItemsPerPage);
@@ -294,13 +241,6 @@ function getSortIcon(value: string) {
     return getSortOrder.value === "asc" ? "fm-arrow-down" : "fm-arrow-up";
   }
   return "fm-arrow-down";
-}
-
-function pageButtonClass(page: number) {
-  return {
-    "data-table__footer-page": true,
-    "data-table__footer-page--selected": page === currentPage.value,
-  };
 }
 
 function sortIconClass(value: string) {
@@ -496,45 +436,6 @@ watch(
     &--disabled td {
       color: rgb(var(--neutro-4));
     }
-  }
-}
-
-.data-table__footer {
-  display: flex;
-  user-select: none;
-  column-gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-}
-
-.data-table__footer-buttons {
-  display: flex;
-  column-gap: 0.25rem;
-}
-
-.data-table__footer-outside-button {
-  @include text-caption;
-}
-
-.data-table__footer-page {
-  @include text-caption;
-  width: 2.25rem;
-  aspect-ratio: 1;
-  user-select: none;
-  border-radius: 50%;
-  color: rgb(var(--acento-secundario));
-
-  &:not(&--selected):hover {
-    color: rgb(var(--acento-secundario-hover));
-  }
-
-  &:not(&--selected):active {
-    color: rgb(var(--acento-secundario-pressed));
-  }
-
-  &--selected {
-    color: rgb(var(--neutro-1));
-    background-color: rgb(var(--acento-secundario));
   }
 }
 </style>

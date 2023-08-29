@@ -53,28 +53,7 @@ export const useDateTable = (items: Ref<DataTableItem[]>, itemsPerPage: Ref<numb
     return sortOrder.value;
   });
 
-  const pages = computed(() => {
-    const page = currentPage.value;
-    let pagesToShow: number[];
-    if (page === 1) {
-      pagesToShow = [page, page + 1, page + 2];
-    } else if (page === pageCount.value) {
-      pagesToShow = [page - 2, page - 1, page];
-    } else {
-      pagesToShow = [page - 1, page, page + 1];
-    }
-    return pagesToShow.filter((p) => p > 0 && p <= pageCount.value);
-  });
-
   // Methods
-
-  function nextPage() {
-    if (currentPage.value < pageCount.value) currentPage.value++;
-  }
-
-  function previousPage() {
-    if (currentPage.value > 1) currentPage.value--;
-  }
 
   function getRowKey(item: DataTableItem) {
     return item["id"] ?? Object.values(item)[0];
@@ -88,10 +67,6 @@ export const useDateTable = (items: Ref<DataTableItem[]>, itemsPerPage: Ref<numb
 
   function getCellValue(item: DataTableItem, value: string) {
     return item[value] ?? "";
-  }
-
-  function setCurrentPage(value: number) {
-    currentPage.value = value;
   }
 
   function setItems(value: DataTableItem[]) {
@@ -157,7 +132,6 @@ export const useDateTable = (items: Ref<DataTableItem[]>, itemsPerPage: Ref<numb
 
   return {
     // Computed
-    pages,
     pageCount,
     sortedItems,
     currentPage,
@@ -165,14 +139,11 @@ export const useDateTable = (items: Ref<DataTableItem[]>, itemsPerPage: Ref<numb
     itemsCurrentPage,
     // Methods
     setItems,
-    nextPage,
     setSortBy,
     getRowKey,
     getCellKey,
     isSortedBy,
     getCellValue,
-    previousPage,
-    setCurrentPage,
     paginationToZero,
     calculatePagination,
     recalculatePagination,
