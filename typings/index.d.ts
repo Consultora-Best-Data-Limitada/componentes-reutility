@@ -41,6 +41,7 @@ import type { TextContainer } from "./textContainer";
 import type { CustomChip } from "./customChip";
 import type { InputRange } from "./inputRange";
 import type { ImageCropper } from "./imageCropper";
+import type {TPagination} from "./tPagination";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -95,5 +96,6 @@ declare module "@vue/runtime-core" {
     CustomChip: CustomChip;
     InputRange: InputRange;
     ImageCropper: ImageCropper;
+    TPagination: TPagination;
   }
 }

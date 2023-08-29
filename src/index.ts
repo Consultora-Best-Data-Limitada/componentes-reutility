@@ -51,6 +51,7 @@ import ImageInput from "@/components/ImageInput.vue";
 import CustomChip from "@/components/CustomChip.vue";
 import InputRange from "@/components/InputRange.vue";
 import ImageCropper from "@/components/ImageCropper.vue";
+import TPagination from "@/components/TPagination.vue";
 
 export const componentesReutility = (app: App) => {
   const tooltips = useTooltips();
@@ -97,4 +98,5 @@ export const componentesReutility = (app: App) => {
   app.component("CustomChip", CustomChip);
   app.component("InputRange", InputRange);
   app.component("ImageCropper", ImageCropper);
+  app.component("TPagination", TPagination);
 };
