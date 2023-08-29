@@ -1,36 +1,10 @@
 <template>
-  <!--  <RelativeContainer>
-    <ImageContainer
-      :width="width"
-      :height="height"
-      :object-fit="objectFit"
-      :aspect-ratio="aspectRatio"
-      :border-radius="borderRadius"
-      :object-position="objectPosition"
-      src=""
-    />
-    <AbsoluteContainer>
-      <GridColumn
-        :width="width"
-        :height="height"
-        align-content="center"
-        justify-items="center"
-        :border-radius="borderRadius"
-        background-color="background"
-      >
-        <FigmaIcon
-          name="fm-image"
-          :size="iconSize"
-          color="neutro-4"
-        />
-      </GridColumn>
-    </AbsoluteContainer>
-  </RelativeContainer>-->
   <div :class="wrapperClass">
     <input
       ref="inputRef"
       hidden
       type="file"
+      accept=".jpg,.png,.webp,.svg,.gif,.jpeg"
       @change="onInputChange"
     />
     <div
@@ -94,11 +68,12 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["update:model-value"]);
+const emits = defineEmits(["error:extension", "update:model-value"]);
 
 // Data
 
 const inputRef = ref<HTMLInputElement | null>(null);
+const accept = ["jpg", "png", "webp", "svg", "gif", "jpeg"];
 
 // Computed
 
@@ -135,20 +110,25 @@ function onInputChange() {
   if (!inputRef.value) return;
   const file = inputRef.value.files?.[0];
   if (!file) return;
-  model.value = file;
+  const extension = file.name.split(".").pop();
+  if (!extension || !accept.includes(extension)) {
+    emits("error:extension");
+  } else {
+    model.value = file;
+  }
   inputRef.value.value = "";
 }
 </script>
 
 <style scoped lang="scss">
 .input-image__wrapper {
+  overflow: hidden;
   width: v-bind(width);
   height: v-bind(height);
-  overflow: hidden;
-  border-radius: v-bind(borderRadius);
   background-image: v-bind(url);
-  background-position: v-bind(objectPosition);
   background-size: v-bind(objectFit);
+  border-radius: v-bind(borderRadius);
+  background-position: v-bind(objectPosition);
   cursor: pointer;
 
   &--hidden .input-image__icon {

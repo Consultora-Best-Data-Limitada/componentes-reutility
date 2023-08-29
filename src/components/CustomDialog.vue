@@ -32,7 +32,7 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["update:model-value"]);
+const emits = defineEmits(["update:model-value", "closed"]);
 
 const dialogRef = ref<HTMLDialogElement | null>(null);
 
@@ -89,6 +89,7 @@ function onAnimationEnd() {
     closing.value = false;
     if (!dialogRef.value) return;
     dialogRef.value.close();
+    emits("closed");
   } else if (opening.value) {
     opening.value = false;
   }
