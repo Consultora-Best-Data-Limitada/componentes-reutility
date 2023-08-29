@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-date-picker__container">
+  <div class="grid gap-y-1">
     <VueDatePicker
       ref="datepicker"
       v-model="model"
@@ -20,21 +20,29 @@
       @closed="onClosed"
     >
       <template #dp-input="{ value, onClear, onInput, onEnter }">
-        <div :class="inputContainerClass">
+        <div
+          :data-dark="dark"
+          :data-opened="opened"
+          :data-filled="!!hasValue"
+          :data-outlined="outlined"
+          :data-readonly="readonly"
+          :data-error="!!errorMessage"
+          class="h-10 cursor-pointer pr-3 grid grid-flow-col grid-cols-1 items-center gap-x-3 bg-neutro-1 rounded-xl data-[dark=true]:bg-transparent"
+        >
           <input
             readonly
             type="text"
             :value="value"
             :disabled="disabled"
             :placeholder="placeholder"
-            class="custom-date-picker__input"
+            class="h-9 outline-0 cursor-pointer px-3 text-secundario text-base placeholder-neutro-4"
             @click.stop
             @input="onInput"
             @focus.stop="onFocus"
             @keydown.enter="onEnter"
           />
           <div
-            class="custom-date-picker__clear"
+            class="cursor-pointer hover:opacity-60 active:opacity-100"
             @click.stop="onClear"
           >
             <FigmaIcon
@@ -44,7 +52,7 @@
               name="fm-circle-close"
             />
           </div>
-          <div class="custom-date-picker__icon">
+          <div class="cursor-pointer">
             <FigmaIcon
               v-if="!disabled"
               size="1rem"
@@ -71,7 +79,7 @@
     </VueDatePicker>
     <div
       v-if="errorMessage"
-      class="custom-date-picker__error"
+      class="font-medium text-sm leading-[0.875rem] text-error"
     >
       {{ errorMessage }}
     </div>
@@ -168,15 +176,6 @@ const hasValue = computed(() => {
   return !!model.value;
 });
 
-const inputContainerClass = computed(() => ({
-  "custom-date-picker__input-container": true,
-  "custom-date-picker__input-container--dark": props.dark,
-  "custom-date-picker__input-container--disabled": props.disabled,
-  "custom-date-picker__input-container--outlined": props.outlined,
-  "custom-date-picker__input-container--error": !!props.errorMessage,
-  "custom-date-picker__input-container--opened": opened.value || hasValue.value,
-}));
-
 const iconColor = computed<CustomColor>(() => {
   if (props.dark) {
     if (props.disabled) return "neutro-3";
@@ -203,99 +202,90 @@ const onClosed = () => {
 </script>
 
 <style scoped lang="scss">
-.custom-date-picker__container {
-  display: grid;
-  row-gap: 0.25rem;
-}
+[data-dark="true"] {
+  border: 1px solid rgb(var(--neutro-4));
 
-.custom-date-picker__input-container {
-  display: grid;
-  height: 2.5rem;
-  column-gap: 0.25rem;
-  align-items: center;
-  padding-right: 0.75rem;
-  border-radius: 0.75rem;
-  box-sizing: border-box;
-  grid-template-columns: 1fr 1rem 1rem;
-  background-color: rgb(var(--neutro-1));
+  input {
+    color: rgb(var(--neutro-1));
+  }
 
-  &--dark {
-    background-color: transparent;
-    border: 1px solid rgb(var(--neutro-4));
+  &[data-filled="true"],
+  &[data-outlined="true"] {
+    border: 1px solid rgb(var(--neutro-1));
+  }
 
-    .custom-date-picker__input {
-      color: rgb(var(--neutro-1));
+  &[data-error="false"][data-readonly="false"][data-opened="true"] {
+    border: 2px solid rgb(var(--neutro-1));
+  }
+
+  &[data-readonly="true"] {
+    border: none;
+    background: transparent;
+
+    input {
+      font-weight: 600;
     }
   }
 
-  &--outlined {
-    border: 1px solid rgb(var(--neutro-4));
-  }
+  &:has(input:disabled) {
+    border: none;
+    background-color: rgb(var(--neutro-4));
 
-  &--opened:not(&--error) {
-    border: 2px solid rgb(var(--acento-principal));
-
-    &.custom-date-picker__input-container--dark {
-      border: 2px solid rgb(var(--neutro-1));
+    input,
+    input::placeholder {
+      font-weight: initial;
+      color: rgb(var(--neutro-3));
     }
   }
 
-  &--error {
+  &[data-error="true"] {
     border: 2px solid rgb(var(--error));
 
-    .custom-date-picker__input,
-    .custom-date-picker__input::placeholder {
+    input,
+    input::placeholder {
       color: rgb(var(--error));
     }
   }
+}
 
-  &--disabled {
+[data-dark="false"] {
+  &[data-filled="true"],
+  &[data-outlined="true"] {
+    border: 1px solid rgb(var(--neutro-4));
+  }
+
+  &[data-error="false"][data-readonly="false"][data-opened="true"] {
+    border: 2px solid rgb(var(--acento-principal));
+  }
+
+  &[data-readonly="true"] {
     border: none;
-    cursor: default;
-    background-color: rgb(var(--neutro-2));
+    background: transparent;
 
-    &.custom-date-picker__input-container--dark {
-      background-color: rgb(var(--neutro-4));
-
-      .custom-date-picker__input::placeholder {
-        color: rgb(var(--neutro-3));
-      }
+    input {
+      font-weight: 600;
     }
   }
-}
 
-.custom-date-picker__input {
-  width: 100%;
-  outline: none;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0.75rem;
-  overflow: hidden;
-  line-height: 1rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  color: rgba(var(--secundario));
-  font-family: "Metropolis", sans-serif;
+  &:has(input:disabled) {
+    border: none;
+    background-color: rgb(var(--neutro-2));
 
-  &::placeholder {
-    color: rgb(var(--neutro-4));
-  }
-}
-
-.custom-date-picker__clear {
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.6;
+    input,
+    input::placeholder {
+      font-weight: initial;
+      color: rgb(var(--neutro-4));
+    }
   }
 
-  &:active {
-    opacity: 1;
-  }
-}
+  &[data-error="true"] {
+    border: 2px solid rgb(var(--error));
 
-.custom-date-picker__icon {
-  cursor: pointer;
+    input,
+    input::placeholder {
+      color: rgb(var(--error));
+    }
+  }
 }
 
 .custom-date-picker__picker {
@@ -425,14 +415,5 @@ const onClosed = () => {
       background-color: rgb(var(--acento-principal));
     }
   }
-}
-
-.custom-date-picker__error {
-  font-weight: 500;
-  text-align: left;
-  font-size: 0.875rem;
-  line-height: 0.875rem;
-  color: rgb(var(--error));
-  font-family: "Metropolis", sans-serif;
 }
 </style>
