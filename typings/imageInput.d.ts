@@ -43,6 +43,7 @@ export type ImageInput = DefineComponent<
   {},
   {},
   {
+    "error:extension": void;
     "update:model-value": void;
   }
 >;

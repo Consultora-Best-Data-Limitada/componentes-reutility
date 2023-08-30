@@ -22,6 +22,7 @@ export type CustomDialog = DefineComponent<
   {},
   {},
   {
+    "closed": void;
     "update:model-value": void;
   }
 >;
