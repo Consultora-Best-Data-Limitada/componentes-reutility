@@ -41,7 +41,9 @@ import type { TextContainer } from "./textContainer";
 import type { CustomChip } from "./customChip";
 import type { InputRange } from "./inputRange";
 import type { ImageCropper } from "./imageCropper";
-import type {TPagination} from "./tPagination";
+import type { TPagination } from "./tPagination";
+import type { TTextarea } from "./tTextarea";
+import type { TFormTextarea } from "./tFormTextarea";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -97,5 +99,7 @@ declare module "@vue/runtime-core" {
     InputRange: InputRange;
     ImageCropper: ImageCropper;
     TPagination: TPagination;
+    TTextarea: TTextarea;
+    TFormTextarea: TFormTextarea;
   }
 }
