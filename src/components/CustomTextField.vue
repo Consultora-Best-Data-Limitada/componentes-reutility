@@ -180,6 +180,10 @@ const onKeydown = (ev: KeyboardEvent) => {
 </script>
 
 <style scoped lang="scss">
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background-image: url(data:image/svg+xml;base64,PHN2Zw0KICB2aWV3Qm94PSIwIDAgMTYgMTYiDQogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCj4NCiAgPHBhdGgNCiAgICBkPSJNOCAtMy44MTQ3ZS0wNUMzLjU4MTc2IC0zLjgxNDdlLTA1IDAgMy41ODE1NiAwIDcuOTk5OTZDMCAxMi40MTg0IDMuNTgxNjggMTYgOCAxNkMxMi40MTgyIDE2IDE2IDEyLjQxODQgMTYgNy45OTk5NkMxNiAzLjU4MTU2IDEyLjQxODIgLTMuODE0N2UtMDUgOCAtMy44MTQ3ZS0wNVpNOCAxLjU5OTk2QzExLjUzNDYgMS41OTk5NiAxNC40IDQuNDY1NTYgMTQuNCA3Ljk5OTk2QzE0LjQgMTEuNTM0NCAxMS41MzQ2IDE0LjQgOCAxNC40QzQuNDY1MzYgMTQuNCAxLjYgMTEuNTM0NCAxLjYgNy45OTk5NkMxLjYgNC40NjU1NiA0LjQ2NTM2IDEuNTk5OTYgOCAxLjU5OTk2Wk04IDMuMTk5OTZDNy41NTgxNiAzLjE5OTk2IDcuMiAzLjU1ODM2IDcuMiAzLjk5OTk2VjcuOTk5OTZDNy4yIDguMjExOTYgNy4yNzQ5NiA4LjQyNDc2IDcuNDI0OTYgOC41NzUxNkw5LjgyNDk2IDEwLjk3NTJDMTAuMTM3NCAxMS4yODcyIDEwLjY2MjYgMTEuMjg3MiAxMC45NzUgMTAuOTc1MkMxMS4yODc0IDEwLjY2MjQgMTEuMjg3NCAxMC4xMzc2IDEwLjk3NSA5LjgyNDc3TDguOCA3LjY0OTU3VjMuOTk5OTZDOC44IDMuNTU4MzYgOC40NDE4NCAzLjE5OTk2IDggMy4xOTk5NloiDQogIC8+DQo8L3N2Zz4NCg==);
+}
+
 [data-padding-right="true"] {
   padding-right: 0.75rem;
 
@@ -190,6 +194,10 @@ const onKeydown = (ev: KeyboardEvent) => {
 
 [data-dark="true"] {
   border: 1px solid rgb(var(--neutro-4));
+
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+  }
 
   input {
     color: rgb(var(--neutro-1));
@@ -232,6 +240,11 @@ const onKeydown = (ev: KeyboardEvent) => {
     input::placeholder {
       color: rgb(var(--error));
     }
+
+    input[type="time"]::-webkit-calendar-picker-indicator {
+      filter: invert(60%) sepia(57%) saturate(7002%) hue-rotate(327deg) brightness(99%)
+      contrast(85%);
+    }
   }
 
   input {
@@ -247,6 +260,10 @@ const onKeydown = (ev: KeyboardEvent) => {
 }
 
 [data-dark="false"] {
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(57%) sepia(63%) saturate(507%) hue-rotate(99deg) brightness(90%) contrast(89%);
+  }
+
   &[data-filled="true"],
   &[data-outlined="true"] {
     border: 1px solid rgb(var(--neutro-4));
@@ -283,6 +300,11 @@ const onKeydown = (ev: KeyboardEvent) => {
     input,
     input::placeholder {
       color: rgb(var(--error));
+    }
+
+    input[type="time"]::-webkit-calendar-picker-indicator {
+      filter: invert(60%) sepia(57%) saturate(7002%) hue-rotate(327deg) brightness(99%)
+        contrast(85%);
     }
   }
 

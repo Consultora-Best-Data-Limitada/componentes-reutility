@@ -10820,7 +10820,7 @@ const Do = /* @__PURE__ */ new WeakMap(), kh = (e) => {
     ]));
   }
 });
-const qr = /* @__PURE__ */ we(Dh, [["__scopeId", "data-v-533cf0bd"]]), Rh = ["data-dark", "data-filled", "data-outlined", "data-readonly", "data-error", "onMousedown"], Mh = ["value", "disabled", "placeholder", "onKeydown"], Ih = ["onClick"], Nh = ["data-opened"], Bh = ["data-selected", "onClick"], Ah = {
+const qr = /* @__PURE__ */ we(Dh, [["__scopeId", "data-v-6b38752f"]]), Rh = ["data-dark", "data-filled", "data-outlined", "data-readonly", "data-error", "onMousedown"], Mh = ["value", "disabled", "placeholder", "onKeydown"], Ih = ["onClick"], Nh = ["data-opened"], Bh = ["data-selected", "onClick"], Ah = {
   key: 1,
   class: "leading-5 text-base text-center text-secundario"
 }, Eh = {
