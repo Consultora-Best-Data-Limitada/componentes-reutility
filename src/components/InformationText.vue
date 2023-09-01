@@ -1,22 +1,28 @@
 <template>
-  <div class="information-text__container">
-    <div class="information-text__label">
+  <div class="grid gap-x-3 items-center information-text__wrapper">
+    <div class="text-base leading-5 information-text__text">
       {{ label }}
     </div>
-    <div class="information-text__value">
+    <div class="pl-3 font-semibold information-text__text">
       <slot />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+// Vue
+import { computed } from "vue";
+
+// Composables
+import { useColors } from "@/composables/colors";
+
 // Tipos
 import type { PropType } from "vue";
 import type { Property } from "csstype";
 
 // Definiciones
 
-defineProps({
+const props = defineProps({
   label: {
     type: String,
     required: true,
@@ -33,30 +39,30 @@ defineProps({
     default: "capitalize",
     type: String as PropType<Property.TextTransform>,
   },
+  color: {
+    default: "secundario",
+    type: String as PropType<Property.Color | CustomColor>,
+  },
+});
+
+// Composables
+
+const { getRealColor } = useColors();
+
+// Computed
+
+const realColor = computed(() => {
+  return getRealColor(props.color);
 });
 </script>
 
-<style scoped lang="scss">
-.information-text__container {
-  display: grid;
-  column-gap: 0.75rem;
-  align-items: center;
+<style scoped>
+.information-text__wrapper {
   padding: v-bind(padding);
-  font-family: "Metropolis", sans-serif;
   grid-template-columns: v-bind(gridTemplateColumns);
 }
 
-.information-text__label,
-.information-text__value {
-  font-size: 1rem;
-  line-height: 1.25rem;
-  color: rgb(var(--secundario));
-  font-family: "Metropolis", sans-serif;
-}
-
-.information-text__value {
-  font-weight: 600;
-  padding-left: 0.75rem;
-  text-transform: v-bind(textTransform);
+.information-text__text {
+  color: v-bind(realColor);
 }
 </style>

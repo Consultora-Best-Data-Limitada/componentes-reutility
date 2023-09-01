@@ -18,4 +18,8 @@ export type InformationText = DefineComponent<{
     default: "capitalize";
     type: PropType<Property.TextTransform>;
   };
+  color: {
+    default: "secundario";
+    type: PropType<Property.Color | CustomColor>;
+  };
 }>;

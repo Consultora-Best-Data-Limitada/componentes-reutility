@@ -1,7 +1,7 @@
 var ku = Object.defineProperty;
 var xu = (e, t, n) => t in e ? ku(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
 var fn = (e, t, n) => (xu(e, typeof t != "symbol" ? t + "" : t, n), n);
-import { ref as R, defineComponent as ie, useCssVars as xe, unref as f, onMounted as qe, computed as b, watch as Qe, openBlock as v, createElementBlock as k, createElementVNode as Y, normalizeClass as fe, createVNode as pe, Transition as yt, withCtx as K, createBlock as te, createCommentVNode as D, renderSlot as j, Fragment as me, nextTick as lt, useSlots as mt, isRef as Ye, createTextVNode as Ie, toDisplayString as he, reactive as Pt, toRef as nr, onUnmounted as Ro, mergeProps as je, createSlots as Le, renderList as Te, normalizeProps as Ke, guardReactiveProps as pt, resolveDynamicComponent as Il, Teleport as Su, withKeys as be, withModifiers as Ee, normalizeStyle as St, withDirectives as Ct, vShow as pn, onBeforeUpdate as $u, getCurrentScope as Ou, onScopeDispose as Tu, vModelDynamic as Ko, vModelCheckbox as Pu, vModelText as Cu, pushScopeId as Mo, popScopeId as Io } from "vue";
+import { ref as R, defineComponent as ie, useCssVars as xe, unref as f, onMounted as qe, computed as b, watch as Ze, openBlock as v, createElementBlock as k, createElementVNode as Y, normalizeClass as fe, createVNode as pe, Transition as yt, withCtx as K, createBlock as te, createCommentVNode as D, renderSlot as j, Fragment as me, nextTick as lt, useSlots as mt, isRef as Ye, createTextVNode as Ie, toDisplayString as he, reactive as Pt, toRef as nr, onUnmounted as Ro, mergeProps as je, createSlots as Le, renderList as Te, normalizeProps as Ke, guardReactiveProps as pt, resolveDynamicComponent as Il, Teleport as Su, withKeys as be, withModifiers as Ee, normalizeStyle as St, withDirectives as Ct, vShow as pn, onBeforeUpdate as $u, getCurrentScope as Ou, onScopeDispose as Tu, vModelDynamic as Ko, vModelCheckbox as Pu, vModelText as Cu, pushScopeId as Mo, popScopeId as Io } from "vue";
 const Nl = R(null);
 function Du() {
   const e = document.createElement("div");
@@ -13,7 +13,7 @@ function Bl() {
     generateOverlayContainer: Du
   };
 }
-const Ze = () => {
+const Ge = () => {
   const e = [
     "acento-principal",
     "acento-principal-hover",
@@ -61,7 +61,7 @@ const Ze = () => {
       "5f21c29a": e.size,
       "6c3a208c": f(a)
     }));
-    const n = Ze();
+    const n = Ge();
     qe(() => {
       o();
     });
@@ -78,7 +78,7 @@ const Ze = () => {
           console.log(i);
         }
     };
-    return Qe(() => t.src, o), Qe(() => t.size, o), (i, u) => (v(), k("div", {
+    return Ze(() => t.src, o), Ze(() => t.size, o), (i, u) => (v(), k("div", {
       ref_key: "svgContent",
       ref: r,
       class: "svg-icon__container"
@@ -112,7 +112,7 @@ const we = (e, t) => {
       "660f41a2": e.size,
       "90a78d3e": f(a)
     }));
-    const n = Ze(), r = b(() => `icon-${t.name}`), a = b(() => n.getRealColor(t.color));
+    const n = Ge(), r = b(() => `icon-${t.name}`), a = b(() => n.getRealColor(t.color));
     return (o, i) => (v(), k("div", Mu, [
       Y("em", {
         class: fe(f(r))
@@ -278,7 +278,7 @@ const Bu = { class: "grid-row__container" }, Au = /* @__PURE__ */ ie({
       "03f8bbde": f(r),
       "240b86e0": e.gridTemplateColumns
     }));
-    const n = Ze(), r = b(() => n.getRealColor(t.backgroundColor));
+    const n = Ge(), r = b(() => n.getRealColor(t.backgroundColor));
     return (a, o) => (v(), k("div", Bu, [
       j(a.$slots, "default", {}, void 0, !0)
     ]));
@@ -372,7 +372,7 @@ const El = /* @__PURE__ */ we(Au, [["__scopeId", "data-v-65fb3aec"]]), Eu = { cl
       "56443acb": e.gridTemplateRows,
       "4eafba73": f(r)
     }));
-    const n = Ze(), r = b(() => n.getRealColor(t.backgroundColor));
+    const n = Ge(), r = b(() => n.getRealColor(t.backgroundColor));
     return (a, o) => (v(), k("div", Eu, [
       j(a.$slots, "default", {}, void 0, !0)
     ]));
@@ -415,7 +415,7 @@ const Hr = /* @__PURE__ */ we(Vu, [["__scopeId", "data-v-4058c78a"]]), Yu = ["wi
     }
   },
   setup(e) {
-    const t = e, n = Ze(), r = b(() => n.getRealColor(t.fill));
+    const t = e, n = Ge(), r = b(() => n.getRealColor(t.fill));
     return (a, o) => (v(), k("svg", {
       width: e.size,
       height: e.size,
@@ -516,7 +516,7 @@ const Hr = /* @__PURE__ */ we(Vu, [["__scopeId", "data-v-4058c78a"]]), Yu = ["wi
       "6909c830": f(m),
       "461fbf50": f(u)
     }));
-    const r = Ze(), a = b(() => n.disabled ? "neutro-4" : n.outlined ? n.color : n.contentColor), o = b(() => r.getRealColor(n.color)), i = b(() => r.getRealColor(n.contentColor)), u = b(() => {
+    const r = Ge(), a = b(() => n.disabled ? "neutro-4" : n.outlined ? n.color : n.contentColor), o = b(() => r.getRealColor(n.color)), i = b(() => r.getRealColor(n.contentColor)), u = b(() => {
       const s = `${n.color}-hover`;
       return !n.hoverColor && r.isCustom(s) ? r.getRealColor(s) : r.getRealColor(n.hoverColor);
     }), m = b(() => {
@@ -608,7 +608,7 @@ const ya = /* @__PURE__ */ we(Ku, [["__scopeId", "data-v-007c780d"]]), Ju = /* @
         t("update:model-value", h);
       }
     });
-    Qe(m, (h) => {
+    Ze(m, (h) => {
       r.value && (h ? (a.value = !0, r.value.showModal()) : o.value = !0);
     });
     function d() {
@@ -630,7 +630,7 @@ const ya = /* @__PURE__ */ we(Ku, [["__scopeId", "data-v-007c780d"]]), Ju = /* @
     function s(h) {
       h.key === "Escape" && (h.preventDefault(), d());
     }
-    return Qe(m, async (h) => {
+    return Ze(m, async (h) => {
       var g;
       h && (await lt(), (g = r.value) == null || g.focus());
     }), (h, g) => (v(), k("dialog", {
@@ -735,7 +735,7 @@ const No = /* @__PURE__ */ we(Ju, [["__scopeId", "data-v-049c2987"]]), es = /* @
       "0b5c4ef3": f(d),
       "1f388388": f(p)
     }));
-    const r = mt(), a = Ze();
+    const r = mt(), a = Ge();
     qe(() => {
       s(n.specialText);
     });
@@ -750,7 +750,7 @@ const No = /* @__PURE__ */ we(Ju, [["__scopeId", "data-v-049c2987"]]), es = /* @
     }, h = (g) => {
       t("click", g);
     };
-    return Qe(() => n.specialText, s), (g, M) => (v(), k("div", {
+    return Ze(() => n.specialText, s), (g, M) => (v(), k("div", {
       ref_key: "container",
       ref: o,
       class: fe(f(i)),
@@ -7398,7 +7398,7 @@ const Yy = (e, t = 3) => {
     1: []
   },
   monthPicker: []
-}), ua = R(null), mn = R(!1), sa = R(!1), ca = R(!1), fa = R(!1), nt = R(0), Ge = R(0), Mt = () => {
+}), ua = R(null), mn = R(!1), sa = R(!1), ca = R(!1), fa = R(!1), nt = R(0), Qe = R(0), Mt = () => {
   const e = b(() => mn.value ? [...Ce.selectionGrid, Ce.actionRow].filter((p) => p.length) : sa.value ? [
     ...Ce.timePicker[0],
     ...Ce.timePicker[1],
@@ -7407,12 +7407,12 @@ const Yy = (e, t = 3) => {
   ].filter((p) => p.length) : ca.value ? [...Ce.monthPicker, Ce.actionRow] : [Ce.monthYear, ...Ce.calendar, Ce.time, Ce.actionRow].filter((p) => p.length)), t = (p) => {
     nt.value = p ? nt.value + 1 : nt.value - 1;
     let s = null;
-    e.value[Ge.value] && (s = e.value[Ge.value][nt.value]), s || (nt.value = p ? nt.value - 1 : nt.value + 1);
+    e.value[Qe.value] && (s = e.value[Qe.value][nt.value]), s || (nt.value = p ? nt.value - 1 : nt.value + 1);
   }, n = (p) => {
-    Ge.value === 0 && !p || Ge.value === e.value.length && p || (Ge.value = p ? Ge.value + 1 : Ge.value - 1, e.value[Ge.value] ? e.value[Ge.value] && !e.value[Ge.value][nt.value] && nt.value !== 0 && (nt.value = e.value[Ge.value].length - 1) : Ge.value = p ? Ge.value - 1 : Ge.value + 1);
+    Qe.value === 0 && !p || Qe.value === e.value.length && p || (Qe.value = p ? Qe.value + 1 : Qe.value - 1, e.value[Qe.value] ? e.value[Qe.value] && !e.value[Qe.value][nt.value] && nt.value !== 0 && (nt.value = e.value[Qe.value].length - 1) : Qe.value = p ? Qe.value - 1 : Qe.value + 1);
   }, r = (p) => {
     let s = null;
-    e.value[Ge.value] && (s = e.value[Ge.value][nt.value]), s ? s.focus({ preventScroll: !mn.value }) : nt.value = p ? nt.value - 1 : nt.value + 1;
+    e.value[Qe.value] && (s = e.value[Qe.value][nt.value]), s ? s.focus({ preventScroll: !mn.value }) : nt.value = p ? nt.value - 1 : nt.value + 1;
   }, a = () => {
     t(!0), r(!0);
   }, o = () => {
@@ -7426,7 +7426,7 @@ const Yy = (e, t = 3) => {
   }, d = (p, s) => {
     Ce[s] = p;
   }, y = () => {
-    nt.value = 0, Ge.value = 0;
+    nt.value = 0, Qe.value = 0;
   };
   return {
     buildMatrix: m,
@@ -7471,7 +7471,7 @@ const Yy = (e, t = 3) => {
       !e.readonly && !e.disabled && t("update:internal-model-value", _);
     }
   }), h = R([]);
-  Qe(s, () => {
+  Ze(s, () => {
     Q();
   });
   const g = R([{ month: De(U()), year: Re(U()) }]), M = Pt({
@@ -7719,9 +7719,9 @@ const Yy = (e, t = 3) => {
     setDateMonthOrYear: p,
     defaults: s
   } = ct(t), h = R(""), g = nr(t, "format");
-  Qe(r, () => {
+  Ze(r, () => {
     e("internal-model-change", r.value);
-  }), Qe(g, () => {
+  }), Ze(g, () => {
     c();
   });
   const M = (T) => {
@@ -7834,7 +7834,7 @@ const ev = (e, t, n, r) => {
     left: "0",
     transform: "none"
   }), o = R(!1), i = nr(r, "teleportCenter");
-  Qe(i, () => {
+  Ze(i, () => {
     M();
   });
   const u = (N) => {
@@ -9827,7 +9827,7 @@ const ev = (e, t, n, r) => {
       selectCurrentDate: w,
       presetDateRange: z
     } = Xy(r, n, x, ee, L), { setHoverDate: ke, clearHoverDate: oe, getDayClassData: ye } = qv(Z, r);
-    Qe(
+    Ze(
       I,
       () => {
         r.openOnTop && setTimeout(() => {
@@ -10112,7 +10112,7 @@ const ev = (e, t, n, r) => {
   if (!e)
     return ma;
   let a = ma;
-  const o = Qe(
+  const o = Ze(
     () => f(e),
     (u) => {
       a(), u && (u.addEventListener(t, n, r), a = () => {
@@ -10164,7 +10164,7 @@ const ev = (e, t, n, r) => {
       }
     });
     const L = Vt(a, "all", r.presetRanges), P = Vt(a, "input");
-    Qe(
+    Ze(
       [i, u],
       () => {
         I(i.value);
@@ -11258,7 +11258,7 @@ const Gr = /* @__PURE__ */ we(Uh, [["__scopeId", "data-v-50fd21fc"]]), Wh = /* @
       b68d97ac: e.borderRadius,
       "079569fc": f(i)
     }));
-    const r = mt(), a = Ze(), o = b(() => ({
+    const r = mt(), a = Ge(), o = b(() => ({
       "icon-button__button": !0,
       "icon-button__button--disabled": n.disabled,
       "icon-button__button--inactive": n.inactive,
@@ -11519,7 +11519,7 @@ const Qt = /* @__PURE__ */ we(Wh, [["__scopeId", "data-v-afde288b"]]), Lh = { cl
     function Z(q) {
       t("click:row", q);
     }
-    return Qe(
+    return Ze(
       () => n.items,
       async () => {
         if (!B.value || V.value) {
@@ -12228,7 +12228,7 @@ const Og = /* @__PURE__ */ we($g, [["__scopeId", "data-v-7c5824a6"]]), Tg = { cl
       "1d8cf5db": f(o),
       "3f1506a2": f(i)
     }));
-    const r = Ze(), a = b({
+    const r = Ge(), a = b({
       get() {
         return n.modelValue;
       },
@@ -12314,7 +12314,7 @@ const Dg = /* @__PURE__ */ we(Cg, [["__scopeId", "data-v-bc4f98ee"]]), Rg = ["al
     }, null, 10, Rg));
   }
 });
-const Ig = /* @__PURE__ */ we(Mg, [["__scopeId", "data-v-2d0c5d22"]]), Ng = { class: "information-text__container" }, Bg = { class: "information-text__label" }, Ag = { class: "information-text__value" }, Eg = /* @__PURE__ */ ie({
+const Ig = /* @__PURE__ */ we(Mg, [["__scopeId", "data-v-2d0c5d22"]]), Ng = { class: "grid gap-x-3 items-center information-text__wrapper" }, Bg = { class: "text-base leading-5 information-text__text" }, Ag = { class: "pl-3 font-semibold information-text__text" }, Eg = /* @__PURE__ */ ie({
   __name: "InformationText",
   props: {
     label: {
@@ -12332,22 +12332,29 @@ const Ig = /* @__PURE__ */ we(Mg, [["__scopeId", "data-v-2d0c5d22"]]), Ng = { cl
     textTransform: {
       default: "capitalize",
       type: String
+    },
+    color: {
+      default: "secundario",
+      type: String
     }
   },
   setup(e) {
-    return xe((t) => ({
-      "29358aff": e.padding,
-      "69b917cb": e.gridTemplateColumns,
-      "34bead2d": e.textTransform
-    })), (t, n) => (v(), k("div", Ng, [
+    const t = e;
+    xe((a) => ({
+      "28382fec": e.padding,
+      "70653c56": e.gridTemplateColumns,
+      "91166bc4": f(r)
+    }));
+    const { getRealColor: n } = Ge(), r = b(() => n(t.color));
+    return (a, o) => (v(), k("div", Ng, [
       Y("div", Bg, he(e.label), 1),
       Y("div", Ag, [
-        j(t.$slots, "default", {}, void 0, !0)
+        j(a.$slots, "default", {}, void 0, !0)
       ])
     ]));
   }
 });
-const Vg = /* @__PURE__ */ we(Eg, [["__scopeId", "data-v-75c5c153"]]), Yg = {
+const Vg = /* @__PURE__ */ we(Eg, [["__scopeId", "data-v-d1f28c4a"]]), Yg = {
   key: 0,
   class: "page-switch__label"
 }, Fg = { class: "page-switch__switch" }, Ug = /* @__PURE__ */ ie({
@@ -12406,7 +12413,7 @@ const Vg = /* @__PURE__ */ we(Eg, [["__scopeId", "data-v-75c5c153"]]), Yg = {
       "3bf1e2bc": e.width,
       "2380825b": f(u)
     }));
-    const r = Ze(), a = b({
+    const r = Ge(), a = b({
       get() {
         return n.modelValue;
       },
@@ -12485,7 +12492,7 @@ const Wg = /* @__PURE__ */ we(Ug, [["__scopeId", "data-v-6a99dbf1"]]), Lg = /* @
       "1ef6cbe8": f(o),
       befa93fe: e.iconSize
     }));
-    const r = Ze(), a = b(() => ({
+    const r = Ge(), a = b(() => ({
       "panel-title__container": !0,
       "panel-title__container--close": n.closable
     })), o = b(() => r.getRealColor(n.backgroundColor)), i = () => {
@@ -12603,11 +12610,11 @@ const Hg = /* @__PURE__ */ we(Lg, [["__scopeId", "data-v-e0769a10"]]), zg = /* @
         t("update:model-value", a);
       }
     });
-    return Qe(r, (a) => {
+    return Ze(r, (a) => {
       a && n.duration > 0 && window.setTimeout(() => {
         t("close");
       }, n.duration);
-    }), Qe(
+    }), Ze(
       () => n.duration,
       (a) => {
         a > 0 && window.setTimeout(() => {
@@ -12801,7 +12808,7 @@ const Xo = (e) => (Mo("data-v-851bc20e"), e = e(), Io(), e), Gg = ["onMousedown"
       "40a1b156": m.value,
       "67f5cab4": i.value
     }));
-    const { getRealColor: r } = Ze(), a = R(!1), o = R(!1), i = R("translateX(0)"), u = R(null), m = R("translate(0, 0"), d = R(null), y = Pt(xt.fromHex(n.modelValue)), p = Pt({
+    const { getRealColor: r } = Ge(), a = R(!1), o = R(!1), i = R("translateX(0)"), u = R(null), m = R("translate(0, 0"), d = R(null), y = Pt(xt.fromHex(n.modelValue)), p = Pt({
       left: 0,
       width: 0
     }), s = Pt({
@@ -13166,7 +13173,7 @@ const c0 = /* @__PURE__ */ we(s0, [["__scopeId", "data-v-de3c3a3e"]]), f0 = {
       "050f266c": e.transitionDuration,
       "5a79b51a": e.transitionTimingFunction
     }));
-    const r = Ze(), a = R(!1), o = b(() => {
+    const r = Ge(), a = R(!1), o = b(() => {
       const p = parseInt(n.transitionDuration);
       return isNaN(p) ? 0 : p;
     }), i = b({
@@ -13293,7 +13300,7 @@ const m0 = /* @__PURE__ */ we(d0, [["__scopeId", "data-v-25b57f9a"]]), p0 = { cl
       a859d660: f(r),
       "102d70a4": e.gridTemplateColumns
     }));
-    const n = Ze(), r = b(() => n.getRealColor(t.backgroundColor));
+    const n = Ge(), r = b(() => n.getRealColor(t.backgroundColor));
     return (a, o) => (v(), k("div", p0, [
       j(a.$slots, "default", {}, void 0, !0)
     ]));
@@ -13377,7 +13384,7 @@ const v0 = /* @__PURE__ */ we(y0, [["__scopeId", "data-v-546aaa6e"]]), h0 = { cl
       "37eb4752": e.borderRadius,
       "2eec0816": f(r)
     }));
-    const n = Ze(), r = b(() => n.getRealColor(t.backgroundColor));
+    const n = Ge(), r = b(() => n.getRealColor(t.backgroundColor));
     return (a, o) => (v(), k("div", h0, [
       j(a.$slots, "default", {}, void 0, !0)
     ]));
@@ -13431,7 +13438,7 @@ const b0 = /* @__PURE__ */ we(g0, [["__scopeId", "data-v-b5f56ae6"]]), _0 = { cl
       "4f4dc303": e.borderRadius,
       "3adb92b4": f(r)
     }));
-    const n = Ze(), r = b(() => n.getRealColor(t.backgroundColor));
+    const n = Ge(), r = b(() => n.getRealColor(t.backgroundColor));
     return (a, o) => (v(), k("div", _0, [
       j(a.$slots, "default", {}, void 0, !0)
     ]));
@@ -13719,7 +13726,7 @@ const T0 = /* @__PURE__ */ we(O0, [["__scopeId", "data-v-81015ccc"]]), bu = (e) 
       "11dba316": a.value,
       "205f17ff": f(m)
     }));
-    const { getRealColor: r } = Ze(), a = R(""), o = R(null);
+    const { getRealColor: r } = Ge(), a = R(""), o = R(null);
     qe(s);
     const i = b(() => r(n.thumbColor)), u = b(() => r(n.trackColor)), m = b(() => r(n.progressColor)), d = b({
       get() {
@@ -13747,7 +13754,7 @@ const T0 = /* @__PURE__ */ we(O0, [["__scopeId", "data-v-81015ccc"]]), bu = (e) 
     function h() {
       document.body.style.userSelect = "inital", document.removeEventListener("mouseup", h), document.removeEventListener("mousemove", p);
     }
-    return Qe(d, s), (g, M) => (v(), k("div", {
+    return Ze(d, s), (g, M) => (v(), k("div", {
       ref_key: "barRef",
       ref: o,
       role: "slider",
@@ -13869,7 +13876,7 @@ const _u = /* @__PURE__ */ we(R0, [["__scopeId", "data-v-f500483c"]]), M0 = (e) 
     async function ne(C) {
       i.value = Math.max(0, Math.min(100, C * 10 + i.value)), await N();
     }
-    return t({ crop: q }), Qe(
+    return t({ crop: q }), Ze(
       () => n.file,
       async () => {
         y.value = await X(), await ee(), Q();
