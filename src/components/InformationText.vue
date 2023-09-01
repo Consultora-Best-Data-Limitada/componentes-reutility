@@ -1,9 +1,9 @@
 <template>
   <div class="grid gap-x-3 items-center information-text__wrapper">
-    <div class="text-base leading-5 information-text__text">
+    <div class="text-base leading-4 information-text__text">
       {{ label }}
     </div>
-    <div class="pl-3 font-semibold information-text__text">
+    <div class="text-base leading-4 pl-3 font-semibold information-text__text">
       <slot />
     </div>
   </div>

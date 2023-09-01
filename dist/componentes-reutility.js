@@ -12314,7 +12314,7 @@ const Dg = /* @__PURE__ */ we(Cg, [["__scopeId", "data-v-bc4f98ee"]]), Rg = ["al
     }, null, 10, Rg));
   }
 });
-const Ig = /* @__PURE__ */ we(Mg, [["__scopeId", "data-v-2d0c5d22"]]), Ng = { class: "grid gap-x-3 items-center information-text__wrapper" }, Bg = { class: "text-base leading-5 information-text__text" }, Ag = { class: "pl-3 font-semibold information-text__text" }, Eg = /* @__PURE__ */ ie({
+const Ig = /* @__PURE__ */ we(Mg, [["__scopeId", "data-v-2d0c5d22"]]), Ng = { class: "grid gap-x-3 items-center information-text__wrapper" }, Bg = { class: "text-base leading-4 information-text__text" }, Ag = { class: "text-base leading-4 pl-3 font-semibold information-text__text" }, Eg = /* @__PURE__ */ ie({
   __name: "InformationText",
   props: {
     label: {
@@ -12341,9 +12341,9 @@ const Ig = /* @__PURE__ */ we(Mg, [["__scopeId", "data-v-2d0c5d22"]]), Ng = { cl
   setup(e) {
     const t = e;
     xe((a) => ({
-      "28382fec": e.padding,
-      "70653c56": e.gridTemplateColumns,
-      "91166bc4": f(r)
+      "3a0fb202": e.padding,
+      "6871b3cb": e.gridTemplateColumns,
+      "3a751fd3": f(r)
     }));
     const { getRealColor: n } = Ge(), r = b(() => n(t.color));
     return (a, o) => (v(), k("div", Ng, [
@@ -12354,7 +12354,7 @@ const Ig = /* @__PURE__ */ we(Mg, [["__scopeId", "data-v-2d0c5d22"]]), Ng = { cl
     ]));
   }
 });
-const Vg = /* @__PURE__ */ we(Eg, [["__scopeId", "data-v-d1f28c4a"]]), Yg = {
+const Vg = /* @__PURE__ */ we(Eg, [["__scopeId", "data-v-e9d4a515"]]), Yg = {
   key: 0,
   class: "page-switch__label"
 }, Fg = { class: "page-switch__switch" }, Ug = /* @__PURE__ */ ie({
