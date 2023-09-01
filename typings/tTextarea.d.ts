@@ -15,19 +15,19 @@ export type TTextarea = DefineComponent<
       type: [NumberConstructor, StringConstructor];
     };
     showCounter: {
-      type: Boolean;
+      type: BooleanConstructor;
     };
     readonly: {
-      type: Boolean;
+      type: BooleanConstructor;
     };
     disabled: {
-      type: Boolean;
+      type: BooleanConstructor;
     };
     dark: {
-      type: Boolean;
+      type: BooleanConstructor;
     };
     outlined: {
-      type: Boolean;
+      type: BooleanConstructor;
     };
     rows: {
       default: null;
