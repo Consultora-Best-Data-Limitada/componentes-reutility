@@ -1,6 +1,7 @@
 <template>
   <h1
     v-if="predefinedStyle === 'h1'"
+    ref="h1Ref"
     :data-clickable="clickable"
     @click="onClick"
   >
@@ -8,6 +9,7 @@
   </h1>
   <h2
     v-else-if="predefinedStyle === 'h2'"
+    ref="h2Ref"
     :data-clickable="clickable"
     @click="onClick"
   >
@@ -15,6 +17,7 @@
   </h2>
   <h3
     v-else-if="predefinedStyle === 'subtitle-1' || predefinedStyle === 'subtitle-2'"
+    ref="h3Ref"
     :data-clickable="clickable"
     :data-style="predefinedStyle"
     @click="onClick"
@@ -23,6 +26,7 @@
   </h3>
   <small
     v-else-if="predefinedStyle === 'caption'"
+    ref="smallRef"
     :data-clickable="clickable"
     @click="onClick"
   >
@@ -30,6 +34,7 @@
   </small>
   <p
     v-else
+    ref="pRef"
     :data-clickable="clickable"
     :data-style="predefinedStyle"
     @click="onClick"
@@ -136,7 +141,11 @@ onMounted(() => {
 
 // Data
 
-const container = ref<HTMLDivElement | null>(null);
+const pRef = ref<HTMLElement | null>(null);
+const h1Ref = ref<HTMLElement | null>(null);
+const h2Ref = ref<HTMLElement | null>(null);
+const h3Ref = ref<HTMLElement | null>(null);
+const smallRef = ref<HTMLElement | null>(null);
 
 // Computed
 
@@ -163,9 +172,10 @@ const activeBackgroundInner = computed(() => {
 // Methods
 
 function mountSpecialText(value?: string) {
-  if (!value || !container.value || slots["default"]) return;
+  const el = pRef.value ?? smallRef.value ?? h3Ref.value ?? h2Ref.value ?? h1Ref.value;
+  if (!value || !el || slots["default"]) return;
   const regex = /\*([^*]+)\*/g;
-  container.value.innerHTML = value.replace(regex, (value: string) => {
+  el.innerHTML = value.replace(regex, (value: string) => {
     const sliced = value.slice(1, value.length - 1);
     return `<strong>${sliced}</strong>`;
   });
