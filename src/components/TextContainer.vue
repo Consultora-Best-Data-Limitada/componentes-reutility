@@ -1,11 +1,41 @@
 <template>
-  <div
-    ref="container"
-    :class="textContainerClass"
+  <h1
+    v-if="predefinedStyle === 'h1'"
+    :data-clickable="clickable"
     @click="onClick"
   >
     <slot />
-  </div>
+  </h1>
+  <h2
+    v-else-if="predefinedStyle === 'h2'"
+    :data-clickable="clickable"
+    @click="onClick"
+  >
+    <slot />
+  </h2>
+  <h3
+    v-else-if="predefinedStyle === 'subtitle-1' || predefinedStyle === 'subtitle-2'"
+    :data-clickable="clickable"
+    :data-style="predefinedStyle"
+    @click="onClick"
+  >
+    <slot />
+  </h3>
+  <small
+    v-else-if="predefinedStyle === 'caption'"
+    :data-clickable="clickable"
+    @click="onClick"
+  >
+    <slot />
+  </small>
+  <p
+    v-else
+    :data-clickable="clickable"
+    :data-style="predefinedStyle"
+    @click="onClick"
+  >
+    <slot />
+  </p>
 </template>
 
 <script setup lang="ts">
@@ -15,9 +45,11 @@ import { computed, onMounted, ref, useSlots, watch } from "vue";
 // Composables
 import { useColors } from "@/composables/colors";
 
-// Tipos
+// Types
 import type { PropType } from "vue";
 import type { Property } from "csstype";
+
+// Definitions
 
 const props = defineProps({
   fontSize: {
@@ -41,23 +73,23 @@ const props = defineProps({
     type: String as PropType<Property.TextTransform>,
   },
   color: {
-    default: "",
+    default: "secundario",
     type: String as PropType<Property.Color | CustomColor>,
   },
   hoverColor: {
-    default: "",
+    default: "initial",
     type: String as PropType<Property.Color | CustomColor>,
   },
   activeColor: {
-    default: "#ffffff",
+    default: "initial",
     type: String as PropType<Property.Color | CustomColor>,
   },
   hoverBackground: {
-    default: "neutro-1",
+    default: "initial",
     type: String as PropType<Property.BackgroundColor | CustomColor>,
   },
   activeBackground: {
-    default: "neutro-3",
+    default: "initial",
     type: String as PropType<Property.BackgroundColor | CustomColor>,
   },
   whiteSpace: {
@@ -108,13 +140,6 @@ const container = ref<HTMLDivElement | null>(null);
 
 // Computed
 
-const textContainerClass = computed(() => {
-  const classes: string[] = ["text__container"];
-  if (props.clickable) classes.push("text__container--clickable");
-  classes.push(`text__container--${props.predefinedStyle}`);
-  return classes;
-});
-
 const colorInner = computed(() => {
   return colors.getRealColor(props.color);
 });
@@ -137,20 +162,21 @@ const activeBackgroundInner = computed(() => {
 
 // Methods
 
-const mountSpecialText = (value?: string) => {
+function mountSpecialText(value?: string) {
   if (!value || !container.value || slots["default"]) return;
   const regex = /\*([^*]+)\*/g;
   container.value.innerHTML = value.replace(regex, (value: string) => {
     const sliced = value.slice(1, value.length - 1);
-    return `<b>${sliced}</b>`;
+    return `<strong>${sliced}</strong>`;
   });
-};
+}
 
 // Emits
 
-const onClick = (ev: MouseEvent) => {
+function onClick(ev: MouseEvent) {
+  if (!props.clickable) return;
   emits("click", ev);
-};
+}
 
 // Watchs
 
@@ -160,7 +186,11 @@ watch(() => props.specialText, mountSpecialText);
 <style scoped lang="scss">
 @import "../scss/mixins";
 
-.text__container {
+p,
+h1,
+h2,
+h3,
+small {
   padding: v-bind(padding);
   color: v-bind(colorInner);
   font-size: v-bind(fontSize);
@@ -173,7 +203,7 @@ watch(() => props.specialText, mountSpecialText);
   text-transform: v-bind(textTransform);
 }
 
-.text__container--clickable {
+[data-clickable="true"] {
   cursor: pointer;
   user-select: none;
   transition: all 200ms ease;
@@ -189,31 +219,31 @@ watch(() => props.specialText, mountSpecialText);
   }
 }
 
-.text__container--h1 {
+h1 {
   @include text-h1;
 }
 
-.text__container--h2 {
+h2 {
   @include text-h2;
 }
 
-.text__container--subtitle-1 {
+h3[data-style="subtitle-1"] {
   @include text-subtitle-1;
 }
 
-.text__container--subtitle-2 {
+h3[data-style="subtitle-2"] {
   @include text-subtitle-2;
 }
 
-.text__container--body-1 {
+p[data-style="body-1"] {
   @include text-body-1;
 }
 
-.text__container--body-2 {
+p[data-style="body-2"] {
   @include text-body-2;
 }
 
-.text__container--caption {
+small {
   @include text-caption;
 }
 </style>

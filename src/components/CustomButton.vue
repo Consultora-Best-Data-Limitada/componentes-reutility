@@ -1,5 +1,6 @@
 <template>
   <button
+    :type="type"
     :disabled="disabled"
     :class="customButtonClass"
     @click="onClick"
@@ -61,6 +62,10 @@ import LdThreeBounce from "./icons/LdThreeBounce.vue";
 // Definiciones
 
 const props = defineProps({
+  type: {
+    default: "button",
+    type: String as PropType<"button" | "submit" | "reset">
+  },
   color: {
     default: "#000000",
     type: String as PropType<Property.Color | CustomColor>,

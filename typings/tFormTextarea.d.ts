@@ -3,6 +3,10 @@ import type { DefineComponent, PropType } from "vue";
 
 export type TFormTextarea = DefineComponent<
   {
+    name: {
+      default: null;
+      type: StringConstructor;
+    }
     modelValue: {
       default: "";
       type: StringConstructor;

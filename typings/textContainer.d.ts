@@ -24,23 +24,23 @@ export type TextContainer = DefineComponent<
       type: PropType<Property.TextTransform>;
     };
     color: {
-      default: "";
+      default: "secundario";
       type: PropType<Property.Color | CustomColor>;
     };
     hoverColor: {
-      default: "";
+      default: "initial";
       type: PropType<Property.Color | CustomColor>;
     };
     activeColor: {
-      default: "#ffffff";
+      default: "initial";
       type: PropType<Property.Color | CustomColor>;
     };
     hoverBackground: {
-      default: "neutro-1";
+      default: "initial";
       type: PropType<Property.BackgroundColor | CustomColor>;
     };
     activeBackground: {
-      default: "neutro-3";
+      default: "initial";
       type: PropType<Property.BackgroundColor | CustomColor>;
     };
     whiteSpace: {

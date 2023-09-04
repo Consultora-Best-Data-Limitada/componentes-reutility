@@ -53,6 +53,7 @@ import ImageCropper from "@/components/ImageCropper.vue";
 import TPagination from "@/components/TPagination.vue";
 import TTextarea from "@/components/TTextarea.vue";
 import TFormTextarea from "@/components/TFormTextarea.vue";
+import TForm from "@/components/TForm.vue";
 
 export const componentesReutility = (app: App) => {
   const tooltips = useTooltips();
@@ -102,4 +103,5 @@ export const componentesReutility = (app: App) => {
   app.component("TPagination", TPagination);
   app.component("TTextarea", TTextarea);
   app.component("TFormTextarea", TFormTextarea);
+  app.component("TForm", TForm)
 };

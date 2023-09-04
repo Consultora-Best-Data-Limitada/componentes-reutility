@@ -2,6 +2,10 @@ import type { DefineComponent } from "vue";
 
 export type TTextarea = DefineComponent<
   {
+    name: {
+      default: null;
+      type: StringConstructor;
+    };
     modelValue: {
       default: "";
       type: StringConstructor;

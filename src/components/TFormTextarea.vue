@@ -1,30 +1,26 @@
 <template>
-  <div class="grid gap-y-1 gap-x-3 items-start t-form-texarea__container">
-    <div
+  <label class="grid gap-y-1 t-form-texarea__container">
+    <span
       :data-dark="dark"
       :data-readonly="readonly"
       :data-disabled="disabled"
       class="pt-3 text-base leading-5 font-semibold text-secundario data-[readonly=true]:font-normal data-[dark=true]:text-neutro-1 data-[disabled=true]:text-neutro-4"
     >
       {{ label }}
-    </div>
+    </span>
     <TTextarea
       v-model="model"
       :rows="rows"
       :dark="dark"
+      :name="name"
       :readonly="readonly"
       :disabled="disabled"
       :outlined="outlined"
       :max-length="maxLength"
       :placeholder="placeholder"
       :show-counter="showCounter"
-      @blur="onBlur"
-      @input="onInput"
-      @keyup="onKeyup"
-      @focus="onFocus"
-      @keydown="onKeydown"
     />
-  </div>
+  </label>
 </template>
 
 <script setup lang="ts">
@@ -44,6 +40,10 @@ const props = defineProps({
   modelValue: {
     default: "",
     type: String,
+  },
+  name: {
+    type: String,
+    default: null,
   },
   label: {
     type: String,
@@ -82,7 +82,7 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["update:model-value", "keydown", "keyup", "input", "focus", "blur"]);
+const emits = defineEmits(["update:model-value"]);
 
 // Computed
 
@@ -94,28 +94,6 @@ const model = computed({
     emits("update:model-value", value);
   },
 });
-
-// Emits
-
-const onFocus = (ev: MouseEvent) => {
-  emits("focus", ev);
-};
-
-const onBlur = (ev: MouseEvent) => {
-  emits("blur", ev);
-};
-
-const onInput = (ev: KeyboardEvent) => {
-  emits("input", ev);
-};
-
-const onKeyup = (ev: KeyboardEvent) => {
-  emits("keyup", ev);
-};
-
-const onKeydown = (ev: KeyboardEvent) => {
-  emits("keydown", ev);
-};
 </script>
 
 <style scoped>

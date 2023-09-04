@@ -1,26 +1,25 @@
 <template>
-  <div class="grid gap-y-1">
-    <textarea
-      v-model="model"
-      :rows="rows"
-      :data-dark="dark"
-      :readonly="readonly"
-      :disabled="disabled"
-      :data-filled="!!model"
-      :maxlength="maxLength"
-      :data-outlined="outlined"
-      :placeholder="placeholder"
-      class="w-full resize-none rounded-xl p-3 outline-none"
-    />
-    <p
-      v-if="showCounter"
-      class="text-right text-[#5E798F] text-sm leading-5 font-medium"
-    >
-      <span>{{ model.length }}</span>
-      <span v-if="maxLength">/{{ maxLength }}</span>
-    </p>
-  </div>
+  <textarea
+    v-model="model"
+    :name="name"
+    :rows="rows"
+    :data-dark="dark"
+    :readonly="readonly"
+    :disabled="disabled"
+    :data-filled="!!model"
+    :maxlength="maxLength"
+    :data-outlined="outlined"
+    :placeholder="placeholder"
+    class="w-full resize-none rounded-xl p-3 outline-none"
+  />
+  <span
+    v-if="showCounter"
+    class="block text-right text-[#5E798F] text-sm leading-5 font-medium col-start-2"
+  >
+    {{ model.length }}<template v-if="maxLength">/{{ maxLength }}</template>
+  </span>
 </template>
+
 <script setup lang="ts">
 // Vue
 import { computed } from "vue";
@@ -31,6 +30,10 @@ const props = defineProps({
   modelValue: {
     type: String,
     required: true,
+  },
+  name: {
+    type: String,
+    default: null,
   },
   maxLength: {
     default: null,

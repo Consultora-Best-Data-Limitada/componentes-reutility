@@ -3,6 +3,10 @@ import type { DefineComponent, PropType } from "vue";
 
 export type CustomButton = DefineComponent<
   {
+    type: {
+      default: "button";
+      type: PropType<"button" | "submit" | "reset">;
+    };
     color: {
       default: "#000000";
       type: PropType<Property.Color | CustomColor>;

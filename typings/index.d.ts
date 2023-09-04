@@ -44,6 +44,7 @@ import type { ImageCropper } from "./imageCropper";
 import type { TPagination } from "./tPagination";
 import type { TTextarea } from "./tTextarea";
 import type { TFormTextarea } from "./tFormTextarea";
+import type { TForm } from "./tForm";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -101,5 +102,6 @@ declare module "@vue/runtime-core" {
     TPagination: TPagination;
     TTextarea: TTextarea;
     TFormTextarea: TFormTextarea;
+    TForm: TForm;
   }
 }
