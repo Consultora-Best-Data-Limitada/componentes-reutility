@@ -1,5 +1,5 @@
 <template>
-  <label class="grid gap-y-1 t-form-texarea__container">
+  <label class="grid gap-y-1 gap-x-3 t-form-texarea__container">
     <span
       :data-dark="dark"
       :data-readonly="readonly"

@@ -14048,7 +14048,7 @@ const j0 = /* @__PURE__ */ be(z0, [["__scopeId", "data-v-ec8ab006"]]), q0 = ["na
     ], 64));
   }
 });
-const ku = /* @__PURE__ */ be(Q0, [["__scopeId", "data-v-8c53643b"]]), Z0 = { class: "grid gap-y-1 t-form-texarea__container" }, X0 = ["data-dark", "data-readonly", "data-disabled"], K0 = /* @__PURE__ */ oe({
+const ku = /* @__PURE__ */ be(Q0, [["__scopeId", "data-v-8c53643b"]]), Z0 = { class: "grid gap-y-1 gap-x-3 t-form-texarea__container" }, X0 = ["data-dark", "data-readonly", "data-disabled"], K0 = /* @__PURE__ */ oe({
   __name: "TFormTextarea",
   props: {
     modelValue: {
@@ -14099,7 +14099,7 @@ const ku = /* @__PURE__ */ be(Q0, [["__scopeId", "data-v-8c53643b"]]), Z0 = { cl
   setup(e, { emit: t }) {
     const n = e;
     Se((a) => ({
-      d357b1b4: e.gridTemplateColumns
+      "110931ba": e.gridTemplateColumns
     }));
     const r = g({
       get() {
@@ -14132,7 +14132,7 @@ const ku = /* @__PURE__ */ be(Q0, [["__scopeId", "data-v-8c53643b"]]), Z0 = { cl
     ]));
   }
 });
-const J0 = /* @__PURE__ */ be(K0, [["__scopeId", "data-v-38bf68c9"]]), eb = ["name", "onSubmit"], tb = /* @__PURE__ */ oe({
+const J0 = /* @__PURE__ */ be(K0, [["__scopeId", "data-v-cbb0570e"]]), eb = ["name", "onSubmit"], tb = /* @__PURE__ */ oe({
   __name: "TForm",
   props: {
     name: {
