@@ -1,6 +1,7 @@
 <template>
   <div class="data-table__container">
     <table
+      :data-dark="dark"
       :class="tableClass"
       aria-describedby="Reutility"
     >
@@ -114,6 +115,9 @@ const props = defineProps({
   headers: {
     required: true,
     type: Array as PropType<DataTableHeader[]>,
+  },
+  dark: {
+    type: Boolean,
   },
   backgroundColor: {
     default: "initial",
@@ -436,6 +440,20 @@ watch(
     &--disabled td {
       color: rgb(var(--neutro-4));
     }
+  }
+}
+
+[data-dark="true"] {
+  .data-table__th,
+  .data-table__row td,
+  .data-table__row--empty {
+    color: rgb(var(--neutro-1));
+  }
+
+  .data-table__row:hover,
+  .data-table__row--sticky-first:hover td:last-child,
+  .data-table__row--sticky-first:hover td:first-child {
+    background-color: rgb(var(--neutro-4));
   }
 }
 </style>

@@ -11418,10 +11418,10 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
       ], 64)) : D("", !0)
     ]));
   }
-}), rg = { class: "data-table__container" }, ag = ["onClick"], og = { class: "data-table__header-text" }, lg = {
+}), rg = { class: "data-table__container" }, ag = ["data-dark"], og = ["onClick"], lg = { class: "data-table__header-text" }, ig = {
   key: 0,
   class: "data-table__row--empty"
-}, ig = ["onClick"], ug = /* @__PURE__ */ oe({
+}, ug = ["onClick"], sg = /* @__PURE__ */ oe({
   __name: "DataTable",
   props: {
     items: {
@@ -11431,6 +11431,9 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
     headers: {
       required: !0,
       type: Array
+    },
+    dark: {
+      type: Boolean
     },
     backgroundColor: {
       default: "initial",
@@ -11493,10 +11496,10 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
   setup(e, { emit: t }) {
     const n = e;
     Se((q) => ({
-      "2635d436": e.height,
-      87459388: e.maxHeight,
-      "197896b4": e.backgroundColor,
-      "020f2b2e": e.gridTemplateColumns
+      "40aab6ff": e.height,
+      f6ff1a5a: e.maxHeight,
+      "02523806": e.backgroundColor,
+      b18651f6: e.gridTemplateColumns
     }));
     const r = g(() => n.items), a = g(() => n.itemsPerPage), o = mt(), {
       pageCount: l,
@@ -11570,6 +11573,7 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
       }
     ), (q, ne) => (v(), w("div", rg, [
       Y("table", {
+        "data-dark": e.dark,
         class: de(f(T)),
         "aria-describedby": "Reutility"
       }, [
@@ -11582,7 +11586,7 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
               class: de(B(C)),
               onClick: ($) => N(C)
             }, [
-              Y("div", og, [
+              Y("div", lg, [
                 Q(`header.${C.value}`) ? H(q.$slots, `header.${C.value}`, {
                   key: 0,
                   headerText: C.text
@@ -11599,7 +11603,7 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
                   color: A(C.value)
                 }, null, 8, ["name", "color"])
               ], 2)) : D("", !0)
-            ], 10, ag))), 128))
+            ], 10, og))), 128))
           ])
         ], 2),
         Y("tbody", {
@@ -11607,7 +11611,7 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
           ref: M,
           class: "data-table__body"
         }, [
-          e.items.length === 0 ? (v(), w("tr", lg, [
+          e.items.length === 0 ? (v(), w("tr", ig, [
             Q("no-data") ? D("", !0) : (v(), w(fe, { key: 0 }, [
               !e.hideNoDataIcon && e.noDataIcon.startsWith("fm") ? (v(), te(Fe, {
                 key: 0,
@@ -11639,9 +11643,9 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
                 Ce(ye(f(_)(C, $.value)), 1)
               ], 64))
             ]))), 128))
-          ], 10, ig))), 128))
+          ], 10, ug))), 128))
         ], 512)
-      ], 2),
+      ], 10, ag),
       pe(hu, {
         modelValue: f(u),
         "onUpdate:modelValue": ne[0] || (ne[0] = (C) => Ee(u) ? u.value = C : null),
@@ -11650,7 +11654,7 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
     ]));
   }
 });
-const sg = /* @__PURE__ */ be(ug, [["__scopeId", "data-v-f6176713"]]), cg = /* @__PURE__ */ oe({
+const cg = /* @__PURE__ */ be(sg, [["__scopeId", "data-v-55e107f5"]]), fg = /* @__PURE__ */ oe({
   __name: "DataTableItem",
   props: {
     disabled: {
@@ -11684,7 +11688,7 @@ const sg = /* @__PURE__ */ be(ug, [["__scopeId", "data-v-f6176713"]]), cg = /* @
       _: 3
     }, 8, ["color", "text-align", "font-weight", "text-transform"]));
   }
-}), fg = { class: "filter-date-picker__container" }, dg = { class: "filter-date-picker__label" }, mg = /* @__PURE__ */ oe({
+}), dg = { class: "filter-date-picker__container" }, mg = { class: "filter-date-picker__label" }, pg = /* @__PURE__ */ oe({
   __name: "FilterDatePicker",
   props: {
     label: {
@@ -11727,8 +11731,8 @@ const sg = /* @__PURE__ */ be(ug, [["__scopeId", "data-v-f6176713"]]), cg = /* @
         t("update:model-value", a);
       }
     });
-    return (a, o) => (v(), w("div", fg, [
-      Y("div", dg, ye(e.label), 1),
+    return (a, o) => (v(), w("div", dg, [
+      Y("div", mg, ye(e.label), 1),
       pe(Qo, {
         modelValue: f(r),
         "onUpdate:modelValue": o[0] || (o[0] = (l) => Ee(r) ? r.value = l : null),
@@ -11742,7 +11746,7 @@ const sg = /* @__PURE__ */ be(ug, [["__scopeId", "data-v-f6176713"]]), cg = /* @
     ]));
   }
 });
-const pg = /* @__PURE__ */ be(mg, [["__scopeId", "data-v-4d3bdb3f"]]), yg = { class: "filter-select__container" }, vg = { class: "filter-select__label" }, hg = /* @__PURE__ */ oe({
+const yg = /* @__PURE__ */ be(pg, [["__scopeId", "data-v-4d3bdb3f"]]), vg = { class: "filter-select__container" }, hg = { class: "filter-select__label" }, gg = /* @__PURE__ */ oe({
   __name: "FilterSelect",
   props: {
     label: {
@@ -11810,8 +11814,8 @@ const pg = /* @__PURE__ */ be(mg, [["__scopeId", "data-v-4d3bdb3f"]]), yg = { cl
         t("update:model-value", o);
       }
     });
-    return (o, l) => (v(), w("div", yg, [
-      Y("div", vg, ye(e.label), 1),
+    return (o, l) => (v(), w("div", vg, [
+      Y("div", hg, ye(e.label), 1),
       pe(Zo, {
         modelValue: f(a),
         "onUpdate:modelValue": l[0] || (l[0] = (u) => Ee(a) ? a.value = u : null),
@@ -11843,7 +11847,7 @@ const pg = /* @__PURE__ */ be(mg, [["__scopeId", "data-v-4d3bdb3f"]]), yg = { cl
     ]));
   }
 });
-const gg = /* @__PURE__ */ be(hg, [["__scopeId", "data-v-e005b2d4"]]), bg = { class: "flex__container" }, _g = /* @__PURE__ */ oe({
+const bg = /* @__PURE__ */ be(gg, [["__scopeId", "data-v-e005b2d4"]]), _g = { class: "flex__container" }, wg = /* @__PURE__ */ oe({
   __name: "FlexContainer",
   props: {
     padding: {
@@ -11894,12 +11898,12 @@ const gg = /* @__PURE__ */ be(hg, [["__scopeId", "data-v-e005b2d4"]]), bg = { cl
       "7c44ebe2": e.justifyItems,
       a500e732: e.flexDirection,
       "7b377f08": e.justifyContent
-    })), (t, n) => (v(), w("div", bg, [
+    })), (t, n) => (v(), w("div", _g, [
       H(t.$slots, "default", {}, void 0, !0)
     ]));
   }
 });
-const gu = /* @__PURE__ */ be(_g, [["__scopeId", "data-v-4706ceca"]]), wg = { class: "grid gap-y-1 gap-x-3 items-center form-date-picker__container" }, kg = ["data-dark", "data-readonly", "data-disabled"], Sg = /* @__PURE__ */ oe({
+const gu = /* @__PURE__ */ be(wg, [["__scopeId", "data-v-4706ceca"]]), kg = { class: "grid gap-y-1 gap-x-3 items-center form-date-picker__container" }, Sg = ["data-dark", "data-readonly", "data-disabled"], xg = /* @__PURE__ */ oe({
   __name: "FormDatePicker",
   props: {
     label: {
@@ -11966,13 +11970,13 @@ const gu = /* @__PURE__ */ be(_g, [["__scopeId", "data-v-4706ceca"]]), wg = { cl
         t("update:model-value", a);
       }
     });
-    return (a, o) => (v(), w("div", wg, [
+    return (a, o) => (v(), w("div", kg, [
       Y("div", {
         "data-dark": e.dark,
         "data-readonly": e.readonly,
         "data-disabled": e.disabled,
         class: "text-base leading-5 font-semibold text-secundario data-[readonly=true]:font-normal data-[dark=true]:text-neutro-1 data-[disabled=true]:text-neutro-4"
-      }, ye(e.label), 9, kg),
+      }, ye(e.label), 9, Sg),
       pe(Qo, {
         modelValue: f(r),
         "onUpdate:modelValue": o[0] || (o[0] = (l) => Ee(r) ? r.value = l : null),
@@ -11991,7 +11995,7 @@ const gu = /* @__PURE__ */ be(_g, [["__scopeId", "data-v-4706ceca"]]), wg = { cl
     ]));
   }
 });
-const xg = /* @__PURE__ */ be(Sg, [["__scopeId", "data-v-7f0d00f1"]]), $g = { class: "grid gap-y-1 gap-x-3 items-center form-select__container" }, Og = ["data-dark", "data-readonly", "data-disabled"], Tg = /* @__PURE__ */ oe({
+const $g = /* @__PURE__ */ be(xg, [["__scopeId", "data-v-7f0d00f1"]]), Og = { class: "grid gap-y-1 gap-x-3 items-center form-select__container" }, Tg = ["data-dark", "data-readonly", "data-disabled"], Pg = /* @__PURE__ */ oe({
   __name: "FormSelect",
   props: {
     label: {
@@ -12085,13 +12089,13 @@ const xg = /* @__PURE__ */ be(Sg, [["__scopeId", "data-v-7f0d00f1"]]), $g = { cl
         t("update:model-value", o);
       }
     });
-    return (o, l) => (v(), w("div", $g, [
+    return (o, l) => (v(), w("div", Og, [
       Y("div", {
         "data-dark": e.dark,
         "data-readonly": e.readonly,
         "data-disabled": e.disabled,
         class: "text-base leading-5 font-semibold text-secundario data-[readonly=true]:font-normal data-[dark=true]:text-neutro-1 data-[disabled=true]:text-neutro-4"
-      }, ye(e.label), 9, Og),
+      }, ye(e.label), 9, Tg),
       pe(Zo, {
         modelValue: f(a),
         "onUpdate:modelValue": l[0] || (l[0] = (u) => Ee(a) ? a.value = u : null),
@@ -12128,7 +12132,7 @@ const xg = /* @__PURE__ */ be(Sg, [["__scopeId", "data-v-7f0d00f1"]]), $g = { cl
     ]));
   }
 });
-const Pg = /* @__PURE__ */ be(Tg, [["__scopeId", "data-v-83e0a6a4"]]), Cg = { class: "grid gap-y-1 gap-x-3 items-center form-text-field__container" }, Dg = ["data-dark", "data-readonly", "data-disabled"], Rg = /* @__PURE__ */ oe({
+const Cg = /* @__PURE__ */ be(Pg, [["__scopeId", "data-v-83e0a6a4"]]), Dg = { class: "grid gap-y-1 gap-x-3 items-center form-text-field__container" }, Rg = ["data-dark", "data-readonly", "data-disabled"], Mg = /* @__PURE__ */ oe({
   __name: "FormTextField",
   props: {
     modelValue: {
@@ -12203,13 +12207,13 @@ const Pg = /* @__PURE__ */ be(Tg, [["__scopeId", "data-v-83e0a6a4"]]), Cg = { cl
     }, y = (p) => {
       t("keydown", p);
     };
-    return (p, s) => (v(), w("div", Cg, [
+    return (p, s) => (v(), w("div", Dg, [
       Y("div", {
         "data-dark": e.dark,
         "data-readonly": e.readonly,
         "data-disabled": e.disabled,
         class: "text-base leading-5 font-semibold text-secundario data-[readonly=true]:font-normal data-[dark=true]:text-neutro-1 data-[disabled=true]:text-neutro-4"
-      }, ye(e.label), 9, Dg),
+      }, ye(e.label), 9, Rg),
       pe(qr, {
         modelValue: f(a),
         "onUpdate:modelValue": s[0] || (s[0] = (h) => Ee(a) ? a.value = h : null),
@@ -12240,7 +12244,7 @@ const Pg = /* @__PURE__ */ be(Tg, [["__scopeId", "data-v-83e0a6a4"]]), Cg = { cl
     ]));
   }
 });
-const Mg = /* @__PURE__ */ be(Rg, [["__scopeId", "data-v-7c5824a6"]]), Ig = { class: "header-tabs__container" }, Ng = ["onClick"], Bg = /* @__PURE__ */ oe({
+const Ig = /* @__PURE__ */ be(Mg, [["__scopeId", "data-v-7c5824a6"]]), Ng = { class: "header-tabs__container" }, Bg = ["onClick"], Ag = /* @__PURE__ */ oe({
   __name: "HeaderTabs",
   props: {
     items: {
@@ -12281,16 +12285,16 @@ const Mg = /* @__PURE__ */ be(Rg, [["__scopeId", "data-v-7c5824a6"]]), Ig = { cl
     }), m = (d) => {
       a.value = d;
     };
-    return (d, y) => (v(), w("div", Ig, [
+    return (d, y) => (v(), w("div", Ng, [
       (v(!0), w(fe, null, Te(e.items, (p, s) => (v(), w("button", {
         key: `tab-${s}`,
         class: de(u(s)),
         onClick: (h) => m(s)
-      }, ye(p), 11, Ng))), 128))
+      }, ye(p), 11, Bg))), 128))
     ]));
   }
 });
-const Ag = /* @__PURE__ */ be(Bg, [["__scopeId", "data-v-bc4f98ee"]]), Eg = ["alt", "src"], Vg = /* @__PURE__ */ oe({
+const Eg = /* @__PURE__ */ be(Ag, [["__scopeId", "data-v-bc4f98ee"]]), Vg = ["alt", "src"], Yg = /* @__PURE__ */ oe({
   __name: "ImageContainer",
   props: {
     src: {
@@ -12351,10 +12355,10 @@ const Ag = /* @__PURE__ */ be(Bg, [["__scopeId", "data-v-bc4f98ee"]]), Eg = ["al
       src: f(r),
       class: de(f(a)),
       onClick: o
-    }, null, 10, Eg));
+    }, null, 10, Vg));
   }
 });
-const Yg = /* @__PURE__ */ be(Vg, [["__scopeId", "data-v-2d0c5d22"]]), Fg = { class: "grid gap-x-3 items-center information-text__wrapper" }, Ug = { class: "text-base leading-4 information-text__text" }, Wg = { class: "text-base leading-4 pl-3 font-semibold overflow-hidden text-ellipsis information-text__text" }, Lg = /* @__PURE__ */ oe({
+const Fg = /* @__PURE__ */ be(Yg, [["__scopeId", "data-v-2d0c5d22"]]), Ug = { class: "grid gap-x-3 items-center information-text__wrapper" }, Wg = { class: "text-base leading-4 information-text__text" }, Lg = { class: "text-base leading-4 pl-3 font-semibold overflow-hidden text-ellipsis information-text__text" }, Hg = /* @__PURE__ */ oe({
   __name: "InformationText",
   props: {
     label: {
@@ -12386,18 +12390,18 @@ const Yg = /* @__PURE__ */ be(Vg, [["__scopeId", "data-v-2d0c5d22"]]), Fg = { cl
       "55e9ced4": f(r)
     }));
     const { getRealColor: n } = ze(), r = g(() => n(t.color));
-    return (a, o) => (v(), w("div", Fg, [
-      Y("p", Ug, ye(e.label), 1),
-      Y("p", Wg, [
+    return (a, o) => (v(), w("div", Ug, [
+      Y("p", Wg, ye(e.label), 1),
+      Y("p", Lg, [
         H(a.$slots, "default", {}, void 0, !0)
       ])
     ]));
   }
 });
-const Hg = /* @__PURE__ */ be(Lg, [["__scopeId", "data-v-9aa564ba"]]), zg = {
+const zg = /* @__PURE__ */ be(Hg, [["__scopeId", "data-v-9aa564ba"]]), jg = {
   key: 0,
   class: "page-switch__label"
-}, jg = { class: "page-switch__switch" }, qg = /* @__PURE__ */ oe({
+}, qg = { class: "page-switch__switch" }, Gg = /* @__PURE__ */ oe({
   __name: "PageSwitch",
   props: {
     modelValue: {
@@ -12475,8 +12479,8 @@ const Hg = /* @__PURE__ */ be(Lg, [["__scopeId", "data-v-9aa564ba"]]), zg = {
           class: de(f(d)),
           onClick: p
         }, [
-          e.label ? (v(), w("div", zg, ye(e.label), 1)) : D("", !0),
-          Y("div", jg, [
+          e.label ? (v(), w("div", jg, ye(e.label), 1)) : D("", !0),
+          Y("div", qg, [
             Tt(Y("input", {
               "onUpdate:modelValue": h[0] || (h[0] = (_) => Ee(a) ? a.value = _ : null),
               type: "checkbox",
@@ -12502,7 +12506,7 @@ const Hg = /* @__PURE__ */ be(Lg, [["__scopeId", "data-v-9aa564ba"]]), zg = {
     ]), 1032, ["disabled"]));
   }
 });
-const Gg = /* @__PURE__ */ be(qg, [["__scopeId", "data-v-6a99dbf1"]]), Qg = /* @__PURE__ */ oe({
+const Qg = /* @__PURE__ */ be(Gg, [["__scopeId", "data-v-6a99dbf1"]]), Zg = /* @__PURE__ */ oe({
   __name: "PanelTitle",
   props: {
     closable: {
@@ -12566,7 +12570,7 @@ const Gg = /* @__PURE__ */ be(qg, [["__scopeId", "data-v-6a99dbf1"]]), Qg = /* @
     ], 2));
   }
 });
-const Zg = /* @__PURE__ */ be(Qg, [["__scopeId", "data-v-e0769a10"]]), Xg = /* @__PURE__ */ oe({
+const Xg = /* @__PURE__ */ be(Zg, [["__scopeId", "data-v-e0769a10"]]), Kg = /* @__PURE__ */ oe({
   __name: "SearchTextField",
   props: {
     placeholder: {
@@ -12604,7 +12608,7 @@ const Zg = /* @__PURE__ */ be(Qg, [["__scopeId", "data-v-e0769a10"]]), Xg = /* @
       _: 1
     }, 8, ["modelValue", "placeholder"]));
   }
-}), Kg = /* @__PURE__ */ oe({
+}), Jg = /* @__PURE__ */ oe({
   __name: "SuccessDialog",
   props: {
     icon: {
@@ -12720,7 +12724,7 @@ const Zg = /* @__PURE__ */ be(Qg, [["__scopeId", "data-v-e0769a10"]]), Xg = /* @
     }, 8, ["model-value"]));
   }
 });
-const Jg = /* @__PURE__ */ be(Kg, [["__scopeId", "data-v-5bd362ef"]]);
+const e0 = /* @__PURE__ */ be(Jg, [["__scopeId", "data-v-5bd362ef"]]);
 class St {
   // 0-1
   constructor(t, n, r) {
@@ -12800,11 +12804,11 @@ class St {
     return St.fromRgb(n, r, a);
   }
 }
-const Xo = (e) => (Mo("data-v-851bc20e"), e = e(), Io(), e), e0 = ["onMousedown"], t0 = /* @__PURE__ */ Xo(() => /* @__PURE__ */ Y("div", { class: "color-picker__canvas-thumb" }, null, -1)), n0 = [
-  t0
-], r0 = ["onMousedown"], a0 = /* @__PURE__ */ Xo(() => /* @__PURE__ */ Y("div", { class: "color-picker__hue-thumb" }, null, -1)), o0 = [
-  a0
-], l0 = { class: "color-picker__hex-input-container" }, i0 = /* @__PURE__ */ Xo(() => /* @__PURE__ */ Y("span", { class: "color-picker__hex-hash" }, " # ", -1)), u0 = { class: "color-picker__colors" }, s0 = ["onClick"], c0 = /* @__PURE__ */ oe({
+const Xo = (e) => (Mo("data-v-851bc20e"), e = e(), Io(), e), t0 = ["onMousedown"], n0 = /* @__PURE__ */ Xo(() => /* @__PURE__ */ Y("div", { class: "color-picker__canvas-thumb" }, null, -1)), r0 = [
+  n0
+], a0 = ["onMousedown"], o0 = /* @__PURE__ */ Xo(() => /* @__PURE__ */ Y("div", { class: "color-picker__hue-thumb" }, null, -1)), l0 = [
+  o0
+], i0 = { class: "color-picker__hex-input-container" }, u0 = /* @__PURE__ */ Xo(() => /* @__PURE__ */ Y("span", { class: "color-picker__hex-hash" }, " # ", -1)), s0 = { class: "color-picker__colors" }, c0 = ["onClick"], f0 = /* @__PURE__ */ oe({
   __name: "ColorPicker",
   props: {
     modelValue: {
@@ -12941,15 +12945,15 @@ const Xo = (e) => (Mo("data-v-851bc20e"), e = e(), Io(), e), e0 = ["onMousedown"
         ref: d,
         class: "color-picker__canvas",
         onMousedown: Ne(X, ["stop", "prevent"])
-      }, n0, 40, e0),
+      }, r0, 40, t0),
       Y("div", {
         ref_key: "hueRef",
         ref: u,
         class: "color-picker__hue",
         onMousedown: Ne(ee, ["stop", "prevent"])
-      }, o0, 40, r0),
-      Y("div", l0, [
-        i0,
+      }, l0, 40, a0),
+      Y("div", i0, [
+        u0,
         Tt(Y("input", {
           "onUpdate:modelValue": $[0] || ($[0] = (i) => Ee(W) ? W.value = i : null),
           type: "text",
@@ -12960,18 +12964,18 @@ const Xo = (e) => (Mo("data-v-851bc20e"), e = e(), Io(), e), e0 = ["onMousedown"
           [Ni, f(W)]
         ])
       ]),
-      Y("div", u0, [
+      Y("div", s0, [
         (v(!0), w(fe, null, Te(e.pickableColors, (i, c) => (v(), w("div", {
           key: `pickable-color-${c}`,
           style: xt(`--color: ${i}`),
           class: de(q(i)),
           onClick: (O) => ne(i)
-        }, null, 14, s0))), 128))
+        }, null, 14, c0))), 128))
       ])
     ], 2));
   }
 });
-const bu = /* @__PURE__ */ be(c0, [["__scopeId", "data-v-851bc20e"]]), f0 = { class: "form-color-picker__label" }, d0 = /* @__PURE__ */ oe({
+const bu = /* @__PURE__ */ be(f0, [["__scopeId", "data-v-851bc20e"]]), d0 = { class: "form-color-picker__label" }, m0 = /* @__PURE__ */ oe({
   __name: "FormColorPicker",
   props: {
     modelValue: {
@@ -13054,7 +13058,7 @@ const bu = /* @__PURE__ */ be(c0, [["__scopeId", "data-v-851bc20e"]]), f0 = { cl
       ref: m,
       class: "form-color-picker__container"
     }, [
-      Y("div", f0, ye(e.label), 1),
+      Y("div", d0, ye(e.label), 1),
       Y("div", {
         class: "form-color-picker__input",
         onClick: _
@@ -13081,7 +13085,7 @@ const bu = /* @__PURE__ */ be(c0, [["__scopeId", "data-v-851bc20e"]]), f0 = { cl
     ], 512));
   }
 });
-const m0 = /* @__PURE__ */ be(d0, [["__scopeId", "data-v-2d3b2229"]]), p0 = ["onMousedown"], y0 = /* @__PURE__ */ oe({
+const p0 = /* @__PURE__ */ be(m0, [["__scopeId", "data-v-2d3b2229"]]), y0 = ["onMousedown"], v0 = /* @__PURE__ */ oe({
   __name: "CustomMenu",
   props: {
     disabled: {
@@ -13152,7 +13156,7 @@ const m0 = /* @__PURE__ */ be(d0, [["__scopeId", "data-v-2d3b2229"]]), p0 = ["on
         onMousedown: Ne(h, ["stop"])
       }, [
         H(_.$slots, "activator", {}, void 0, !0)
-      ], 40, p0),
+      ], 40, y0),
       pe(yt, null, {
         default: K(() => [
           o.value ? (v(), w("div", {
@@ -13169,10 +13173,10 @@ const m0 = /* @__PURE__ */ be(d0, [["__scopeId", "data-v-2d3b2229"]]), p0 = ["on
     ], 512));
   }
 });
-const v0 = /* @__PURE__ */ be(y0, [["__scopeId", "data-v-de3c3a3e"]]), h0 = {
+const h0 = /* @__PURE__ */ be(v0, [["__scopeId", "data-v-de3c3a3e"]]), g0 = {
   key: 0,
   class: "expansion-panel__content"
-}, g0 = /* @__PURE__ */ oe({
+}, b0 = /* @__PURE__ */ oe({
   __name: "ExpansionPanel",
   props: {
     outlined: {
@@ -13247,7 +13251,7 @@ const v0 = /* @__PURE__ */ be(y0, [["__scopeId", "data-v-de3c3a3e"]]), h0 = {
       }, [
         pe(yt, { duration: f(o) }, {
           default: K(() => [
-            a.value || f(l) ? (v(), w("div", h0, [
+            a.value || f(l) ? (v(), w("div", g0, [
               H(p.$slots, "default", {}, void 0, !0)
             ])) : D("", !0)
           ]),
@@ -13257,7 +13261,7 @@ const v0 = /* @__PURE__ */ be(y0, [["__scopeId", "data-v-de3c3a3e"]]), h0 = {
     ], 2));
   }
 });
-const b0 = /* @__PURE__ */ be(g0, [["__scopeId", "data-v-25b57f9a"]]), _0 = { class: "grid__container" }, w0 = /* @__PURE__ */ oe({
+const _0 = /* @__PURE__ */ be(b0, [["__scopeId", "data-v-25b57f9a"]]), w0 = { class: "grid__container" }, k0 = /* @__PURE__ */ oe({
   __name: "GridContainer",
   props: {
     height: {
@@ -13341,12 +13345,12 @@ const b0 = /* @__PURE__ */ be(g0, [["__scopeId", "data-v-25b57f9a"]]), _0 = { cl
       "102d70a4": e.gridTemplateColumns
     }));
     const n = ze(), r = g(() => n.getRealColor(t.backgroundColor));
-    return (a, o) => (v(), w("div", _0, [
+    return (a, o) => (v(), w("div", w0, [
       H(a.$slots, "default", {}, void 0, !0)
     ]));
   }
 });
-const k0 = /* @__PURE__ */ be(w0, [["__scopeId", "data-v-546aaa6e"]]), S0 = { class: "absolute__container" }, x0 = /* @__PURE__ */ oe({
+const S0 = /* @__PURE__ */ be(k0, [["__scopeId", "data-v-546aaa6e"]]), x0 = { class: "absolute__container" }, $0 = /* @__PURE__ */ oe({
   __name: "AbsoluteContainer",
   props: {
     width: {
@@ -13425,12 +13429,12 @@ const k0 = /* @__PURE__ */ be(w0, [["__scopeId", "data-v-546aaa6e"]]), S0 = { cl
       "2eec0816": f(r)
     }));
     const n = ze(), r = g(() => n.getRealColor(t.backgroundColor));
-    return (a, o) => (v(), w("div", S0, [
+    return (a, o) => (v(), w("div", x0, [
       H(a.$slots, "default", {}, void 0, !0)
     ]));
   }
 });
-const $0 = /* @__PURE__ */ be(x0, [["__scopeId", "data-v-b5f56ae6"]]), O0 = { class: "relative__container" }, T0 = /* @__PURE__ */ oe({
+const O0 = /* @__PURE__ */ be($0, [["__scopeId", "data-v-b5f56ae6"]]), T0 = { class: "relative__container" }, P0 = /* @__PURE__ */ oe({
   __name: "RelativeContainer",
   props: {
     width: {
@@ -13479,12 +13483,12 @@ const $0 = /* @__PURE__ */ be(x0, [["__scopeId", "data-v-b5f56ae6"]]), O0 = { cl
       "3adb92b4": f(r)
     }));
     const n = ze(), r = g(() => n.getRealColor(t.backgroundColor));
-    return (a, o) => (v(), w("div", O0, [
+    return (a, o) => (v(), w("div", T0, [
       H(a.$slots, "default", {}, void 0, !0)
     ]));
   }
 });
-const P0 = /* @__PURE__ */ be(T0, [["__scopeId", "data-v-c8285f36"]]), C0 = /* @__PURE__ */ oe({
+const C0 = /* @__PURE__ */ be(P0, [["__scopeId", "data-v-c8285f36"]]), D0 = /* @__PURE__ */ oe({
   __name: "ExpandableDataTableItem",
   props: {
     title: {
@@ -13563,7 +13567,7 @@ const P0 = /* @__PURE__ */ be(T0, [["__scopeId", "data-v-c8285f36"]]), C0 = /* @
       _: 3
     }));
   }
-}), D0 = /* @__PURE__ */ oe({
+}), R0 = /* @__PURE__ */ oe({
   __name: "ImageInput",
   props: {
     modelValue: {
@@ -13658,7 +13662,7 @@ const P0 = /* @__PURE__ */ be(T0, [["__scopeId", "data-v-c8285f36"]]), C0 = /* @
     ], 2));
   }
 });
-const R0 = /* @__PURE__ */ be(D0, [["__scopeId", "data-v-d0c430c6"]]), M0 = /* @__PURE__ */ oe({
+const M0 = /* @__PURE__ */ be(R0, [["__scopeId", "data-v-d0c430c6"]]), I0 = /* @__PURE__ */ oe({
   __name: "CustomChip",
   props: {
     modelValue: {
@@ -13728,16 +13732,16 @@ const R0 = /* @__PURE__ */ be(D0, [["__scopeId", "data-v-d0c430c6"]]), M0 = /* @
     ], 2));
   }
 });
-const I0 = /* @__PURE__ */ be(M0, [["__scopeId", "data-v-81015ccc"]]), _u = (e) => (Mo("data-v-f500483c"), e = e(), Io(), e), N0 = /* @__PURE__ */ _u(() => /* @__PURE__ */ Y("div", {
+const N0 = /* @__PURE__ */ be(I0, [["__scopeId", "data-v-81015ccc"]]), _u = (e) => (Mo("data-v-f500483c"), e = e(), Io(), e), B0 = /* @__PURE__ */ _u(() => /* @__PURE__ */ Y("div", {
   role: "progressbar",
   class: "absolute h-2 w-2 rounded input-range__progress"
-}, null, -1)), B0 = /* @__PURE__ */ _u(() => /* @__PURE__ */ Y("div", {
+}, null, -1)), A0 = /* @__PURE__ */ _u(() => /* @__PURE__ */ Y("div", {
   role: "button",
   class: "h-5 w-5 rounded-full absolute pointer-events-none -top-1.5 -left-2.5 input-range__thump"
-}, null, -1)), A0 = [
-  N0,
-  B0
-], E0 = /* @__PURE__ */ oe({
+}, null, -1)), E0 = [
+  B0,
+  A0
+], V0 = /* @__PURE__ */ oe({
   __name: "InputRange",
   props: {
     modelValue: {
@@ -13800,13 +13804,13 @@ const I0 = /* @__PURE__ */ be(M0, [["__scopeId", "data-v-81015ccc"]]), _u = (e) 
       role: "slider",
       class: "h-2 w-full bg-amber-950 rounded relative input-range__track",
       onMousedown: y
-    }, A0, 544));
+    }, E0, 544));
   }
 });
-const wu = /* @__PURE__ */ be(E0, [["__scopeId", "data-v-f500483c"]]), V0 = (e) => (Mo("data-v-ec8ab006"), e = e(), Io(), e), Y0 = { class: "image-editor__wrapper grid gap-y-8" }, F0 = ["width", "height"], U0 = /* @__PURE__ */ V0(() => /* @__PURE__ */ Y("div", { class: "absolute w-full top-0 left-0 h-full image-editor__area" }, null, -1)), W0 = {
+const wu = /* @__PURE__ */ be(V0, [["__scopeId", "data-v-f500483c"]]), Y0 = (e) => (Mo("data-v-ec8ab006"), e = e(), Io(), e), F0 = { class: "image-editor__wrapper grid gap-y-8" }, U0 = ["width", "height"], W0 = /* @__PURE__ */ Y0(() => /* @__PURE__ */ Y("div", { class: "absolute w-full top-0 left-0 h-full image-editor__area" }, null, -1)), L0 = {
   key: 0,
   class: "absolute grid grid-cols-[auto_1fr] gap-x-2 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] image-cropper__tooltip rounded-2xl p-2"
-}, L0 = { class: "text-white text-base leading-5" }, H0 = { class: "grid grid-cols-[auto_50%_auto] justify-center gap-x-3 items-center" }, z0 = /* @__PURE__ */ oe({
+}, H0 = { class: "text-white text-base leading-5" }, z0 = { class: "grid grid-cols-[auto_50%_auto] justify-center gap-x-3 items-center" }, j0 = /* @__PURE__ */ oe({
   __name: "ImageCropper",
   props: {
     file: {
@@ -13921,7 +13925,7 @@ const wu = /* @__PURE__ */ be(E0, [["__scopeId", "data-v-f500483c"]]), V0 = (e) 
       async () => {
         y.value = await X(), await ee(), Q();
       }
-    ), (C, $) => (v(), w("div", Y0, [
+    ), (C, $) => (v(), w("div", F0, [
       Y("div", {
         class: "relative cursor-move image-editor__canvas",
         onMousedown: S
@@ -13931,18 +13935,18 @@ const wu = /* @__PURE__ */ be(E0, [["__scopeId", "data-v-f500483c"]]), V0 = (e) 
           ref: p,
           width: e.width,
           height: e.height
-        }, null, 8, F0),
-        U0,
-        d.value ? (v(), w("div", W0, [
+        }, null, 8, U0),
+        W0,
+        d.value ? (v(), w("div", L0, [
           pe(Fe, {
             size: "1.25rem",
             name: "fm-move",
             color: "neutro-1"
           }),
-          Y("p", L0, ye(e.tooltip), 1)
+          Y("p", H0, ye(e.tooltip), 1)
         ])) : D("", !0)
       ], 32),
-      Y("div", H0, [
+      Y("div", z0, [
         pe(Qt, {
           size: "1.5rem",
           color: e.buttonColor,
@@ -13971,10 +13975,10 @@ const wu = /* @__PURE__ */ be(E0, [["__scopeId", "data-v-f500483c"]]), V0 = (e) 
     ]));
   }
 });
-const j0 = /* @__PURE__ */ be(z0, [["__scopeId", "data-v-ec8ab006"]]), q0 = ["name", "rows", "data-dark", "readonly", "disabled", "data-filled", "maxlength", "data-outlined", "placeholder"], G0 = {
+const q0 = /* @__PURE__ */ be(j0, [["__scopeId", "data-v-ec8ab006"]]), G0 = ["name", "rows", "data-dark", "readonly", "disabled", "data-filled", "maxlength", "data-outlined", "placeholder"], Q0 = {
   key: 0,
   class: "block text-right text-[#5E798F] text-sm leading-5 font-medium col-start-2"
-}, Q0 = /* @__PURE__ */ oe({
+}, Z0 = /* @__PURE__ */ oe({
   __name: "TTextarea",
   props: {
     modelValue: {
@@ -14036,10 +14040,10 @@ const j0 = /* @__PURE__ */ be(z0, [["__scopeId", "data-v-ec8ab006"]]), q0 = ["na
         "data-outlined": e.outlined,
         placeholder: e.placeholder,
         class: "w-full resize-none rounded-xl p-3 outline-none"
-      }, null, 8, q0), [
+      }, null, 8, G0), [
         [Ni, f(r)]
       ]),
-      e.showCounter ? (v(), w("span", G0, [
+      e.showCounter ? (v(), w("span", Q0, [
         Ce(ye(f(r).length), 1),
         e.maxLength ? (v(), w(fe, { key: 0 }, [
           Ce("/" + ye(e.maxLength), 1)
@@ -14048,7 +14052,7 @@ const j0 = /* @__PURE__ */ be(z0, [["__scopeId", "data-v-ec8ab006"]]), q0 = ["na
     ], 64));
   }
 });
-const ku = /* @__PURE__ */ be(Q0, [["__scopeId", "data-v-8c53643b"]]), Z0 = { class: "grid gap-y-1 gap-x-3 t-form-texarea__container" }, X0 = ["data-dark", "data-readonly", "data-disabled"], K0 = /* @__PURE__ */ oe({
+const ku = /* @__PURE__ */ be(Z0, [["__scopeId", "data-v-8c53643b"]]), X0 = { class: "grid gap-y-1 gap-x-3 t-form-texarea__container" }, K0 = ["data-dark", "data-readonly", "data-disabled"], J0 = /* @__PURE__ */ oe({
   __name: "TFormTextarea",
   props: {
     modelValue: {
@@ -14109,13 +14113,13 @@ const ku = /* @__PURE__ */ be(Q0, [["__scopeId", "data-v-8c53643b"]]), Z0 = { cl
         t("update:model-value", a);
       }
     });
-    return (a, o) => (v(), w("label", Z0, [
+    return (a, o) => (v(), w("label", X0, [
       Y("span", {
         "data-dark": e.dark,
         "data-readonly": e.readonly,
         "data-disabled": e.disabled,
         class: "pt-3 text-base leading-5 font-semibold text-secundario data-[readonly=true]:font-normal data-[dark=true]:text-neutro-1 data-[disabled=true]:text-neutro-4"
-      }, ye(e.label), 9, X0),
+      }, ye(e.label), 9, K0),
       pe(ku, {
         modelValue: f(r),
         "onUpdate:modelValue": o[0] || (o[0] = (l) => Ee(r) ? r.value = l : null),
@@ -14132,7 +14136,7 @@ const ku = /* @__PURE__ */ be(Q0, [["__scopeId", "data-v-8c53643b"]]), Z0 = { cl
     ]));
   }
 });
-const J0 = /* @__PURE__ */ be(K0, [["__scopeId", "data-v-cbb0570e"]]), eb = ["name", "onSubmit"], tb = /* @__PURE__ */ oe({
+const eb = /* @__PURE__ */ be(J0, [["__scopeId", "data-v-cbb0570e"]]), tb = ["name", "onSubmit"], nb = /* @__PURE__ */ oe({
   __name: "TForm",
   props: {
     name: {
@@ -14225,12 +14229,12 @@ const J0 = /* @__PURE__ */ be(K0, [["__scopeId", "data-v-cbb0570e"]]), eb = ["na
       onSubmit: Ne(o, ["prevent"])
     }, [
       H(l.$slots, "default", {}, void 0, !0)
-    ], 40, eb));
+    ], 40, tb));
   }
 });
-const nb = /* @__PURE__ */ be(tb, [["__scopeId", "data-v-6502906b"]]), ob = (e) => {
-  Ai().generateOverlayContainer(), e.component("AbsoluteContainer", $0), e.component("RelativeContainer", P0), e.component("CheckBox", Ei), e.component("ConfirmationDialog", is), e.component("CustomButton", ya), e.component("CustomDatePicker", Qo), e.component("CustomDialog", No), e.component("CustomSelect", Zo), e.component("CustomTextField", qr), e.component("DataTable", sg), e.component("DataTableItem", cg), e.component("FilterDatePicker", pg), e.component("FilterSelect", gg), e.component("FlexContainer", gu), e.component("FormDatePicker", xg), e.component("FormSelect", Pg), e.component("FormTextField", Mg), e.component("GridColumn", Hr), e.component("GridRow", Vi), e.component("HeaderTabs", Ag), e.component("IconButton", Qt), e.component("ImageContainer", Yg), e.component("InformationText", Hg), e.component("PageSwitch", Gg), e.component("PanelTitle", Zg), e.component("SearchTextField", Xg), e.component("SuccessDialog", Jg), e.component("SvgIcon", Rt), e.component("TextContainer", bt), e.component("FormColorPicker", m0), e.component("ColorPicker", bu), e.component("CustomMenu", v0), e.component("FigmaIcon", Fe), e.component("ExpansionPanel", b0), e.component("GridContainer", k0), e.component("CustomTooltip", Gr), e.component("ExpandableDataTableItem", C0), e.component("ImageInput", R0), e.component("CustomChip", I0), e.component("InputRange", wu), e.component("ImageCropper", j0), e.component("TPagination", hu), e.component("TTextarea", ku), e.component("TFormTextarea", J0), e.component("TForm", nb);
+const rb = /* @__PURE__ */ be(nb, [["__scopeId", "data-v-6502906b"]]), lb = (e) => {
+  Ai().generateOverlayContainer(), e.component("AbsoluteContainer", O0), e.component("RelativeContainer", C0), e.component("CheckBox", Ei), e.component("ConfirmationDialog", is), e.component("CustomButton", ya), e.component("CustomDatePicker", Qo), e.component("CustomDialog", No), e.component("CustomSelect", Zo), e.component("CustomTextField", qr), e.component("DataTable", cg), e.component("DataTableItem", fg), e.component("FilterDatePicker", yg), e.component("FilterSelect", bg), e.component("FlexContainer", gu), e.component("FormDatePicker", $g), e.component("FormSelect", Cg), e.component("FormTextField", Ig), e.component("GridColumn", Hr), e.component("GridRow", Vi), e.component("HeaderTabs", Eg), e.component("IconButton", Qt), e.component("ImageContainer", Fg), e.component("InformationText", zg), e.component("PageSwitch", Qg), e.component("PanelTitle", Xg), e.component("SearchTextField", Kg), e.component("SuccessDialog", e0), e.component("SvgIcon", Rt), e.component("TextContainer", bt), e.component("FormColorPicker", p0), e.component("ColorPicker", bu), e.component("CustomMenu", h0), e.component("FigmaIcon", Fe), e.component("ExpansionPanel", _0), e.component("GridContainer", S0), e.component("CustomTooltip", Gr), e.component("ExpandableDataTableItem", D0), e.component("ImageInput", M0), e.component("CustomChip", N0), e.component("InputRange", wu), e.component("ImageCropper", q0), e.component("TPagination", hu), e.component("TTextarea", ku), e.component("TFormTextarea", eb), e.component("TForm", rb);
 };
 export {
-  ob as componentesReutility
+  lb as componentesReutility
 };

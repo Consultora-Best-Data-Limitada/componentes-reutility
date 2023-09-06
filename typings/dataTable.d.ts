@@ -67,6 +67,9 @@ export type DataTable = DefineComponent<
       default: "inital";
       type: PropType<Property.MaxHeight>;
     };
+    dark: {
+      type: BooleanConstructor;
+    };
   },
   {},
   {},
