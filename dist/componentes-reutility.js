@@ -11496,10 +11496,10 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
   setup(e, { emit: t }) {
     const n = e;
     Se((q) => ({
-      "40aab6ff": e.height,
-      f6ff1a5a: e.maxHeight,
-      "02523806": e.backgroundColor,
-      b18651f6: e.gridTemplateColumns
+      "002e0125": e.height,
+      "13d22eed": e.maxHeight,
+      ff64b6d2: e.backgroundColor,
+      "17cdba9f": e.gridTemplateColumns
     }));
     const r = g(() => n.items), a = g(() => n.itemsPerPage), o = mt(), {
       pageCount: l,
@@ -11554,7 +11554,7 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
       };
     }
     function A(q) {
-      return s(q) ? "acento-secundario" : "neutro-3";
+      return s(q) ? n.dark ? "neutro-1" : "acento-secundario" : "neutro-3";
     }
     function N(q) {
       M.value && y(q, M.value);
@@ -11654,7 +11654,7 @@ const Qt = /* @__PURE__ */ be(Gh, [["__scopeId", "data-v-afde288b"]]), Qh = { cl
     ]));
   }
 });
-const cg = /* @__PURE__ */ be(sg, [["__scopeId", "data-v-55e107f5"]]), fg = /* @__PURE__ */ oe({
+const cg = /* @__PURE__ */ be(sg, [["__scopeId", "data-v-665ce0d3"]]), fg = /* @__PURE__ */ oe({
   __name: "DataTableItem",
   props: {
     disabled: {

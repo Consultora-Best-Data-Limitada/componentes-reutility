@@ -273,7 +273,8 @@ function rowClass(item: DataTableItem) {
 }
 
 function sortIconColor(value: string): CustomColor {
-  return isSortedBy(value) ? "acento-secundario" : "neutro-3";
+  if (isSortedBy(value)) return props.dark ? "neutro-1" : "acento-secundario";
+  return "neutro-3";
 }
 
 function sortBy(header: DataTableHeader) {
