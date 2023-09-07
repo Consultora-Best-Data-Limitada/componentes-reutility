@@ -45,6 +45,7 @@ import type { TPagination } from "./tPagination";
 import type { TTextarea } from "./tTextarea";
 import type { TFormTextarea } from "./tFormTextarea";
 import type { TForm } from "./tForm";
+import type { TMenu } from "./tMenu";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -103,5 +104,6 @@ declare module "@vue/runtime-core" {
     TTextarea: TTextarea;
     TFormTextarea: TFormTextarea;
     TForm: TForm;
+    TMenu: TMenu;
   }
 }
