@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Vue
-import { ref, watch, computed, onMounted } from "vue";
+import { ref, watch, computed, nextTick, onMounted } from "vue";
 
 // Types
 import type { PropType } from "vue";
@@ -85,7 +85,8 @@ function toggle(value: boolean) {
   }
 }
 
-function calculateBounds() {
+async function calculateBounds() {
+  await nextTick();
   if (!menuDiv.value || !activatorButton.value) return;
   const menuRect = menuDiv.value.getBoundingClientRect();
   const activatorRect = activatorButton.value.getBoundingClientRect();
@@ -177,7 +178,7 @@ watch(opened, () => {
       ref="menuDiv"
       role="menu"
       tabindex="0"
-      class="animate-duration-300 bg-transparent outline-none fixed hidden"
+      class="animate-duration-300 bg-transparent outline-none fixed hidden z-[100]"
       @toggle="onToggle"
       @keydown.stop="onKeydown"
       @animationend="onAnimationEnd"
