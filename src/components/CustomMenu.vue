@@ -50,6 +50,8 @@ const props = defineProps({
   },
 });
 
+const emits = defineEmits(["close"]);
+
 // Mounted
 
 onMounted(() => {
@@ -115,6 +117,7 @@ const closeMenu = () => {
   menu.value = false;
   listenerExist.value = false;
   document.removeEventListener("click", closeMenuHandler);
+  emits("close");
 };
 
 const closeMenuHandler = (ev: MouseEvent) => {
