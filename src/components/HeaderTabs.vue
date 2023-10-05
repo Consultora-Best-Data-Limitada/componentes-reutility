@@ -92,8 +92,11 @@ const selectItem = (index: number) => {
 
 .header-tabs__button {
   height: 2.875rem;
+  overflow: hidden;
+  white-space: nowrap;
   border-radius: 1rem;
   padding: 0.75rem 0.5rem;
+  text-overflow: ellipsis;
   border: 1px solid v-bind(colorInner);
   // Text style
   font-weight: 700;
