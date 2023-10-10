@@ -1,29 +1,25 @@
 <template>
-  <div
-    :class="containerClass"
-    @click="toggle"
-  >
+  <div class="grid place-items-center relative [&:has(input:focus-visible)]:outline">
     <transition
       name="bounce"
       mode="out-in"
     >
-      <div
-        v-if="model"
-        class="check-box__icon"
-      >
+      <template v-if="model">
         <FigmaIcon
           v-if="checkedIcon && checkedIcon.startsWith('fm')"
+          class="absolute"
           :name="checkedIcon"
           :size="checkedIconSize"
           :color="checkedColorInner"
         />
         <SvgIcon
           v-else-if="checkedIcon"
+          class="absolute"
           :src="checkedIcon"
           :size="checkedIconSize"
           :color="checkedColorInner"
         />
-      </div>
+      </template>
     </transition>
     <FigmaIcon
       v-if="boxIcon && boxIcon.startsWith('fm')"
@@ -36,6 +32,13 @@
       :src="boxIcon"
       :size="boxIconSize"
       :color="boxColorInner"
+    />
+    <input
+      v-model="model"
+      type="checkbox"
+      :readonly="readonly"
+      :disabled="disabled"
+      class="absolute w-full h-full opacity-0 outline-1 cursor-pointer disabled:cursor-default"
     />
   </div>
 </template>
@@ -103,24 +106,12 @@ const model = computed<boolean>({
   },
 });
 
-const containerClass = computed(() => ({
-  "check-box__container": true,
-  "check-box__container--disabled": props.disabled,
-}));
-
 const boxColorInner = computed(() => (props.disabled ? "neutro-4" : props.boxColor));
 
 const checkedColorInner = computed(() => (props.disabled ? "neutro-4" : props.checkedColor));
-
-// Methods
-
-const toggle = () => {
-  if (props.readonly || props.disabled) return;
-  model.value = !model.value;
-};
 </script>
 
-<style lang="scss">
+<style>
 .bounce-enter-active {
   animation: bounce-in 0.4s;
 }
@@ -138,22 +129,6 @@ const toggle = () => {
   }
   100% {
     transform: scale(1);
-  }
-}
-
-.check-box__icon {
-  position: absolute;
-}
-
-.check-box__container {
-  display: flex;
-  cursor: pointer;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-
-  &--disabled {
-    pointer-events: none;
   }
 }
 </style>
