@@ -1,5 +1,5 @@
 <template>
-  <CustomTooltip :disabled="disabled">
+  <TTooltip :disabled="disabled">
     <template #activator>
       <div
         :class="pageSwitchContainerClass"
@@ -21,13 +21,13 @@
         </div>
       </div>
     </template>
-    <template
+    <p
       v-if="tooltip && !disabled"
-      #default
+      class="p-2 rounded-2xl text-center text-neutro-1 bg-neutro-4 bg-opacity-70"
     >
       {{ tooltip }}
-    </template>
-  </CustomTooltip>
+    </p>
+  </TTooltip>
 </template>
 
 <script setup lang="ts">
@@ -42,7 +42,7 @@ import type { PropType } from "vue";
 import type { Property } from "csstype";
 
 // Componentes
-import CustomTooltip from "./CustomTooltip.vue";
+import TTooltip from "./TTooltip.vue";
 
 // Definiciones
 
@@ -133,9 +133,9 @@ const pageSwitchContainerClass = computed(() => ({
 }));
 
 const labelColor = computed(() => {
-  if(props.disabled) return "rgb(var(--neutro-4))"
-  return "rgb(var(--secundario))"
-})
+  if (props.disabled) return "rgb(var(--neutro-4))";
+  return "rgb(var(--secundario))";
+});
 
 // Methods
 

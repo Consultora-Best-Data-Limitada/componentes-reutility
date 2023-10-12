@@ -1,6 +1,6 @@
 <template>
   <GridColumn>
-    <CustomTooltip>
+    <TTooltip>
       <template #activator>
         <TextContainer
           padding="0.125rem 0"
@@ -11,13 +11,13 @@
           {{ title }}
         </TextContainer>
       </template>
-      <template
+      <p
         v-if="checkSlot()"
-        #default
+        class="p-2 rounded-2xl text-center text-neutro-1 bg-neutro-4 bg-opacity-70"
       >
         <slot />
-      </template>
-    </CustomTooltip>
+      </p>
+    </TTooltip>
     <template v-if="opened">
       <template
         v-for="(value, key) in items"
@@ -50,8 +50,8 @@ import type { PropType } from "vue";
 import type { Property } from "csstype";
 
 // Componentes
+import TTooltip from "./TTooltip.vue";
 import GridColumn from "./GridColumn.vue";
-import CustomTooltip from "./CustomTooltip.vue";
 import TextContainer from "./TextContainer.vue";
 
 // Definiciones

@@ -18,3 +18,8 @@ interface DatePickerMonthValue {
   year: number;
   month: number;
 }
+
+declare interface HTMLElement {
+  showPopover(): void;
+  hidePopover(): void;
+}

@@ -46,6 +46,7 @@ import type { TTextarea } from "./tTextarea";
 import type { TFormTextarea } from "./tFormTextarea";
 import type { TForm } from "./tForm";
 import type { TMenu } from "./tMenu";
+import type { TTooltip } from "./tTooltip";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -105,5 +106,6 @@ declare module "@vue/runtime-core" {
     TFormTextarea: TFormTextarea;
     TForm: TForm;
     TMenu: TMenu;
+    TTooltip: TTooltip;
   }
 }

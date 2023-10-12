@@ -1,5 +1,5 @@
 <template>
-  <CustomTooltip :disabled="disabled">
+  <TTooltip :disabled="disabled">
     <template #activator>
       <div
         :class="iconButtonClass"
@@ -19,13 +19,13 @@
         />
       </div>
     </template>
-    <template
+    <p
       v-if="checkSlot() && !disabled"
-      #default
+      class="p-2 rounded-2xl text-center text-neutro-1 bg-neutro-4 bg-opacity-70"
     >
       <slot />
-    </template>
-  </CustomTooltip>
+    </p>
+  </TTooltip>
 </template>
 
 <script setup lang="ts">
@@ -41,8 +41,8 @@ import type { Property } from "csstype";
 
 //Componentes
 import SvgIcon from "./SvgIcon.vue";
+import TTooltip from "./TTooltip.vue";
 import FigmaIcon from "./FigmaIcon.vue";
-import CustomTooltip from "./CustomTooltip.vue";
 
 // Definiciones
 
