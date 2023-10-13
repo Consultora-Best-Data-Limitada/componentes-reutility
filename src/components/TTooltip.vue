@@ -49,13 +49,15 @@ const checkSlot = () => !!slots["default"];
 
 async function calculatePosition(wrapper: HTMLDivElement, popover: HTMLDivElement) {
   await nextTick();
-  let left = wrapper.offsetLeft;
-  let top = wrapper.offsetTop + wrapper.offsetHeight;
-  if (top + popover.offsetHeight > window.innerHeight) {
-    top -= popover.offsetHeight + wrapper.offsetHeight;
+  const wrapperBounds = wrapper.getBoundingClientRect()
+  const popoverBounds = popover.getBoundingClientRect();
+  let left = wrapperBounds.left;
+  let top = wrapperBounds.top + wrapperBounds.height;
+  if (top + popoverBounds.height > window.innerHeight) {
+    top -= popoverBounds.height + wrapperBounds.height;
   }
-  if (left + popover.offsetWidth > window.innerWidth) {
-    left -= popover.offsetWidth - wrapper.offsetWidth;
+  if (left + popoverBounds.width > window.innerWidth) {
+    left -= popoverBounds.width - wrapperBounds.width;
   }
   popover.style.top = `${top}px`;
   popover.style.left = `${left}px`;
