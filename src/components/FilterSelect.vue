@@ -20,6 +20,16 @@
       :hide-no-data-message="hideNoDataMessage"
     >
       <template
+        v-if="slots['preppend-item']"
+        #preppend-item="{ close, filteredItems }"
+      >
+        <slot
+          :close="close"
+          name="preppend-item"
+          :filtered-items="filteredItems"
+        />
+      </template>
+      <template
         v-if="slots['append-item']"
         #append-item="{ close, filteredItems }"
       >

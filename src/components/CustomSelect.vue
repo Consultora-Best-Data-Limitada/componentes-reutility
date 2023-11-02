@@ -70,6 +70,12 @@
             />
           </template>
         </CustomTextField>
+        <slot
+          v-if="slots['preppend-item']"
+          :close="closeMenu"
+          name="preppend-item"
+          :filtered-items="filteredItems"
+        />
         <div
           v-for="(item, index) in filteredItems"
           :key="`item-${index}`"
@@ -90,6 +96,7 @@
           Sin datos disponibles
         </div>
         <slot
+          v-if="slots['append-item']"
           name="append-item"
           :close="closeMenu"
           :filtered-items="filteredItems"
@@ -107,7 +114,7 @@
 
 <script setup lang="ts">
 // Vue
-import { computed, nextTick, ref } from "vue";
+import { computed, nextTick, ref, useSlots } from "vue";
 
 // Composables
 import { useSelects } from "@/composables/selects";
@@ -200,6 +207,7 @@ const emits = defineEmits(["update:model-value"]);
 
 // Composables
 
+const slots = useSlots();
 const { getPropertyFromItem } = useSelects();
 
 // Data
