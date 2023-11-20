@@ -56,6 +56,7 @@ import TFormTextarea from "@/components/TFormTextarea.vue";
 import TForm from "@/components/TForm.vue";
 import TMenu from "@/components/TMenu.vue";
 import TTooltip from "@/components/TTooltip.vue";
+import TDialog from "@/components/TDialog.vue";
 
 export const componentesReutility = (app: App) => {
   const tooltips = useTooltips();
@@ -108,4 +109,5 @@ export const componentesReutility = (app: App) => {
   app.component("TForm", TForm);
   app.component("TMenu", TMenu);
   app.component("TTooltip", TTooltip);
+  app.component("TDialog", TDialog)
 };
