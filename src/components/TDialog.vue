@@ -95,19 +95,19 @@ watch(opened, async (val) => {
 }
 
 .scale-in-enter-active {
-  animation: scale-in 300ms;
+  animation: scale-in 400ms;
 }
 
 .scale-in-leave-active {
-  animation: scale-in 300ms reverse;
+  animation: scale-in 400ms reverse;
 }
 
 .scale-in-enter-active::backdrop {
-  animation: fade-in 300ms;
+  animation: fade-in 400ms;
 }
 
 .scale-in-leave-active::backdrop {
-  animation: fade-in 300ms reverse;
+  animation: fade-in 400ms reverse;
 }
 
 @keyframes scale-in {
@@ -116,7 +116,7 @@ watch(opened, async (val) => {
     opacity: 0;
   }
   50% {
-    transform: scale(1.25);
+    transform: scale(1.05);
   }
   100% {
     transform: scale(1);

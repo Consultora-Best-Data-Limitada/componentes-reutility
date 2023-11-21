@@ -23,6 +23,9 @@ export default {
         "error-hover": "#fa939d",
         "error-pressed": "#ba2f3d",
       },
+      boxShadow: {
+        "1": "3px 3px 17px rgba(151, 168, 194, 0.24)"
+      },
       fontFamily: {
         sans: ["metropolis"],
       },
