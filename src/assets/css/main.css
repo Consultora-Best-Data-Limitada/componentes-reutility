@@ -1,4 +1,4 @@
-@import url('https://consultora-best-data-limitada.github.io/iconos-reutility/style.css');
+@import url("https://consultora-best-data-limitada.github.io/iconos-reutility/style.css");
 
 @tailwind base;
 @tailwind components;
@@ -29,6 +29,16 @@ html,
 body,
 #app {
   height: 100%;
+}
+
+input,
+button {
+  border: none;
+  background: transparent;
+}
+
+button {
+  cursor: pointer;
 }
 
 * {

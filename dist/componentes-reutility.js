@@ -14478,7 +14478,7 @@ const fb = /* @__PURE__ */ be(cb, [["__scopeId", "data-v-6502906b"]]), db = ["on
     }));
   }
 });
-const Jo = /* @__PURE__ */ be(yb, [["__scopeId", "data-v-7c1f1d84"]]), vb = { class: "grid p-4 gap-y-4 rounded-2xl bg-neutro-1 shadow-1 w-[520px]" }, hb = { class: "text-h2 text-acento-secundario text-center" }, gb = {
+const Jo = /* @__PURE__ */ be(yb, [["__scopeId", "data-v-876c2159"]]), vb = { class: "grid p-4 gap-y-4 rounded-2xl bg-neutro-1 shadow-1 w-[520px]" }, hb = { class: "text-h2 text-acento-secundario text-center" }, gb = {
   key: 0,
   class: "text-secundario text-center text-subtitle-2"
 }, bb = { class: "grid grid-cols-2 gap-x-3" }, _b = /* @__PURE__ */ ne({
