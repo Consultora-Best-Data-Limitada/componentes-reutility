@@ -1,7 +1,7 @@
 <template>
   <button
     :disabled="disabled"
-    :class="`group text-subtitle-2 inline-flex gap-x-2 items-center ${colorClasses} disabled:text-neutro-4`"
+    :class="`group text-subtitle-2 inline-flex gap-x-2 items-center ${colorClasses} disabled:text-neutro-4 disabled:fill-neutro-4`"
   >
     <slot name="preppend" />
     <slot />

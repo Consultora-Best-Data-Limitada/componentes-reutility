@@ -14658,7 +14658,7 @@ const Jo = /* @__PURE__ */ be(yb, [["__scopeId", "data-v-876c2159"]]), vb = { cl
     });
     return (a, o) => (v(), b("button", {
       disabled: e.disabled,
-      class: se(`group text-subtitle-2 inline-flex gap-x-2 items-center ${c(r)} disabled:text-neutro-4`)
+      class: se(`group text-subtitle-2 inline-flex gap-x-2 items-center ${c(r)} disabled:text-neutro-4 disabled:fill-neutro-4`)
     }, [
       L(a.$slots, "preppend"),
       L(a.$slots, "default"),
