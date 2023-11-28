@@ -14612,7 +14612,7 @@ const Jo = /* @__PURE__ */ be(vb, [["__scopeId", "data-v-876c2159"]]), hb = { cl
 function Db(e, t) {
   return v(), b("svg", Tb, Pb);
 }
-const Rb = /* @__PURE__ */ be(Ob, [["render", Db]]), Mb = ["disabled"], Ib = /* @__PURE__ */ ne({
+const Rb = /* @__PURE__ */ be(Ob, [["render", Db]]), Mb = ["disabled", "data-loading"], Ib = /* @__PURE__ */ ne({
   __name: "TButton",
   props: {
     color: {
@@ -14670,7 +14670,8 @@ const Rb = /* @__PURE__ */ be(Ob, [["render", Db]]), Mb = ["disabled"], Ib = /* 
     });
     return (a, o) => (v(), b("button", {
       disabled: e.disabled,
-      class: se(`group text-subtitle-2 inline-flex gap-x-2 items-center ${c(r)} disabled:text-neutro-4 disabled:fill-neutro-4`)
+      "data-loading": e.loading,
+      class: se(`group text-subtitle-2 inline-flex gap-x-2 items-center ${c(r)} disabled:text-neutro-4 disabled:fill-neutro-4 data-[loading=true]:pointer-events-none`)
     }, [
       L(a.$slots, "preppend"),
       e.loading ? (v(), te(Rb, {

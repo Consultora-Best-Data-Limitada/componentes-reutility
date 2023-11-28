@@ -1,7 +1,8 @@
 <template>
   <button
     :disabled="disabled"
-    :class="`group text-subtitle-2 inline-flex gap-x-2 items-center ${colorClasses} disabled:text-neutro-4 disabled:fill-neutro-4`"
+    :data-loading="loading"
+    :class="`group text-subtitle-2 inline-flex gap-x-2 items-center ${colorClasses} disabled:text-neutro-4 disabled:fill-neutro-4 data-[loading=true]:pointer-events-none`"
   >
     <slot name="preppend" />
     <IconThreeBounce
