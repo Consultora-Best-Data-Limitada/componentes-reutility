@@ -43,11 +43,11 @@ const classes = {
       "bg-acento-secundario hover:bg-acento-secundario-hover active:bg-acento-secundario-pressed outline-acento-secundario-pressed focus-visible:bg-acento-secundario-hover",
   },
   text: {
-    error: "text-error hover:text-error-hover active:text-error-pressed fill-error",
+    error: "text-error hover:text-error-hover active:text-error-pressed fill-error hover:fill-error-hover active:fill-error-pressed",
     "acento-principal":
-      "text-acento-principal hover:text-acento-principal-hover active:text-acento-principal-pressed fill-acento-principal",
+      "text-acento-principal hover:text-acento-principal-hover active:text-acento-principal-pressed fill-acento-principal hover:fill-acento-principal-hover active:fill-acento-principal-pressed",
     "acento-secundario":
-      "text-acento-secundario hover:text-acento-secundario-hover active:text-acento-secundario-pressed fill-acento-secundario",
+      "text-acento-secundario hover:text-acento-secundario-hover active:text-acento-secundario-pressed fill-acento-secundario hover:fill-acento-secundario-hover active:fill-acento-secundario-pressed",
   },
   textFocused: {
     error: "focus-visible:text-error-hover focus-visible:fill-error-hover",
