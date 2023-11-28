@@ -50,6 +50,7 @@ import type { TTooltip } from "./tTooltip";
 import type { TDialog } from "./tDialog";
 import type { TMessageDialog } from "./tMessageDialog";
 import type { TConfirmationDialog } from "./tConfirmationDialog";
+import type { TButton } from "./TButton";
 
 export declare interface ComponentesReutility {
   install(app: App): void;
@@ -113,5 +114,6 @@ declare module "@vue/runtime-core" {
     TDialog: TDialog;
     TMessageDialog: TMessageDialog;
     TConfirmationDialog: TConfirmationDialog;
+    TButton: TButton;
   }
 }

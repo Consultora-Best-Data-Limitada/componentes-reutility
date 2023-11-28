@@ -24,7 +24,7 @@ export default {
         "error-pressed": "#ba2f3d",
       },
       boxShadow: {
-        "1": "3px 3px 17px rgba(151, 168, 194, 0.24)"
+        1: "3px 3px 17px rgba(151, 168, 194, 0.24)",
       },
       fontFamily: {
         sans: ["metropolis"],
@@ -32,6 +32,6 @@ export default {
     },
   },
   plugins: [
-    require('tailwindcss-animated')
+    require("tailwindcss-animated"),
   ],
 };

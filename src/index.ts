@@ -59,6 +59,7 @@ import TTooltip from "@/components/TTooltip.vue";
 import TDialog from "@/components/TDialog.vue";
 import TConfirmationDialog from "@/components/TConfirmationDialog.vue";
 import TMessageDialog from "@/components/TMessageDialog.vue";
+import TButton from "@/components/TButton.vue";
 
 export const componentesReutility = (app: App) => {
   const tooltips = useTooltips();
@@ -114,4 +115,5 @@ export const componentesReutility = (app: App) => {
   app.component("TDialog", TDialog);
   app.component("TMessageDialog", TMessageDialog);
   app.component("TConfirmationDialog", TConfirmationDialog);
+  app.component("TButton", TButton);
 };
