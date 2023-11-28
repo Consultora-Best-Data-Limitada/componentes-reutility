@@ -43,16 +43,16 @@ const classes = {
       "bg-acento-secundario hover:bg-acento-secundario-hover active:bg-acento-secundario-pressed outline-acento-secundario-pressed focus-visible:bg-acento-secundario-hover",
   },
   text: {
-    error: "text-error hover:text-error-hover active:text-error-pressed",
+    error: "text-error hover:text-error-hover active:text-error-pressed fill-error",
     "acento-principal":
-      "text-acento-principal hover:text-acento-principal-hover active:text-acento-principal-pressed",
+      "text-acento-principal hover:text-acento-principal-hover active:text-acento-principal-pressed fill-acento-principal",
     "acento-secundario":
-      "text-acento-secundario hover:text-acento-secundario-hover active:text-acento-secundario-pressed",
+      "text-acento-secundario hover:text-acento-secundario-hover active:text-acento-secundario-pressed fill-acento-secundario",
   },
   textFocused: {
-    error: "focus-visible:text-error-hover",
-    "acento-principal": "focus-visible:text-acento-principal-hover",
-    "acento-secundario": "focus-visible:text-acento-secundario-hover",
+    error: "focus-visible:text-error-hover focus-visible:fill-error-hover",
+    "acento-principal": "focus-visible:text-acento-principal-hover focus-visible:fill-acento-principal-hover",
+    "acento-secundario": "focus-visible:text-acento-secundario-hover focus-visible:fill-acento-secundario-hover",
   },
   outlined: {
     error:
@@ -78,7 +78,7 @@ const colorClasses = computed(() => {
     return `${classes.text[props.color]} ${classes.outlined[props.color]} ${defaultClasses}`;
   }
   const defaultClasses =
-    "text-neutro-1 disabled:bg-neutro-3 focus-visible:outline focus-visible:outline-2 p-3 rounded-2xl";
+    "text-neutro-1 disabled:bg-neutro-3 focus-visible:outline focus-visible:outline-2 p-3 rounded-2xl fill-neutro-1";
   return `${classes.filled[props.color]} ${defaultClasses}`;
 });
 </script>

@@ -10824,7 +10824,7 @@ const Do = /* @__PURE__ */ new WeakMap(), Mh = (e) => {
           readonly: e.readonly,
           placeholder: e.placeholder,
           "data-maska-tokens": e.maskTokens,
-          class: "h-9 outline-0 px-3 text-secundario text-base placeholder-neutro-4",
+          class: "outline-none h-9 px-3 text-secundario text-base placeholder-neutro-4",
           onBlur: f,
           onFocus: i,
           onInput: d,
@@ -10840,7 +10840,7 @@ const Do = /* @__PURE__ */ new WeakMap(), Mh = (e) => {
           disabled: e.disabled,
           readonly: e.readonly,
           placeholder: e.placeholder,
-          class: "h-9 outline-0 px-3 text-secundario text-base placeholder-neutro-4",
+          class: "outline-none h-9 px-3 text-secundario text-base placeholder-neutro-4",
           onBlur: f,
           onFocus: i,
           onInput: d,
@@ -10867,7 +10867,7 @@ const Do = /* @__PURE__ */ new WeakMap(), Mh = (e) => {
     ]));
   }
 });
-const qr = /* @__PURE__ */ be(Fh, [["__scopeId", "data-v-6b38752f"]]), Uh = ["data-dark", "data-filled", "data-outlined", "data-readonly", "data-error", "onMousedown"], Wh = ["value", "disabled", "placeholder", "onKeydown"], Lh = ["onClick"], Hh = ["data-opened"], zh = ["data-selected", "onClick"], jh = {
+const qr = /* @__PURE__ */ be(Fh, [["__scopeId", "data-v-68beb52f"]]), Uh = ["data-dark", "data-filled", "data-outlined", "data-readonly", "data-error", "onMousedown"], Wh = ["value", "disabled", "placeholder", "onKeydown"], Lh = ["onClick"], Hh = ["data-opened"], zh = ["data-selected", "onClick"], jh = {
   key: 2,
   class: "leading-5 text-base text-center text-secundario"
 }, qh = {
@@ -14628,14 +14628,14 @@ const Jo = /* @__PURE__ */ be(yb, [["__scopeId", "data-v-876c2159"]]), vb = { cl
         "acento-secundario": "bg-acento-secundario hover:bg-acento-secundario-hover active:bg-acento-secundario-pressed outline-acento-secundario-pressed focus-visible:bg-acento-secundario-hover"
       },
       text: {
-        error: "text-error hover:text-error-hover active:text-error-pressed",
-        "acento-principal": "text-acento-principal hover:text-acento-principal-hover active:text-acento-principal-pressed",
-        "acento-secundario": "text-acento-secundario hover:text-acento-secundario-hover active:text-acento-secundario-pressed"
+        error: "text-error hover:text-error-hover active:text-error-pressed fill-error",
+        "acento-principal": "text-acento-principal hover:text-acento-principal-hover active:text-acento-principal-pressed fill-acento-principal",
+        "acento-secundario": "text-acento-secundario hover:text-acento-secundario-hover active:text-acento-secundario-pressed fill-acento-secundario"
       },
       textFocused: {
-        error: "focus-visible:text-error-hover",
-        "acento-principal": "focus-visible:text-acento-principal-hover",
-        "acento-secundario": "focus-visible:text-acento-secundario-hover"
+        error: "focus-visible:text-error-hover focus-visible:fill-error-hover",
+        "acento-principal": "focus-visible:text-acento-principal-hover focus-visible:fill-acento-principal-hover",
+        "acento-secundario": "focus-visible:text-acento-secundario-hover focus-visible:fill-acento-secundario-hover"
       },
       outlined: {
         error: "border-error hover:border-error-hover active:border-error-pressed focus-visible:border-error-hover",
@@ -14653,7 +14653,7 @@ const Jo = /* @__PURE__ */ be(yb, [["__scopeId", "data-v-876c2159"]]), vb = { cl
         const o = "outline-none border-2 border-solid disabled:border-neutro-4 p-3 rounded-2xl";
         return `${n.text[t.color]} ${n.outlined[t.color]} ${o}`;
       }
-      const a = "text-neutro-1 disabled:bg-neutro-3 focus-visible:outline focus-visible:outline-2 p-3 rounded-2xl";
+      const a = "text-neutro-1 disabled:bg-neutro-3 focus-visible:outline focus-visible:outline-2 p-3 rounded-2xl fill-neutro-1";
       return `${n.filled[t.color]} ${a}`;
     });
     return (a, o) => (v(), b("button", {
