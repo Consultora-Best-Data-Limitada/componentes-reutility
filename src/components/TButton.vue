@@ -4,7 +4,11 @@
     :class="`group text-subtitle-2 inline-flex gap-x-2 items-center ${colorClasses} disabled:text-neutro-4 disabled:fill-neutro-4`"
   >
     <slot name="preppend" />
-    <slot />
+    <IconThreeBounce
+      v-if="loading"
+      class="w-[22px] h-[22px]"
+    />
+    <slot v-else />
     <slot name="append" />
   </button>
 </template>
@@ -12,6 +16,9 @@
 <script setup lang="ts">
 // Vue
 import { computed, type PropType } from "vue";
+
+// Components
+import IconThreeBounce from "@/components/icons/IconThreeBounce.vue";
 
 // Definitions
 
@@ -29,6 +36,9 @@ const props = defineProps({
   text: {
     type: Boolean,
   },
+  loading: {
+    type: Boolean,
+  },
 });
 
 // Data
@@ -43,7 +53,8 @@ const classes = {
       "bg-acento-secundario hover:bg-acento-secundario-hover active:bg-acento-secundario-pressed outline-acento-secundario-pressed focus-visible:bg-acento-secundario-hover",
   },
   text: {
-    error: "text-error hover:text-error-hover active:text-error-pressed fill-error hover:fill-error-hover active:fill-error-pressed",
+    error:
+      "text-error hover:text-error-hover active:text-error-pressed fill-error hover:fill-error-hover active:fill-error-pressed",
     "acento-principal":
       "text-acento-principal hover:text-acento-principal-hover active:text-acento-principal-pressed fill-acento-principal hover:fill-acento-principal-hover active:fill-acento-principal-pressed",
     "acento-secundario":
@@ -51,8 +62,10 @@ const classes = {
   },
   textFocused: {
     error: "focus-visible:text-error-hover focus-visible:fill-error-hover",
-    "acento-principal": "focus-visible:text-acento-principal-hover focus-visible:fill-acento-principal-hover",
-    "acento-secundario": "focus-visible:text-acento-secundario-hover focus-visible:fill-acento-secundario-hover",
+    "acento-principal":
+      "focus-visible:text-acento-principal-hover focus-visible:fill-acento-principal-hover",
+    "acento-secundario":
+      "focus-visible:text-acento-secundario-hover focus-visible:fill-acento-secundario-hover",
   },
   outlined: {
     error:
