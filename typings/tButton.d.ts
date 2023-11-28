@@ -15,6 +15,9 @@ export type TButton = DefineComponent<
     text: {
       type: BooleanConstructor;
     };
+    loading: {
+      type: BooleanConstructor;
+    }
   },
   {},
   {},
